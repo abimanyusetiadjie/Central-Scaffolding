@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../../data/siteConfig';
+import { Repeat, Store, CheckCircle2, MessageCircle } from 'lucide-react';
 
 export interface Props {
   city?: string;
@@ -22,23 +23,23 @@ const waBeliUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${beliText}`;
 <section
   id="sewa-atau-beli"
   aria-labelledby="service-split-title"
-  class="w-full bg-surface-container-low py-12 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-surface-container-highest scroll-mt-24 md:scroll-mt-32"
+  class="w-full bg-slate-100 py-12 md:py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-slate-200 scroll-mt-24"
 >
   <div class="max-w-7xl mx-auto flex flex-col gap-8">
     <!-- Section Header -->
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b-4 border-primary pb-4">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b-4 border-[#00236f] pb-4">
       <div>
-        <div class="inline-block bg-tertiary-fixed text-on-tertiary-fixed px-3.5 py-1 font-label-md text-xs sm:text-sm uppercase rounded mb-2 border border-tertiary-container font-bold">
+        <div class="inline-block bg-[#FACC15] text-slate-900 px-3.5 py-1 text-xs sm:text-sm uppercase rounded mb-2 border border-yellow-500 font-bold tracking-wide">
           PRAKTIS &amp; TIDAK RIBET
         </div>
         <h2
           id="service-split-title"
-          class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl uppercase text-primary font-extrabold"
+          class="text-2xl sm:text-3xl md:text-4xl uppercase text-[#00236f] font-extrabold tracking-tight"
         >
           PILIH KEBUTUHAN PROYEK ANDA DI {city.toUpperCase()}
         </h2>
       </div>
-      <p class="font-body-xl text-base sm:text-body-xl text-on-surface-variant font-bold">
+      <p class="text-base sm:text-lg text-slate-600 font-bold">
         Tentukan skema terbaik untuk efisiensi anggaran lapangan
       </p>
     </div>
@@ -46,53 +47,53 @@ const waBeliUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${beliText}`;
     <!-- 2 Major High-Contrast Choice Cards -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
       <!-- CARD A: SEWA -->
-      <div class="bg-surface-container-lowest p-6 sm:p-8 rounded-2xl border-4 border-primary shadow-xl flex flex-col justify-between">
+      <div class="bg-white p-6 sm:p-8 rounded-2xl border-4 border-[#00236f] shadow-lg flex flex-col justify-between">
         <div class="flex flex-col gap-5">
           <div class="flex items-center justify-between gap-2">
-            <span class="bg-tertiary-fixed text-on-tertiary-fixed px-3.5 py-1.5 rounded-lg font-label-md text-xs sm:text-sm uppercase border border-tertiary-container font-bold">
+            <span class="bg-[#FACC15] text-slate-900 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm uppercase border border-yellow-500 font-bold">
               ★ PALING HEMAT UNTUK PROYEK RENOVASI
             </span>
-            <span class="material-symbols-outlined text-primary text-[36px]">event_repeat</span>
+            <Repeat className="w-8 h-8 text-[#00236f]" />
           </div>
 
-          <div class="border-b-2 border-surface-container pb-3">
-            <h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase text-primary font-extrabold">
+          <div class="border-b-2 border-slate-200 pb-3">
+            <h3 class="text-xl sm:text-2xl uppercase text-[#00236f] font-extrabold">
               MAU SEWA SCAFFOLDING
             </h3>
-            <p class="font-body-lg text-base sm:text-body-lg text-on-surface-variant mt-1">
+            <p class="text-base sm:text-lg text-slate-600 mt-1">
               Sistem sewa fleksibel harian, mingguan, atau bulanan tanpa beban simpan alat.
             </p>
           </div>
 
-          <div class="bg-surface-container-low p-5 rounded-xl border-2 border-surface-container-highest">
-            <span class="font-label-md text-xs uppercase text-on-surface-variant font-bold">HARGA SEWA MULAI DARI</span>
-            <div class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-primary mt-0.5 font-extrabold">
-              Rp 35.000 <span class="text-base sm:text-lg text-on-surface-variant font-bold">/ Set / Bulan</span>
+          <div class="bg-blue-50 p-5 rounded-xl border-2 border-blue-200">
+            <span class="text-xs uppercase text-slate-600 font-bold block mb-1">HARGA SEWA MULAI DARI</span>
+            <div class="text-3xl sm:text-4xl font-extrabold text-[#00236f]">
+              Rp 35.000 <span class="text-base sm:text-lg text-slate-600 font-bold">/ Set / Bulan</span>
             </div>
-            <span class="font-label-md text-sm text-secondary font-bold block mt-1">
+            <span class="text-sm font-bold text-green-700 block mt-1">
               ✓ Tersedia Paket Sewa Harian &amp; Mingguan (Min. Mulai 5 Set)
             </span>
           </div>
 
-          <ul class="flex flex-col gap-3 font-body-lg text-base sm:text-body-lg text-on-surface">
+          <ul class="flex flex-col gap-3 text-base sm:text-lg text-slate-800">
             <li class="flex items-start gap-2.5">
-              <span class="material-symbols-outlined text-secondary text-[28px] shrink-0 mt-0.5">check_circle</span>
+              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
               <span><strong>Minimum Sewa Fleksibel:</strong> Bisa sewa 1 minggu, 2 minggu, atau bulanan sesuai durasi tukang.</span>
             </li>
             <li class="flex items-start gap-2.5">
-              <span class="material-symbols-outlined text-secondary text-[28px] shrink-0 mt-0.5">check_circle</span>
+              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
               <span><strong>Jaminan Tukar Unit:</strong> Bebas ganti pipa/komponen jika ada cacat tanpa dipersulit.</span>
             </li>
             <li class="flex items-start gap-2.5">
-              <span class="material-symbols-outlined text-secondary text-[28px] shrink-0 mt-0.5">check_circle</span>
+              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
               <span><strong>Hitungan Akurat:</strong> Konsultasi gratis rumus kebutuhan jumlah set scaffolding &amp; aksesoris.</span>
             </li>
           </ul>
         </div>
 
-        <div class="mt-8 pt-5 border-t-2 border-surface-container">
+        <div class="mt-8 pt-5 border-t-2 border-slate-200">
           <a
-            class="w-full min-h-[58px] bg-secondary hover:bg-on-secondary-container text-on-secondary flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-headline-md text-base sm:text-lg uppercase border-2 border-on-secondary-fixed shadow-[0_4px_0_#002109] active:translate-y-[2px] transition-all"
+            class="w-full min-h-[56px] bg-[#16A34A] hover:bg-[#15803D] text-white flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-base sm:text-lg uppercase border-2 border-green-800 shadow-[0_4px_0_#14532d] active:translate-y-[2px] transition-all"
             href={waSewaUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -100,60 +101,60 @@ const waBeliUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${beliText}`;
             data-wa-mode="SEWA"
             data-wa-city={city}
           >
-            <span class="material-symbols-outlined text-[28px]">chat</span>
+            <MessageCircle className="w-6 h-6" />
             <span>TANYA SEWA VIA WHATSAPP</span>
           </a>
         </div>
       </div>
 
       <!-- CARD B: BELI -->
-      <div class="bg-surface-container-lowest p-6 sm:p-8 rounded-2xl border-4 border-primary shadow-xl flex flex-col justify-between">
+      <div class="bg-white p-6 sm:p-8 rounded-2xl border-4 border-[#00236f] shadow-lg flex flex-col justify-between">
         <div class="flex flex-col gap-5">
           <div class="flex items-center justify-between gap-2">
-            <span class="bg-tertiary-fixed text-on-tertiary-fixed px-3.5 py-1.5 rounded-lg font-label-md text-xs sm:text-sm uppercase border border-tertiary-container font-bold">
+            <span class="bg-[#FACC15] text-slate-900 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm uppercase border border-yellow-500 font-bold">
               ★ INVESTASI TERBAIK KONTRAKTOR
             </span>
-            <span class="material-symbols-outlined text-primary text-[36px]">store</span>
+            <Store className="w-8 h-8 text-[#00236f]" />
           </div>
 
-          <div class="border-b-2 border-surface-container pb-3">
-            <h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase text-primary font-extrabold">
+          <div class="border-b-2 border-slate-200 pb-3">
+            <h3 class="text-xl sm:text-2xl uppercase text-[#00236f] font-extrabold">
               MAU BELI SCAFFOLDING
             </h3>
-            <p class="font-body-lg text-base sm:text-body-lg text-on-surface-variant mt-1">
+            <p class="text-base sm:text-lg text-slate-600 mt-1">
               Stok baru produksi pabrik langsung atau rekondisi mulus cat ulang siap pakai.
             </p>
           </div>
 
-          <div class="bg-surface-container-low p-5 rounded-xl border-2 border-surface-container-highest">
-            <span class="font-label-md text-xs uppercase text-on-surface-variant font-bold">HARGA JUAL LANGSUNG PABRIK</span>
-            <div class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-primary mt-0.5 font-extrabold">
-              Harga Grosir <span class="text-base sm:text-lg text-on-surface-variant font-bold">Partai &amp; Ecer</span>
+          <div class="bg-blue-50 p-5 rounded-xl border-2 border-blue-200">
+            <span class="text-xs uppercase text-slate-600 font-bold block mb-1">HARGA JUAL LANGSUNG PABRIK</span>
+            <div class="text-3xl sm:text-4xl font-extrabold text-[#00236f]">
+              Harga Grosir <span class="text-base sm:text-lg text-slate-600 font-bold">Partai &amp; Ecer</span>
             </div>
-            <span class="font-label-md text-sm text-secondary font-bold block mt-1">
+            <span class="text-sm font-bold text-green-700 block mt-1">
               ✓ Ready Rekondisi Cat Celup Anti Karat + Terima Beli Balik (Buyback)
             </span>
           </div>
 
-          <ul class="flex flex-col gap-3 font-body-lg text-base sm:text-body-lg text-on-surface">
+          <ul class="flex flex-col gap-3 text-base sm:text-lg text-slate-800">
             <li class="flex items-start gap-2.5">
-              <span class="material-symbols-outlined text-secondary text-[28px] shrink-0 mt-0.5">check_circle</span>
+              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
               <span><strong>Bahan Pipa SNI 1.8mm - 2.0mm:</strong> Pipa hitam galvanis tebal, tahan benturan keras alat proyek.</span>
             </li>
             <li class="flex items-start gap-2.5">
-              <span class="material-symbols-outlined text-secondary text-[28px] shrink-0 mt-0.5">check_circle</span>
+              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
               <span><strong>Rekondisi Grade A:</strong> Pipa lurus, lubang pin presisi, cat celup tebal anti-karat bebas keropos.</span>
             </li>
             <li class="flex items-start gap-2.5">
-              <span class="material-symbols-outlined text-secondary text-[28px] shrink-0 mt-0.5">check_circle</span>
+              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
               <span><strong>Kapasitas Pengiriman Besar:</strong> Siap kirim pickup, truk cold diesel, hingga kontainer proyek BUMN.</span>
             </li>
           </ul>
         </div>
 
-        <div class="mt-8 pt-5 border-t-2 border-surface-container">
+        <div class="mt-8 pt-5 border-t-2 border-slate-200">
           <a
-            class="w-full min-h-[58px] bg-secondary hover:bg-on-secondary-container text-on-secondary flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-headline-md text-base sm:text-lg uppercase border-2 border-on-secondary-fixed shadow-[0_4px_0_#002109] active:translate-y-[2px] transition-all"
+            class="w-full min-h-[56px] bg-[#16A34A] hover:bg-[#15803D] text-white flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-base sm:text-lg uppercase border-2 border-green-800 shadow-[0_4px_0_#14532d] active:translate-y-[2px] transition-all"
             href={waBeliUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -161,7 +162,7 @@ const waBeliUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${beliText}`;
             data-wa-mode="BELI"
             data-wa-city={city}
           >
-            <span class="material-symbols-outlined text-[28px]">chat</span>
+            <MessageCircle className="w-6 h-6" />
             <span>TANYA BELI VIA WHATSAPP</span>
           </a>
         </div>

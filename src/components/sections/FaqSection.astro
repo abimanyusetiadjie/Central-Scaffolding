@@ -1,5 +1,6 @@
 ---
 import { siteConfig, getFaqItems } from '../../data/siteConfig';
+import { PhoneCall, MessageCircle, ShieldCheck, Plus } from 'lucide-react';
 
 export interface Props {
   city?: string;
@@ -19,23 +20,23 @@ const waFaqUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waFaqMessage
 <section
   id="faq"
   aria-labelledby="faq-heading"
-  class="w-full bg-surface-container py-12 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-surface-container-highest scroll-mt-24 md:scroll-mt-32"
+  class="w-full bg-slate-100 py-12 md:py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-slate-200 scroll-mt-24"
 >
   <div class="max-w-7xl mx-auto flex flex-col gap-8">
     <!-- Section Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 border-b-4 border-primary pb-4">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 border-b-4 border-[#00236f] pb-4">
       <div>
-        <span class="inline-block bg-tertiary-fixed text-on-tertiary-fixed px-3.5 py-1 rounded font-label-md text-xs sm:text-sm uppercase font-bold border border-tertiary-container">
+        <span class="inline-block bg-[#FACC15] text-slate-900 px-3.5 py-1 rounded text-xs sm:text-sm uppercase font-bold border border-yellow-500">
           TANYA JAWAB MANDOR &amp; PEMBORONG
         </span>
         <h2
           id="faq-heading"
-          class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl uppercase text-primary mt-1.5 font-extrabold"
+          class="text-2xl sm:text-3xl md:text-4xl uppercase text-[#00236f] mt-1.5 font-extrabold tracking-tight"
         >
           PERTANYAAN UMUM SEPUTAR SEWA &amp; JUAL ({city.toUpperCase()})
         </h2>
       </div>
-      <p class="font-body-xl text-base sm:text-body-xl text-on-surface-variant font-bold">
+      <p class="text-base sm:text-lg text-slate-600 font-bold">
         Jawaban praktis dan transparan seputar sewa, beli, dan kirim
       </p>
     </div>
@@ -43,14 +44,14 @@ const waFaqUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waFaqMessage
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
       <!-- Left Column: Fast Help Box -->
       <div class="lg:col-span-4 flex flex-col gap-4">
-        <div class="bg-surface-container-lowest p-6 rounded-xl border-4 border-primary shadow-lg flex flex-col gap-4">
+        <div class="bg-white p-6 rounded-xl border-4 border-[#00236f] shadow-lg flex flex-col gap-4">
           <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-[32px] text-primary">support_agent</span>
-            <h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary uppercase font-bold">
+            <PhoneCall className="w-7 h-7 text-[#00236f]" />
+            <h3 class="text-xl sm:text-2xl text-[#00236f] uppercase font-bold">
               Butuh Hitung Set?
             </h3>
           </div>
-          <p class="font-body-xl text-sm sm:text-base text-on-surface-variant leading-relaxed">
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed font-medium">
             Sebutkan ukuran tinggi dinding, plafon, atau luas bidang kerja yang mau dipasang di <strong>{city}</strong>. Mandor logistik kami akan bantu hitungkan rincian set dan aksesorisnya secara gratis.
           </p>
           <div class="pt-2">
@@ -61,48 +62,48 @@ const waFaqUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waFaqMessage
               data-wa-source="faq_cta"
               data-wa-mode="SEWA & BELI"
               data-wa-city={city}
-              class="w-full min-h-[56px] bg-secondary hover:bg-on-secondary-container text-on-secondary flex items-center justify-center gap-2 rounded-lg font-headline-md text-sm sm:text-base uppercase border-2 border-on-secondary-fixed shadow-[0_4px_0_#002109] active:translate-y-[2px] transition-all font-bold"
+              class="w-full min-h-[54px] bg-[#16A34A] hover:bg-[#15803D] text-white flex items-center justify-center gap-2 rounded-xl text-sm sm:text-base uppercase border-2 border-green-800 shadow-[0_4px_0_#14532d] active:translate-y-[2px] transition-all font-bold cursor-pointer"
             >
-              <span class="material-symbols-outlined text-[24px]">chat</span>
+              <MessageCircle className="w-5 h-5" />
               <span>TANYA MANDOR VIA WHATSAPP</span>
             </a>
           </div>
         </div>
 
-        <div class="bg-primary text-on-primary p-5 rounded-xl border-2 border-primary-fixed-dim">
-          <div class="flex items-center gap-2 text-tertiary-fixed font-headline-md text-sm sm:text-base font-bold uppercase mb-1">
-            <span class="material-symbols-outlined text-[20px]">verified</span>
+        <div class="bg-[#00236f] text-white p-5 rounded-xl border-2 border-[#1e3a8a] shadow-md">
+          <div class="flex items-center gap-2 text-[#FACC15] text-sm sm:text-base font-bold uppercase mb-1">
+            <ShieldCheck className="w-5 h-5 text-[#FACC15]" />
             GARANSI LAYANAN GUDANG
           </div>
-          <p class="font-body-lg text-xs sm:text-sm text-surface-variant">
+          <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
             Pipa standar SNI tebal {siteConfig.stats.pipeThickness}, lulus uji sortir, dan jaminan tukar baru jika ada unit bengkok.
           </p>
         </div>
       </div>
 
-      <!-- Right Column: Accordion Questions (Styling 100% Seragam: bg-surface-container-lowest border-4 border-primary rounded-xl) -->
+      <!-- Right Column: Accordion Questions -->
       <div class="lg:col-span-8 space-y-4">
         {faqItems.map((item, index) => (
           <details
             open={index === 0}
-            class="group bg-surface-container-lowest border-4 border-primary rounded-xl shadow-lg overflow-hidden transition-all"
+            class="group bg-white border-4 border-[#00236f] rounded-xl shadow-lg overflow-hidden transition-all"
           >
-            <summary class="list-none cursor-pointer p-4 sm:p-5 min-h-[72px] flex items-center justify-between gap-4 group-open:bg-surface-container-low transition-colors select-none">
+            <summary class="list-none cursor-pointer p-4 sm:p-5 min-h-[72px] flex items-center justify-between gap-4 group-open:bg-blue-50 transition-colors select-none">
               <div class="flex items-start sm:items-center gap-3.5 text-left">
-                <span class="font-headline-md text-sm sm:text-base bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded font-extrabold shrink-0 border border-tertiary-container">
+                <span class="text-sm sm:text-base bg-[#FACC15] text-slate-900 px-3 py-1 rounded font-extrabold shrink-0 border border-yellow-500">
                   0{index + 1}
                 </span>
-                <h3 class="font-headline-md text-sm sm:text-headline-md text-primary uppercase font-bold leading-snug">
+                <h3 class="text-base sm:text-lg text-[#00236f] uppercase font-bold leading-snug">
                   {item.question}
                 </h3>
               </div>
-              <span class="w-10 h-10 border-2 border-primary bg-surface-container-lowest flex items-center justify-center shrink-0 rounded-lg group-open:rotate-45 transition-transform text-primary font-bold shadow-sm">
-                <span class="material-symbols-outlined text-[28px]">add</span>
+              <span class="w-10 h-10 border-2 border-[#00236f] bg-white flex items-center justify-center shrink-0 rounded-lg group-open:rotate-45 transition-transform text-[#00236f] font-bold shadow-sm">
+                <Plus className="w-6 h-6 text-[#00236f]" />
               </span>
             </summary>
 
-            <div class="p-5 sm:p-6 border-t-2 border-outline-variant/30 bg-surface-container-lowest">
-              <p class="font-body-xl text-base sm:text-body-xl text-on-surface leading-relaxed font-medium">
+            <div class="p-5 sm:p-6 border-t-2 border-slate-200 bg-white">
+              <p class="text-base sm:text-lg text-slate-800 leading-relaxed font-medium">
                 {item.answer}
               </p>
             </div>

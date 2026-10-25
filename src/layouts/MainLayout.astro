@@ -4,6 +4,7 @@ import SchemaLD from '../components/seo/SchemaLD.astro';
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
 import FloatingWA from '../components/layout/FloatingWA.astro';
+import '../styles/global.css';
 
 export interface Props {
   title?: string;
@@ -71,22 +72,18 @@ const {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- Google Fonts & Material Symbols for Stitch UI -->
+    <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400..700,0..1,-50..200&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
     <!-- JSON-LD Structured Data (HomeAndConstructionBusiness, OfferCatalog, FAQPage) -->
     <SchemaLD city={city} url={canonicalUrl} />
   </head>
-  <body class="bg-[#faf8ff] text-[#131b2e] font-sans antialiased selection:bg-[#FACC15] selection:text-[#111827] min-h-screen flex flex-col pb-20 md:pb-0">
+  <body class="bg-[#F8FAFC] text-slate-900 font-sans antialiased selection:bg-[#FACC15] selection:text-slate-900 min-h-screen flex flex-col">
     <Navbar city={city} coveredDistricts={coveredDistricts} />
     <main id="main-content" class="flex-grow">
       <slot />

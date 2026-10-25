@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../../data/siteConfig';
+import { Phone, MessageCircle } from 'lucide-react';
 
 export interface Props {
   city?: string;
@@ -8,7 +9,6 @@ export interface Props {
 
 const {
   city = siteConfig.warehouseAddress.city,
-  coveredDistricts = [],
 } = Astro.props;
 
 const waMessage = encodeURIComponent(
@@ -17,91 +17,44 @@ const waMessage = encodeURIComponent(
 const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
 ---
 
-<!-- TOP ALERT BANNER (High-Vis Daylight Contrast) -->
-<section class="w-full bg-tertiary-fixed text-on-tertiary-fixed py-space-sm px-4 md:px-margin text-center border-b-2 border-outline/30">
-  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-space-xs md:gap-space-md">
-    <span class="material-symbols-outlined text-[24px] md:text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">
-      local_shipping
-    </span>
-    <span class="font-headline-md text-xs sm:text-sm md:text-headline-md tracking-tight uppercase font-bold">
-      {coveredDistricts && coveredDistricts.length > 0
-        ? `GUDANG BUKA HARI INI • ARMADA SIAP ANGKUT KE ${city.toUpperCase()} (${coveredDistricts.slice(0, 3).join(', ')}, DLL)`
-        : `GUDANG BUKA HARI INI • ARMADA SIAP ANGKUT SE-JABODETABEK & BANTEN`}
-    </span>
-    <span class="inline-flex items-center gap-1 bg-primary text-on-primary px-space-sm py-1 rounded font-label-md text-xs sm:text-label-md uppercase font-bold">
-      RESPON CEPAT 1 MENIT
-    </span>
-  </div>
-</section>
-
-<!-- MAIN HEADER (Responsive: h-20 on mobile, h-28 on desktop) -->
-<header class="sticky top-0 z-50 bg-primary-container border-b-4 border-primary text-on-primary shadow-[0_4px_0_#00164e]">
-  <div class="h-20 md:h-28 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
-    <!-- Brand Logo -->
-    <a href="#beranda" class="flex items-center gap-2 sm:gap-3 shrink-0 group">
+<!-- MAIN HEADER STICKY -->
+<header class="sticky top-0 z-50 bg-[#1e3a8a] text-white border-b-4 border-[#00236f] shadow-md">
+  <div class="h-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
+    <!-- Brand Logo & Name -->
+    <a href="/" class="flex items-center gap-3 shrink-0 group">
       <img
         alt={`Logo ${siteConfig.businessName}`}
-        class="h-10 sm:h-12 md:h-14 w-auto object-contain bg-surface-container-lowest p-1 rounded-lg border-2 border-outline-variant shadow-sm"
+        class="h-11 sm:h-12 w-auto object-contain bg-white p-1 rounded-lg border-2 border-slate-200 shadow-sm"
         src={siteConfig.images.logo}
         width="168"
-        height="56"
+        height="48"
         loading="eager"
       />
       <div class="flex flex-col">
-        <span class="font-headline-md text-sm sm:text-lg md:text-2xl tracking-tight uppercase text-on-primary font-extrabold leading-none">
-          {siteConfig.businessName}
+        <span class="text-base sm:text-xl md:text-2xl font-extrabold uppercase tracking-tight text-white leading-none">
+          {siteConfig.businessName.toUpperCase()}
         </span>
-        <span class="font-label-md text-[10px] sm:text-xs md:text-sm uppercase tracking-wider text-secondary-container mt-1 font-bold">
-          SEWA &amp; SUPLAI SCAFFOLDING SNI // {city.toUpperCase()}
+        <span class="text-[10px] sm:text-xs uppercase tracking-wider text-green-300 font-bold mt-1">
+          SEWA &amp; JUAL SCAFFOLDING SNI // {city.toUpperCase()}
         </span>
       </div>
     </a>
 
-    <!-- Desktop Navigation Links (Scroll-target aware) -->
-    <nav class="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Navigasi Halaman">
-      <a
-        class="font-label-lg text-label-lg px-2.5 xl:px-space-md py-space-sm uppercase text-surface-variant hover:text-on-primary hover:bg-primary/50 rounded transition-colors"
-        href="#beranda"
-      >
-        BERANDA
-      </a>
-      <a
-        class="font-label-lg text-label-lg px-2.5 xl:px-space-md py-space-sm uppercase text-surface-variant hover:text-on-primary hover:bg-primary/50 rounded transition-colors"
-        href="#sewa-atau-beli"
-      >
-        SEWA / BELI
-      </a>
-      <a
-        class="font-label-lg text-label-lg px-2.5 xl:px-space-md py-space-sm uppercase text-surface-variant hover:text-on-primary hover:bg-primary/50 rounded transition-colors"
-        href="#paket-hemat"
-      >
-        PAKET HEMAT
-      </a>
-      <a
-        class="font-label-lg text-label-lg px-2.5 xl:px-space-md py-space-sm uppercase text-surface-variant hover:text-on-primary hover:bg-primary/50 rounded transition-colors"
-        href="#katalog-produk"
-      >
-        KATALOG PRODUK
-      </a>
-      <a
-        class="font-label-lg text-label-lg px-2.5 xl:px-space-md py-space-sm uppercase text-surface-variant hover:text-on-primary hover:bg-primary/50 rounded transition-colors"
-        href="#lokasi-gudang"
-      >
-        LOKASI GUDANG
-      </a>
-      <a
-        class="font-label-lg text-label-lg px-2.5 xl:px-space-md py-space-sm uppercase text-surface-variant hover:text-on-primary hover:bg-primary/50 rounded transition-colors"
-        href="#faq"
-      >
-        FAQ
-      </a>
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden xl:flex items-center gap-6 font-bold text-sm uppercase text-slate-100" aria-label="Navigasi Utama">
+      <a class="hover:text-[#FACC15] transition-colors" href="/">BERANDA</a>
+      <a class="hover:text-[#FACC15] transition-colors" href="#sewa-atau-beli">SEWA &amp; BELI</a>
+      <a class="hover:text-[#FACC15] transition-colors" href="#paket-hemat">PAKET HEMAT</a>
+      <a class="hover:text-[#FACC15] transition-colors" href="#katalog-produk">KATALOG PRODUK</a>
+      <a class="hover:text-[#FACC15] transition-colors" href="#lokasi-gudang">LOKASI GUDANG</a>
+      <a class="hover:text-[#FACC15] transition-colors" href="#faq">FAQ</a>
     </nav>
 
     <!-- Header Action Buttons -->
-    <div class="flex items-center gap-2 sm:gap-space-md shrink-0">
+    <div class="flex items-center gap-2 sm:gap-3 shrink-0">
       <!-- WhatsApp (Hidden on small mobile, visible sm+) -->
       <a
-        class="hidden sm:flex items-center gap-space-xs bg-secondary hover:bg-on-secondary-container text-on-secondary px-3 sm:px-space-md py-2 sm:py-space-sm rounded-lg border-2 border-on-secondary-fixed shadow-[0_3px_0_#002109] transition-all font-label-lg text-sm sm:text-label-lg"
+        class="hidden sm:inline-flex items-center gap-2 bg-[#16A34A] hover:bg-[#15803D] text-white px-3.5 py-2.5 rounded-lg border-2 border-green-800 shadow-sm font-bold text-sm transition-all"
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
@@ -109,24 +62,20 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
         data-wa-mode="SEWA & BELI"
         data-wa-city={city}
       >
-        <span class="material-symbols-outlined text-[22px] sm:text-[24px]">chat</span>
+        <MessageCircle className="w-5 h-5 shrink-0" />
         <span class="hidden md:inline">WHATSAPP 24 JAM</span>
         <span class="md:hidden">WA 24 JAM</span>
       </a>
 
-      <!-- Telepon Gudang (Shortened on mobile to avoid collision with logo) -->
+      <!-- Telepon Gudang (Shortened on mobile to avoid overflow) -->
       <a
-        class="min-h-[44px] sm:min-h-[52px] md:min-h-[56px] flex items-center gap-1 sm:gap-space-xs bg-[#FACC15] hover:bg-[#EAB308] text-[#111827] px-3 sm:px-space-md py-1.5 sm:py-space-sm rounded-lg border-2 border-[#854D0E] shadow-[0_4px_0_#0F172A] active:translate-y-[2px] transition-all"
+        class="min-h-[44px] inline-flex items-center gap-2 bg-[#FACC15] hover:bg-[#EAB308] text-slate-900 font-bold px-3.5 sm:px-4 py-2.5 rounded-lg border-2 border-yellow-700 shadow-sm text-sm uppercase transition-all"
         href={`tel:${siteConfig.phone}`}
         aria-label={`Telepon Gudang: ${siteConfig.phoneDisplay}`}
       >
-        <span class="material-symbols-outlined text-[22px] sm:text-[26px] md:text-[28px] text-[#111827]">call</span>
-        <span class="font-label-lg text-sm sm:text-base md:text-label-lg uppercase font-bold hidden md:inline">
-          TELEPON GUDANG ({siteConfig.phoneDisplay})
-        </span>
-        <span class="font-label-lg text-xs sm:text-sm uppercase font-bold md:hidden">
-          TELEPON
-        </span>
+        <Phone className="w-5 h-5 shrink-0 text-slate-900" />
+        <span class="hidden md:inline font-extrabold">{siteConfig.phoneDisplay}</span>
+        <span class="md:hidden font-extrabold">TELEPON</span>
       </a>
     </div>
   </div>

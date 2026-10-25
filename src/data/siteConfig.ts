@@ -72,8 +72,8 @@ export interface FaqItem {
 }
 
 export const siteConfig: SiteConfig = {
-  businessName: 'Mandor Perkasa Scaffolding',
-  tagline: 'Penyedia Sewa & Jual Scaffolding Pipa Baja Standar SNI & K3 — Gudang & Armada Sendiri',
+  businessName: 'Central Scaffolding',
+  tagline: 'Pusat Sewa & Jual Scaffolding Pipa Baja Standar SNI & K3 — Gudang & Armada Sendiri',
   whatsappNumber: '6281234567890',
   phone: '081234567890',
   phoneDisplay: '0812-3456-7890',
@@ -99,7 +99,7 @@ export const siteConfig: SiteConfig = {
   },
   operationalHours: 'Senin - Minggu: 07.00 - 18.00 WIB (Buka Setiap Hari Tanpa Libur)',
   stats: {
-    readyStockSets: '5.000+ Set Ready',
+    readyStockSets: '10.000+ Set Ready',
     pipeThickness: '1.8 mm - 2.0 mm',
     deliverySla: '2 Jam Sampai di Lokasi Proyek',
   },
