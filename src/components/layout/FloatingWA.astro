@@ -14,40 +14,43 @@ const waMessage = encodeURIComponent(
 const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
 ---
 
-<!-- DESKTOP FLOATING WHATSAPP PILL (HIGH TRUST INDONESIAN STANDARD) -->
+<!-- FLOATING WHATSAPP KHAS PLUGIN WORDPRESS (JOINCHAT / CLICK TO CHAT) -->
 <aside aria-label="Aksi Cepat Kontak Gudang" class="hidden sm:flex fixed bottom-6 right-6 z-40 items-center gap-3">
+  <!-- Tooltip Message Bubble Khas WP -->
+  <div class="bg-white text-slate-800 text-xs font-bold px-3.5 py-2 rounded-xl shadow-lg border border-slate-200 pointer-events-none hidden md:block animate-fade-in">
+    👋 Butuh scaffolding cepat? <span class="text-emerald-600 font-black">Chat Mandor di sini!</span>
+  </div>
+
   <a
-    class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 rounded-full font-bold text-sm flex items-center gap-2.5 shadow-lg hover:shadow-xl transition-all active:scale-95 group"
+    class="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all relative group"
     href={waUrl}
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="Chat WhatsApp 24 Jam"
+    aria-label="Chat WhatsApp Mandor 24 Jam"
     data-wa-source="floating_desktop"
     data-wa-mode="SEWA & BELI"
     data-wa-city={city}
   >
-    <div class="relative">
-      <MessageCircle className="w-5 h-5 fill-current" />
-      <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 rounded-full animate-ping"></span>
-      <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 rounded-full"></span>
-    </div>
-    <span>Tanya Mandor via WhatsApp</span>
+    <MessageCircle className="w-8 h-8 fill-current" />
+    <!-- Radar ping animation -->
+    <span class="absolute -top-1 -right-1 w-4 h-4 bg-amber-400 rounded-full animate-ping"></span>
+    <span class="absolute -top-1 -right-1 w-4 h-4 bg-amber-400 rounded-full border-2 border-white"></span>
   </a>
 </aside>
 
-<!-- MOBILE STICKY BOTTOM BAR (ERGONOMIC & CLEAN) -->
-<aside aria-label="Tombol Kontak Cepat Mobile" class="sm:hidden fixed bottom-0 inset-x-0 h-14 z-50 bg-white border-t border-slate-200 shadow-[0_-2px_10px_rgba(0,0,0,0.08)] flex items-stretch">
+<!-- MOBILE STICKY BOTTOM BAR (TOMBOL KONTRAKTOR INDONESIA KHAS HP) -->
+<aside aria-label="Tombol Kontak Cepat Mobile" class="sm:hidden fixed bottom-0 inset-x-0 h-14 z-50 bg-white border-t border-slate-200 shadow-[0_-4px_12px_rgba(0,0,0,0.1)] flex items-stretch">
   <a
-    class="w-[40%] bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold flex items-center justify-center gap-1.5 border-r border-slate-200 active:bg-slate-300 transition-colors text-sm"
+    class="w-[40%] bg-slate-100 hover:bg-slate-200 text-slate-900 font-black flex items-center justify-center gap-1.5 border-r border-slate-200 active:bg-slate-300 transition-colors text-xs uppercase"
     href={`tel:${siteConfig.phone}`}
     aria-label="Telepon Langsung Gudang"
   >
-    <Phone className="w-4 h-4 text-blue-900" />
-    <span>Telepon</span>
+    <Phone className="w-4 h-4 text-[#0284c7]" />
+    <span>TELEPON</span>
   </a>
 
   <a
-    class="w-[60%] bg-emerald-600 hover:bg-emerald-700 text-white font-bold flex items-center justify-center gap-2 active:bg-emerald-800 transition-colors text-sm"
+    class="w-[60%] bg-[#25D366] hover:bg-[#20bd5a] text-white font-black flex items-center justify-center gap-2 active:bg-[#1da851] transition-colors text-xs uppercase tracking-wider"
     href={waUrl}
     target="_blank"
     rel="noopener noreferrer"
@@ -56,7 +59,7 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
     data-wa-mode="SEWA & BELI"
     data-wa-city={city}
   >
-    <MessageCircle className="w-4 h-4" />
-    <span>WhatsApp Kami</span>
+    <MessageCircle className="w-4 h-4 fill-current" />
+    <span>ORDER WHATSAPP</span>
   </a>
 </aside>

@@ -17,24 +17,24 @@ const waMessage = encodeURIComponent(
 const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
 ---
 
-<!-- TOP CONTACT BAR (Clean Industrial Benchmark) -->
-<div class="bg-slate-900 text-slate-300 py-1.5 px-4 text-xs font-medium border-b border-slate-800">
-  <div class="max-w-7xl mx-auto flex items-center justify-between">
+<!-- TOP BAR KHAS WORDPRESS / ELEMENTOR -->
+<div class="bg-[#0f172a] text-slate-300 py-2 px-4 text-xs font-medium border-b border-slate-800">
+  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
     <div class="flex items-center gap-4">
-      <span class="flex items-center gap-1.5">
-        <MapPin className="w-3.5 h-3.5 text-blue-400" />
-        <span class="hidden sm:inline">Gudang Pusat:</span> {siteConfig.warehouseAddress.district}, {siteConfig.warehouseAddress.city}
+      <span class="flex items-center gap-1.5 text-slate-300">
+        <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+        <span>Gudang Pusat: {siteConfig.warehouseAddress.district}, {siteConfig.warehouseAddress.city}</span>
       </span>
       <span class="hidden md:flex items-center gap-1.5 text-slate-400">
-        <Clock className="w-3.5 h-3.5 text-amber-400" />
+        <Clock className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
         Buka Setiap Hari: 07.00 - 18.00 WIB
       </span>
     </div>
-    <div class="flex items-center gap-4">
-      <span class="text-emerald-400 font-semibold hidden sm:inline">
-        ✓ Stok Siap Kirim Hari Ini
+    <div class="flex items-center gap-4 text-xs">
+      <span class="text-amber-400 font-bold hidden sm:inline">
+        ★ Siap Kirim Hari Ini ke {city}
       </span>
-      <a href={`tel:${siteConfig.phone}`} class="hover:text-white flex items-center gap-1 text-slate-200 font-bold">
+      <a href={`tel:${siteConfig.phone}`} class="hover:text-white flex items-center gap-1 text-white font-bold">
         <Phone className="w-3.5 h-3.5 text-emerald-400" />
         <span>Hotline: {siteConfig.phoneDisplay}</span>
       </a>
@@ -42,38 +42,39 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
   </div>
 </div>
 
-<!-- MAIN NAVBAR (Clean White Industrial Header) -->
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all">
-  <div class="h-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
-    <!-- Brand Logo & Name -->
-    <a href="/" class="flex items-center gap-3 shrink-0 group">
-      <div class="w-11 h-11 rounded-lg bg-blue-900 flex items-center justify-center text-white shadow-sm border border-blue-950/20 font-extrabold text-xl">
+<!-- MAIN NAVBAR PUTIH KHAS ELEMENTOR PRO -->
+<header class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+  <div class="h-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+    <!-- Brand Logo Khas WordPress -->
+    <a href="/" class="flex items-center gap-3 shrink-0">
+      <div class="w-11 h-11 rounded-lg bg-[#0284c7] flex items-center justify-center text-white font-black text-xl shadow-sm">
         CS
       </div>
       <div class="flex flex-col">
-        <span class="text-lg sm:text-xl font-extrabold text-slate-900 leading-tight group-hover:text-blue-900 transition-colors">
-          {siteConfig.businessName}
+        <span class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-none">
+          {siteConfig.businessName.toUpperCase()}
         </span>
-        <span class="text-xs font-semibold text-slate-500">
-          Sewa &amp; Jual Scaffolding {city}
+        <span class="text-xs font-bold text-[#0284c7] mt-1 tracking-normal">
+          Pusat Rental &amp; Jual Scaffolding {city}
         </span>
       </div>
     </a>
 
-    <!-- Desktop Navigation Links -->
-    <nav class="hidden lg:flex items-center gap-7 font-semibold text-sm text-slate-600" aria-label="Navigasi Utama">
-      <a class="hover:text-blue-900 transition-colors" href="/">Beranda</a>
-      <a class="hover:text-blue-900 transition-colors" href="#sewa-atau-beli">Sewa &amp; Beli</a>
-      <a class="hover:text-blue-900 transition-colors" href="#paket-hemat">Paket Hemat</a>
-      <a class="hover:text-blue-900 transition-colors" href="#katalog-produk">Katalog Produk</a>
-      <a class="hover:text-blue-900 transition-colors" href="#lokasi-gudang">Lokasi Gudang</a>
-      <a class="hover:text-blue-900 transition-colors" href="#faq">FAQ</a>
+    <!-- Desktop Navigation Links Khas WordPress -->
+    <nav class="hidden lg:flex items-center gap-6 font-bold text-sm text-slate-700" aria-label="Navigasi Utama">
+      <a class="hover:text-[#0284c7] transition-colors" href="/">Beranda</a>
+      <a class="hover:text-[#0284c7] transition-colors" href="#keunggulan">Keunggulan</a>
+      <a class="hover:text-[#0284c7] transition-colors" href="#sewa-atau-beli">Harga Sewa</a>
+      <a class="hover:text-[#0284c7] transition-colors" href="#paket-hemat">Paket Hemat</a>
+      <a class="hover:text-[#0284c7] transition-colors" href="#katalog-produk">Katalog Produk</a>
+      <a class="hover:text-[#0284c7] transition-colors" href="#cara-pesan">Cara Pesan</a>
+      <a class="hover:text-[#0284c7] transition-colors" href="#lokasi-gudang">Lokasi</a>
     </nav>
 
-    <!-- Header Action Button (Clean WhatsApp CTA) -->
+    <!-- Header Action Button: Tombol Kapsul Hijau WhatsApp Khas Elementor -->
     <div class="flex items-center gap-3 shrink-0">
       <a
-        class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-4 py-2.5 rounded-lg shadow-sm transition-all active:scale-95"
+        class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-sm px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95"
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
@@ -81,7 +82,7 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
         data-wa-mode="SEWA & BELI"
         data-wa-city={city}
       >
-        <MessageCircle className="w-4 h-4 shrink-0" />
+        <MessageCircle className="w-4 h-4 fill-current shrink-0" />
         <span>Chat WhatsApp</span>
       </a>
     </div>

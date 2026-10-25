@@ -1,6 +1,6 @@
 ---
 import { siteConfig } from '../../data/siteConfig';
-import { Repeat, Store, CheckCircle2, MessageCircle } from 'lucide-react';
+import { Check, MessageCircle } from 'lucide-react';
 
 export interface Props {
   city?: string;
@@ -19,79 +19,89 @@ const beliText = encodeURIComponent(
 const waBeliUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${beliText}`;
 ---
 
-<!-- 2. SERVICE SPLIT (CLEAN COMPARISON CARDS) -->
+<!-- DAFTAR HARGA SEWA & BELI KHAS ELEMENTOR PRICING TABLE -->
 <section
   id="sewa-atau-beli"
   aria-labelledby="service-split-title"
   class="w-full bg-slate-50 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-200 scroll-mt-20"
 >
-  <div class="max-w-7xl mx-auto flex flex-col gap-10">
-    <!-- Section Header -->
+  <div class="max-w-6xl mx-auto flex flex-col gap-10">
+    <!-- Header Khas WordPress -->
     <div class="text-center max-w-3xl mx-auto flex flex-col gap-2.5">
-      <div class="inline-flex items-center gap-1.5 bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-xs font-bold uppercase w-fit mx-auto">
-        Skema Layanan Fleksibel
-      </div>
+      <span class="inline-flex items-center gap-1.5 bg-blue-100 text-[#0284c7] px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider w-fit mx-auto">
+        BIAYA SEWA &amp; JUAL TRANSPARAN
+      </span>
       <h2
         id="service-split-title"
-        class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight"
+        class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight"
       >
-        Pilihan Layanan Sewa &amp; Jual Scaffolding di {city}
+        Daftar Harga Sewa &amp; Beli Scaffolding di {city}
       </h2>
       <p class="text-base sm:text-lg text-slate-600 font-normal">
-        Tentukan skema terbaik sesuai anggaran dan lama durasi pengerjaan proyek konstruksi Anda.
+        Pilih skema paling hemat sesuai kebutuhan proyek renovasi rumah, ruko bertingkat, maupun proyek gedung.
       </p>
     </div>
 
-    <!-- 2 Comparison Cards -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-      <!-- CARD 1: SEWA -->
-      <div class="bg-white p-7 sm:p-9 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-        <div class="flex flex-col gap-5">
-          <div class="flex items-center justify-between gap-2">
-            <span class="bg-amber-50 text-amber-900 border border-amber-200 px-3 py-1 rounded-full text-xs font-bold">
-              ★ Paling Hemat untuk Renovasi
-            </span>
-            <Repeat className="w-6 h-6 text-blue-900" />
-          </div>
+    <!-- 2 Kolom Pricing Card Khas Elementor -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto w-full">
+      <!-- PRICING CARD 1: SEWA -->
+      <div class="bg-white rounded-2xl border-2 border-emerald-500 shadow-md p-6 sm:p-8 flex flex-col justify-between relative">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-xs font-black px-4 py-1 rounded-full shadow-sm uppercase tracking-wider">
+          ★ PALING BANYAK DISEWA
+        </div>
 
-          <div>
-            <h3 class="text-2xl font-extrabold text-slate-900">
-              Layanan Sewa (Rental)
+        <div class="flex flex-col gap-5 mt-2">
+          <div class="border-b border-slate-100 pb-4 text-center">
+            <h3 class="text-2xl font-black text-slate-900">
+              Sewa Scaffolding (Rental)
             </h3>
-            <p class="text-sm sm:text-base text-slate-600 mt-1.5 leading-relaxed">
-              Sistem sewa fleksibel harian, mingguan, atau bulanan tanpa beban biaya gudang dan perawatan alat.
+            <p class="text-xs sm:text-sm text-slate-500 mt-1">
+              Solusi hemat untuk proyek jangka pendek tanpa biaya simpan alat
             </p>
-          </div>
-
-          <div class="bg-blue-50/70 p-5 rounded-xl border border-blue-100">
-            <span class="text-xs uppercase text-slate-500 font-bold block mb-1">Harga Sewa Mulai Dari</span>
-            <div class="text-3xl font-extrabold text-blue-900">
-              Rp 35.000 <span class="text-base text-slate-600 font-semibold">/ Set / Bulan</span>
+            <div class="mt-4 pt-3 border-t border-slate-100">
+              <span class="text-xs text-slate-500 font-bold uppercase block">Mulai Dari</span>
+              <div class="text-4xl font-black text-emerald-600 mt-1">
+                Rp 35.000
+                <span class="text-sm font-bold text-slate-600">/ Set / Bulan</span>
+              </div>
+              <span class="text-xs font-bold text-emerald-700 block mt-1">
+                (Tersedia sewa harian &amp; mingguan, minimal 5 set)
+              </span>
             </div>
-            <span class="text-xs sm:text-sm font-semibold text-emerald-700 block mt-1.5">
-              ✓ Tersedia sewa harian &amp; mingguan (minimal mulai 5 set)
-            </span>
           </div>
 
-          <ul class="flex flex-col gap-3 text-sm sm:text-base text-slate-700 pt-1">
-            <li class="flex items-start gap-2.5">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-              <span><strong>Durasi Fleksibel:</strong> Sewa 1 minggu, 2 minggu, atau bulanan sesuai progres tukang.</span>
+          <!-- Feature List with Green Circles -->
+          <ul class="space-y-3 text-sm text-slate-700">
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                <Check className="w-3.5 h-3.5" />
+              </div>
+              <span><strong>1 Set Lengkap:</strong> 2 Main Frame, 2 Cross Brace silangan, dan 4 Joint Pin pengunci.</span>
             </li>
-            <li class="flex items-start gap-2.5">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-              <span><strong>Jaminan Tukar Unit:</strong> Ganti pipa/komponen baru jika ditemukan cacat saat dibongkar.</span>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                <Check className="w-3.5 h-3.5" />
+              </div>
+              <span><strong>Pilihan Ukuran:</strong> Tinggi Main Frame 170 cm dan 190 cm standar konstruksi SNI.</span>
             </li>
-            <li class="flex items-start gap-2.5">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-              <span><strong>Bebas Hitung Rumus:</strong> Mandor logistik kami siap bantu hitung kebutuhan set secara gratis.</span>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                <Check className="w-3.5 h-3.5" />
+              </div>
+              <span><strong>Garansi Tukar Unit:</strong> Pipa bengkok atau cacat langsung ditukar baru tanpa biaya tambahan.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                <Check className="w-3.5 h-3.5" />
+              </div>
+              <span><strong>Bisa Bayar di Lokasi (COD):</strong> Pelunasan setelah barang sampai dan dicek mandor proyek.</span>
             </li>
           </ul>
         </div>
 
-        <div class="mt-8 pt-5 border-t border-slate-100">
+        <div class="mt-8 pt-4 border-t border-slate-100">
           <a
-            class="w-full min-h-[50px] bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-base transition-colors shadow-sm"
+            class="w-full min-h-[48px] bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center gap-2 px-6 py-3 rounded-full font-black text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all active:scale-95 text-center"
             href={waSewaUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -99,60 +109,70 @@ const waBeliUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${beliText}`;
             data-wa-mode="SEWA"
             data-wa-city={city}
           >
-            <MessageCircle className="w-5 h-5" />
-            <span>Konsultasi Sewa via WhatsApp</span>
+            <MessageCircle className="w-4 h-4 fill-current" />
+            <span>SEWA VIA WHATSAPP</span>
           </a>
         </div>
       </div>
 
-      <!-- CARD 2: BELI -->
-      <div class="bg-white p-7 sm:p-9 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-        <div class="flex flex-col gap-5">
-          <div class="flex items-center justify-between gap-2">
-            <span class="bg-blue-50 text-blue-900 border border-blue-200 px-3 py-1 rounded-full text-xs font-bold">
-              ★ Investasi Aset Kontraktor
-            </span>
-            <Store className="w-6 h-6 text-blue-900" />
-          </div>
+      <!-- PRICING CARD 2: BELI -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-md p-6 sm:p-8 flex flex-col justify-between relative">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs font-black px-4 py-1 rounded-full shadow-sm uppercase tracking-wider">
+          ASET JANGKA PANJANG
+        </div>
 
-          <div>
-            <h3 class="text-2xl font-extrabold text-slate-900">
-              Layanan Jual Beli
+        <div class="flex flex-col gap-5 mt-2">
+          <div class="border-b border-slate-100 pb-4 text-center">
+            <h3 class="text-2xl font-black text-slate-900">
+              Jual Beli (Baru &amp; Rekondisi)
             </h3>
-            <p class="text-sm sm:text-base text-slate-600 mt-1.5 leading-relaxed">
-              Stok baru dari pabrikan las MIG CO2 atau rekondisi mulus cat celup anti karat siap kerja di lapangan.
+            <p class="text-xs sm:text-sm text-slate-500 mt-1">
+              Investasi aset scaffolding untuk kontraktor dan pemborong rutin
             </p>
-          </div>
-
-          <div class="bg-slate-100 p-5 rounded-xl border border-slate-200">
-            <span class="text-xs uppercase text-slate-500 font-bold block mb-1">Harga Jual Langsung Pabrik</span>
-            <div class="text-3xl font-extrabold text-slate-900">
-              Harga Grosir <span class="text-base text-slate-600 font-semibold">Partai &amp; Eceran</span>
+            <div class="mt-4 pt-3 border-t border-slate-100">
+              <span class="text-xs text-slate-500 font-bold uppercase block">Harga Penjualan</span>
+              <div class="text-3xl sm:text-4xl font-black text-slate-900 mt-1">
+                Harga Grosir
+                <span class="text-sm font-bold text-slate-600">/ Pabrik</span>
+              </div>
+              <span class="text-xs font-bold text-blue-800 block mt-1">
+                (Melayani order partai besar maupun eceran)
+              </span>
             </div>
-            <span class="text-xs sm:text-sm font-semibold text-blue-900 block mt-1.5">
-              ✓ Ready Rekondisi Grade A + Layanan Buyback (Beli Balik)
-            </span>
           </div>
 
-          <ul class="flex flex-col gap-3 text-sm sm:text-base text-slate-700 pt-1">
-            <li class="flex items-start gap-2.5">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-              <span><strong>Pipa SNI Tebal:</strong> Pipa hitam galvanis 1.8mm – 2.0mm, tahan beban cor beton berat.</span>
+          <!-- Feature List with Blue Circles -->
+          <ul class="space-y-3 text-sm text-slate-700">
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                <Check className="w-3.5 h-3.5" />
+              </div>
+              <span><strong>Unit Baru SNI:</strong> Pipa galvanis tebal 1.8mm–2.0mm diproduksi dengan las MIG CO2 penuh.</span>
             </li>
-            <li class="flex items-start gap-2.5">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-              <span><strong>Rekondisi Grade A:</strong> Pipa lurus lempeng, lubang pin presisi, dicat celup anti karat.</span>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                <Check className="w-3.5 h-3.5" />
+              </div>
+              <span><strong>Rekondisi Grade A:</strong> Pipa lempeng lurus, lubang pin presisi, dibersihkan dan dicat celup anti karat.</span>
             </li>
-            <li class="flex items-start gap-2.5">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-              <span><strong>Kapasitas Pengiriman Besar:</strong> Siap kirim pickup, truk cold diesel, hingga fuso tronton.</span>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                <Check className="w-3.5 h-3.5" />
+              </div>
+              <span><strong>Layanan Buyback (Beli Balik):</strong> Proyek selesai? Kami siap beli kembali scaffolding Anda dengan harga transparan.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                <Check className="w-3.5 h-3.5" />
+              </div>
+              <span><strong>Surat Jalan &amp; Faktur:</strong> Legalitas resmi siap untuk administrasi proyek &amp; tender dinas.</span>
             </li>
           </ul>
         </div>
 
-        <div class="mt-8 pt-5 border-t border-slate-100">
+        <div class="mt-8 pt-4 border-t border-slate-100">
           <a
-            class="w-full min-h-[50px] bg-slate-900 hover:bg-slate-800 text-white flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-base transition-colors shadow-sm"
+            class="w-full min-h-[48px] bg-slate-900 hover:bg-slate-800 text-white flex items-center justify-center gap-2 px-6 py-3 rounded-full font-black text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all active:scale-95 text-center"
             href={waBeliUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -160,8 +180,8 @@ const waBeliUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${beliText}`;
             data-wa-mode="BELI"
             data-wa-city={city}
           >
-            <MessageCircle className="w-5 h-5 text-emerald-400" />
-            <span>Tanya Harga Beli via WhatsApp</span>
+            <MessageCircle className="w-4 h-4 fill-current text-emerald-400" />
+            <span>TANYA HARGA BELI VIA WA</span>
           </a>
         </div>
       </div>
