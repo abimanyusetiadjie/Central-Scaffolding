@@ -19,169 +19,135 @@ const beliText = encodeURIComponent(
 const waBeliUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${beliText}`;
 ---
 
-<!-- DAFTAR HARGA SEWA & BELI KHAS ELEMENTOR PRICING TABLE -->
-<section
-  id="sewa-atau-beli"
-  aria-labelledby="service-split-title"
-  class="w-full bg-slate-50 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-200 scroll-mt-20"
->
-  <div class="max-w-6xl mx-auto flex flex-col gap-10">
-    <!-- Header Khas WordPress -->
-    <div class="text-center max-w-3xl mx-auto flex flex-col gap-2.5">
-      <span class="inline-flex items-center gap-1.5 bg-blue-100 text-[#0284c7] px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider w-fit mx-auto">
-        BIAYA SEWA &amp; JUAL TRANSPARAN
-      </span>
-      <h2
-        id="service-split-title"
-        class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight"
-      >
-        Daftar Harga Sewa &amp; Beli Scaffolding di {city}
+<!-- ==============================================
+     LAYANAN SCAFFOLDING (GAYA PERSIS PT SNI)
+=============================================== -->
+<section class="py-20 bg-gray-50" id="layanan">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-montserrat font-bold text-orange-600 mb-4">
+        Layanan <span class="text-gray-800">Scaffolding di {city}</span>
       </h2>
-      <p class="text-base sm:text-lg text-slate-600 font-normal">
-        Pilih skema paling hemat sesuai kebutuhan proyek renovasi rumah, ruko bertingkat, maupun proyek gedung.
+      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto text-center font-roboto">
+        Kami menyediakan solusi sewa scaffolding fleksibel serta penjualan unit baru dan rekondisi siap pakai untuk seluruh jenis proyek konstruksi Anda.
       </p>
     </div>
 
-    <!-- 2 Kolom Pricing Card Khas Elementor -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto w-full">
-      <!-- PRICING CARD 1: SEWA -->
-      <div class="bg-white rounded-2xl border-2 border-emerald-500 shadow-md p-6 sm:p-8 flex flex-col justify-between relative">
-        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-xs font-black px-4 py-1 rounded-full shadow-sm uppercase tracking-wider">
-          ★ PALING BANYAK DISEWA
-        </div>
-
-        <div class="flex flex-col gap-5 mt-2">
-          <div class="border-b border-slate-100 pb-4 text-center">
-            <h3 class="text-2xl font-black text-slate-900">
-              Sewa Scaffolding (Rental)
-            </h3>
-            <p class="text-xs sm:text-sm text-slate-500 mt-1">
-              Solusi hemat untuk proyek jangka pendek tanpa biaya simpan alat
-            </p>
-            <div class="mt-4 pt-3 border-t border-slate-100">
-              <span class="text-xs text-slate-500 font-bold uppercase block">Mulai Dari</span>
-              <div class="text-4xl font-black text-emerald-600 mt-1">
-                Rp 35.000
-                <span class="text-sm font-bold text-slate-600">/ Set / Bulan</span>
-              </div>
-              <span class="text-xs font-bold text-emerald-700 block mt-1">
-                (Tersedia sewa harian &amp; mingguan, minimal 5 set)
-              </span>
-            </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <!-- Card 1: Sewa Scaffolding -->
+      <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-8 border border-gray-100 flex flex-col justify-between">
+        <div class="flex flex-col gap-5">
+          <div class="flex items-center justify-between">
+            <span class="bg-orange-100 text-orange-800 text-xs font-montserrat font-bold px-3 py-1 rounded-full uppercase">
+              Rental Fleksibel
+            </span>
+            <span class="text-orange-600 font-montserrat font-bold text-sm">✓ Ready Stock</span>
           </div>
 
-          <!-- Feature List with Green Circles -->
-          <ul class="space-y-3 text-sm text-slate-700">
-            <li class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                <Check className="w-3.5 h-3.5" />
-              </div>
-              <span><strong>1 Set Lengkap:</strong> 2 Main Frame, 2 Cross Brace silangan, dan 4 Joint Pin pengunci.</span>
+          <div>
+            <h3 class="text-2xl font-montserrat font-bold text-gray-800">
+              Sewa Scaffolding (Rental)
+            </h3>
+            <p class="text-gray-600 text-sm mt-2 font-roboto leading-relaxed">
+              Pilihan tepat untuk proyek renovasi rumah, ruko, gedung, hingga jembatan tanpa beban investasi beli dan gudang penyimpanan.
+            </p>
+          </div>
+
+          <div class="bg-orange-50/60 p-4 rounded-xl border border-orange-100">
+            <span class="text-xs uppercase text-gray-500 font-bold block">Harga Sewa Mulai:</span>
+            <div class="text-3xl font-montserrat font-extrabold text-orange-600 mt-1">
+              Rp 35.000 <span class="text-sm font-semibold text-gray-600">/ Set / Bulan</span>
+            </div>
+            <span class="text-xs text-gray-600 mt-1 block">Tersedia sewa harian &amp; mingguan (minimal 5 set)</span>
+          </div>
+
+          <ul class="space-y-3 text-sm text-gray-700 font-roboto">
+            <li class="flex items-start gap-2.5">
+              <Check className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
+              <span><strong>1 Set Komplit:</strong> 2 Main Frame (170/190cm), 2 Cross Brace, 4 Joint Pin.</span>
             </li>
-            <li class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                <Check className="w-3.5 h-3.5" />
-              </div>
-              <span><strong>Pilihan Ukuran:</strong> Tinggi Main Frame 170 cm dan 190 cm standar konstruksi SNI.</span>
+            <li class="flex items-start gap-2.5">
+              <Check className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
+              <span><strong>Jaminan Ganti Baru:</strong> Unit cacat langsung ditukar di hari yang sama.</span>
             </li>
-            <li class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                <Check className="w-3.5 h-3.5" />
-              </div>
-              <span><strong>Garansi Tukar Unit:</strong> Pipa bengkok atau cacat langsung ditukar baru tanpa biaya tambahan.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                <Check className="w-3.5 h-3.5" />
-              </div>
-              <span><strong>Bisa Bayar di Lokasi (COD):</strong> Pelunasan setelah barang sampai dan dicek mandor proyek.</span>
+            <li class="flex items-start gap-2.5">
+              <Check className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
+              <span><strong>Bisa Bayar di Lokasi (COD):</strong> Pelunasan setelah barang sampai dan dicek mandor.</span>
             </li>
           </ul>
         </div>
 
-        <div class="mt-8 pt-4 border-t border-slate-100">
+        <div class="mt-8 pt-4 border-t border-gray-100">
           <a
-            class="w-full min-h-[48px] bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center gap-2 px-6 py-3 rounded-full font-black text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all active:scale-95 text-center"
             href={waSewaUrl}
             target="_blank"
             rel="noopener noreferrer"
+            class="w-full bg-orange-600 hover:bg-orange-700 text-white py-3.5 px-6 rounded-lg font-montserrat font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
             data-wa-source="service_split_sewa"
             data-wa-mode="SEWA"
             data-wa-city={city}
           >
             <MessageCircle className="w-4 h-4 fill-current" />
-            <span>SEWA VIA WHATSAPP</span>
+            <span>KONSULTASI SEWA VIA WHATSAPP</span>
           </a>
         </div>
       </div>
 
-      <!-- PRICING CARD 2: BELI -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-md p-6 sm:p-8 flex flex-col justify-between relative">
-        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs font-black px-4 py-1 rounded-full shadow-sm uppercase tracking-wider">
-          ASET JANGKA PANJANG
-        </div>
-
-        <div class="flex flex-col gap-5 mt-2">
-          <div class="border-b border-slate-100 pb-4 text-center">
-            <h3 class="text-2xl font-black text-slate-900">
-              Jual Beli (Baru &amp; Rekondisi)
-            </h3>
-            <p class="text-xs sm:text-sm text-slate-500 mt-1">
-              Investasi aset scaffolding untuk kontraktor dan pemborong rutin
-            </p>
-            <div class="mt-4 pt-3 border-t border-slate-100">
-              <span class="text-xs text-slate-500 font-bold uppercase block">Harga Penjualan</span>
-              <div class="text-3xl sm:text-4xl font-black text-slate-900 mt-1">
-                Harga Grosir
-                <span class="text-sm font-bold text-slate-600">/ Pabrik</span>
-              </div>
-              <span class="text-xs font-bold text-blue-800 block mt-1">
-                (Melayani order partai besar maupun eceran)
-              </span>
-            </div>
+      <!-- Card 2: Jual Scaffolding -->
+      <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-8 border border-gray-100 flex flex-col justify-between">
+        <div class="flex flex-col gap-5">
+          <div class="flex items-center justify-between">
+            <span class="bg-gray-100 text-gray-800 text-xs font-montserrat font-bold px-3 py-1 rounded-full uppercase">
+              Investasi Aset
+            </span>
+            <span class="text-gray-600 font-montserrat font-bold text-sm">Partai &amp; Ecer</span>
           </div>
 
-          <!-- Feature List with Blue Circles -->
-          <ul class="space-y-3 text-sm text-slate-700">
-            <li class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                <Check className="w-3.5 h-3.5" />
-              </div>
-              <span><strong>Unit Baru SNI:</strong> Pipa galvanis tebal 1.8mm–2.0mm diproduksi dengan las MIG CO2 penuh.</span>
+          <div>
+            <h3 class="text-2xl font-montserrat font-bold text-gray-800">
+              Jual Scaffolding Baru &amp; Bekas
+            </h3>
+            <p class="text-gray-600 text-sm mt-2 font-roboto leading-relaxed">
+              Investasi aset scaffolding untuk kontraktor dan pemborong dengan pipa standar SNI 07-0065 tebal {siteConfig.stats.pipeThickness}.
+            </p>
+          </div>
+
+          <div class="bg-gray-100 p-4 rounded-xl border border-gray-200">
+            <span class="text-xs uppercase text-gray-500 font-bold block">Harga Jual Langsung Pabrik:</span>
+            <div class="text-3xl font-montserrat font-extrabold text-gray-900 mt-1">
+              Harga Grosir <span class="text-sm font-semibold text-gray-600">Pabrik</span>
+            </div>
+            <span class="text-xs text-gray-600 mt-1 block">Ready stok baru dan rekondisi cat celup anti karat</span>
+          </div>
+
+          <ul class="space-y-3 text-sm text-gray-700 font-roboto">
+            <li class="flex items-start gap-2.5">
+              <Check className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
+              <span><strong>Pipa Hitam Galvanis SNI:</strong> Las MIG CO2 presisi, tahan beban cor beton berat.</span>
             </li>
-            <li class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                <Check className="w-3.5 h-3.5" />
-              </div>
-              <span><strong>Rekondisi Grade A:</strong> Pipa lempeng lurus, lubang pin presisi, dibersihkan dan dicat celup anti karat.</span>
+            <li class="flex items-start gap-2.5">
+              <Check className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
+              <span><strong>Rekondisi Grade A:</strong> Pipa lurus lempeng, lubang pin presisi, bebas kerak semen.</span>
             </li>
-            <li class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                <Check className="w-3.5 h-3.5" />
-              </div>
-              <span><strong>Layanan Buyback (Beli Balik):</strong> Proyek selesai? Kami siap beli kembali scaffolding Anda dengan harga transparan.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                <Check className="w-3.5 h-3.5" />
-              </div>
-              <span><strong>Surat Jalan &amp; Faktur:</strong> Legalitas resmi siap untuk administrasi proyek &amp; tender dinas.</span>
+            <li class="flex items-start gap-2.5">
+              <Check className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
+              <span><strong>Layanan Buyback (Beli Balik):</strong> Kami siap beli kembali scaffolding Anda setelah proyek usai.</span>
             </li>
           </ul>
         </div>
 
-        <div class="mt-8 pt-4 border-t border-slate-100">
+        <div class="mt-8 pt-4 border-t border-gray-100">
           <a
-            class="w-full min-h-[48px] bg-slate-900 hover:bg-slate-800 text-white flex items-center justify-center gap-2 px-6 py-3 rounded-full font-black text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all active:scale-95 text-center"
             href={waBeliUrl}
             target="_blank"
             rel="noopener noreferrer"
+            class="w-full bg-gray-900 hover:bg-gray-800 text-white py-3.5 px-6 rounded-lg font-montserrat font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
             data-wa-source="service_split_jual"
             data-wa-mode="BELI"
             data-wa-city={city}
           >
-            <MessageCircle className="w-4 h-4 fill-current text-emerald-400" />
-            <span>TANYA HARGA BELI VIA WA</span>
+            <MessageCircle className="w-4 h-4 fill-current text-orange-400" />
+            <span>TANYA HARGA JUAL VIA WHATSAPP</span>
           </a>
         </div>
       </div>

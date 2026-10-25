@@ -6,8 +6,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
-        display: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
+        montserrat: ['"Montserrat"', ...defaultTheme.fontFamily.sans],
+        sans: ['"Roboto"', '"Montserrat"', ...defaultTheme.fontFamily.sans],
       },
     },
   },

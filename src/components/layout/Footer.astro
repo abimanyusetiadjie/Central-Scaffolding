@@ -16,57 +16,60 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="w-full bg-slate-900 text-slate-400 text-sm border-t border-slate-800 pb-24 md:pb-12 pt-16">
+<!-- ==============================================
+     FOOTER (GAYA PERSIS PT SNI)
+=============================================== -->
+<footer class="w-full bg-gray-900 text-gray-400 text-sm border-t border-gray-800 pb-24 md:pb-12 pt-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
     <!-- 4 Main Columns -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       <!-- Col 1: Brand & Profile -->
       <div class="flex flex-col gap-3">
         <div class="flex items-center gap-2.5">
-          <div class="w-9 h-9 rounded-lg bg-blue-900 flex items-center justify-center text-white font-extrabold text-lg">
+          <div class="w-10 h-10 rounded-lg bg-orange-600 flex items-center justify-center text-white font-montserrat font-bold text-xl shadow-md">
             CS
           </div>
-          <span class="text-xl font-extrabold text-white">
+          <span class="text-xl font-montserrat font-bold text-white">
             {siteConfig.businessName}
           </span>
         </div>
-        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mt-1">
+        <p class="text-xs sm:text-sm text-gray-400 leading-relaxed font-roboto mt-2">
           Pusat penyewaan dan penjualan scaffolding pipa baja standar SNI 07-0065 &amp; K3 Kemnaker. Melayani kontraktor, pemborong, dan mandor dengan armada sendiri.
         </p>
-        <div class="flex items-center gap-2 text-xs text-slate-400 mt-1">
-          <ShieldCheck className="w-4 h-4 text-emerald-400" />
+        <div class="flex items-center gap-2 text-xs text-orange-400 font-montserrat font-semibold mt-1">
+          <ShieldCheck className="w-4 h-4 text-orange-400 shrink-0" />
           <span>Garansi Tukar Unit Langsung di Proyek</span>
         </div>
       </div>
 
       <!-- Col 2: Warehouse Address -->
       <div class="flex flex-col gap-2">
-        <span class="text-xs font-bold uppercase tracking-wider text-slate-200">
+        <span class="text-xs font-montserrat font-bold uppercase tracking-wider text-white">
           Alamat Gudang Pusat
         </span>
-        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-1 flex items-start gap-2">
-          <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+        <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mt-1 flex items-start gap-2 font-roboto">
+          <MapPin className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
           <span>{siteConfig.warehouseAddress.street}, {siteConfig.warehouseAddress.district}, Kota {siteConfig.warehouseAddress.city}, {siteConfig.warehouseAddress.province} {siteConfig.warehouseAddress.postalCode}</span>
         </p>
-        <span class="text-xs text-slate-400">
+        <span class="text-xs text-gray-500 font-roboto mt-1">
           Akses cor beton dua arah, bebas dilalui truk fuso &amp; kontainer.
         </span>
       </div>
 
       <!-- Col 3: Operational Hours -->
       <div class="flex flex-col gap-2">
-        <span class="text-xs font-bold uppercase tracking-wider text-slate-200">
+        <span class="text-xs font-montserrat font-bold uppercase tracking-wider text-white">
           Jam Operasional Bongkar Muat
         </span>
-        <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/60 mt-1">
-          <div class="flex items-center gap-2 text-emerald-400 text-xs font-bold">
+        <div class="bg-gray-800 p-4 rounded-xl border border-gray-700/60 mt-1">
+          <div class="flex items-center gap-2 text-orange-400 text-xs font-montserrat font-bold">
             <Clock className="w-4 h-4" />
             <span>BUKA SETIAP HARI</span>
           </div>
-          <p class="text-base font-extrabold text-white mt-1">
+          <p class="text-base font-montserrat font-bold text-white mt-1">
             07.00 - 18.00 WIB
           </p>
-          <p class="text-[11px] text-slate-400 mt-0.5">
+          <p class="text-[11px] text-gray-400 mt-0.5 font-roboto">
             Pengiriman langsung hari ini untuk pesanan terkonfirmasi.
           </p>
         </div>
@@ -74,19 +77,19 @@ const currentYear = new Date().getFullYear();
 
       <!-- Col 4: Contact -->
       <div class="flex flex-col gap-2">
-        <span class="text-xs font-bold uppercase tracking-wider text-slate-200">
+        <span class="text-xs font-montserrat font-bold uppercase tracking-wider text-white">
           Kontak &amp; Konsultasi
         </span>
-        <div class="flex flex-col gap-2.5 mt-1">
+        <div class="flex flex-col gap-2.5 mt-1 font-roboto">
           <a
-            class="text-base font-bold text-white hover:text-emerald-400 flex items-center gap-2 transition-colors"
+            class="text-base font-montserrat font-bold text-white hover:text-orange-400 flex items-center gap-2 transition-colors"
             href={`tel:${siteConfig.phone}`}
           >
-            <Phone className="w-4 h-4 text-emerald-400" />
+            <Phone className="w-4 h-4 text-orange-500" />
             <span>{siteConfig.phoneDisplay}</span>
           </a>
           <a
-            class="text-sm font-semibold text-emerald-400 hover:underline flex items-center gap-2"
+            class="text-sm font-semibold text-orange-400 hover:underline flex items-center gap-2 font-montserrat"
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -94,10 +97,10 @@ const currentYear = new Date().getFullYear();
             data-wa-mode="SEWA & BELI"
             data-wa-city={city}
           >
-            <MessageCircle className="w-4 h-4 text-emerald-400" />
+            <MessageCircle className="w-4 h-4 fill-current text-orange-400" />
             <span>WhatsApp Mandor 24 Jam</span>
           </a>
-          <span class="text-xs text-slate-500">
+          <span class="text-xs text-gray-500">
             Email: {siteConfig.email}
           </span>
         </div>
@@ -105,26 +108,26 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <!-- SEO Directory Area Links -->
-    <div class="border-t border-slate-800 pt-6">
+    <div class="border-t border-gray-800 pt-6">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-        <span class="text-xs font-bold uppercase tracking-wider text-slate-300">
+        <span class="text-xs font-montserrat font-bold uppercase tracking-wider text-gray-300">
           Wilayah Layanan Pengiriman Cepat (Jabodetabek &amp; Banten):
         </span>
-        <a href="#beranda" class="text-xs text-slate-400 hover:text-white transition">
+        <a href="#beranda" class="text-xs text-gray-400 hover:text-white transition">
           Kembali ke Atas &uarr;
         </a>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 font-roboto">
         {locations.map((loc) => (
           <a
             href={`/area/${loc.slug}`}
-            class="bg-slate-800/60 hover:bg-slate-800 text-slate-300 hover:text-white px-2.5 py-2 rounded-lg border border-slate-700/50 text-center text-xs transition block group"
+            class="bg-gray-800/60 hover:bg-gray-800 text-gray-300 hover:text-white px-2.5 py-2 rounded-lg border border-gray-700/50 text-center text-xs transition block group"
           >
-            <span class="block font-semibold group-hover:text-emerald-400">
+            <span class="block font-semibold group-hover:text-orange-400 font-montserrat">
               {loc.cityName}
             </span>
-            <span class="block text-[10px] text-slate-400 mt-0.5">
+            <span class="block text-[10px] text-gray-400 mt-0.5">
               {loc.deliveryEstimate.split('(')[0].trim()}
             </span>
           </a>
@@ -133,16 +136,16 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <!-- Bottom Copyright & Badges -->
-    <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+    <div class="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 font-roboto">
       <p>
         &copy; {currentYear} {siteConfig.businessName} Logistik Konstruksi. Hak cipta dilindungi undang-undang.
       </p>
-      <div class="flex items-center gap-4 text-slate-400 font-semibold">
+      <div class="flex items-center gap-4 text-gray-400 font-montserrat font-semibold">
         <span class="flex items-center gap-1.5">
-          <CheckCircle2 className="w-4 h-4 text-emerald-400" /> SNI 07-0065
+          <CheckCircle2 className="w-4 h-4 text-orange-500" /> SNI 07-0065
         </span>
         <span class="flex items-center gap-1.5">
-          <ShieldCheck className="w-4 h-4 text-emerald-400" /> K3 Kemnaker
+          <ShieldCheck className="w-4 h-4 text-orange-500" /> K3 Kemnaker
         </span>
       </div>
     </div>

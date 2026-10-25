@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { trackWhatsAppClick } from '../../utils/analytics';
-import { MessageCircle, Check, Star } from 'lucide-react';
+import { MessageCircle, Check } from 'lucide-react';
 
 interface PackageSelectorProps {
   whatsappNumber: string;
@@ -32,76 +32,64 @@ export default function PackageSelector({
   };
 
   return (
-    <section
-      id="paket-hemat"
-      aria-labelledby="package-selector-title"
-      className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-200 scroll-mt-20"
-    >
-      <div className="max-w-6xl mx-auto flex flex-col gap-10">
-        {/* Header Khas WordPress */}
-        <div className="text-center max-w-3xl mx-auto flex flex-col gap-2.5">
-          <span className="inline-flex items-center gap-1.5 bg-blue-100 text-[#0284c7] px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider w-fit mx-auto">
-            SIMULASI PAKET HEMAT
-          </span>
-          <h2
-            id="package-selector-title"
-            className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight"
-          >
-            Pilihan Paket Scaffolding Siap Pasang
+    <section className="py-20 bg-white" id="paket">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-montserrat font-bold text-orange-600 mb-4">
+            Paket <span className="text-gray-800">Scaffolding Siap Pakai</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 font-normal">
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto text-center font-roboto">
             Komponen dikirim lengkap dalam satu set standar (Main Frame, Cross Brace, dan Joint Pin) tanpa ada part yang tertinggal.
           </p>
         </div>
 
-        {/* 3 Paket Kartu Khas Elementor */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-          {/* PAKET 1: KECIL */}
-          <div className="bg-slate-50 p-6 sm:p-7 rounded-2xl border border-slate-200 flex flex-col justify-between shadow-xs hover:shadow-md transition">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Card 1: Paket Rumah */}
+          <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-7 border border-gray-100 flex flex-col justify-between">
             <div className="flex flex-col gap-4">
-              <span className="text-xs font-black uppercase text-slate-600 bg-white border border-slate-200 px-3 py-1 rounded-md w-fit">
-                Renovasi Rumah &amp; Cat
+              <span className="bg-gray-100 text-gray-800 text-xs font-montserrat font-bold px-3 py-1 rounded-full uppercase w-fit">
+                Rumah &amp; Renovasi
               </span>
               <div>
-                <h3 className="text-xl font-black text-slate-900">
+                <h3 className="text-2xl font-montserrat font-bold text-gray-800">
                   Paket Rumah (10 Set)
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                  Untuk perbaikan plafon, cat rumah tinggal, pasang kanopi &amp; atap baja ringan.
+                <p className="text-sm text-gray-600 mt-1 font-roboto">
+                  Ideal untuk pengerjaan cat dinding, plafon gypsum, perbaikan atap &amp; kanopi rumah.
                 </p>
               </div>
 
-              <div className="bg-white p-4 rounded-xl border border-slate-200 text-xs sm:text-sm">
-                <span className="font-bold text-slate-900 block mb-2">
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 text-xs sm:text-sm font-roboto">
+                <span className="font-bold text-gray-900 block mb-2 font-montserrat">
                   Kelengkapan Termasuk:
                 </span>
-                <ul className="space-y-2 text-slate-600">
+                <ul className="space-y-2 text-gray-600">
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>20 Pcs Main Frame (T: 170cm)</span>
+                    <Check className="w-4 h-4 text-orange-600 shrink-0" />
+                    <span>20 Pcs Main Frame (T: 170cm SNI)</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <Check className="w-4 h-4 text-orange-600 shrink-0" />
                     <span>20 Pcs Cross Brace Silangan X</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <Check className="w-4 h-4 text-orange-600 shrink-0" />
                     <span>40 Pcs Joint Pin Pengunci Baja</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="text-center bg-white p-3 rounded-xl border border-slate-200">
-                <span className="text-xs text-slate-500 font-bold uppercase block">Estimasi Biaya Sewa:</span>
-                <span className="text-2xl font-black text-slate-900 mt-0.5 block">
-                  Rp 350.000 <span className="text-xs font-normal text-slate-500">/ Bulan</span>
+              <div className="text-center bg-orange-50/50 p-3 rounded-lg border border-orange-100">
+                <span className="text-xs text-gray-500 font-bold uppercase block">Estimasi Biaya Sewa:</span>
+                <span className="text-2xl font-montserrat font-extrabold text-orange-600 mt-0.5 block">
+                  Rp 350.000 <span className="text-xs font-normal text-gray-500 font-roboto">/ Bulan</span>
                 </span>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-200">
+            <div className="mt-6 pt-4 border-t border-gray-100">
               <button
-                className="w-full min-h-[46px] bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center gap-2 p-3 rounded-full font-black text-xs sm:text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all cursor-pointer"
+                className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 px-6 rounded-lg font-montserrat font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg cursor-pointer"
                 onClick={() => handleOrderPaket('Paket Rumah (10 Set)', qtyPaket1)}
                 type="button"
               >
@@ -111,61 +99,60 @@ export default function PackageSelector({
             </div>
           </div>
 
-          {/* PAKET 2: RUKO (HIGHLIGHTED BEST SELLER) */}
-          <div className="bg-white p-6 sm:p-7 rounded-2xl border-2 border-[#0284c7] flex flex-col justify-between shadow-lg relative">
-            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#0284c7] text-white px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider flex items-center gap-1 shadow-sm">
-              <Star className="w-3.5 h-3.5 fill-current text-amber-300" />
-              <span>PALING LARIS</span>
+          {/* Card 2: Paket Ruko (Featured) */}
+          <div className="bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 p-7 border-2 border-orange-500 flex flex-col justify-between relative">
+            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-orange-600 text-white px-4 py-1 rounded-full text-xs font-montserrat font-bold uppercase tracking-wider shadow-sm">
+              ★ PALING LARIS
             </div>
 
             <div className="flex flex-col gap-4 mt-2">
-              <span className="text-xs font-black uppercase text-[#0284c7] bg-blue-50 border border-blue-200 px-3 py-1 rounded-md w-fit">
-                Proyek Ruko 2 - 3 Lantai
+              <span className="bg-orange-100 text-orange-800 text-xs font-montserrat font-bold px-3 py-1 rounded-full uppercase w-fit">
+                Ruko 2 - 3 Lantai
               </span>
               <div>
-                <h3 className="text-xl font-black text-slate-900">
+                <h3 className="text-2xl font-montserrat font-bold text-gray-800">
                   Paket Ruko (25 Set)
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                  Untuk bangun ruko, fasad kaca/ACP, dan cor dak beton bertingkat.
+                <p className="text-sm text-gray-600 mt-1 font-roboto">
+                  Untuk pembangunan ruko, renovasi fasad kaca/ACP, dan cor dak beton bertingkat.
                 </p>
               </div>
 
-              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs sm:text-sm">
-                <span className="font-bold text-slate-900 block mb-2">
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 text-xs sm:text-sm font-roboto">
+                <span className="font-bold text-gray-900 block mb-2 font-montserrat">
                   Kelengkapan Termasuk:
                 </span>
-                <ul className="space-y-2 text-slate-600">
+                <ul className="space-y-2 text-gray-600">
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <Check className="w-4 h-4 text-orange-600 shrink-0" />
                     <span>50 Pcs Main Frame (T: 170cm SNI)</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <Check className="w-4 h-4 text-orange-600 shrink-0" />
                     <span>50 Pcs Cross Brace Silangan</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <Check className="w-4 h-4 text-orange-600 shrink-0" />
                     <span>100 Pcs Joint Pin Pengunci</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Catwalk &amp; Jackbase Siap Sedia</span>
+                    <Check className="w-4 h-4 text-orange-600 shrink-0" />
+                    <span>Catwalk Plat Bordes &amp; Jackbase</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="text-center bg-blue-50/60 p-3 rounded-xl border border-blue-100">
-                <span className="text-xs text-slate-500 font-bold uppercase block">Estimasi Biaya Sewa:</span>
-                <span className="text-2xl font-black text-[#0284c7] mt-0.5 block">
-                  Rp 875.000 <span className="text-xs font-normal text-slate-500">/ Bulan</span>
+              <div className="text-center bg-orange-50/50 p-3 rounded-lg border border-orange-100">
+                <span className="text-xs text-gray-500 font-bold uppercase block">Estimasi Biaya Sewa:</span>
+                <span className="text-2xl font-montserrat font-extrabold text-orange-600 mt-0.5 block">
+                  Rp 875.000 <span className="text-xs font-normal text-gray-500 font-roboto">/ Bulan</span>
                 </span>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-200">
+            <div className="mt-6 pt-4 border-t border-gray-100">
               <button
-                className="w-full min-h-[46px] bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center gap-2 p-3 rounded-full font-black text-xs sm:text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all cursor-pointer"
+                className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 px-6 rounded-lg font-montserrat font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg cursor-pointer"
                 onClick={() => handleOrderPaket('Paket Ruko (25 Set)', qtyPaket2)}
                 type="button"
               >
@@ -175,60 +162,60 @@ export default function PackageSelector({
             </div>
           </div>
 
-          {/* PAKET 3: PROYEK BESAR */}
-          <div className="bg-slate-50 p-6 sm:p-7 rounded-2xl border border-slate-200 flex flex-col justify-between shadow-xs hover:shadow-md transition">
+          {/* Card 3: Paket Proyek Besar */}
+          <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-7 border border-gray-100 flex flex-col justify-between">
             <div className="flex flex-col gap-4">
-              <span className="text-xs font-black uppercase text-slate-600 bg-white border border-slate-200 px-3 py-1 rounded-md w-fit">
-                Gedung &amp; Pabrik Industri
+              <span className="bg-gray-100 text-gray-800 text-xs font-montserrat font-bold px-3 py-1 rounded-full uppercase w-fit">
+                Gedung &amp; Pabrik
               </span>
               <div>
-                <h3 className="text-xl font-black text-slate-900">
+                <h3 className="text-2xl font-montserrat font-bold text-gray-800">
                   Paket Proyek (50+ Set)
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                  Untuk kontraktor utama, proyek pabrik, gudang, dan tender BUMN.
+                <p className="text-sm text-gray-600 mt-1 font-roboto">
+                  Untuk kontraktor utama, proyek pabrik, gudang, dan tender dinas BUMN.
                 </p>
               </div>
 
-              <div className="bg-white p-4 rounded-xl border border-slate-200 text-xs sm:text-sm">
-                <span className="font-bold text-slate-900 block mb-2">
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 text-xs sm:text-sm font-roboto">
+                <span className="font-bold text-gray-900 block mb-2 font-montserrat">
                   Kelengkapan Termasuk:
                 </span>
-                <ul className="space-y-2 text-slate-600">
+                <ul className="space-y-2 text-gray-600">
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <Check className="w-4 h-4 text-orange-600 shrink-0" />
                     <span>Roda Caster Heavy Duty (Rem Pengunci)</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Tangga Scaffolding Naik-Turun Pekerja</span>
+                    <Check className="w-4 h-4 text-orange-600 shrink-0" />
+                    <span>Tangga Scaffolding Akses Pekerja</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <Check className="w-4 h-4 text-orange-600 shrink-0" />
                     <span>Pipa Support &amp; Tie Rod Cor</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <Check className="w-4 h-4 text-orange-600 shrink-0" />
                     <span>Surat Dukungan Tender Kontraktor</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="text-center bg-white p-3 rounded-xl border border-slate-200">
-                <span className="text-xs text-slate-500 font-bold uppercase block">Estimasi Biaya Sewa:</span>
-                <span className="text-2xl font-black text-slate-900 mt-0.5 block">
+              <div className="text-center bg-gray-100 p-3 rounded-lg border border-gray-200">
+                <span className="text-xs text-gray-500 font-bold uppercase block">Estimasi Biaya Sewa:</span>
+                <span className="text-2xl font-montserrat font-extrabold text-gray-900 mt-0.5 block">
                   Harga Khusus Proyek
                 </span>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-200">
+            <div className="mt-6 pt-4 border-t border-gray-100">
               <button
-                className="w-full min-h-[46px] bg-slate-900 hover:bg-slate-800 text-white flex items-center justify-center gap-2 p-3 rounded-full font-black text-xs sm:text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all cursor-pointer"
+                className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 px-6 rounded-lg font-montserrat font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg cursor-pointer"
                 onClick={() => handleOrderPaket('Paket Proyek Besar', qtyPaket3)}
                 type="button"
               >
-                <MessageCircle className="w-4 h-4 fill-current text-emerald-400" />
+                <MessageCircle className="w-4 h-4 fill-current text-orange-400" />
                 <span>KONSULTASI PROYEK VIA WA</span>
               </button>
             </div>

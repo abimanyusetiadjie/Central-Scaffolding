@@ -14,15 +14,15 @@ const waMessage = encodeURIComponent(
 const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
 ---
 
-<!-- FLOATING WHATSAPP KHAS PLUGIN WORDPRESS (JOINCHAT / CLICK TO CHAT) -->
+<!-- FLOATING WHATSAPP KHAS INDUSTRI KONSTRUKSI -->
 <aside aria-label="Aksi Cepat Kontak Gudang" class="hidden sm:flex fixed bottom-6 right-6 z-40 items-center gap-3">
-  <!-- Tooltip Message Bubble Khas WP -->
-  <div class="bg-white text-slate-800 text-xs font-bold px-3.5 py-2 rounded-xl shadow-lg border border-slate-200 pointer-events-none hidden md:block animate-fade-in">
-    👋 Butuh scaffolding cepat? <span class="text-emerald-600 font-black">Chat Mandor di sini!</span>
+  <!-- Tooltip Bubble -->
+  <div class="bg-white text-gray-800 text-xs font-montserrat font-bold px-3.5 py-2 rounded-lg shadow-xl border border-gray-200 pointer-events-none hidden md:block animate-fade-in">
+    👋 Butuh scaffolding cepat? <span class="text-orange-600 font-extrabold">Chat Mandor di sini!</span>
   </div>
 
   <a
-    class="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all relative group"
+    class="w-14 h-14 rounded-full bg-orange-600 hover:bg-orange-700 text-white flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all relative group"
     href={waUrl}
     target="_blank"
     rel="noopener noreferrer"
@@ -32,25 +32,24 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
     data-wa-city={city}
   >
     <MessageCircle className="w-8 h-8 fill-current" />
-    <!-- Radar ping animation -->
-    <span class="absolute -top-1 -right-1 w-4 h-4 bg-amber-400 rounded-full animate-ping"></span>
-    <span class="absolute -top-1 -right-1 w-4 h-4 bg-amber-400 rounded-full border-2 border-white"></span>
+    <span class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full animate-ping"></span>
+    <span class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white"></span>
   </a>
 </aside>
 
-<!-- MOBILE STICKY BOTTOM BAR (TOMBOL KONTRAKTOR INDONESIA KHAS HP) -->
-<aside aria-label="Tombol Kontak Cepat Mobile" class="sm:hidden fixed bottom-0 inset-x-0 h-14 z-50 bg-white border-t border-slate-200 shadow-[0_-4px_12px_rgba(0,0,0,0.1)] flex items-stretch">
+<!-- MOBILE STICKY BOTTOM BAR (ERGONOMIS LAYAR HP) -->
+<aside aria-label="Tombol Kontak Cepat Mobile" class="sm:hidden fixed bottom-0 inset-x-0 h-14 z-50 bg-white border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.1)] flex items-stretch">
   <a
-    class="w-[40%] bg-slate-100 hover:bg-slate-200 text-slate-900 font-black flex items-center justify-center gap-1.5 border-r border-slate-200 active:bg-slate-300 transition-colors text-xs uppercase"
+    class="w-[40%] bg-gray-100 hover:bg-gray-200 text-gray-900 font-montserrat font-bold flex items-center justify-center gap-1.5 border-r border-gray-200 active:bg-gray-300 transition-colors text-xs uppercase"
     href={`tel:${siteConfig.phone}`}
     aria-label="Telepon Langsung Gudang"
   >
-    <Phone className="w-4 h-4 text-[#0284c7]" />
+    <Phone className="w-4 h-4 text-orange-600" />
     <span>TELEPON</span>
   </a>
 
   <a
-    class="w-[60%] bg-[#25D366] hover:bg-[#20bd5a] text-white font-black flex items-center justify-center gap-2 active:bg-[#1da851] transition-colors text-xs uppercase tracking-wider"
+    class="w-[60%] bg-orange-600 hover:bg-orange-700 text-white font-montserrat font-bold flex items-center justify-center gap-2 active:bg-orange-800 transition-colors text-xs uppercase tracking-wider"
     href={waUrl}
     target="_blank"
     rel="noopener noreferrer"
