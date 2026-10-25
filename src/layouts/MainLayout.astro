@@ -1,0 +1,102 @@
+---
+import { siteConfig } from '../data/siteConfig';
+import SchemaLD from '../components/seo/SchemaLD.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import FloatingWA from '../components/layout/FloatingWA.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  city?: string;
+  coveredDistricts?: string[];
+  canonicalUrl?: string;
+  ogImage?: string;
+}
+
+const {
+  city = siteConfig.warehouseAddress.city,
+  coveredDistricts = [],
+  title = `Sewa & Jual Beli Scaffolding ${city} | Stok Gudang Siap Kirim — ${siteConfig.businessName}`,
+  description = `Pusat sewa (rental) dan jual beli scaffolding baru & bekas rekondisi di ${city}. Stok gudang ${siteConfig.stats.readyStockSets}, pipa tebal ${siteConfig.stats.pipeThickness} standar SNI, kirim cepat armada sendiri.`,
+  canonicalUrl = Astro.url?.href || siteConfig.siteUrl,
+  ogImage = `${siteConfig.siteUrl}/og-banner.svg`,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Geo Meta Tags for Local SEO -->
+    <meta name="geo.region" content="ID-BT" />
+    <meta name="geo.placename" content={city} />
+    <meta
+      name="geo.position"
+      content={`${siteConfig.warehouseAddress.coordinates.latitude};${siteConfig.warehouseAddress.coordinates.longitude}`}
+    />
+    <meta
+      name="ICBM"
+      content={`${siteConfig.warehouseAddress.coordinates.latitude}, ${siteConfig.warehouseAddress.coordinates.longitude}`}
+    />
+
+    <!-- OpenGraph / Facebook / WhatsApp Preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content={siteConfig.businessName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content={`${siteConfig.businessName} - Sewa & Jual Beli Scaffolding - Stok Gudang Siap Kirim`}
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Google Fonts & Material Symbols for Stitch UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400..700,0..1,-50..200&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JSON-LD Structured Data (HomeAndConstructionBusiness, OfferCatalog, FAQPage) -->
+    <SchemaLD city={city} url={canonicalUrl} />
+  </head>
+  <body class="bg-[#faf8ff] text-[#131b2e] font-sans antialiased selection:bg-[#FACC15] selection:text-[#111827] min-h-screen flex flex-col pb-20 md:pb-0">
+    <Navbar city={city} coveredDistricts={coveredDistricts} />
+    <main id="main-content" class="flex-grow">
+      <slot />
+    </main>
+    <Footer city={city} />
+    <FloatingWA city={city} />
+
+    <script>
+      import { initWhatsAppTracking } from '../utils/analytics';
+      initWhatsAppTracking();
+    </script>
+  </body>
+</html>

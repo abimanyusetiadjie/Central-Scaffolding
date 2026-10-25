@@ -1,0 +1,171 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+export interface Props {
+  city?: string;
+}
+
+const { city = siteConfig.warehouseAddress.city } = Astro.props;
+
+const sewaText = encodeURIComponent(
+  `Halo Admin ${siteConfig.businessName}, saya mau sewa scaffolding untuk proyek di ${city}. Mohon info rincian & ketersediaan stok.`
+);
+const waSewaUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${sewaText}`;
+
+const beliText = encodeURIComponent(
+  `Halo Admin ${siteConfig.businessName}, saya mau beli scaffolding (baru/rekondisi) untuk dikirim ke ${city}. Mohon info harga grosir & stok.`
+);
+const waBeliUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${beliText}`;
+---
+
+<!-- 2. SIMPLE 2-CHOICE CARDS ("MAU SEWA ATAU MAU BELI?") -->
+<section
+  id="sewa-atau-beli"
+  aria-labelledby="service-split-title"
+  class="w-full bg-surface-container-low py-12 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-surface-container-highest scroll-mt-24 md:scroll-mt-32"
+>
+  <div class="max-w-7xl mx-auto flex flex-col gap-8">
+    <!-- Section Header -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b-4 border-primary pb-4">
+      <div>
+        <div class="inline-block bg-tertiary-fixed text-on-tertiary-fixed px-3.5 py-1 font-label-md text-xs sm:text-sm uppercase rounded mb-2 border border-tertiary-container font-bold">
+          PRAKTIS &amp; TIDAK RIBET
+        </div>
+        <h2
+          id="service-split-title"
+          class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl uppercase text-primary font-extrabold"
+        >
+          PILIH KEBUTUHAN PROYEK ANDA DI {city.toUpperCase()}
+        </h2>
+      </div>
+      <p class="font-body-xl text-base sm:text-body-xl text-on-surface-variant font-bold">
+        Tentukan skema terbaik untuk efisiensi anggaran lapangan
+      </p>
+    </div>
+
+    <!-- 2 Major High-Contrast Choice Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+      <!-- CARD A: SEWA -->
+      <div class="bg-surface-container-lowest p-6 sm:p-8 rounded-2xl border-4 border-primary shadow-xl flex flex-col justify-between">
+        <div class="flex flex-col gap-5">
+          <div class="flex items-center justify-between gap-2">
+            <span class="bg-tertiary-fixed text-on-tertiary-fixed px-3.5 py-1.5 rounded-lg font-label-md text-xs sm:text-sm uppercase border border-tertiary-container font-bold">
+              ★ PALING HEMAT UNTUK PROYEK RENOVASI
+            </span>
+            <span class="material-symbols-outlined text-primary text-[36px]">event_repeat</span>
+          </div>
+
+          <div class="border-b-2 border-surface-container pb-3">
+            <h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase text-primary font-extrabold">
+              MAU SEWA SCAFFOLDING
+            </h3>
+            <p class="font-body-lg text-base sm:text-body-lg text-on-surface-variant mt-1">
+              Sistem sewa fleksibel harian, mingguan, atau bulanan tanpa beban simpan alat.
+            </p>
+          </div>
+
+          <div class="bg-surface-container-low p-5 rounded-xl border-2 border-surface-container-highest">
+            <span class="font-label-md text-xs uppercase text-on-surface-variant font-bold">HARGA SEWA MULAI DARI</span>
+            <div class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-primary mt-0.5 font-extrabold">
+              Rp 35.000 <span class="text-base sm:text-lg text-on-surface-variant font-bold">/ Set / Bulan</span>
+            </div>
+            <span class="font-label-md text-sm text-secondary font-bold block mt-1">
+              ✓ Tersedia Paket Sewa Harian &amp; Mingguan (Min. Mulai 5 Set)
+            </span>
+          </div>
+
+          <ul class="flex flex-col gap-3 font-body-lg text-base sm:text-body-lg text-on-surface">
+            <li class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-secondary text-[28px] shrink-0 mt-0.5">check_circle</span>
+              <span><strong>Minimum Sewa Fleksibel:</strong> Bisa sewa 1 minggu, 2 minggu, atau bulanan sesuai durasi tukang.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-secondary text-[28px] shrink-0 mt-0.5">check_circle</span>
+              <span><strong>Jaminan Tukar Unit:</strong> Bebas ganti pipa/komponen jika ada cacat tanpa dipersulit.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-secondary text-[28px] shrink-0 mt-0.5">check_circle</span>
+              <span><strong>Hitungan Akurat:</strong> Konsultasi gratis rumus kebutuhan jumlah set scaffolding &amp; aksesoris.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-8 pt-5 border-t-2 border-surface-container">
+          <a
+            class="w-full min-h-[58px] bg-secondary hover:bg-on-secondary-container text-on-secondary flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-headline-md text-base sm:text-lg uppercase border-2 border-on-secondary-fixed shadow-[0_4px_0_#002109] active:translate-y-[2px] transition-all"
+            href={waSewaUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-wa-source="service_split_sewa"
+            data-wa-mode="SEWA"
+            data-wa-city={city}
+          >
+            <span class="material-symbols-outlined text-[28px]">chat</span>
+            <span>TANYA SEWA VIA WHATSAPP</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD B: BELI -->
+      <div class="bg-surface-container-lowest p-6 sm:p-8 rounded-2xl border-4 border-primary shadow-xl flex flex-col justify-between">
+        <div class="flex flex-col gap-5">
+          <div class="flex items-center justify-between gap-2">
+            <span class="bg-tertiary-fixed text-on-tertiary-fixed px-3.5 py-1.5 rounded-lg font-label-md text-xs sm:text-sm uppercase border border-tertiary-container font-bold">
+              ★ INVESTASI TERBAIK KONTRAKTOR
+            </span>
+            <span class="material-symbols-outlined text-primary text-[36px]">store</span>
+          </div>
+
+          <div class="border-b-2 border-surface-container pb-3">
+            <h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase text-primary font-extrabold">
+              MAU BELI SCAFFOLDING
+            </h3>
+            <p class="font-body-lg text-base sm:text-body-lg text-on-surface-variant mt-1">
+              Stok baru produksi pabrik langsung atau rekondisi mulus cat ulang siap pakai.
+            </p>
+          </div>
+
+          <div class="bg-surface-container-low p-5 rounded-xl border-2 border-surface-container-highest">
+            <span class="font-label-md text-xs uppercase text-on-surface-variant font-bold">HARGA JUAL LANGSUNG PABRIK</span>
+            <div class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-primary mt-0.5 font-extrabold">
+              Harga Grosir <span class="text-base sm:text-lg text-on-surface-variant font-bold">Partai &amp; Ecer</span>
+            </div>
+            <span class="font-label-md text-sm text-secondary font-bold block mt-1">
+              ✓ Ready Rekondisi Cat Celup Anti Karat + Terima Beli Balik (Buyback)
+            </span>
+          </div>
+
+          <ul class="flex flex-col gap-3 font-body-lg text-base sm:text-body-lg text-on-surface">
+            <li class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-secondary text-[28px] shrink-0 mt-0.5">check_circle</span>
+              <span><strong>Bahan Pipa SNI 1.8mm - 2.0mm:</strong> Pipa hitam galvanis tebal, tahan benturan keras alat proyek.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-secondary text-[28px] shrink-0 mt-0.5">check_circle</span>
+              <span><strong>Rekondisi Grade A:</strong> Pipa lurus, lubang pin presisi, cat celup tebal anti-karat bebas keropos.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-secondary text-[28px] shrink-0 mt-0.5">check_circle</span>
+              <span><strong>Kapasitas Pengiriman Besar:</strong> Siap kirim pickup, truk cold diesel, hingga kontainer proyek BUMN.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-8 pt-5 border-t-2 border-surface-container">
+          <a
+            class="w-full min-h-[58px] bg-secondary hover:bg-on-secondary-container text-on-secondary flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-headline-md text-base sm:text-lg uppercase border-2 border-on-secondary-fixed shadow-[0_4px_0_#002109] active:translate-y-[2px] transition-all"
+            href={waBeliUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-wa-source="service_split_jual"
+            data-wa-mode="BELI"
+            data-wa-city={city}
+          >
+            <span class="material-symbols-outlined text-[28px]">chat</span>
+            <span>TANYA BELI VIA WHATSAPP</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

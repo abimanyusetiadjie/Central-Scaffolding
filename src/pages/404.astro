@@ -1,0 +1,94 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { siteConfig } from '../data/siteConfig';
+import locations from '../data/locations.json';
+import { AlertTriangle, Layers, MessageSquare, Calculator, ArrowLeft } from 'lucide-react';
+
+const waMessage = encodeURIComponent(
+  `Halo Admin Gudang *${siteConfig.businessName}*, saya mau tanya harga *Sewa / Jual Beli Scaffolding*. Mohon dibantu.`
+);
+const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
+---
+
+<MainLayout
+  title={`Halaman Tidak Ditemukan — ${siteConfig.businessName}`}
+  description={`Halaman yang Anda cari tidak ditemukan. Silakan kembali ke daftar barang sewa & jual beli scaffolding ${siteConfig.businessName} atau hubungi WhatsApp gudang.`}
+>
+  <section
+    aria-labelledby="error-404-heading"
+    class="bg-slate-50 text-slate-900 py-14 sm:py-24 border-b-2 border-slate-200"
+  >
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white border-2 border-amber-400 rounded-2xl shadow-lg p-6 sm:p-10 text-center">
+        <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-900 font-display font-bold text-sm px-4 py-2 rounded-xl border border-amber-300 mb-5">
+          <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />
+          <span>Halaman Tidak Ditemukan (Error 404)</span>
+        </div>
+
+        <h1
+          id="error-404-heading"
+          class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight leading-tight mb-4"
+        >
+          Maaf Pak/Bu, Alamat Halaman Ini Tidak Tersedia
+        </h1>
+
+        <p class="font-sans text-lg text-slate-700 leading-relaxed mb-8">
+          Silakan tekan tombol di bawah ini untuk melihat daftar barang scaffolding kami atau langsung chat WhatsApp admin gudang.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mb-8">
+          <a
+            href="/#katalog"
+            class="inline-flex items-center justify-center gap-2.5 bg-amber-400 hover:bg-amber-500 text-slate-950 font-display font-extrabold text-lg px-6 py-4 min-h-[56px] border-2 border-slate-900 rounded-xl transition-colors"
+          >
+            <Layers className="w-5 h-5 shrink-0" />
+            <span>Lihat Daftar Barang</span>
+          </a>
+
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-wa-source="error_404"
+            data-wa-mode="SEWA & BELI"
+            data-wa-city={siteConfig.warehouseAddress.city}
+            class="inline-flex items-center justify-center gap-2.5 bg-green-600 hover:bg-green-700 text-white font-display font-extrabold text-lg px-6 py-4 min-h-[56px] rounded-xl shadow-md transition-colors"
+          >
+            <MessageSquare className="w-5 h-5 shrink-0" />
+            <span>Chat WhatsApp Gudang</span>
+          </a>
+        </div>
+
+        <div class="pt-6 border-t border-slate-200">
+          <span class="font-display font-bold text-sm text-slate-600 block mb-3">
+            Atau Pilih Halaman Wilayah Pengiriman:
+          </span>
+          <div class="flex flex-wrap justify-center gap-2">
+            <a
+              href="/"
+              class="inline-flex items-center gap-1.5 font-display font-bold text-sm bg-slate-100 hover:bg-amber-100 text-slate-800 border border-slate-300 px-3.5 py-2 rounded-lg transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Halaman Utama</span>
+            </a>
+            <a
+              href="/#kalkulator-sewa"
+              class="inline-flex items-center gap-1.5 font-display font-bold text-sm bg-slate-100 hover:bg-amber-100 text-slate-800 border border-slate-300 px-3.5 py-2 rounded-lg transition-colors"
+            >
+              <Calculator className="w-4 h-4" />
+              <span>Form Pesan Cepat</span>
+            </a>
+            {locations.map((loc) => (
+              <a
+                href={`/area/${loc.slug}`}
+                class="inline-flex items-center font-display font-bold text-sm bg-slate-100 hover:bg-amber-100 text-slate-800 border border-slate-300 px-3.5 py-2 rounded-lg transition-colors"
+              >
+                Area {loc.cityName}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

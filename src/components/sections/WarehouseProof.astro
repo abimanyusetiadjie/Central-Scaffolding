@@ -1,0 +1,147 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+export interface Props {
+  city?: string;
+}
+
+const { city = siteConfig.warehouseAddress.city } = Astro.props;
+
+const waOngkirMessage = encodeURIComponent(
+  `Halo Admin ${siteConfig.businessName}, saya mau cek ongkos kirim scaffolding ke lokasi proyek saya di ${city}. Apakah armada ready kirim hari ini?`
+);
+const waOngkirUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waOngkirMessage}`;
+
+const mapsUrl = `https://maps.google.com/?q=${encodeURIComponent(`${siteConfig.businessName} ${siteConfig.warehouseAddress.district} ${siteConfig.warehouseAddress.city}`)}`;
+---
+
+<!-- 5. WAREHOUSE LOCATION & OPERASIONAL -->
+<section
+  id="lokasi-gudang"
+  aria-labelledby="warehouse-heading"
+  class="w-full bg-surface-container py-12 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-surface-container-highest scroll-mt-24 md:scroll-mt-32"
+>
+  <div class="max-w-7xl mx-auto flex flex-col gap-8">
+    <div class="border-b-4 border-primary pb-space-xs">
+      <span class="bg-tertiary-fixed text-on-tertiary-fixed px-space-sm py-1 rounded font-label-md text-xs sm:text-label-md uppercase font-bold">
+        TITIK PENGAMBILAN &amp; ARMADA
+      </span>
+      <h2
+        id="warehouse-heading"
+        class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl uppercase text-primary mt-1 font-extrabold"
+      >
+        LOKASI GUDANG PUSAT &amp; JAM OPERASIONAL
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      <!-- Google Maps Integration Mockup Card -->
+      <div class="lg:col-span-7 bg-surface-container-lowest p-space-sm rounded-xl border-4 border-primary shadow-lg flex flex-col">
+        <div
+          class="w-full h-[320px] sm:h-[380px] md:h-[420px] bg-cover bg-center rounded-lg relative overflow-hidden"
+          data-location={`Gudang ${siteConfig.businessName}, ${siteConfig.warehouseAddress.street}, ${siteConfig.warehouseAddress.district}, ${siteConfig.warehouseAddress.city}`}
+          style={`background-image: url('${siteConfig.images.warehouseMap}')`}
+        >
+          <!-- High-Contrast Map Card Overlay -->
+          <div class="absolute top-4 left-4 bg-primary text-on-primary p-3 sm:p-space-sm rounded-lg shadow-xl max-w-xs border-2 border-surface-container-lowest">
+            <div class="flex items-center gap-1 font-headline-md text-sm sm:text-headline-md text-tertiary-fixed font-bold">
+              <span class="material-symbols-outlined text-[20px] sm:text-[24px]">warehouse</span>
+              Gudang Pusat {siteConfig.warehouseAddress.city}
+            </div>
+            <p class="font-label-md text-xs sm:text-label-md text-surface-container-highest mt-1">
+              Akses Jalan Utama Dua Jalur (Bebas Masuk Truk Tronton, Fuso &amp; Kontainer)
+            </p>
+          </div>
+
+          <div class="absolute bottom-4 right-4">
+            <a
+              class="bg-secondary hover:bg-on-secondary-container text-on-secondary px-3.5 sm:px-space-md py-2 sm:py-space-xs rounded-lg font-label-lg text-xs sm:text-label-lg uppercase flex items-center gap-1 shadow-lg border-2 border-on-secondary-fixed transition-colors font-bold"
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="material-symbols-outlined text-[18px] sm:text-[20px]">directions</span>
+              Buka Rute Maps
+            </a>
+          </div>
+        </div>
+
+        <div class="p-space-sm font-label-md text-xs sm:text-label-md text-on-surface flex flex-wrap items-center justify-between gap-2">
+          <span>Koordinat: {siteConfig.warehouseAddress.coordinates.latitude}, {siteConfig.warehouseAddress.coordinates.longitude} ({siteConfig.warehouseAddress.district}, {siteConfig.warehouseAddress.city})</span>
+          <span class="text-secondary font-bold">✓ Parkir Luas Bebas Kuli Liar</span>
+        </div>
+      </div>
+
+      <!-- Readable Warehouse Contact & Logistics Data -->
+      <div class="lg:col-span-5 bg-surface-container-lowest p-6 sm:p-space-lg rounded-xl border-4 border-primary flex flex-col justify-between shadow-lg">
+        <div class="flex flex-col gap-5">
+          <div class="flex flex-col gap-1">
+            <span class="font-label-md text-xs sm:text-label-md uppercase text-secondary font-bold">ALAMAT LENGKAP BONGKAR MUAT:</span>
+            <p class="font-headline-md text-lg sm:text-headline-md text-primary font-bold">
+              {siteConfig.warehouseAddress.street}, {siteConfig.warehouseAddress.district}, Kota {siteConfig.warehouseAddress.city}, {siteConfig.warehouseAddress.province} {siteConfig.warehouseAddress.postalCode}
+            </p>
+            <p class="font-body-lg text-sm sm:text-body-lg text-on-surface-variant font-bold mt-1">
+              (Akses cor beton dua jalur, bebas lewati truk fuso &amp; kontainer proyek)
+            </p>
+          </div>
+
+          <div class="bg-tertiary-fixed/30 p-4 sm:p-space-md rounded-lg border-2 border-tertiary-fixed">
+            <span class="font-label-md text-xs sm:text-label-md uppercase text-on-tertiary-fixed font-bold">JAM BUKA GUDANG:</span>
+            <p class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary uppercase font-extrabold">
+              SENIN - MINGGU: 07.00 - 18.00 WIB
+            </p>
+            <span class="inline-block bg-secondary text-on-secondary font-label-md text-xs sm:text-label-md px-2.5 sm:px-space-sm py-0.5 rounded uppercase mt-1 font-bold">
+              BUKA SETIAP HARI TANPA LIBUR
+            </span>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <span class="font-label-md text-xs sm:text-label-md uppercase text-on-surface-variant font-bold">KONTAK RESMI MANDOR GUDANG:</span>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-[24px] sm:text-[28px]">phone_in_talk</span>
+              <a href={`tel:${siteConfig.phone}`} class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary font-bold hover:underline">
+                {siteConfig.phoneDisplay}
+              </a>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary text-[24px] sm:text-[28px]">support_agent</span>
+              <a
+                href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent('Halo Mandor Logistik, saya mau tanya stok scaffolding di gudang.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-headline-md text-base sm:text-headline-md text-secondary font-bold hover:underline"
+              >
+                {siteConfig.phoneDisplay} (Mandor Logistik Gudang)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 mt-6">
+          <a
+            class="w-full min-h-[54px] sm:min-h-[56px] bg-primary hover:bg-primary-container text-on-primary flex items-center justify-center gap-1 rounded-lg font-headline-md text-base sm:text-headline-md uppercase border-2 border-primary-fixed-dim shadow-[0_4px_0_#00164e] active:translate-y-[2px] transition-all font-bold"
+            href={mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="material-symbols-outlined text-[24px]">location_on</span>
+            <span>Buka Maps</span>
+          </a>
+
+          <a
+            class="w-full min-h-[54px] sm:min-h-[56px] bg-secondary hover:bg-on-secondary-container text-on-secondary flex items-center justify-center gap-1 rounded-lg font-headline-md text-base sm:text-headline-md uppercase border-2 border-on-secondary-fixed shadow-[0_4px_0_#002109] active:translate-y-[2px] transition-all font-bold"
+            href={waOngkirUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-wa-source="warehouse_ongkir"
+            data-wa-mode="SEWA & BELI"
+            data-wa-city={city}
+          >
+            <span class="material-symbols-outlined text-[24px]">local_shipping</span>
+            <span>Cek Ongkir</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

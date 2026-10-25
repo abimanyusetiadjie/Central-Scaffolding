@@ -1,0 +1,128 @@
+---
+import { siteConfig, getFaqItems } from '../../data/siteConfig';
+import locations from '../../data/locations.json';
+import products from '../../data/products.json';
+
+export interface Props {
+  city?: string;
+  url?: string;
+}
+
+const {
+  city = siteConfig.warehouseAddress.city,
+  url = Astro.url?.href || siteConfig.siteUrl,
+} = Astro.props;
+
+const faqItems = getFaqItems(city);
+
+const areaServedList = Array.from(
+  new Set([city, ...locations.map((loc) => loc.cityName)])
+).map((cityName) => ({
+  '@type': 'City',
+  name: cityName,
+}));
+
+const offerCatalogSchema = {
+  '@type': 'OfferCatalog',
+  '@id': `${siteConfig.siteUrl}/#offer-catalog`,
+  name: `Katalog Sewa & Jual Beli Scaffolding ${city}`,
+  itemListElement: [
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: `Layanan Sewa Scaffolding Set Lengkap (${city})`,
+        description: `Rental perancah besi Main Frame 170cm & 190cm, Cross Brace, Joint Pin, Catwalk, Jack Base, dan U-Head untuk area ${city} dengan pengiriman armada sendiri.`,
+      },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: `Jual Beli Scaffolding Baru & Bekas Rekondisi (${city})`,
+        description: `Penjualan scaffolding baru standar SNI (ketebalan pipa ${siteConfig.stats.pipeThickness}), unit bekas rekondisi layak pakai, dan layanan buyback scaffolding eks proyek di ${city}.`,
+      },
+    },
+    ...products.map((item) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Product',
+        name: item.name,
+        description: `${item.description} Spesifikasi: ${item.specs.dimensions}, ${item.specs.pipeDiameter}, Ketebalan ${item.specs.thickness}.`,
+        category: item.category,
+      },
+    })),
+  ],
+};
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HomeAndConstructionBusiness',
+  '@id': `${siteConfig.siteUrl}/#organization`,
+  name: `${siteConfig.businessName} — Sewa & Jual Scaffolding ${city}`,
+  description: siteConfig.tagline,
+  url: url,
+  telephone: `+${siteConfig.whatsappNumber}`,
+  email: siteConfig.email,
+  priceRange: 'Rp',
+  image: [siteConfig.images.heroTruck, siteConfig.images.logo],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: siteConfig.warehouseAddress.street,
+    addressLocality: siteConfig.warehouseAddress.district,
+    addressRegion: `${siteConfig.warehouseAddress.city}, ${siteConfig.warehouseAddress.province}`,
+    postalCode: siteConfig.warehouseAddress.postalCode,
+    addressCountry: siteConfig.warehouseAddress.countryCode,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: siteConfig.warehouseAddress.coordinates.latitude,
+    longitude: siteConfig.warehouseAddress.coordinates.longitude,
+  },
+  areaServed: areaServedList,
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday',
+      ],
+      opens: '07:00',
+      closes: '18:00',
+    },
+  ],
+  hasOfferCatalog: offerCatalogSchema,
+};
+
+const faqPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+const structuredData = [
+  localBusinessSchema,
+  {
+    '@context': 'https://schema.org',
+    ...offerCatalogSchema,
+  },
+  faqPageSchema,
+];
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(structuredData)}
+/>

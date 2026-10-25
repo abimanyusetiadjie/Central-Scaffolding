@@ -1,0 +1,157 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+export interface Props {
+  city?: string;
+  coveredDistricts?: string[];
+  deliveryEstimate?: string;
+  whatsappNumber?: string;
+}
+
+const {
+  city = siteConfig.warehouseAddress.city,
+  coveredDistricts = [
+    'Cipondoh',
+    'Karawaci',
+    'Ciledug',
+    'BSD Serpong',
+    'Cikupa',
+    'Balaraja',
+    'Jakarta Barat',
+  ],
+  deliveryEstimate = '2 Jam (Jabodetabek & Banten)',
+  whatsappNumber = siteConfig.whatsappNumber,
+} = Astro.props;
+
+const waMessage = encodeURIComponent(
+  `Halo Admin ${siteConfig.businessName}, saya mau tanya sewa/beli scaffolding untuk lokasi proyek di ${city}. Apakah siap kirim hari ini?`
+);
+const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
+---
+
+<!-- 1. HERO BANNER -->
+<section
+  id="beranda"
+  aria-labelledby="hero-title"
+  class="w-full bg-primary text-on-primary py-10 sm:py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-on-primary-fixed scroll-mt-24 md:scroll-mt-32"
+>
+  <div class="max-w-7xl mx-auto flex flex-col gap-6 sm:gap-8">
+    <!-- Top Status Badge & Delivery Time -->
+    <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+      <div class="inline-flex items-center gap-2 bg-tertiary-fixed text-on-tertiary-fixed px-3.5 sm:px-4 py-2 rounded-lg shadow-md border-2 border-tertiary-container">
+        <span class="material-symbols-outlined text-[22px] sm:text-[24px] text-tertiary" style="font-variation-settings: 'FILL' 1;">
+          verified
+        </span>
+        <span class="font-headline-md text-xs sm:text-label-lg uppercase font-extrabold tracking-wide">
+          READY STOCK {siteConfig.stats.readyStockSets} • SIAP ANTAR HARI INI KE {city.toUpperCase()}
+        </span>
+      </div>
+
+      <div class="inline-flex items-center gap-1.5 bg-primary-container text-secondary-fixed px-3 sm:px-3.5 py-2 rounded-lg border-2 border-primary-fixed-dim text-xs sm:text-sm font-bold uppercase">
+        <span class="material-symbols-outlined text-[20px]">timer</span>
+        <span>ESTIMASI: {deliveryEstimate}</span>
+      </div>
+    </div>
+
+    <!-- Main Headline H1 & Subtitle (Responsive Typography) -->
+    <div class="flex flex-col gap-3 max-w-5xl">
+      <h1
+        id="hero-title"
+        class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero uppercase tracking-tight text-on-primary leading-tight font-extrabold"
+      >
+        SEWA &amp; JUAL SCAFFOLDING {city.toUpperCase()} — SIAP KIRIM KE PROYEK ANDA
+      </h1>
+      <p class="font-body-xl text-body-lg sm:text-body-xl text-surface-variant leading-relaxed font-medium">
+        Pipa baja tebal standar SNI ({siteConfig.stats.pipeThickness}), kuat &amp; aman. Melayani sewa harian, bulanan, dan jual baru / rekondisi super layak pakai untuk wilayah {city} &amp; sekitarnya.
+      </p>
+    </div>
+
+    <!-- Covered Districts Bar for Local SEO Relevance -->
+    {coveredDistricts && coveredDistricts.length > 0 && (
+      <div class="bg-primary-container p-3 sm:p-4 rounded-xl border-2 border-primary-fixed-dim flex flex-wrap items-center gap-2">
+        <span class="inline-flex items-center gap-1 font-headline-md text-xs sm:text-sm text-tertiary-fixed uppercase font-bold shrink-0">
+          <span class="material-symbols-outlined text-[18px]">location_on</span>
+          KECAMATAN DILAYANI ({city.toUpperCase()}):
+        </span>
+        <span class="font-body-lg text-xs sm:text-sm text-surface-variant font-medium">
+          {coveredDistricts.join(' • ')}
+        </span>
+      </div>
+    )}
+
+    <!-- Warehouse Delivery Photo with Hard Framing & High Priority -->
+    <div class="w-full bg-surface-container-lowest p-2.5 sm:p-3.5 rounded-2xl border-4 border-surface-container-highest shadow-2xl">
+      <div class="relative w-full h-[260px] sm:h-[400px] lg:h-[480px] overflow-hidden rounded-xl bg-surface-container">
+        <img
+          alt={`Gudang ${siteConfig.businessName} dan Armada Truk Scaffolding Siap Antar ke ${city}`}
+          class="w-full h-full object-cover"
+          src={siteConfig.images.heroTruck}
+          width="1200"
+          height="600"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+        <div class="absolute bottom-0 inset-x-0 bg-primary/95 text-on-primary p-3.5 sm:p-5 flex flex-wrap items-center justify-between gap-2 sm:gap-3 border-t-2 border-primary-container">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-secondary-container text-[24px] sm:text-[28px]">electric_bolt</span>
+            <span class="font-headline-md text-sm sm:text-base md:text-headline-md uppercase text-secondary-fixed font-bold">
+              ARMADA PICKUP &amp; ENGKEL SIAP ANGKUT
+            </span>
+          </div>
+          <p class="font-label-lg text-xs sm:text-sm md:text-base text-on-primary font-bold">
+            Tiba di lokasi proyek Anda dalam {deliveryEstimate} ({coveredDistricts.slice(0, 4).join(', ')}, dsb.)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gigantic WhatsApp Call-to-Action Button (Clean without Emoji Spam) -->
+    <div class="w-full flex flex-col gap-2">
+      <a
+        class="w-full min-h-[64px] sm:min-h-[76px] bg-secondary hover:bg-on-secondary-container text-on-secondary flex items-center justify-center gap-3 px-4 sm:px-6 py-3.5 sm:py-4 rounded-2xl border-4 border-secondary-container shadow-[0_6px_0_#002109] active:translate-y-1 active:shadow-[0_2px_0_#002109] transition-all text-center cursor-pointer"
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-wa-source="hero_cta"
+        data-wa-mode="SEWA & BELI"
+        data-wa-city={city}
+      >
+        <span class="material-symbols-outlined text-[32px] sm:text-[40px] animate-pulse">chat</span>
+        <span class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl uppercase tracking-tight font-extrabold">
+          PENCET DI SINI UNTUK CHAT WHATSAPP (RESPON CEPAT 1 MENIT)
+        </span>
+      </a>
+      <div class="text-center font-label-md text-xs sm:text-sm text-surface-variant uppercase mt-1 font-semibold">
+        Layanan Konsultasi Langsung dengan Mandor Logistik Gudang • Hubungi: {siteConfig.phoneDisplay}
+      </div>
+    </div>
+
+    <!-- 3 Core Reassurance Badges -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+      <div class="bg-primary-container p-4 sm:p-5 rounded-xl border-2 border-primary-fixed-dim flex items-center gap-3">
+        <span class="material-symbols-outlined text-secondary-container text-[36px] shrink-0">check_circle</span>
+        <div>
+          <div class="font-headline-md text-base sm:text-lg uppercase text-on-primary font-bold">BISA DATANG KE GUDANG</div>
+          <div class="font-body-lg text-xs sm:text-sm text-surface-variant font-medium">Boleh cek fisik barang &amp; ukur ketebalan pipa</div>
+        </div>
+      </div>
+
+      <div class="bg-primary-container p-4 sm:p-5 rounded-xl border-2 border-primary-fixed-dim flex items-center gap-3">
+        <span class="material-symbols-outlined text-tertiary-fixed text-[36px] shrink-0">payments</span>
+        <div>
+          <div class="font-headline-md text-base sm:text-lg uppercase text-on-primary font-bold">BISA BAYAR DI PROYEK (COD)</div>
+          <div class="font-body-lg text-xs sm:text-sm text-surface-variant font-medium">Barang sampai dicek mandor, baru bayar aman</div>
+        </div>
+      </div>
+
+      <div class="bg-primary-container p-4 sm:p-5 rounded-xl border-2 border-primary-fixed-dim flex items-center gap-3">
+        <span class="material-symbols-outlined text-secondary-container text-[36px] shrink-0">published_with_changes</span>
+        <div>
+          <div class="font-headline-md text-base sm:text-lg uppercase text-on-primary font-bold">GARANSI TUKAR PIPA CACAT</div>
+          <div class="font-body-lg text-xs sm:text-sm text-surface-variant font-medium">Ada yang penyok langsung ditukar tim armada</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <!-- Galvanized Charcoal Background -->
+  <rect width="1200" height="630" fill="#09090B"/>
+
+  <!-- Architectural Blueprint Grid Pattern -->
+  <g stroke="#18181B" stroke-width="1.5">
+    <line x1="0" y1="70" x2="1200" y2="70"/>
+    <line x1="0" y1="140" x2="1200" y2="140"/>
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="280" x2="1200" y2="280"/>
+    <line x1="0" y1="350" x2="1200" y2="350"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="490" x2="1200" y2="490"/>
+    <line x1="0" y1="560" x2="1200" y2="560"/>
+    <line x1="120" y1="0" x2="120" y2="630"/>
+    <line x1="240" y1="0" x2="240" y2="630"/>
+    <line x1="360" y1="0" x2="360" y2="630"/>
+    <line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/>
+    <line x1="840" y1="0" x2="840" y2="630"/>
+    <line x1="960" y1="0" x2="960" y2="630"/>
+    <line x1="1080" y1="0" x2="1080" y2="630"/>
+  </g>
+
+  <!-- Outer Structural Frame & Safety Amber Top/Bottom Bars -->
+  <rect x="24" y="24" width="1152" height="582" stroke="#3F3F46" stroke-width="3" fill="none"/>
+  <rect x="24" y="24" width="1152" height="12" fill="#F59E0B"/>
+  <rect x="24" y="594" width="1152" height="12" fill="#F59E0B"/>
+
+  <!-- Top Brand Header Strip -->
+  <rect x="64" y="72" width="68" height="68" fill="#F59E0B" stroke="#FBBF24" stroke-width="2"/>
+  <text x="80" y="117" fill="#09090B" font-family="monospace" font-weight="800" font-size="32">CS</text>
+
+  <text x="152" y="104" fill="#FFFFFF" font-family="sans-serif" font-weight="800" font-size="30" letter-spacing="1">
+    CENTRAL SCAFFOLDING
+  </text>
+  <text x="152" y="132" fill="#F59E0B" font-family="monospace" font-weight="700" font-size="16" letter-spacing="1.5">
+    SUPPLIER TANGAN PERTAMA // GUDANG &amp; ARMADA SENDIRI
+  </text>
+
+  <!-- Status Badge -->
+  <rect x="64" y="176" width="390" height="40" fill="#EA580C"/>
+  <text x="82" y="202" fill="#FFFFFF" font-family="monospace" font-weight="700" font-size="17" letter-spacing="1">
+    RENTAL MINGGUAN/BULANAN &bull; JUAL BARU &amp; BEKAS
+  </text>
+
+  <!-- Main Headline -->
+  <text x="64" y="282" fill="#FFFFFF" font-family="sans-serif" font-weight="800" font-size="52">
+    Sewa &amp; Jual Beli Scaffolding
+  </text>
+  <text x="64" y="346" fill="#FBBF24" font-family="sans-serif" font-weight="800" font-size="48">
+    Stok Gudang Siap Kirim
+  </text>
+
+  <!-- Sub-description -->
+  <text x="64" y="402" fill="#A1A1AA" font-family="sans-serif" font-weight="500" font-size="22">
+    Main Frame 170/190 cm &bull; Cross Brace &bull; Joint Pin &bull; Catwalk &bull; Jack Base &bull; U-Head
+  </text>
+
+  <!-- Bottom Technical Spec Cards -->
+  <g>
+    <rect x="64" y="446" width="240" height="106" fill="#18181B" stroke="#3F3F46" stroke-width="2"/>
+    <text x="84" y="478" fill="#A1A1AA" font-family="monospace" font-size="14">KAPASITAS READY</text>
+    <text x="84" y="520" fill="#F59E0B" font-family="monospace" font-weight="700" font-size="30">5.000+ SET</text>
+
+    <rect x="324" y="446" width="260" height="106" fill="#18181B" stroke="#3F3F46" stroke-width="2"/>
+    <text x="344" y="478" fill="#A1A1AA" font-family="monospace" font-size="14">KETEBALAN PIPA SNI</text>
+    <text x="344" y="520" fill="#FFFFFF" font-family="monospace" font-weight="700" font-size="28">1.8 - 2.0 MM</text>
+
+    <rect x="604" y="446" width="240" height="106" fill="#18181B" stroke="#3F3F46" stroke-width="2"/>
+    <text x="624" y="478" fill="#A1A1AA" font-family="monospace" font-size="14">SLA PENGIRIMAN</text>
+    <text x="624" y="520" fill="#F59E0B" font-family="monospace" font-weight="700" font-size="28">&lt; 4 JAM TIBA</text>
+  </g>
+
+  <!-- Right Column CAD Isometric Wireframe Box -->
+  <g>
+    <rect x="876" y="72" width="260" height="480" fill="#18181B" stroke="#F59E0B" stroke-width="2"/>
+    <rect x="876" y="72" width="260" height="36" fill="#09090B"/>
+    <text x="894" y="95" fill="#F59E0B" font-family="monospace" font-weight="700" font-size="14">
+      CAD SPEC // 1 SET UTAMA
+    </text>
+
+    <!-- Scaffolding Tower Wireframe -->
+    <g stroke="#F59E0B" stroke-width="3" stroke-opacity="0.8">
+      <rect x="926" y="138" width="160" height="140" fill="none"/>
+      <rect x="926" y="278" width="160" height="140" fill="none"/>
+      <line x1="926" y1="278" x2="1086" y2="278" stroke="#EA580C" stroke-width="5"/>
+    </g>
+    <g stroke="#F59E0B" stroke-width="2" stroke-opacity="0.5" stroke-dasharray="6 4">
+      <line x1="926" y1="138" x2="1086" y2="278"/>
+      <line x1="1086" y1="138" x2="926" y2="278"/>
+      <line x1="926" y1="278" x2="1086" y2="418"/>
+      <line x1="1086" y1="278" x2="926" y2="418"/>
+    </g>
+    <!-- Base Plates -->
+    <rect x="910" y="418" width="32" height="10" fill="#F59E0B"/>
+    <rect x="1070" y="418" width="32" height="10" fill="#F59E0B"/>
+
+    <text x="896" y="468" fill="#E4E4E7" font-family="monospace" font-weight="700" font-size="14">
+      2x MAIN FRAME (Ø42.7)
+    </text>
+    <text x="896" y="494" fill="#E4E4E7" font-family="monospace" font-weight="700" font-size="14">
+      2x CROSS BRACE
+    </text>
+    <text x="896" y="520" fill="#F59E0B" font-family="monospace" font-weight="700" font-size="14">
+      4x JOINT PIN SHOCK
+    </text>
+  </g>
+</svg>

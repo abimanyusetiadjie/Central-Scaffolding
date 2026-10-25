@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" fill="none">
+  <rect width="800" height="500" fill="#09090B"/>
+  <!-- Blueprint Grid -->
+  <g stroke="#18181B" stroke-width="1">
+    <line x1="0" y1="50" x2="800" y2="50"/><line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="150" x2="800" y2="150"/><line x1="0" y1="200" x2="800" y2="200"/><line x1="0" y1="250" x2="800" y2="250"/><line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="350" x2="800" y2="350"/><line x1="0" y1="400" x2="800" y2="400"/><line x1="0" y1="450" x2="800" y2="450"/>
+    <line x1="100" y1="0" x2="100" y2="500"/><line x1="200" y1="0" x2="200" y2="500"/><line x1="300" y1="0" x2="300" y2="500"/><line x1="400" y1="0" x2="400" y2="500"/><line x1="500" y1="0" x2="500" y2="500"/><line x1="600" y1="0" x2="600" y2="500"/><line x1="700" y1="0" x2="700" y2="500"/>
+  </g>
+  <!-- Warehouse Roof Truss -->
+  <path d="M40 110 L400 40 L760 110 Z" stroke="#3F3F46" stroke-width="3" fill="#18181B"/>
+  <line x1="40" y1="110" x2="40" y2="440" stroke="#52525B" stroke-width="6"/>
+  <line x1="760" y1="110" x2="760" y2="440" stroke="#52525B" stroke-width="6"/>
+  <line x1="20" y1="440" x2="780" y2="440" stroke="#F59E0B" stroke-width="4"/>
+  <!-- Stacked Main Frames Rack 1 -->
+  <g stroke="#F59E0B" stroke-width="4">
+    <rect x="90" y="180" width="160" height="256" fill="#09090B" fill-opacity="0.7"/>
+    <line x1="90" y1="220" x2="250" y2="220"/><line x1="90" y1="260" x2="250" y2="260"/><line x1="90" y1="300" x2="250" y2="300"/><line x1="90" y1="340" x2="250" y2="340"/><line x1="90" y1="380" x2="250" y2="380"/>
+    <line x1="130" y1="180" x2="130" y2="436"/><line x1="210" y1="180" x2="210" y2="436"/>
+  </g>
+  <!-- Stacked Main Frames Rack 2 -->
+  <g stroke="#F59E0B" stroke-width="4">
+    <rect x="310" y="150" width="180" height="286" fill="#09090B" fill-opacity="0.7"/>
+    <line x1="310" y1="195" x2="490" y2="195"/><line x1="310" y1="240" x2="490" y2="240"/><line x1="310" y1="285" x2="490" y2="285"/><line x1="310" y1="330" x2="490" y2="330"/><line x1="310" y1="375" x2="490" y2="375"/>
+    <line x1="355" y1="150" x2="355" y2="436"/><line x1="445" y1="150" x2="445" y2="436"/>
+  </g>
+  <!-- Stacked Catwalk & Jack Base Rack 3 -->
+  <g stroke="#A1A1AA" stroke-width="3">
+    <rect x="550" y="210" width="160" height="226" fill="#18181B"/>
+    <line x1="550" y1="255" x2="710" y2="255"/><line x1="550" y1="300" x2="710" y2="300"/><line x1="550" y1="345" x2="710" y2="345"/><line x1="550" y1="390" x2="710" y2="390"/>
+  </g>
+  <!-- Technical Stamp -->
+  <rect x="60" y="60" width="290" height="36" fill="#F59E0B"/>
+  <text x="75" y="83" fill="#09090B" font-family="monospace" font-weight="bold" font-size="14">STOK FISIK GUDANG // 5.000+ SET</text>
+  <text x="60" y="472" fill="#A1A1AA" font-family="monospace" font-size="13">ZONA A1-A4: MAIN FRAME 170CM &amp; 190CM READY STOCK</text>
+</svg>

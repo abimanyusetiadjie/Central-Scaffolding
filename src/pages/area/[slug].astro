@@ -1,0 +1,51 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import ServiceSplit from '../../components/sections/ServiceSplit.astro';
+import PackageSelector from '../../components/islands/PackageSelector';
+import CatalogFilter from '../../components/islands/CatalogFilter';
+import WarehouseProof from '../../components/sections/WarehouseProof.astro';
+import FaqSection from '../../components/sections/FaqSection.astro';
+import locations from '../../data/locations.json';
+import { siteConfig, type TargetLocation } from '../../data/siteConfig';
+
+export interface Props {
+  locationData: TargetLocation;
+}
+
+export async function getStaticPaths() {
+  return (locations as TargetLocation[]).map((loc) => ({
+    params: { slug: loc.slug },
+    props: { locationData: loc },
+  }));
+}
+
+const { locationData } = Astro.props;
+---
+
+<MainLayout
+  city={locationData.cityName}
+  coveredDistricts={locationData.coveredDistricts}
+  description={locationData.metaDescription}
+  title={locationData.metaTitle}
+>
+  <Hero
+    city={locationData.cityName}
+    coveredDistricts={locationData.coveredDistricts}
+    deliveryEstimate={locationData.deliveryEstimate}
+    whatsappNumber={siteConfig.whatsappNumber}
+  />
+  <ServiceSplit city={locationData.cityName} />
+  <PackageSelector
+    client:visible
+    defaultLocation={locationData.cityName}
+    whatsappNumber={siteConfig.whatsappNumber}
+  />
+  <CatalogFilter
+    client:visible
+    city={locationData.cityName}
+    whatsappNumber={siteConfig.whatsappNumber}
+  />
+  <WarehouseProof city={locationData.cityName} />
+  <FaqSection city={locationData.cityName} />
+</MainLayout>

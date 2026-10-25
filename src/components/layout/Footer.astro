@@ -1,0 +1,152 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+import locations from '../../data/locations.json';
+
+export interface Props {
+  city?: string;
+}
+
+const { city = siteConfig.warehouseAddress.city } = Astro.props;
+
+const waMessage = encodeURIComponent(
+  `Halo Admin ${siteConfig.businessName}, minta tolong info pengiriman scaffolding dan shareloc gudang untuk proyek di ${city}.`
+);
+const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="w-full bg-primary border-t-4 border-primary-container text-on-primary mt-space-xl pb-24 md:pb-0">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-space-xl">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+      <!-- Col 1: Brand Logo & Description -->
+      <div class="flex flex-col gap-3">
+        <div class="flex items-center gap-2 mb-1">
+          <img
+            alt={`Logo ${siteConfig.businessName}`}
+            class="h-10 w-auto object-contain bg-surface-container-lowest p-1 rounded-lg"
+            src={siteConfig.images.logo}
+            width="40"
+            height="40"
+            loading="lazy"
+          />
+          <span class="font-headline-md text-base sm:text-headline-md uppercase text-on-primary font-bold">
+            {siteConfig.businessName}
+          </span>
+        </div>
+        <p class="font-body-lg text-sm sm:text-body-lg text-surface-variant leading-relaxed">
+          Penyedia sewa scaffolding pipa baja, ladder frame, clamp, jack base, dan perlengkapan cor berstandar SNI &amp; K3 konstruksi tebal dan teruji kokoh.
+        </p>
+      </div>
+
+      <!-- Col 2: Alamat Gudang Pusat (Consistent Single Source of Truth) -->
+      <div class="flex flex-col gap-2 border-l-2 border-outline/30 pl-4 md:pl-space-md">
+        <span class="font-headline-md text-base sm:text-headline-md uppercase text-tertiary-fixed mb-1 font-bold">
+          ALAMAT GUDANG PUSAT
+        </span>
+        <p class="font-body-lg text-sm sm:text-body-lg text-on-primary leading-relaxed">
+          {siteConfig.warehouseAddress.street}, {siteConfig.warehouseAddress.district}, Kota {siteConfig.warehouseAddress.city}, {siteConfig.warehouseAddress.province}
+        </p>
+        <span class="font-label-md text-xs sm:text-label-md text-secondary-fixed mt-2 font-bold uppercase">
+          AREA LAYANAN CEPAT:
+        </span>
+        <p class="font-body-lg text-xs sm:text-sm text-surface-variant">
+          Tangerang, Jakarta Barat, Jakarta Selatan, BSD Serpong, Cikupa Balaraja, Depok, Bekasi &amp; Banten
+        </p>
+      </div>
+
+      <!-- Col 3: Jam Operasional -->
+      <div class="flex flex-col gap-2 border-l-2 border-outline/30 pl-4 md:pl-space-md">
+        <span class="font-headline-md text-base sm:text-headline-md uppercase text-tertiary-fixed mb-1 font-bold">
+          JAM OPERASIONAL &amp; BONGKAR
+        </span>
+        <div class="bg-primary-container p-3 sm:p-space-sm rounded-lg border-2 border-primary-fixed-dim">
+          <p class="font-headline-lg-mobile text-sm sm:text-headline-lg-mobile text-surface-container-lowest font-bold">
+            BUKA SETIAP HARI
+          </p>
+          <p class="font-body-xl text-lg sm:text-body-xl text-on-primary-container font-extrabold">
+            07.00 - 18.00 WIB
+          </p>
+        </div>
+        <p class="font-label-md text-xs sm:text-label-md text-surface-variant mt-1">
+          Siap kirim armada pickup &amp; truk mandiri hari ini juga.
+        </p>
+      </div>
+
+      <!-- Col 4: Hubungi Mandor Logistik -->
+      <div class="flex flex-col gap-2 border-l-2 border-outline/30 pl-4 md:pl-space-md">
+        <span class="font-headline-md text-base sm:text-headline-md uppercase text-tertiary-fixed mb-1 font-bold">
+          HUBUNGI MANDOR LOGISTIK
+        </span>
+        <div class="flex flex-col gap-3">
+          <a
+            class="font-headline-md text-base sm:text-headline-md text-[#FACC15] hover:underline flex items-center gap-2 font-bold"
+            href={`tel:${siteConfig.phone}`}
+          >
+            <span class="material-symbols-outlined text-[24px]">phone_in_talk</span>
+            <span>{siteConfig.phoneDisplay}</span>
+          </a>
+          <a
+            class="font-headline-md text-sm sm:text-headline-md text-secondary-container hover:underline flex items-center gap-2 font-bold"
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-wa-source="footer_wa"
+            data-wa-mode="SEWA & BELI"
+            data-wa-city={city}
+          >
+            <span class="material-symbols-outlined text-[24px]">chat</span>
+            <span>WhatsApp Darurat 24/7</span>
+          </a>
+          <span class="font-label-md text-xs sm:text-label-md text-surface-variant">
+            Email: {siteConfig.email}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO Area Links (Programmatic Local SEO Directory) -->
+    <div class="border-t-2 border-outline/30 pt-6 mb-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+        <span class="font-headline-md text-sm sm:text-base md:text-headline-md uppercase text-tertiary-fixed font-bold">
+          Wilayah Pengiriman Cepat (Jabodetabek &amp; Banten):
+        </span>
+        <a href="#beranda" class="text-secondary-fixed hover:underline font-label-md text-xs sm:text-sm uppercase font-bold">
+          Kembali ke Beranda Utama &uarr;
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-2">
+        {locations.map((loc) => (
+          <a
+            href={`/area/${loc.slug}`}
+            class="bg-primary-container hover:bg-secondary text-on-primary hover:text-on-secondary px-3 py-2 rounded border border-primary-fixed-dim text-center transition-all group"
+          >
+            <span class="block font-label-md font-bold text-xs group-hover:underline">
+              {loc.cityName}
+            </span>
+            <span class="block text-[11px] text-tertiary-fixed mt-0.5">
+              {loc.deliveryEstimate.split('(')[0].trim()}
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Bottom Copyright & Certifications -->
+    <div class="border-t-2 border-outline/40 pt-4 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p class="font-label-md text-xs sm:text-label-md text-surface-variant text-center md:text-left">
+        &copy; {currentYear} {siteConfig.businessName} Logistik Konstruksi. SNI &amp; K3 Certified Scaffolding Specialist.
+      </p>
+      <div class="flex items-center gap-4">
+        <span class="font-label-md text-xs sm:text-label-md text-secondary-container flex items-center gap-1 font-bold">
+          <span class="material-symbols-outlined text-[18px] sm:text-[20px]">verified</span>
+          SNI 07-0065
+        </span>
+        <span class="font-label-md text-xs sm:text-label-md text-secondary-container flex items-center gap-1 font-bold">
+          <span class="material-symbols-outlined text-[18px] sm:text-[20px]">verified_user</span>
+          STANDAR K3 KEMNAKER
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>

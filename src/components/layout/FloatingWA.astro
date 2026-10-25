@@ -1,0 +1,66 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+export interface Props {
+  city?: string;
+}
+
+const { city = siteConfig.warehouseAddress.city } = Astro.props;
+
+const waMessage = encodeURIComponent(
+  `Halo Mandor Perkasa, saya mau order / tanya sewa & jual scaffolding untuk proyek di ${city}. Apakah armada ready kirim?`
+);
+const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
+---
+
+<!-- 6. HIGH-VISIBILITY DESKTOP FLOATING QUICK ACTION BAR -->
+<aside aria-label="Aksi Cepat Kontak Gudang" class="hidden lg:flex fixed bottom-6 right-6 z-40 flex-col gap-space-xs">
+  <a
+    class="min-h-[56px] bg-tertiary-fixed hover:bg-tertiary-fixed-dim text-on-tertiary-fixed px-space-lg py-space-sm rounded-xl font-headline-md text-headline-md uppercase flex items-center gap-space-xs border-4 border-on-tertiary-container shadow-[0_4px_0_#000000] active:translate-y-1 transition-all"
+    href={`tel:${siteConfig.phone}`}
+    aria-label={`Telepon Gudang ${siteConfig.phoneDisplay}`}
+  >
+    <span class="material-symbols-outlined text-[32px] text-primary" style="font-variation-settings: 'FILL' 1;">call</span>
+    <span>TELEPON GUDANG: {siteConfig.phoneDisplay}</span>
+  </a>
+
+  <a
+    class="min-h-[56px] bg-secondary hover:bg-on-secondary-container text-on-secondary px-space-lg py-space-sm rounded-xl font-headline-md text-headline-md uppercase flex items-center gap-space-xs border-4 border-on-secondary-fixed shadow-[0_4px_0_#002109] active:translate-y-1 transition-all"
+    href={waUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat WhatsApp 24 Jam"
+    data-wa-source="floating_desktop"
+    data-wa-mode="SEWA & BELI"
+    data-wa-city={city}
+  >
+    <span class="material-symbols-outlined text-[32px] text-surface-container-lowest animate-bounce">chat</span>
+    <span>CHAT WHATSAPP 24 JAM</span>
+  </a>
+</aside>
+
+<!-- MOBILE STICKY BOTTOM BAR -->
+<aside aria-label="Tombol Kontak Cepat Mobile" class="md:hidden fixed bottom-0 left-0 right-0 h-[72px] bg-primary border-t-2 border-primary-container flex z-50 shadow-[0_-4px_0_#00164e]">
+  <a
+    class="w-[40%] bg-[#FACC15] hover:bg-[#EAB308] text-[#111827] font-headline-md text-headline-md flex items-center justify-center gap-1 border-r-2 border-[#854D0E] active:bg-[#CA8A04] transition-colors"
+    href={`tel:${siteConfig.phone}`}
+    aria-label="Telepon Langsung Gudang"
+  >
+    <span class="material-symbols-outlined text-[28px]">call</span>
+    <span>TELEPON</span>
+  </a>
+
+  <a
+    class="w-[60%] bg-[#16A34A] hover:bg-[#15803D] text-[#FFFFFF] font-headline-md text-headline-md flex items-center justify-center gap-1 active:bg-[#166534] transition-colors"
+    href={waUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Pesan via WhatsApp"
+    data-wa-source="mobile_bottom_bar"
+    data-wa-mode="SEWA & BELI"
+    data-wa-city={city}
+  >
+    <span class="material-symbols-outlined text-[28px]">chat</span>
+    <span>ORDER WA</span>
+  </a>
+</aside>

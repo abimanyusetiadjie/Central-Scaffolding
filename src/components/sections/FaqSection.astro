@@ -1,0 +1,114 @@
+---
+import { siteConfig, getFaqItems } from '../../data/siteConfig';
+
+export interface Props {
+  city?: string;
+}
+
+const { city = siteConfig.warehouseAddress.city } = Astro.props;
+
+const faqItems = getFaqItems(city);
+
+const waFaqMessage = encodeURIComponent(
+  `Halo Admin ${siteConfig.businessName}, saya mau tanya-tanya soal sewa / beli scaffolding untuk proyek di ${city}. Mohon dibantu.`
+);
+const waFaqUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waFaqMessage}`;
+---
+
+<!-- FAQ SECTION (Ramah Mandor & Visual 100% Seragam) -->
+<section
+  id="faq"
+  aria-labelledby="faq-heading"
+  class="w-full bg-surface-container py-12 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-surface-container-highest scroll-mt-24 md:scroll-mt-32"
+>
+  <div class="max-w-7xl mx-auto flex flex-col gap-8">
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 border-b-4 border-primary pb-4">
+      <div>
+        <span class="inline-block bg-tertiary-fixed text-on-tertiary-fixed px-3.5 py-1 rounded font-label-md text-xs sm:text-sm uppercase font-bold border border-tertiary-container">
+          TANYA JAWAB MANDOR &amp; PEMBORONG
+        </span>
+        <h2
+          id="faq-heading"
+          class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl uppercase text-primary mt-1.5 font-extrabold"
+        >
+          PERTANYAAN UMUM SEPUTAR SEWA &amp; JUAL ({city.toUpperCase()})
+        </h2>
+      </div>
+      <p class="font-body-xl text-base sm:text-body-xl text-on-surface-variant font-bold">
+        Jawaban praktis dan transparan seputar sewa, beli, dan kirim
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Left Column: Fast Help Box -->
+      <div class="lg:col-span-4 flex flex-col gap-4">
+        <div class="bg-surface-container-lowest p-6 rounded-xl border-4 border-primary shadow-lg flex flex-col gap-4">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[32px] text-primary">support_agent</span>
+            <h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary uppercase font-bold">
+              Butuh Hitung Set?
+            </h3>
+          </div>
+          <p class="font-body-xl text-sm sm:text-base text-on-surface-variant leading-relaxed">
+            Sebutkan ukuran tinggi dinding, plafon, atau luas bidang kerja yang mau dipasang di <strong>{city}</strong>. Mandor logistik kami akan bantu hitungkan rincian set dan aksesorisnya secara gratis.
+          </p>
+          <div class="pt-2">
+            <a
+              href={waFaqUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-wa-source="faq_cta"
+              data-wa-mode="SEWA & BELI"
+              data-wa-city={city}
+              class="w-full min-h-[56px] bg-secondary hover:bg-on-secondary-container text-on-secondary flex items-center justify-center gap-2 rounded-lg font-headline-md text-sm sm:text-base uppercase border-2 border-on-secondary-fixed shadow-[0_4px_0_#002109] active:translate-y-[2px] transition-all font-bold"
+            >
+              <span class="material-symbols-outlined text-[24px]">chat</span>
+              <span>TANYA MANDOR VIA WHATSAPP</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-primary text-on-primary p-5 rounded-xl border-2 border-primary-fixed-dim">
+          <div class="flex items-center gap-2 text-tertiary-fixed font-headline-md text-sm sm:text-base font-bold uppercase mb-1">
+            <span class="material-symbols-outlined text-[20px]">verified</span>
+            GARANSI LAYANAN GUDANG
+          </div>
+          <p class="font-body-lg text-xs sm:text-sm text-surface-variant">
+            Pipa standar SNI tebal {siteConfig.stats.pipeThickness}, lulus uji sortir, dan jaminan tukar baru jika ada unit bengkok.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column: Accordion Questions (Styling 100% Seragam: bg-surface-container-lowest border-4 border-primary rounded-xl) -->
+      <div class="lg:col-span-8 space-y-4">
+        {faqItems.map((item, index) => (
+          <details
+            open={index === 0}
+            class="group bg-surface-container-lowest border-4 border-primary rounded-xl shadow-lg overflow-hidden transition-all"
+          >
+            <summary class="list-none cursor-pointer p-4 sm:p-5 min-h-[72px] flex items-center justify-between gap-4 group-open:bg-surface-container-low transition-colors select-none">
+              <div class="flex items-start sm:items-center gap-3.5 text-left">
+                <span class="font-headline-md text-sm sm:text-base bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded font-extrabold shrink-0 border border-tertiary-container">
+                  0{index + 1}
+                </span>
+                <h3 class="font-headline-md text-sm sm:text-headline-md text-primary uppercase font-bold leading-snug">
+                  {item.question}
+                </h3>
+              </div>
+              <span class="w-10 h-10 border-2 border-primary bg-surface-container-lowest flex items-center justify-center shrink-0 rounded-lg group-open:rotate-45 transition-transform text-primary font-bold shadow-sm">
+                <span class="material-symbols-outlined text-[28px]">add</span>
+              </span>
+            </summary>
+
+            <div class="p-5 sm:p-6 border-t-2 border-outline-variant/30 bg-surface-container-lowest">
+              <p class="font-body-xl text-base sm:text-body-xl text-on-surface leading-relaxed font-medium">
+                {item.answer}
+              </p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

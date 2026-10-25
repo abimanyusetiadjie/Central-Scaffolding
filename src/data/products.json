@@ -1,0 +1,98 @@
+[
+  {
+    "id": "mf-170",
+    "name": "Main Frame 170 cm / 190 cm",
+    "slug": "main-frame-170",
+    "category": "Rangka Utama",
+    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "specs": {
+      "dimensions": "Tinggi 170 cm & 190 cm",
+      "pipeDiameter": "Diameter 1¼ Inci (Tebal SNI)",
+      "thickness": "Beban Max 2.500 Kg / Tiang"
+    },
+    "description": "Tiang rangka utama tinggi 1,7 meter & 1,9 meter. Pipa besi tebal standar SNI, las MIG CO2 kokoh tanpa retak sambungan.",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuA-Qs-9l9pEVNnc0MwIaeBjOzu-rWeL2mdjm-OmTUyktRglAKKuChdI-U18dBkcRQY1lmm2Yd03H7iZPDEl0nOKlOqP21ICLuNg5SAsJR4i_G-Jdk6ECbTuoz0mARzjh7FBEVyviSqRZS9YVz3AupiHNXnD0l_HzsccnlwmfSeAyA-0rNQ60S8KFg5XI6JYsJ6nf-vgPfty23uPm1AQXHOieUuEuadbRpu6brlrCiDDK_am73dHkezv8g",
+    "imageAlt": "Main Frame Scaffolding Gawang Utama 170cm SNI",
+    "isPopular": true
+  },
+  {
+    "id": "cb-220",
+    "name": "Cross Brace (Silangan X)",
+    "slug": "cross-brace",
+    "category": "Rangka Utama",
+    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "specs": {
+      "dimensions": "Bentang 220 cm & 193 cm",
+      "pipeDiameter": "Galvanis Anti-Karat Celup",
+      "thickness": "Baut Tengah Keling Paten"
+    },
+    "description": "Besi silangan huruf X pengunci antara dua tiang Main Frame supaya rangkaian berdiri kokoh, presisi, dan tidak goyang.",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuAa8-NQbwnWf8Df0hYIdqQSz4SWJ9fp_mv2642WBuKsrDd9ukMt5bi_9WNy1kt7yyQZj44Ymu-Rf8jEONOkpCwLlXlWb8DhbgXqzlHZYXR42nye7xr2wIbNTBCrneHIottA8CdTPmxjaO8fpJ0QpABngx_D-QATaRAXKMkOvmXsE1Hu29RzhA3vZiHcoRWTn0D3cu8jbvqyhLKfyWVTpRcNmb1IfkTzGXQFt6Nj6ns0U0UeCjB7TGlz-Q",
+    "imageAlt": "Cross Brace Silangan Scaffolding Galvanis",
+    "isPopular": true
+  },
+  {
+    "id": "cw-180",
+    "name": "Catwalk (Pijakan Bordes)",
+    "slug": "catwalk-scaffolding",
+    "category": "Aksesori & Pijakan",
+    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "specs": {
+      "dimensions": "Plat Besi Bordes Anti-Slip",
+      "pipeDiameter": "Kait Lock Ganda Kanan-Kiri",
+      "thickness": "Aman Injak Tukang & Adukan"
+    },
+    "description": "Pijakan tempat tukang berdiri di atas scaffolding. Plat besi bordes berpori anti-slip dengan pengait kokoh yang mengunci pada frame.",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuCXXXW1vzAUT9BD9804mHFILW0F5Ui4BZPoYroS3VRZTKmX5F3BY7qnsJOWT1vOlJOowe4PfeApZBBrZ3O2rS8qetiXLigBDHuJpY4NUWvtJvAenIJmRHMhoX5mnWsSr57wfFFxBauhh2Yl5BfeOr33vGbUQvc_Yi2UWXF8huAqT7-W359QPozwyEv_wNrPNbh5UOsIKuGO3GAe08-vzspgzwqC4_OfLZZngYZKsupeAr5q5LIxFO27sQ",
+    "imageAlt": "Catwalk Pijakan Scaffolding Plat Bordes Anti-Slip",
+    "isPopular": true
+  },
+  {
+    "id": "jb-60",
+    "name": "Jack Base & U-Head Jack",
+    "slug": "jack-base-60cm",
+    "category": "Penyangga & Alas",
+    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "specs": {
+      "dimensions": "Tinggi 40 cm & 60 cm",
+      "pipeDiameter": "Bubut Halus, Putaran Ringan",
+      "thickness": "Penyetel Level Tanah Miring"
+    },
+    "description": "Kaki alas dan penyangga atas ulir ulir padat untuk mengatur ketinggian dan meratakan scaffolding di bidang tanah tidak rata.",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuDQZt12RaCeZJDtSRVXNHTgnNJxQ6ZbWeePUijlK4X37kj5bI-nY_RJQAR7caLVmaJR1nuJW4xmYVOklkSXUkFb_2LMyvuQah4hY6vrRsKtwdYvLZGAzeq64UlCqRP-LtYeXL0loVWoFv2SlQBgmVqpzjsEwzq4x1Zg-buXw07TrPC03rWJxvIKSqetaNSp3_OpwfB3Kbhq6HA9uGblvAnCYj0Bb9N4D3QpKHFqh4SosNjpmk9P5cVchw",
+    "imageAlt": "Jack Base dan U-Head Jack Kaki Ulir Scaffolding",
+    "isPopular": true
+  },
+  {
+    "id": "jp-std",
+    "name": "Joint Pin (Sambungan Pipa)",
+    "slug": "joint-pin",
+    "category": "Aksesori & Pijakan",
+    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "specs": {
+      "dimensions": "Baja Padat Presisi SNI",
+      "pipeDiameter": "Pas & Tidak Goyang Vertikal",
+      "thickness": "Ready Puluhan Ribu Pcs"
+    },
+    "description": "Besi pasak penyambung untuk menumpuk tiang Main Frame ke tingkat atasnya secara tegak lurus dan stabil.",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuBEniznq1pW_x7V6dvNouYbZZ_oPlnyqfGR0WA0nKaGdglAUth2fQdNjrvMdNC8NxU1-FJFiwBNz7dM-aylP_Xvu0CDNyBcqTCia3ETLQOFCAUNCFbBQqnVkalUCRY0XpqSebrMAgkJoeO4OwW8S1MhHY8hum8GT_UH5K4sFwAl_HVo642NNtMpsyO3FrUF9S8gRcIfLpC__MRRwthBRc_FqyZnjAMMgA3ZDV0AmB7L62u-MkfJOe2TpA",
+    "imageAlt": "Joint Pin Sambungan Pipa Scaffolding Presisi",
+    "isPopular": false
+  },
+  {
+    "id": "wh-6",
+    "name": "Roda Scaffolding 6 & 8 Inch",
+    "slug": "roda-scaffolding-6-inch",
+    "category": "Aksesori & Pijakan",
+    "availability": ["SEWA", "JUAL BARU"],
+    "specs": {
+      "dimensions": "Karet Polyurethane 6 & 8 Inch",
+      "pipeDiameter": "Rem Injak Pakem Baja Dobel",
+      "thickness": "Hingga 500 Kg / Buah Roda"
+    },
+    "description": "Roda caster heavy duty dengan rem pengunci baja dobel. Memudahkan scaffolding digeser antar area kerja tanpa dibongkar.",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuBqlS6rrLbeYFbBKR5qx7zVRCfdrSsh3_zJPV_GDAMDgZUZZKTrk_7itWAYwtaxj-XMyUoKpDZ3_RTCMMkfUw4odCUsmJWBJSSn82UAw8wkF1GHLrbXG796jAMfzT-BdZsS3kjEf2_pnrnVxMnQneetzJzUBW2AjQij8WC-EwUq7PWIhLsb6TsLwluVbLYOfAn5XJZNR6okXKoP2_zUd2sJpKvMEoi8Q9Gm1qBeYvc1piVRtlbB67_eaQ",
+    "imageAlt": "Roda Scaffolding Caster Wheel Heavy Duty dengan Rem",
+    "isPopular": false
+  }
+]
