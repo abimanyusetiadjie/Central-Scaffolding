@@ -1,7 +1,7 @@
 import productsData from '../../data/products.json';
 import { siteConfig, type ProductItem } from '../../data/siteConfig';
 import { trackWhatsAppClick } from '../../utils/analytics';
-import { Package, MessageCircle } from 'lucide-react';
+import { MessageCircle, CheckCircle } from 'lucide-react';
 
 export interface CatalogFilterProps {
   whatsappNumber?: string;
@@ -16,7 +16,7 @@ export default function CatalogFilter({
 }: CatalogFilterProps) {
   const buildProductWaUrl = (item: ProductItem): string => {
     const text = encodeURIComponent(
-      `Halo Admin ${siteConfig.businessName}, saya mau pesan *${item.name}* untuk proyek di ${city}. Mohon info harga & ketersediaan stok.`
+      `Halo Admin ${siteConfig.businessName}, saya mau pesan/tanya *${item.name}* untuk proyek di ${city}. Mohon info harga & stoknya.`
     );
     return `https://wa.me/${whatsappNumber}?text=${text}`;
   };
@@ -25,37 +25,34 @@ export default function CatalogFilter({
     <section
       id="katalog-produk"
       aria-labelledby="catalog-title"
-      className="w-full bg-white py-12 md:py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-slate-200 scroll-mt-24"
+      className="w-full bg-slate-50 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-200 scroll-mt-20"
     >
-      <div className="max-w-7xl mx-auto flex flex-col gap-8">
+      <div className="max-w-7xl mx-auto flex flex-col gap-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 border-b-4 border-[#00236f] pb-4">
-          <div>
-            <span className="inline-block bg-green-100 text-green-800 px-3.5 py-1 rounded text-xs sm:text-sm uppercase font-bold">
-              PILIHAN KOMPONEN ECERAN &amp; SPAREPART
-            </span>
-            <h2
-              id="catalog-title"
-              className="text-2xl sm:text-3xl md:text-4xl uppercase text-[#00236f] mt-1.5 font-extrabold tracking-tight"
-            >
-              DAFTAR PRODUK &amp; SPAREPART SCAFFOLDING
-            </h2>
-          </div>
-          <div className="text-base sm:text-lg text-green-700 flex items-center gap-2 font-bold">
-            <Package className="w-6 h-6" />
-            <span>READY STOCK SEMUA UKURAN</span>
-          </div>
+        <div className="text-center max-w-3xl mx-auto flex flex-col gap-2.5">
+          <span className="inline-flex items-center gap-1.5 bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-xs font-bold uppercase w-fit mx-auto">
+            Komponen &amp; Aksesoris Eceran
+          </span>
+          <h2
+            id="catalog-title"
+            className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight"
+          >
+            Katalog Produk &amp; Sparepart Scaffolding
+          </h2>
+          <p className="text-base sm:text-lg text-slate-600 font-normal">
+            Semua produk berstandar pabrikasi pipa baja tebal dengan toleransi presisi dan pengelasan kuat.
+          </p>
         </div>
 
-        {/* Retail Hardware Grid */}
+        {/* 6 Clean Hardware Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
           {typedProducts.map((item) => (
             <div
               key={item.id}
-              className="bg-white p-5 rounded-2xl border-2 border-slate-300 hover:border-[#00236f] flex flex-col justify-between shadow-md transition-all"
+              className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
             >
-              <div className="flex flex-col gap-4">
-                <div className="relative w-full aspect-[4/3] bg-slate-100 rounded-xl overflow-hidden flex items-center justify-center border border-slate-200">
+              <div className="flex flex-col gap-3.5">
+                <div className="relative w-full aspect-[4/3] bg-slate-100 rounded-xl overflow-hidden border border-slate-100">
                   <img
                     className="w-full h-full object-cover"
                     src={item.imageUrl || 'https://lh3.googleusercontent.com/aida-public/AB6AXuA-Qs-9l9pEVNnc0MwIaeBjOzu-rWeL2mdjm-OmTUyktRglAKKuChdI-U18dBkcRQY1lmm2Yd03H7iZPDEl0nOKlOqP21ICLuNg5SAsJR4i_G-Jdk6ECbTuoz0mARzjh7FBEVyviSqRZS9YVz3AupiHNXnD0l_HzsccnlwmfSeAyA-0rNQ60S8KFg5XI6JYsJ6nf-vgPfty23uPm1AQXHOieUuEuadbRpu6brlrCiDDK_am73dHkezv8g'}
@@ -65,41 +62,41 @@ export default function CatalogFilter({
                     loading="lazy"
                     decoding="async"
                   />
-                  <span className="absolute top-2.5 right-2.5 bg-[#FACC15] text-slate-900 px-3 py-1 rounded-md text-xs uppercase shadow-sm border border-yellow-500 font-extrabold">
-                    TERSEDIA (READY)
+                  <span className="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-md shadow-xs flex items-center gap-1 uppercase tracking-wide">
+                    <CheckCircle className="w-3 h-3" />
+                    <span>Ready Stock</span>
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="text-lg sm:text-xl uppercase text-[#00236f] leading-snug font-extrabold">
+                  <h3 className="text-lg font-extrabold text-slate-900 leading-snug">
                     {item.name}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-500 mt-1 line-clamp-2">
                     {item.description}
                   </p>
                 </div>
 
-                <table className="w-full text-sm sm:text-base text-slate-800 border border-slate-200 rounded-lg overflow-hidden">
-                  <tbody className="divide-y divide-slate-200">
-                    <tr className="bg-slate-50">
-                      <td className="p-2 font-bold w-1/3 text-slate-600">Ukuran:</td>
-                      <td className="p-2 font-semibold text-[#00236f]">{item.specs.dimensions}</td>
-                    </tr>
-                    <tr className="bg-white">
-                      <td className="p-2 font-bold text-slate-600">Pipa/Tipe:</td>
-                      <td className="p-2 font-semibold">{item.specs.pipeDiameter}</td>
-                    </tr>
-                    <tr className="bg-slate-50">
-                      <td className="p-2 font-bold text-slate-600">Kelebihan:</td>
-                      <td className="p-2 font-semibold text-green-700">{item.specs.thickness}</td>
-                    </tr>
-                  </tbody>
-                </table>
+                {/* Specs Table */}
+                <div className="bg-slate-50 rounded-xl border border-slate-200 p-2.5 text-xs sm:text-sm">
+                  <div className="grid grid-cols-3 py-1 border-b border-slate-200/60">
+                    <span className="text-slate-500 font-medium">Ukuran:</span>
+                    <span className="col-span-2 text-slate-800 font-bold">{item.specs.dimensions}</span>
+                  </div>
+                  <div className="grid grid-cols-3 py-1 border-b border-slate-200/60">
+                    <span className="text-slate-500 font-medium">Tipe Pipa:</span>
+                    <span className="col-span-2 text-slate-800 font-semibold">{item.specs.pipeDiameter}</span>
+                  </div>
+                  <div className="grid grid-cols-3 py-1">
+                    <span className="text-slate-500 font-medium">Kelebihan:</span>
+                    <span className="col-span-2 text-emerald-700 font-bold">{item.specs.thickness}</span>
+                  </div>
+                </div>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-slate-200">
+              <div className="mt-5 pt-3 border-t border-slate-100">
                 <a
-                  className="w-full min-h-[50px] bg-[#16A34A] hover:bg-[#15803D] text-white flex items-center justify-center gap-2 rounded-xl text-sm sm:text-base uppercase border-2 border-green-800 shadow-[0_3px_0_#14532d] active:translate-y-[2px] transition-all font-bold cursor-pointer"
+                  className="w-full min-h-[44px] bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center gap-2 rounded-xl text-sm font-bold transition shadow-xs"
                   href={buildProductWaUrl(item)}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -113,8 +110,8 @@ export default function CatalogFilter({
                     })
                   }
                 >
-                  <MessageCircle className="w-5 h-5" />
-                  <span>PESAN {item.name.split('/')[0].split('(')[0].trim().toUpperCase()}</span>
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Pesan {item.name.split('/')[0].split('(')[0].trim()} via WA</span>
                 </a>
               </div>
             </div>

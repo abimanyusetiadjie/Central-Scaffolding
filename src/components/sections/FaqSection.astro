@@ -1,6 +1,6 @@
 ---
 import { siteConfig, getFaqItems } from '../../data/siteConfig';
-import { PhoneCall, MessageCircle, ShieldCheck, Plus } from 'lucide-react';
+import { PhoneCall, MessageCircle, ShieldCheck, ChevronDown } from 'lucide-react';
 
 export interface Props {
   city?: string;
@@ -16,45 +16,45 @@ const waFaqMessage = encodeURIComponent(
 const waFaqUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waFaqMessage}`;
 ---
 
-<!-- FAQ SECTION (Ramah Mandor & Visual 100% Seragam) -->
+<!-- FAQ SECTION (CLEAN INDUSTRIAL ACCORDION) -->
 <section
   id="faq"
   aria-labelledby="faq-heading"
-  class="w-full bg-slate-100 py-12 md:py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-slate-200 scroll-mt-24"
+  class="w-full bg-slate-50 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-200 scroll-mt-20"
 >
-  <div class="max-w-7xl mx-auto flex flex-col gap-8">
-    <!-- Section Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 border-b-4 border-[#00236f] pb-4">
-      <div>
-        <span class="inline-block bg-[#FACC15] text-slate-900 px-3.5 py-1 rounded text-xs sm:text-sm uppercase font-bold border border-yellow-500">
-          TANYA JAWAB MANDOR &amp; PEMBORONG
-        </span>
-        <h2
-          id="faq-heading"
-          class="text-2xl sm:text-3xl md:text-4xl uppercase text-[#00236f] mt-1.5 font-extrabold tracking-tight"
-        >
-          PERTANYAAN UMUM SEPUTAR SEWA &amp; JUAL ({city.toUpperCase()})
-        </h2>
-      </div>
-      <p class="text-base sm:text-lg text-slate-600 font-bold">
-        Jawaban praktis dan transparan seputar sewa, beli, dan kirim
+  <div class="max-w-7xl mx-auto flex flex-col gap-10">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto flex flex-col gap-2.5">
+      <span class="inline-flex items-center gap-1.5 bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-xs font-bold uppercase w-fit mx-auto">
+        Tanya Jawab Pemborong &amp; Mandor
+      </span>
+      <h2
+        id="faq-heading"
+        class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight"
+      >
+        Pertanyaan Umum Seputar Sewa &amp; Jual Scaffolding
+      </h2>
+      <p class="text-base sm:text-lg text-slate-600 font-normal">
+        Penjelasan transparan seputar sistem sewa, syarat COD, dan jaminan kualitas pipa di {city}.
       </p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      <!-- Left Column: Fast Help Box -->
+      <!-- Left Column: Support Box -->
       <div class="lg:col-span-4 flex flex-col gap-4">
-        <div class="bg-white p-6 rounded-xl border-4 border-[#00236f] shadow-lg flex flex-col gap-4">
-          <div class="flex items-center gap-2">
-            <PhoneCall className="w-7 h-7 text-[#00236f]" />
-            <h3 class="text-xl sm:text-2xl text-[#00236f] uppercase font-bold">
-              Butuh Hitung Set?
-            </h3>
+        <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-xs flex flex-col gap-4">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center">
+            <PhoneCall className="w-5 h-5 text-blue-900" />
           </div>
-          <p class="text-sm sm:text-base text-slate-700 leading-relaxed font-medium">
-            Sebutkan ukuran tinggi dinding, plafon, atau luas bidang kerja yang mau dipasang di <strong>{city}</strong>. Mandor logistik kami akan bantu hitungkan rincian set dan aksesorisnya secara gratis.
-          </p>
-          <div class="pt-2">
+          <div>
+            <h3 class="text-xl font-extrabold text-slate-900">
+              Butuh Hitung Jumlah Set?
+            </h3>
+            <p class="text-sm text-slate-600 mt-1.5 leading-relaxed">
+              Sebutkan tinggi dinding atau luas bidang kerja proyek Anda di <strong>{city}</strong>. Mandor logistik kami akan bantu hitungkan rincian set dan aksesorisnya secara gratis.
+            </p>
+          </div>
+          <div class="pt-1">
             <a
               href={waFaqUrl}
               target="_blank"
@@ -62,50 +62,48 @@ const waFaqUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waFaqMessage
               data-wa-source="faq_cta"
               data-wa-mode="SEWA & BELI"
               data-wa-city={city}
-              class="w-full min-h-[54px] bg-[#16A34A] hover:bg-[#15803D] text-white flex items-center justify-center gap-2 rounded-xl text-sm sm:text-base uppercase border-2 border-green-800 shadow-[0_4px_0_#14532d] active:translate-y-[2px] transition-all font-bold cursor-pointer"
+              class="w-full min-h-[46px] bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center gap-2 rounded-xl text-sm font-bold transition shadow-xs"
             >
-              <MessageCircle className="w-5 h-5" />
-              <span>TANYA MANDOR VIA WHATSAPP</span>
+              <MessageCircle className="w-4 h-4" />
+              <span>Tanya Mandor via WhatsApp</span>
             </a>
           </div>
         </div>
 
-        <div class="bg-[#00236f] text-white p-5 rounded-xl border-2 border-[#1e3a8a] shadow-md">
-          <div class="flex items-center gap-2 text-[#FACC15] text-sm sm:text-base font-bold uppercase mb-1">
-            <ShieldCheck className="w-5 h-5 text-[#FACC15]" />
-            GARANSI LAYANAN GUDANG
+        <div class="bg-slate-900 text-white p-5 rounded-2xl shadow-xs">
+          <div class="flex items-center gap-2 text-amber-300 text-sm font-bold mb-1">
+            <ShieldCheck className="w-4 h-4 text-amber-300" />
+            <span>Garansi Kualitas Pipa SNI</span>
           </div>
-          <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
-            Pipa standar SNI tebal {siteConfig.stats.pipeThickness}, lulus uji sortir, dan jaminan tukar baru jika ada unit bengkok.
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Pipa tebal {siteConfig.stats.pipeThickness} berstandar SNI 07-0065 &amp; K3 Kemnaker. Jaminan langsung tukar unit jika ditemukan cacat saat dibongkar di proyek.
           </p>
         </div>
       </div>
 
       <!-- Right Column: Accordion Questions -->
-      <div class="lg:col-span-8 space-y-4">
+      <div class="lg:col-span-8 space-y-3">
         {faqItems.map((item, index) => (
           <details
             open={index === 0}
-            class="group bg-white border-4 border-[#00236f] rounded-xl shadow-lg overflow-hidden transition-all"
+            class="group bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden transition-all"
           >
-            <summary class="list-none cursor-pointer p-4 sm:p-5 min-h-[72px] flex items-center justify-between gap-4 group-open:bg-blue-50 transition-colors select-none">
-              <div class="flex items-start sm:items-center gap-3.5 text-left">
-                <span class="text-sm sm:text-base bg-[#FACC15] text-slate-900 px-3 py-1 rounded font-extrabold shrink-0 border border-yellow-500">
+            <summary class="list-none cursor-pointer p-4 sm:p-5 flex items-center justify-between gap-4 font-bold text-slate-900 hover:text-blue-900 transition-colors select-none">
+              <div class="flex items-center gap-3.5 text-left">
+                <span class="text-xs font-bold bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md shrink-0 border border-slate-200">
                   0{index + 1}
                 </span>
-                <h3 class="text-base sm:text-lg text-[#00236f] uppercase font-bold leading-snug">
+                <span class="text-base sm:text-lg leading-snug">
                   {item.question}
-                </h3>
+                </span>
               </div>
-              <span class="w-10 h-10 border-2 border-[#00236f] bg-white flex items-center justify-center shrink-0 rounded-lg group-open:rotate-45 transition-transform text-[#00236f] font-bold shadow-sm">
-                <Plus className="w-6 h-6 text-[#00236f]" />
+              <span class="shrink-0 text-slate-400 group-open:rotate-180 transition-transform">
+                <ChevronDown className="w-5 h-5" />
               </span>
             </summary>
 
-            <div class="p-5 sm:p-6 border-t-2 border-slate-200 bg-white">
-              <p class="text-base sm:text-lg text-slate-800 leading-relaxed font-medium">
-                {item.answer}
-              </p>
+            <div class="px-5 pb-5 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100 mt-1">
+              <p>{item.answer}</p>
             </div>
           </details>
         ))}

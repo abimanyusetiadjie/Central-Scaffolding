@@ -1,6 +1,6 @@
 ---
 import { siteConfig } from '../../data/siteConfig';
-import { Phone, MessageCircle } from 'lucide-react';
+import { Phone, MessageCircle, Clock, MapPin } from 'lucide-react';
 
 export interface Props {
   city?: string;
@@ -12,49 +12,68 @@ const {
 } = Astro.props;
 
 const waMessage = encodeURIComponent(
-  `Halo Admin ${siteConfig.businessName}, saya mau tanya ketersediaan & harga Sewa / Beli Scaffolding untuk proyek di ${city}.`
+  `Halo Admin ${siteConfig.businessName}, saya mau tanya harga & sewa/beli scaffolding untuk proyek di ${city}.`
 );
 const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
 ---
 
-<!-- MAIN HEADER STICKY -->
-<header class="sticky top-0 z-50 bg-[#1e3a8a] text-white border-b-4 border-[#00236f] shadow-md">
-  <div class="h-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
+<!-- TOP CONTACT BAR (Clean Industrial Benchmark) -->
+<div class="bg-slate-900 text-slate-300 py-1.5 px-4 text-xs font-medium border-b border-slate-800">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <span class="flex items-center gap-1.5">
+        <MapPin className="w-3.5 h-3.5 text-blue-400" />
+        <span class="hidden sm:inline">Gudang Pusat:</span> {siteConfig.warehouseAddress.district}, {siteConfig.warehouseAddress.city}
+      </span>
+      <span class="hidden md:flex items-center gap-1.5 text-slate-400">
+        <Clock className="w-3.5 h-3.5 text-amber-400" />
+        Buka Setiap Hari: 07.00 - 18.00 WIB
+      </span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-emerald-400 font-semibold hidden sm:inline">
+        ✓ Stok Siap Kirim Hari Ini
+      </span>
+      <a href={`tel:${siteConfig.phone}`} class="hover:text-white flex items-center gap-1 text-slate-200 font-bold">
+        <Phone className="w-3.5 h-3.5 text-emerald-400" />
+        <span>Hotline: {siteConfig.phoneDisplay}</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN NAVBAR (Clean White Industrial Header) -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all">
+  <div class="h-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
     <!-- Brand Logo & Name -->
     <a href="/" class="flex items-center gap-3 shrink-0 group">
-      <img
-        alt={`Logo ${siteConfig.businessName}`}
-        class="h-11 sm:h-12 w-auto object-contain bg-white p-1 rounded-lg border-2 border-slate-200 shadow-sm"
-        src={siteConfig.images.logo}
-        width="168"
-        height="48"
-        loading="eager"
-      />
+      <div class="w-11 h-11 rounded-lg bg-blue-900 flex items-center justify-center text-white shadow-sm border border-blue-950/20 font-extrabold text-xl">
+        CS
+      </div>
       <div class="flex flex-col">
-        <span class="text-base sm:text-xl md:text-2xl font-extrabold uppercase tracking-tight text-white leading-none">
-          {siteConfig.businessName.toUpperCase()}
+        <span class="text-lg sm:text-xl font-extrabold text-slate-900 leading-tight group-hover:text-blue-900 transition-colors">
+          {siteConfig.businessName}
         </span>
-        <span class="text-[10px] sm:text-xs uppercase tracking-wider text-green-300 font-bold mt-1">
-          SEWA &amp; JUAL SCAFFOLDING SNI // {city.toUpperCase()}
+        <span class="text-xs font-semibold text-slate-500">
+          Sewa &amp; Jual Scaffolding {city}
         </span>
       </div>
     </a>
 
     <!-- Desktop Navigation Links -->
-    <nav class="hidden xl:flex items-center gap-6 font-bold text-sm uppercase text-slate-100" aria-label="Navigasi Utama">
-      <a class="hover:text-[#FACC15] transition-colors" href="/">BERANDA</a>
-      <a class="hover:text-[#FACC15] transition-colors" href="#sewa-atau-beli">SEWA &amp; BELI</a>
-      <a class="hover:text-[#FACC15] transition-colors" href="#paket-hemat">PAKET HEMAT</a>
-      <a class="hover:text-[#FACC15] transition-colors" href="#katalog-produk">KATALOG PRODUK</a>
-      <a class="hover:text-[#FACC15] transition-colors" href="#lokasi-gudang">LOKASI GUDANG</a>
-      <a class="hover:text-[#FACC15] transition-colors" href="#faq">FAQ</a>
+    <nav class="hidden lg:flex items-center gap-7 font-semibold text-sm text-slate-600" aria-label="Navigasi Utama">
+      <a class="hover:text-blue-900 transition-colors" href="/">Beranda</a>
+      <a class="hover:text-blue-900 transition-colors" href="#sewa-atau-beli">Sewa &amp; Beli</a>
+      <a class="hover:text-blue-900 transition-colors" href="#paket-hemat">Paket Hemat</a>
+      <a class="hover:text-blue-900 transition-colors" href="#katalog-produk">Katalog Produk</a>
+      <a class="hover:text-blue-900 transition-colors" href="#lokasi-gudang">Lokasi Gudang</a>
+      <a class="hover:text-blue-900 transition-colors" href="#faq">FAQ</a>
     </nav>
 
-    <!-- Header Action Buttons -->
-    <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-      <!-- WhatsApp (Hidden on small mobile, visible sm+) -->
+    <!-- Header Action Button (Clean WhatsApp CTA) -->
+    <div class="flex items-center gap-3 shrink-0">
       <a
-        class="hidden sm:inline-flex items-center gap-2 bg-[#16A34A] hover:bg-[#15803D] text-white px-3.5 py-2.5 rounded-lg border-2 border-green-800 shadow-sm font-bold text-sm transition-all"
+        class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-4 py-2.5 rounded-lg shadow-sm transition-all active:scale-95"
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
@@ -62,20 +81,8 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
         data-wa-mode="SEWA & BELI"
         data-wa-city={city}
       >
-        <MessageCircle className="w-5 h-5 shrink-0" />
-        <span class="hidden md:inline">WHATSAPP 24 JAM</span>
-        <span class="md:hidden">WA 24 JAM</span>
-      </a>
-
-      <!-- Telepon Gudang (Shortened on mobile to avoid overflow) -->
-      <a
-        class="min-h-[44px] inline-flex items-center gap-2 bg-[#FACC15] hover:bg-[#EAB308] text-slate-900 font-bold px-3.5 sm:px-4 py-2.5 rounded-lg border-2 border-yellow-700 shadow-sm text-sm uppercase transition-all"
-        href={`tel:${siteConfig.phone}`}
-        aria-label={`Telepon Gudang: ${siteConfig.phoneDisplay}`}
-      >
-        <Phone className="w-5 h-5 shrink-0 text-slate-900" />
-        <span class="hidden md:inline font-extrabold">{siteConfig.phoneDisplay}</span>
-        <span class="md:hidden font-extrabold">TELEPON</span>
+        <MessageCircle className="w-4 h-4 shrink-0" />
+        <span>Chat WhatsApp</span>
       </a>
     </div>
   </div>

@@ -1,6 +1,6 @@
 ---
 import { siteConfig } from '../../data/siteConfig';
-import { Truck, MessageCircle, CheckCircle2, ShieldCheck, FileText, MapPin, Clock } from 'lucide-react';
+import { Truck, MessageCircle, Phone, CheckCircle2, ShieldCheck, Calculator } from 'lucide-react';
 
 export interface Props {
   city?: string;
@@ -20,7 +20,7 @@ const {
     'Balaraja',
     'Jakarta Barat',
   ],
-  deliveryEstimate = '2 Jam (Jabodetabek & Banten)',
+  deliveryEstimate = '1 - 3 Jam (Armada Sendiri)',
   whatsappNumber = siteConfig.whatsappNumber,
 } = Astro.props;
 
@@ -30,142 +30,122 @@ const waMessage = encodeURIComponent(
 const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
 ---
 
-<!-- TOP ALERT BANNER (High-Vis Daylight Contrast) -->
-<section class="w-full bg-[#FACC15] text-slate-900 py-2.5 px-4 text-center font-bold text-sm sm:text-base border-b-2 border-yellow-600">
-  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-2 sm:gap-4">
-    <div class="flex items-center gap-2">
-      <Truck className="w-5 h-5 text-[#00236f] shrink-0" />
-      <span class="tracking-tight uppercase">
-        {coveredDistricts && coveredDistricts.length > 0
-          ? `GUDANG BUKA HARI INI • SIAP ANTAR KE ${city.toUpperCase()} (${coveredDistricts.slice(0, 3).join(', ')}, DLL)`
-          : `GUDANG BUKA HARI INI • ARMADA SIAP ANGKUT SE-JABODETABEK & BANTEN`}
-      </span>
-    </div>
-    <span class="inline-flex items-center bg-[#00236f] text-white px-2.5 py-0.5 rounded text-xs uppercase font-extrabold">
-      RESPON CEPAT 1 MENIT
-    </span>
-  </div>
-</section>
-
-<!-- HERO SECTION -->
+<!-- HERO SECTION: CLEAN INDUSTRIAL PROFESSIONAL BENCHMARK -->
 <section
   id="beranda"
   aria-labelledby="hero-title"
-  class="w-full bg-[#00236f] text-white py-12 md:py-16 border-b-4 border-blue-950 scroll-mt-20"
+  class="relative bg-gradient-to-b from-slate-50 via-white to-slate-50 py-12 md:py-18 border-b border-slate-200"
 >
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-6 sm:gap-8">
-    <!-- Yellow Status Badge & Delivery Time -->
-    <div class="flex flex-wrap items-center gap-2 sm:gap-3">
-      <div class="inline-flex items-center gap-2 bg-[#FACC15] text-slate-900 px-3.5 sm:px-4 py-2 rounded-lg shadow-md border-2 border-yellow-600">
-        <CheckCircle2 className="w-5 h-5 text-[#00236f] shrink-0" />
-        <span class="text-xs sm:text-sm uppercase font-extrabold tracking-wide">
-          READY STOCK 10.000+ SET • SIAP ANTAR HARI INI
-        </span>
-      </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      <!-- Left Column: Copywriting & Actions -->
+      <div class="lg:col-span-7 flex flex-col gap-5 text-left">
+        <!-- Stock Status Badge -->
+        <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-900 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold w-fit shadow-xs">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Ready Stock 10.000+ Set • Siap Kirim ke {city} Hari Ini</span>
+        </div>
 
-      <div class="inline-flex items-center gap-1.5 bg-[#1e3a8a] text-green-300 px-3 sm:px-3.5 py-2 rounded-lg border-2 border-blue-400 text-xs sm:text-sm font-bold uppercase">
-        <Clock className="w-4 h-4 shrink-0" />
-        <span>ESTIMASI: {deliveryEstimate}</span>
-      </div>
-    </div>
+        <!-- Main Heading H1 (Professional, Human, No ALL-CAPS Yelling) -->
+        <h1
+          id="hero-title"
+          class="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 leading-[1.2] tracking-tight"
+        >
+          Sewa &amp; Jual Scaffolding di {city} — Kualitas Pipa SNI Langsung dari Gudang Pusat
+        </h1>
 
-    <!-- Main Headline H1 & Subtitle -->
-    <div class="flex flex-col gap-3 max-w-5xl">
-      <h1
-        id="hero-title"
-        class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight uppercase text-white"
-      >
-        SEWA &amp; JUAL SCAFFOLDING {city.toUpperCase()} — SIAP KIRIM KE PROYEK ANDA
-      </h1>
-      <p class="text-base sm:text-lg font-medium leading-relaxed text-blue-100 max-w-3xl">
-        Pipa baja tebal standar SNI ({siteConfig.stats.pipeThickness}), kuat &amp; aman. Melayani sewa harian, mingguan, bulanan, dan jual baru / rekondisi Grade A siap pakai untuk wilayah {city} &amp; sekitarnya.
-      </p>
-    </div>
+        <!-- Subtitle -->
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          Pusat rental dan penjualan scaffolding baru serta rekondisi Grade A dengan pipa tebal {siteConfig.stats.pipeThickness} standar SNI. Armada pikap dan truk mandiri siap antar cepat ke wilayah {city} dan sekitarnya. <strong>Bisa bayar di lokasi proyek (COD)</strong> setelah barang dicek mandor.
+        </p>
 
-    <!-- Covered Districts Info Bar -->
-    {coveredDistricts && coveredDistricts.length > 0 && (
-      <div class="bg-[#1e3a8a] p-3.5 sm:p-4 rounded-xl border-2 border-blue-400 flex flex-wrap items-center gap-2">
-        <span class="inline-flex items-center gap-1 text-xs sm:text-sm text-[#FACC15] uppercase font-bold shrink-0">
-          <MapPin className="w-4 h-4" />
-          KECAMATAN DILAYANI ({city.toUpperCase()}):
-        </span>
-        <span class="text-xs sm:text-sm text-slate-100 font-medium">
-          {coveredDistricts.join(' • ')}
-        </span>
-      </div>
-    )}
-
-    <!-- Warehouse Delivery Photo with Hard Framing -->
-    <div class="w-full bg-white p-2.5 sm:p-3.5 rounded-2xl border-4 border-blue-300 shadow-2xl">
-      <div class="relative w-full h-[260px] sm:h-[400px] lg:h-[480px] overflow-hidden rounded-xl bg-slate-100">
-        <img
-          alt={`Gudang ${siteConfig.businessName} dan Armada Truk Scaffolding Siap Antar ke ${city}`}
-          class="w-full h-full object-cover"
-          src={siteConfig.images.heroTruck}
-          width="1200"
-          height="600"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-        />
-        <div class="absolute bottom-0 inset-x-0 bg-[#00236f]/95 text-white p-3.5 sm:p-5 flex flex-wrap items-center justify-between gap-2 sm:gap-3 border-t-2 border-[#1e3a8a]">
-          <div class="flex items-center gap-2">
-            <Truck className="w-6 h-6 text-green-400 shrink-0" />
-            <span class="text-sm sm:text-base md:text-lg uppercase text-green-300 font-bold">
-              ARMADA PICKUP &amp; ENGKEL SIAP ANGKUT
-            </span>
+        <!-- Covered districts quick chips -->
+        {coveredDistricts && coveredDistricts.length > 0 && (
+          <div class="text-xs sm:text-sm text-slate-500 flex flex-wrap items-center gap-1.5 pt-1">
+            <span class="font-bold text-slate-700">Area Pengiriman:</span>
+            <span>{coveredDistricts.slice(0, 6).join(' • ')} &amp; sekitarnya</span>
           </div>
-          <p class="text-xs sm:text-sm md:text-base text-white font-bold">
-            Tiba di lokasi proyek Anda dalam {deliveryEstimate} ({coveredDistricts.slice(0, 4).join(', ')}, dsb.)
-          </p>
+        )}
+
+        <!-- Dual CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+          <a
+            class="inline-flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base sm:text-lg px-6 py-4 rounded-xl shadow-md hover:shadow-lg transition-all active:scale-[0.98]"
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-wa-source="hero_cta"
+            data-wa-mode="SEWA & BELI"
+            data-wa-city={city}
+          >
+            <MessageCircle className="w-5 h-5 shrink-0" />
+            <span>Konsultasi &amp; Pesan via WhatsApp</span>
+          </a>
+
+          <a
+            class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-800 font-bold text-base px-5 py-4 rounded-xl border border-slate-300 shadow-xs transition-all"
+            href={`tel:${siteConfig.phone}`}
+          >
+            <Phone className="w-4 h-4 text-blue-900 shrink-0" />
+            <span>Telepon: {siteConfig.phoneDisplay}</span>
+          </a>
+        </div>
+
+        <!-- 3 Reassurance Value Props (Horizontal Clean Row) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-slate-200 text-slate-700">
+          <div class="flex items-center gap-2.5">
+            <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+            <div class="text-xs sm:text-sm font-semibold">
+              <span class="block text-slate-900 font-bold">Bayar di Tempat (COD)</span>
+              <span>Barang sampai baru lunas</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <Calculator className="w-5 h-5 text-blue-900 shrink-0" />
+            <div class="text-xs sm:text-sm font-semibold">
+              <span class="block text-slate-900 font-bold">Bebas Biaya Survei</span>
+              <span>Bantu hitung set gratis</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <ShieldCheck className="w-5 h-5 text-amber-600 shrink-0" />
+            <div class="text-xs sm:text-sm font-semibold">
+              <span class="block text-slate-900 font-bold">Pipa SNI 1.8mm–2.0mm</span>
+              <span>Garansi tukar unit cacat</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Gigantic WhatsApp Call-to-Action Button -->
-    <div class="w-full flex flex-col gap-2">
-      <a
-        class="w-full min-h-[64px] bg-[#16A34A] hover:bg-[#15803D] text-white font-extrabold text-lg sm:text-2xl rounded-xl border-4 border-[#002109] shadow-[0_6px_0_#002109] flex items-center justify-center gap-3 px-6 py-4 transition-all active:translate-y-1 active:shadow-[0_2px_0_#002109] text-center cursor-pointer"
-        href={waUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-wa-source="hero_cta"
-        data-wa-mode="SEWA & BELI"
-        data-wa-city={city}
-      >
-        <MessageCircle className="w-8 h-8 sm:w-9 sm:h-9 shrink-0 animate-pulse" />
-        <span class="uppercase tracking-tight">
-          PENCET DI SINI UNTUK CHAT WHATSAPP (RESPON CEPAT 1 MENIT)
-        </span>
-      </a>
-      <div class="text-center text-xs sm:text-sm text-blue-200 uppercase mt-1 font-semibold">
-        Layanan Konsultasi Langsung dengan Mandor Logistik Gudang • Hubungi: {siteConfig.phoneDisplay}
-      </div>
-    </div>
+      <!-- Right Column: Warehouse & Delivery Fleet Visual Card -->
+      <div class="lg:col-span-5">
+        <div class="bg-white p-3 rounded-2xl border border-slate-200 shadow-lg relative">
+          <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100">
+            <img
+              alt={`Gudang Pusat ${siteConfig.businessName} dan Armada Pengiriman Scaffolding ke ${city}`}
+              class="w-full h-full object-cover"
+              src={siteConfig.images.heroTruck}
+              width="800"
+              height="600"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
+            <div class="absolute bottom-3 left-3 right-3 bg-slate-900/90 backdrop-blur-xs text-white p-3 rounded-lg flex items-center justify-between text-xs">
+              <div class="flex items-center gap-2 font-semibold">
+                <Truck className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Armada Milik Sendiri</span>
+              </div>
+              <span class="text-amber-300 font-bold">Estimasi: {deliveryEstimate}</span>
+            </div>
+          </div>
 
-    <!-- 3 Core Reassurance Badges -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-      <div class="bg-[#1e3a8a] p-4 sm:p-5 rounded-xl border-2 border-blue-400 flex items-center gap-3.5">
-        <FileText className="w-9 h-9 text-[#FACC15] shrink-0" />
-        <div>
-          <div class="text-base sm:text-lg uppercase text-white font-bold">BEBAS BIAYA SURVEI</div>
-          <div class="text-xs sm:text-sm text-blue-100 font-medium">Bantu hitung kebutuhan set akurat gratis</div>
-        </div>
-      </div>
-
-      <div class="bg-[#1e3a8a] p-4 sm:p-5 rounded-xl border-2 border-blue-400 flex items-center gap-3.5">
-        <CheckCircle2 className="w-9 h-9 text-green-400 shrink-0" />
-        <div>
-          <div class="text-base sm:text-lg uppercase text-white font-bold">BAYAR DI TEMPAT (COD)</div>
-          <div class="text-xs sm:text-sm text-blue-100 font-medium">Barang sampai dicek mandor, baru pelunasan</div>
-        </div>
-      </div>
-
-      <div class="bg-[#1e3a8a] p-4 sm:p-5 rounded-xl border-2 border-blue-400 flex items-center gap-3.5">
-        <ShieldCheck className="w-9 h-9 text-[#FACC15] shrink-0" />
-        <div>
-          <div class="text-base sm:text-lg uppercase text-white font-bold">SURAT JALAN &amp; FAKTUR RESMI</div>
-          <div class="text-xs sm:text-sm text-blue-100 font-medium">Legalitas aman standar K3 Kemnaker &amp; SNI</div>
+          <div class="p-3 text-xs text-slate-600 flex items-center justify-between">
+            <span class="font-medium">Lokasi Gudang: Cipondoh, Kota Tangerang</span>
+            <span class="text-emerald-700 font-bold">✓ Buka Setiap Hari</span>
+          </div>
         </div>
       </div>
     </div>

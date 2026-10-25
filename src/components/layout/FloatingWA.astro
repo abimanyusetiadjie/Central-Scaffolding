@@ -14,19 +14,10 @@ const waMessage = encodeURIComponent(
 const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
 ---
 
-<!-- DESKTOP FLOATING QUICK ACTION BUTTONS -->
-<aside aria-label="Aksi Cepat Kontak Gudang" class="hidden lg:flex fixed bottom-6 right-6 z-40 flex-col gap-2.5">
+<!-- DESKTOP FLOATING WHATSAPP PILL (HIGH TRUST INDONESIAN STANDARD) -->
+<aside aria-label="Aksi Cepat Kontak Gudang" class="hidden sm:flex fixed bottom-6 right-6 z-40 items-center gap-3">
   <a
-    class="min-h-[52px] bg-[#FACC15] hover:bg-yellow-400 text-slate-900 px-5 py-2.5 rounded-xl text-base font-extrabold uppercase flex items-center gap-2 border-2 border-yellow-600 shadow-[0_4px_0_#ca8a04] active:translate-y-1 transition-all"
-    href={`tel:${siteConfig.phone}`}
-    aria-label={`Telepon Gudang ${siteConfig.phoneDisplay}`}
-  >
-    <Phone className="w-5 h-5 text-slate-900" />
-    <span>TELEPON GUDANG: {siteConfig.phoneDisplay}</span>
-  </a>
-
-  <a
-    class="min-h-[52px] bg-[#16A34A] hover:bg-[#15803D] text-white px-5 py-2.5 rounded-xl text-base font-extrabold uppercase flex items-center gap-2 border-2 border-green-800 shadow-[0_4px_0_#14532d] active:translate-y-1 transition-all"
+    class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 rounded-full font-bold text-sm flex items-center gap-2.5 shadow-lg hover:shadow-xl transition-all active:scale-95 group"
     href={waUrl}
     target="_blank"
     rel="noopener noreferrer"
@@ -35,24 +26,28 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
     data-wa-mode="SEWA & BELI"
     data-wa-city={city}
   >
-    <MessageCircle className="w-5 h-5 text-white" />
-    <span>CHAT WHATSAPP 24 JAM</span>
+    <div class="relative">
+      <MessageCircle className="w-5 h-5 fill-current" />
+      <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 rounded-full animate-ping"></span>
+      <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 rounded-full"></span>
+    </div>
+    <span>Tanya Mandor via WhatsApp</span>
   </a>
 </aside>
 
-<!-- MOBILE STICKY BOTTOM BAR -->
-<aside aria-label="Tombol Kontak Cepat Mobile" class="md:hidden fixed bottom-0 inset-x-0 h-16 z-50 flex shadow-2xl">
+<!-- MOBILE STICKY BOTTOM BAR (ERGONOMIC & CLEAN) -->
+<aside aria-label="Tombol Kontak Cepat Mobile" class="sm:hidden fixed bottom-0 inset-x-0 h-14 z-50 bg-white border-t border-slate-200 shadow-[0_-2px_10px_rgba(0,0,0,0.08)] flex items-stretch">
   <a
-    class="w-[40%] bg-[#FACC15] hover:bg-yellow-400 text-slate-900 font-extrabold flex items-center justify-center gap-1.5 border-r border-yellow-700 active:bg-yellow-500 transition-colors uppercase text-sm sm:text-base"
+    class="w-[40%] bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold flex items-center justify-center gap-1.5 border-r border-slate-200 active:bg-slate-300 transition-colors text-sm"
     href={`tel:${siteConfig.phone}`}
     aria-label="Telepon Langsung Gudang"
   >
-    <Phone className="w-5 h-5 text-slate-900" />
-    <span>TELEPON</span>
+    <Phone className="w-4 h-4 text-blue-900" />
+    <span>Telepon</span>
   </a>
 
   <a
-    class="w-[60%] bg-[#16A34A] hover:bg-[#15803D] text-white font-extrabold flex items-center justify-center gap-1.5 active:bg-green-700 transition-colors uppercase text-sm sm:text-base"
+    class="w-[60%] bg-emerald-600 hover:bg-emerald-700 text-white font-bold flex items-center justify-center gap-2 active:bg-emerald-800 transition-colors text-sm"
     href={waUrl}
     target="_blank"
     rel="noopener noreferrer"
@@ -61,7 +56,7 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
     data-wa-mode="SEWA & BELI"
     data-wa-city={city}
   >
-    <MessageCircle className="w-5 h-5 text-white" />
-    <span>ORDER WA</span>
+    <MessageCircle className="w-4 h-4" />
+    <span>WhatsApp Kami</span>
   </a>
 </aside>

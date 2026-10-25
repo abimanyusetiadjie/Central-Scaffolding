@@ -1,6 +1,6 @@
 ---
 import { siteConfig } from '../../data/siteConfig';
-import { MapPin, Clock, Phone, MessageCircle, Navigation, Truck, Warehouse } from 'lucide-react';
+import { MapPin, Clock, Phone, MessageCircle, Navigation, Truck, Warehouse, CheckCircle2 } from 'lucide-react';
 
 export interface Props {
   city?: string;
@@ -9,36 +9,40 @@ export interface Props {
 const { city = siteConfig.warehouseAddress.city } = Astro.props;
 
 const waOngkirMessage = encodeURIComponent(
-  `Halo Admin ${siteConfig.businessName}, saya mau cek ongkos kirim scaffolding ke lokasi proyek saya di ${city}. Apakah armada ready kirim hari ini?`
+  `Halo Admin ${siteConfig.businessName}, saya mau cek ongkos kirim scaffolding ke lokasi proyek di ${city}. Mohon info estimasi armada & jadwal kirim.`
 );
 const waOngkirUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waOngkirMessage}`;
 
 const mapsUrl = `https://maps.google.com/?q=${encodeURIComponent(`${siteConfig.businessName} ${siteConfig.warehouseAddress.street} ${siteConfig.warehouseAddress.city}`)}`;
 ---
 
-<!-- 5. WAREHOUSE LOCATION & OPERASIONAL -->
+<!-- 5. WAREHOUSE LOCATION & OPERASIONAL (CLEAN INDUSTRIAL PRO) -->
 <section
   id="lokasi-gudang"
   aria-labelledby="warehouse-heading"
-  class="w-full bg-[#F8FAFC] py-12 md:py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-slate-200 scroll-mt-24"
+  class="w-full bg-white py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-200 scroll-mt-20"
 >
-  <div class="max-w-7xl mx-auto flex flex-col gap-8">
-    <div class="border-b-4 border-[#00236f] pb-4">
-      <span class="inline-block bg-[#FACC15] text-slate-900 px-3.5 py-1 rounded text-xs sm:text-sm uppercase font-bold tracking-wide">
-        TITIK PENGAMBILAN &amp; ARMADA
+  <div class="max-w-7xl mx-auto flex flex-col gap-10">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto flex flex-col gap-2.5">
+      <span class="inline-flex items-center gap-1.5 bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-xs font-bold uppercase w-fit mx-auto">
+        Transparansi Lokasi &amp; Armada
       </span>
       <h2
         id="warehouse-heading"
-        class="text-2xl sm:text-3xl md:text-4xl uppercase text-[#00236f] mt-2 font-extrabold tracking-tight"
+        class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight"
       >
-        LOKASI GUDANG PUSAT &amp; JAM OPERASIONAL
+        Lokasi Gudang Pusat &amp; Titik Pengambilan
       </h2>
+      <p class="text-base sm:text-lg text-slate-600 font-normal">
+        Anda dipersilakan mampir langsung untuk cek fisik pipa dan menghitung ketebalan besi, atau koordinasi pengiriman langsung ke proyek.
+      </p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
       <!-- Google Maps Integration Card -->
-      <div class="lg:col-span-7 bg-white p-4 sm:p-6 rounded-xl border-4 border-[#00236f] shadow-lg flex flex-col justify-between">
-        <div class="relative w-full h-[320px] sm:h-[380px] md:h-[400px] rounded-lg overflow-hidden border-2 border-slate-300">
+      <div class="lg:col-span-7 bg-white p-3 sm:p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div class="relative w-full h-[320px] sm:h-[380px] md:h-[400px] rounded-xl overflow-hidden border border-slate-200">
           <iframe
             title="Lokasi Gudang Central Scaffolding"
             class="w-full h-full border-0"
@@ -47,88 +51,99 @@ const mapsUrl = `https://maps.google.com/?q=${encodeURIComponent(`${siteConfig.b
             allowfullscreen
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
-          
-          <div class="absolute top-3 left-3 bg-[#00236f] text-white p-3 rounded-lg shadow-xl max-w-xs border border-white/20 pointer-events-none">
-            <div class="flex items-center gap-2 font-bold text-sm text-[#FACC15]">
-              <Warehouse className="w-5 h-5 text-[#FACC15]" />
+
+          <div class="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-xs text-white p-2.5 rounded-lg shadow-sm border border-slate-700/60 pointer-events-none text-xs">
+            <div class="flex items-center gap-1.5 font-bold text-amber-300">
+              <Warehouse className="w-4 h-4 text-amber-300" />
               <span>Gudang Pusat {siteConfig.warehouseAddress.city}</span>
             </div>
-            <p class="text-xs text-slate-200 mt-1">
-              Akses Dua Jalur (Bebas Masuk Truk Tronton, Fuso &amp; Kontainer)
+            <p class="text-slate-300 mt-0.5">
+              Akses Jalan Utama 2 Jalur Bebas Truk Besar
             </p>
           </div>
         </div>
 
-        <div class="pt-4 text-xs sm:text-sm text-slate-700 flex flex-wrap items-center justify-between gap-2 border-t border-slate-200 mt-4">
-          <span>Koordinat: {siteConfig.warehouseAddress.coordinates.latitude}, {siteConfig.warehouseAddress.coordinates.longitude} ({siteConfig.warehouseAddress.district}, {siteConfig.warehouseAddress.city})</span>
-          <span class="text-green-700 font-bold">✓ Parkir Luas Bebas Kuli Liar</span>
+        <div class="pt-3 px-1 text-xs sm:text-sm text-slate-600 flex flex-wrap items-center justify-between gap-2 mt-2">
+          <span>Kawasan Pergudangan Logistik, {siteConfig.warehouseAddress.district}, {siteConfig.warehouseAddress.city}</span>
+          <span class="text-emerald-700 font-semibold flex items-center gap-1">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Parkir Luas &amp; Akses Mudah
+          </span>
         </div>
       </div>
 
-      <!-- Readable Warehouse Contact & Logistics Data -->
-      <div class="lg:col-span-5 bg-white p-6 sm:p-8 rounded-xl border-4 border-[#00236f] flex flex-col justify-between shadow-lg">
+      <!-- Warehouse Contact & Operational Info -->
+      <div class="lg:col-span-5 bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200 flex flex-col justify-between shadow-xs">
         <div class="flex flex-col gap-5">
+          <!-- Alamat -->
           <div class="flex flex-col gap-1.5">
-            <span class="text-xs sm:text-sm uppercase text-green-700 font-bold flex items-center gap-1.5">
-              <MapPin className="w-4 h-4 text-green-700" />
-              ALAMAT LENGKAP BONGKAR MUAT:
+            <span class="text-xs uppercase text-slate-500 font-bold flex items-center gap-1.5">
+              <MapPin className="w-4 h-4 text-blue-900" />
+              Alamat Lengkap Gudang:
             </span>
-            <p class="text-base sm:text-lg text-[#00236f] font-bold leading-snug">
+            <p class="text-base sm:text-lg text-slate-900 font-bold leading-snug">
               {siteConfig.warehouseAddress.street}, {siteConfig.warehouseAddress.district}, Kota {siteConfig.warehouseAddress.city}, {siteConfig.warehouseAddress.province} {siteConfig.warehouseAddress.postalCode}
             </p>
-            <p class="text-sm text-slate-600 font-medium">
-              (Akses cor beton dua jalur, bebas lewati truk fuso &amp; kontainer proyek)
+            <p class="text-xs sm:text-sm text-slate-500">
+              (Patokan: Kawasan Pergudangan Logistik Industri, akses aspal/cor dua arah)
             </p>
           </div>
 
-          <div class="bg-amber-50 p-4 rounded-xl border-2 border-amber-300">
-            <span class="text-xs uppercase text-amber-900 font-bold flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-amber-800" />
-              JAM BUKA GUDANG:
-            </span>
-            <p class="text-xl sm:text-2xl text-[#00236f] uppercase font-extrabold mt-1">
-              SENIN - MINGGU: 07.00 - 18.00 WIB
+          <!-- Jam Operasional -->
+          <div class="bg-white p-4 rounded-xl border border-slate-200">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase text-slate-500 font-bold flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-amber-600" />
+                Jam Kerja Gudang:
+              </span>
+              <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2 py-0.5 rounded">
+                Buka Tiap Hari
+              </span>
+            </div>
+            <p class="text-xl font-extrabold text-slate-900 mt-1">
+              Senin - Minggu: 07.00 - 18.00 WIB
             </p>
-            <span class="inline-block bg-[#16A34A] text-white text-xs px-2.5 py-0.5 rounded font-bold uppercase mt-1">
-              BUKA SETIAP HARI TANPA LIBUR
-            </span>
+            <p class="text-xs text-slate-500 mt-0.5">
+              Siap bongkar muat dan pengiriman armada pickup/truk hari ini.
+            </p>
           </div>
 
+          <!-- Kontak -->
           <div class="flex flex-col gap-2">
-            <span class="text-xs uppercase text-slate-500 font-bold">KONTAK RESMI MANDOR GUDANG:</span>
+            <span class="text-xs uppercase text-slate-500 font-bold">Kontak Mandor Logistik:</span>
             <div class="flex items-center gap-2">
-              <Phone className="w-5 h-5 text-[#00236f]" />
-              <a href={`tel:${siteConfig.phone}`} class="text-xl sm:text-2xl text-[#00236f] font-extrabold hover:underline">
+              <Phone className="w-4 h-4 text-slate-700" />
+              <a href={`tel:${siteConfig.phone}`} class="text-xl font-extrabold text-slate-900 hover:text-blue-900">
                 {siteConfig.phoneDisplay}
               </a>
             </div>
-            <div class="flex items-center gap-2">
-              <MessageCircle className="w-5 h-5 text-green-600" />
+            <div class="flex items-center gap-2 text-sm">
+              <MessageCircle className="w-4 h-4 text-emerald-600" />
               <a
-                href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent('Halo Mandor Logistik, saya mau tanya stok scaffolding di gudang.')}`}
+                href={waOngkirUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-sm sm:text-base text-green-700 font-bold hover:underline"
+                class="text-emerald-700 font-bold hover:underline"
               >
-                {siteConfig.phoneDisplay} (Mandor Logistik Gudang)
+                Chat WhatsApp Mandor Gudang (Fast Respon)
               </a>
             </div>
           </div>
         </div>
 
+        <!-- Buttons -->
         <div class="flex flex-col sm:flex-row gap-3 mt-6 pt-4 border-t border-slate-200">
           <a
-            class="w-full min-h-[52px] bg-[#00236f] hover:bg-[#1e3a8a] text-white flex items-center justify-center gap-2 rounded-xl text-base uppercase border-2 border-[#00164e] shadow-[0_4px_0_#00164e] active:translate-y-[2px] transition-all font-bold"
+            class="w-full min-h-[46px] bg-slate-900 hover:bg-slate-800 text-white flex items-center justify-center gap-2 rounded-xl text-sm font-bold transition shadow-xs"
             href={mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Navigation className="w-5 h-5" />
-            <span>Buka Maps</span>
+            <Navigation className="w-4 h-4" />
+            <span>Petunjuk Arah Maps</span>
           </a>
 
           <a
-            class="w-full min-h-[52px] bg-[#16A34A] hover:bg-[#15803D] text-white flex items-center justify-center gap-2 rounded-xl text-base uppercase border-2 border-green-800 shadow-[0_4px_0_#14532d] active:translate-y-[2px] transition-all font-bold"
+            class="w-full min-h-[46px] bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center gap-2 rounded-xl text-sm font-bold transition shadow-xs"
             href={waOngkirUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -136,8 +151,8 @@ const mapsUrl = `https://maps.google.com/?q=${encodeURIComponent(`${siteConfig.b
             data-wa-mode="SEWA & BELI"
             data-wa-city={city}
           >
-            <Truck className="w-5 h-5" />
-            <span>Cek Ongkir</span>
+            <Truck className="w-4 h-4" />
+            <span>Cek Ongkir Cepat</span>
           </a>
         </div>
       </div>
