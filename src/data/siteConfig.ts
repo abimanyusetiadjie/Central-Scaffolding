@@ -34,6 +34,10 @@ export interface SiteConfig {
     deliverySla: string;
     projectsCompleted: string;
   };
+  social: {
+    instagram: string;
+    tokopedia: string;
+  };
 }
 
 export type ProductCategory =
@@ -110,6 +114,10 @@ export const siteConfig: SiteConfig = {
     pipeThickness: '1.8 mm - 2.0 mm',
     deliverySla: '1-3 Jam Kirim Cepat',
     projectsCompleted: '1000+',
+  },
+  social: {
+    instagram: 'https://www.instagram.com/central_scaffolding.id?srtk=NGN6MzE3djh1NGd3',
+    tokopedia: 'https://tk.tokopedia.com/ZSgXxncg6/',
   },
 };
 
