@@ -41,7 +41,7 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
             </div>
             <!-- Logo Text (Responsif Mobile & Desktop) -->
             <div class="flex flex-col">
-              <span class="block text-sm sm:text-lg font-montserrat font-bold text-white tracking-tight leading-tight">
+              <span class="block text-sm sm:text-lg font-montserrat font-bold text-white tracking-tight leading-tight group-hover:text-red-400 transition-colors">
                 CENTRAL SCAFFOLDING
               </span>
               <span class="block text-[10px] sm:text-xs font-roboto text-red-400 font-medium">
@@ -51,23 +51,23 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
           </a>
         </div>
 
-        <!-- Desktop Navigation Menu Ringkas (4 Menu Esensial) -->
-        <div class="hidden lg:flex items-center space-x-8 font-montserrat">
-          <a class="text-white hover:text-red-500 font-medium transition-colors duration-300 relative group text-base font-bold" href="#products">
-            Produk
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+        <!-- Desktop Navigation Menu Ringkas (Hover Effect Responsif Saat Di-scroll) -->
+        <div class="hidden lg:flex items-center space-x-2 font-montserrat">
+          <a class="text-white hover:text-white hover:bg-white/10 px-3.5 py-2 rounded-lg font-medium transition-all duration-300 relative group text-base font-bold" href="#products">
+            <span>Produk</span>
+            <span class="absolute bottom-1 left-3.5 right-3.5 h-0.5 bg-red-600 transition-all duration-300 w-0 group-hover:w-[calc(100%-1.75rem)]"></span>
           </a>
-          <a class="text-white hover:text-red-500 font-medium transition-colors duration-300 relative group text-base" href="#layanan-lokal">
-            Area Layanan
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+          <a class="text-white hover:text-white hover:bg-white/10 px-3.5 py-2 rounded-lg font-medium transition-all duration-300 relative group text-base" href="#layanan-lokal">
+            <span>Area Layanan</span>
+            <span class="absolute bottom-1 left-3.5 right-3.5 h-0.5 bg-red-600 transition-all duration-300 w-0 group-hover:w-[calc(100%-1.75rem)]"></span>
           </a>
-          <a class="text-white hover:text-red-500 font-medium transition-colors duration-300 relative group text-base" href="#about">
-            Tentang Kami
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+          <a class="text-white hover:text-white hover:bg-white/10 px-3.5 py-2 rounded-lg font-medium transition-all duration-300 relative group text-base" href="#about">
+            <span>Tentang Kami</span>
+            <span class="absolute bottom-1 left-3.5 right-3.5 h-0.5 bg-red-600 transition-all duration-300 w-0 group-hover:w-[calc(100%-1.75rem)]"></span>
           </a>
-          <a class="text-white hover:text-red-500 font-medium transition-colors duration-300 relative group text-base" href="#contact">
-            Kontak &amp; Gudang
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+          <a class="text-white hover:text-white hover:bg-white/10 px-3.5 py-2 rounded-lg font-medium transition-all duration-300 relative group text-base" href="#contact">
+            <span>Kontak &amp; Gudang</span>
+            <span class="absolute bottom-1 left-3.5 right-3.5 h-0.5 bg-red-600 transition-all duration-300 w-0 group-hover:w-[calc(100%-1.75rem)]"></span>
           </a>
         </div>
 
@@ -75,7 +75,7 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
         <div class="flex items-center space-x-4 font-montserrat">
           <!-- CTA Button WhatsApp Hijau -->
           <a
-            class="hidden md:inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 btn-hover shadow-md text-sm"
+            class="hidden md:inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 btn-hover shadow-md text-sm active:scale-95"
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -88,7 +88,7 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
           </a>
 
           <!-- Mobile Menu Button -->
-          <button class="lg:hidden text-white p-2 focus:outline-none" id="mobile-menu-btn" aria-label="Toggle Menu">
+          <button class="lg:hidden text-white p-2 focus:outline-none hover:bg-white/10 rounded-lg transition-colors" id="mobile-menu-btn" aria-label="Toggle Menu">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
             </svg>
@@ -99,16 +99,16 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
       <!-- Mobile Menu Drawer Ringkas -->
       <div class="lg:hidden hidden bg-black/95 backdrop-blur-md rounded-lg mt-2 p-5 mobile-menu-enter font-montserrat shadow-2xl border border-white/10" id="mobile-menu">
         <div class="flex flex-col space-y-4">
-          <a class="text-white hover:text-red-500 font-medium py-2 transition-colors duration-300" href="#products">
+          <a class="text-white hover:text-red-400 font-medium py-2 px-3 rounded-md hover:bg-white/10 transition-colors duration-200" href="#products">
             Produk Scaffolding
           </a>
-          <a class="text-white hover:text-red-500 font-medium py-2 transition-colors duration-300" href="#layanan-lokal">
+          <a class="text-white hover:text-red-400 font-medium py-2 px-3 rounded-md hover:bg-white/10 transition-colors duration-200" href="#layanan-lokal">
             Area Layanan
           </a>
-          <a class="text-white hover:text-red-500 font-medium py-2 transition-colors duration-300" href="#about">
+          <a class="text-white hover:text-red-400 font-medium py-2 px-3 rounded-md hover:bg-white/10 transition-colors duration-200" href="#about">
             Tentang Kami
           </a>
-          <a class="text-white hover:text-red-500 font-medium py-2 transition-colors duration-300" href="#contact">
+          <a class="text-white hover:text-red-400 font-medium py-2 px-3 rounded-md hover:bg-white/10 transition-colors duration-200" href="#contact">
             Kontak &amp; Gudang
           </a>
           <hr class="border-gray-700 my-2" />
@@ -124,6 +124,9 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
         </div>
       </div>
     </div>
+
+    <!-- Scroll Progress Indicator Bar -->
+    <div class="h-0.5 bg-red-600 w-0 transition-all duration-150 opacity-90" id="scroll-progress"></div>
   </nav>
 </header>
 
@@ -131,6 +134,7 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
   const navbar = document.getElementById('navbar');
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
+  const progressBar = document.getElementById('scroll-progress');
 
   function checkScroll() {
     if (navbar) {
@@ -142,9 +146,16 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
         navbar.classList.add('navbar-default');
       }
     }
+
+    if (progressBar) {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      progressBar.style.width = scrolled + '%';
+    }
   }
 
-  window.addEventListener('scroll', checkScroll);
+  window.addEventListener('scroll', checkScroll, { passive: true });
   checkScroll();
 
   if (mobileMenuBtn && mobileMenu) {
