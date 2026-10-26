@@ -61,9 +61,9 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
             href={siteConfig.warehouseAddress.gmapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white px-5 py-3 rounded-xl font-bold text-sm transition-all shadow hover:shadow-md font-montserrat"
+            class="inline-flex items-center justify-center gap-2.5 bg-[#1a73e8] hover:bg-[#1557b0] active:bg-[#10448d] text-white px-5 py-3 rounded-xl font-bold text-sm transition-all shadow hover:shadow-md font-montserrat group"
           >
-            <i class="fas fa-location-arrow"></i>
+            <i class="fas fa-map-marker-alt text-base transition-transform group-hover:scale-110"></i>
             <span>Buka Rute di Google Maps</span>
           </a>
 
@@ -71,9 +71,9 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-5 py-3 rounded-xl font-bold text-sm transition-all shadow hover:shadow-md font-montserrat"
+            class="inline-flex items-center justify-center gap-2.5 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white px-5 py-3 rounded-xl font-bold text-sm transition-all shadow hover:shadow-md font-montserrat group"
           >
-            <i class="fab fa-whatsapp text-lg"></i>
+            <i class="fab fa-whatsapp text-lg transition-transform group-hover:scale-110"></i>
             <span>Minta Shareloc WhatsApp</span>
           </a>
         </div>
