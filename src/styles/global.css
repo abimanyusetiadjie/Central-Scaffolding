@@ -73,6 +73,15 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
+/* Hide scrollbar for mobile carousel */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Mobile menu animation */
 .mobile-menu-enter {
   animation: slideDown 0.3s ease-out;

@@ -11,55 +11,55 @@ const { city = 'Tangerang & Jabodetabek' } = Astro.props;
 <!-- ==============================================
      AREA LAYANAN & ESTIMASI PENGIRIMAN (RINGKAS & CEPAT)
 =============================================== -->
-<section class="py-16 bg-gray-50 border-b border-gray-200" id="layanan-lokal">
+<section class="py-14 sm:py-16 bg-gray-50 border-b border-gray-200" id="layanan-lokal">
   <div class="container mx-auto px-4">
-    <div class="text-center mb-12">
+    <div class="text-center mb-10 sm:mb-12">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 text-xs font-montserrat font-bold uppercase tracking-wider mb-3">
         <i class="fas fa-truck-fast text-sm"></i>
         <span>Jangkauan Kirim Cepat Armada Sendiri</span>
       </div>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold text-gray-900 mb-4">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold text-gray-900 mb-3 sm:mb-4">
         Sewa Scaffolding <span class="text-red-600">Terdekat di Area Anda</span>
       </h2>
-      <p class="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto font-roboto">
-        Melayani pengiriman langsung dari gudang utama ke seluruh lokasi proyek di {city} dengan armada pikap &amp; truk mandiri.
+      <p class="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto font-roboto">
+        Melayani pengiriman langsung dari gudang &amp; depo siaga ke proyek di {city} dengan armada mandiri.
       </p>
     </div>
 
-    <!-- Grid Kartu Area yang Ringkas & Jelas -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-7xl mx-auto">
+    <!-- Grid Kartu Area: 2 Kolom Kompak di Mobile, 4 Kolom di Desktop (Bebas Dead Scroll) -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 max-w-7xl mx-auto">
       {locations.map((loc) => (
         <a
           href={`/area/${loc.slug}`}
-          class="block border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-lg hover:border-red-500 transition-all duration-300 bg-white group flex flex-col justify-between"
+          class="block border border-gray-200 rounded-xl p-3.5 sm:p-5 shadow-sm hover:shadow-lg hover:border-red-500 transition-all duration-300 bg-white group flex flex-col justify-between"
         >
           <div>
             <!-- Header Kartu: Ikon + SLA Kirim -->
-            <div class="flex items-center justify-between mb-3">
-              <div class="w-9 h-9 rounded-lg bg-red-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-colors">
-                <i class="fas fa-truck text-sm"></i>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2.5 sm:mb-3">
+              <div class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-red-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-colors shrink-0">
+                <i class="fas fa-truck text-xs sm:text-sm"></i>
               </div>
-              <span class="text-[11px] font-montserrat font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-100 flex items-center gap-1">
+              <span class="text-[10px] sm:text-[11px] font-montserrat font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100 flex items-center gap-1 w-fit">
                 <span>⏱</span>
                 <span>{loc.deliveryEstimate.split('(')[0].trim()}</span>
               </span>
             </div>
 
             <!-- Nama Kota / Area -->
-            <h3 class="text-base font-montserrat font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors">
-              Sewa Scaffolding {loc.cityName}
+            <h3 class="text-sm sm:text-base font-montserrat font-bold text-gray-900 mb-1.5 group-hover:text-red-600 transition-colors leading-snug">
+              Sewa {loc.cityName}
             </h3>
 
             <!-- Daftar Kecamatan / Wilayah Singkat -->
-            <p class="text-xs text-gray-500 font-roboto leading-relaxed mb-3 line-clamp-2">
-              Meliputi: {loc.coveredDistricts.slice(0, 4).join(', ')} &amp; sekitarnya.
+            <p class="text-[11px] sm:text-xs text-gray-500 font-roboto leading-relaxed mb-2.5 line-clamp-2">
+              {loc.coveredDistricts.slice(0, 4).join(', ')} &amp; sekitarnya.
             </p>
           </div>
 
           <!-- Footer Kartu: CTA Link -->
-          <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-montserrat font-bold text-red-600 group-hover:translate-x-0.5 transition-transform">
-            <span>Cek Estimasi Ongkir</span>
-            <i class="fas fa-arrow-right text-[11px]"></i>
+          <div class="pt-2 sm:pt-3 border-t border-gray-100 flex items-center justify-between text-[11px] sm:text-xs font-montserrat font-bold text-red-600 group-hover:translate-x-0.5 transition-transform">
+            <span>Cek Ongkir</span>
+            <i class="fas fa-arrow-right text-[10px] sm:text-[11px]"></i>
           </div>
         </a>
       ))}

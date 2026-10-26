@@ -98,10 +98,19 @@ const products = [
       </p>
     </div>
 
-    <!-- 5 Kolom Grid Visual & Informatif -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+    <!-- Hint Geser di Layar HP (Bebas Dead Scroll) -->
+    <div class="flex items-center justify-between text-xs text-slate-500 font-roboto sm:hidden mb-3 px-1">
+      <span class="flex items-center gap-1.5 font-medium text-slate-700">
+        <i class="fas fa-arrows-left-right text-red-600"></i>
+        <span>Geser horizontal untuk 5 tipe scaffolding</span>
+      </span>
+      <span class="text-[11px] bg-red-50 text-red-700 px-2 py-0.5 rounded font-mono font-bold">5 Tipe Ready</span>
+    </div>
+
+    <!-- 5 Kolom Grid: Horizontal Snap Scroll di Mobile, 2 Kolom Tablet, 5 Kolom Desktop -->
+    <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-5 sm:gap-6 sm:overflow-visible sm:pb-0 sm:mx-0 sm:px-0">
       {products.map((item) => (
-        <article class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 p-5 border border-gray-200 flex flex-col justify-between group">
+        <article class="w-[82vw] max-w-[310px] shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 p-5 border border-gray-200 flex flex-col justify-between group">
           <div>
             <!-- Badge Pojok Atas -->
             <div class="flex justify-between items-center mb-3 gap-1">
