@@ -12,101 +12,158 @@ const {
 } = Astro.props;
 
 const waMessage = encodeURIComponent(
-  `Halo Admin ${siteConfig.businessName}, saya tertarik melihat portofolio proyek scaffolding Anda dan ingin konsultasi kebutuhan scaffolding untuk proyek saya di ${city}.`
+  `Halo Admin ${siteConfig.businessName}, saya melihat portofolio proyek scaffolding Anda (seperti Bank BTN & BSD) dan ingin konsultasi kebutuhan sewa scaffolding untuk proyek saya di ${city}.`
 );
 const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
 
 const projects = [
   {
-    title: 'Pembangunan Rumah Mewah & Hunian Residensial',
-    location: `Kawasan Residensial ${city}`,
+    title: 'Gedung Bank BTN (Proyek Komersial)',
+    location: 'Jabodetabek',
+    badge: 'Komersial & Perbankan',
+    specs: 'Tower 5 Lantai + Tangga Perancah',
     year: '2025',
-    webp: '/assets/img/project-royal-residence.webp',
-    img: '/assets/img/project-royal-residence.jpg',
-    alt: `Proyek pemasangan scaffolding Main Frame untuk pembangunan rumah mewah dan hunian residensial di ${city}`,
+    webp: '/assets/img/projects/project-bank-btn.webp',
+    alt: `Dokumentasi pemasangan tower scaffolding bertingkat lengkap tangga pada proyek gedung Bank BTN oleh Central Scaffolding di ${city}`,
   },
   {
-    title: 'Kawasan Pergudangan & Terminal Logistik Industrial',
-    location: 'Kawasan Industri Tangerang & Sekitarnya',
+    title: 'Cluster Mozia, BSD City',
+    location: 'BSD City, Tangerang Selatan',
+    badge: 'Residensial Mewah',
+    specs: 'Fasad & Cor Beton Rumah Mewah',
     year: '2025',
-    webp: '/assets/img/project-terminal-gresik.webp',
-    img: '/assets/img/project-terminal-gresik.jpg',
-    alt: 'Proyek sewa scaffolding heavy duty untuk konstruksi terminal pelabuhan dan kawasan pergudangan logistik industrial',
+    webp: '/assets/img/projects/project-cluster-mozia-bsd.webp',
+    alt: `Proyek sewa scaffolding Main Frame dan perancah cor beton perumahan mewah Cluster Mozia BSD City Tangerang`,
   },
   {
-    title: 'Gedung Fasilitas Pendidikan & Perkantoran',
-    location: `Area ${city} & Jabodetabek`,
+    title: 'Ruko Niaga Bidex, BSD',
+    location: 'BSD Serpong, Tangerang Selatan',
+    badge: 'Ruko Komersial',
+    specs: 'Pekerjaan Fasad & Renovasi Ruko',
     year: '2025',
-    webp: '/assets/img/project-unair.webp',
-    img: '/assets/img/project-unair.jpg',
-    alt: `Proyek sewa scaffolding pipa baja SNI untuk pekerjaan fasad gedung fasilitas pendidikan dan perkantoran bertingkat di ${city}`,
+    webp: '/assets/img/projects/project-ruko-bidex-bsd.webp',
+    alt: `Penyewaan scaffolding ruko niaga Bidex BSD Serpong Tangerang oleh Central Scaffolding`,
+  },
+  {
+    title: 'Kalibata Residence, Jakarta Selatan',
+    location: 'Jakarta Selatan, DKI Jakarta',
+    badge: 'Mansion Residensial',
+    specs: 'Main Frame 1.90m & Pipa Tebal SNI',
+    year: '2025',
+    webp: '/assets/img/projects/project-kalibata-residence.webp',
+    alt: `Sewa scaffolding Main Frame 190 pembangunan rumah mewah klasik Kalibata Residence Jakarta Selatan`,
+  },
+  {
+    title: 'Gedung Instansi & Fasilitas Publik',
+    location: 'Tangerang & Jabodetabek',
+    badge: 'Proyek BUMN',
+    specs: 'Main Frame 190 & Ladder Frame 90',
+    year: '2025',
+    webp: '/assets/img/projects/project-gedung-bumn.webp',
+    alt: `Penyelesaian sewa scaffolding proyek gedung fasilitas publik BUMN oleh Central Scaffolding`,
+  },
+  {
+    title: 'Konstruksi Bertingkat & Cor Beton',
+    location: 'Kawasan Tangerang & Banten',
+    badge: 'Struktur Beton',
+    specs: 'Penyangga Balok & Plat Lantai Cor',
+    year: '2025',
+    webp: '/assets/img/projects/project-konstruksi-cor.webp',
+    alt: `Sewa scaffolding penyangga cor beton dan rangka besi gedung bertingkat di Tangerang`,
   },
 ];
 ---
 
 <!-- ==============================================
-     PROYEK SEWA SCAFFOLDING TERBARU
+     PROYEK SEWA SCAFFOLDING TERBARU (BUKTI NYATA INSTALASI)
 =============================================== -->
-<section class="py-20 bg-gray-50" id="projects">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-montserrat font-bold text-red-600 mb-4">
-        Proyek
-        <span class="text-gray-800">
-          Sewa Scaffolding
-        </span>
-        Terbaru
+<section class="py-16 sm:py-20 bg-gray-50 border-t border-gray-200" id="projects">
+  <div class="container mx-auto px-4 font-montserrat">
+    <!-- Header Section -->
+    <div class="text-center mb-12 sm:mb-16">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 text-xs font-bold uppercase tracking-wider mb-2.5">
+        <i class="fas fa-building-circle-check text-sm"></i>
+        <span>Portofolio Proyek Lapangan Nyata</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+        Proyek Sewa Scaffolding <span class="text-red-600">Terbaru Kami</span>
       </h2>
-      <p class="text-sm sm:text-base text-gray-600 max-w-xl mx-auto font-roboto">
-        Dokumentasi instalasi sewa scaffolding pada proyek perumahan, pergudangan, dan gedung di {city}.
+      <p class="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto font-roboto">
+        Dokumentasi nyata instalasi perancah Central Scaffolding pada proyek gedung perbankan, perumahan klaster BSD, ruko niaga, dan proyek BUMN di {city}.
       </p>
     </div>
 
-    <!-- 3 Project Cards Grid: Horizontal Snap Scroll di Mobile, 2 Kolom Tablet, 3 Kolom Desktop -->
-    <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 no-scrollbar sm:grid md:grid-cols-2 lg:grid-cols-3 sm:gap-8 mb-12 max-w-6xl mx-auto sm:overflow-visible sm:pb-0 sm:mx-auto sm:px-0">
+    <!-- 6 Kartu Proyek Nyata: 1 Kolom Mobile, 2 Kolom Tablet, 3 Kolom Desktop -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 max-w-7xl mx-auto">
       {projects.map((proj) => (
-        <article class="w-[84vw] max-w-[320px] shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 border border-gray-200 flex flex-col justify-between group">
-          <div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+        <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 border border-gray-200 flex flex-col justify-between group">
+          <!-- Frame Foto Proyek (Aspect Ratio 4:5 Proporsional untuk Foto Lapangan) -->
+          <div class="relative aspect-[4/5] w-full overflow-hidden bg-slate-100">
             <picture class="block w-full h-full">
               <source srcset={proj.webp} type="image/webp" />
               <img
-                src={proj.img}
+                src={proj.webp}
                 alt={proj.alt}
-                width="800"
-                height="600"
-                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                width="720"
+                height="900"
+                class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
             </picture>
-            <div class="absolute top-3 right-3 bg-slate-900/85 text-white text-xs font-mono font-bold px-2.5 py-1 rounded">
+
+            <!-- Gradient Overlay Halus Bawah Foto -->
+            <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/70 to-transparent pointer-events-none"></div>
+
+            <!-- Badge Kategori Pojok Kiri Atas -->
+            <div class="absolute top-3 left-3 bg-red-600/90 backdrop-blur-sm text-white text-[11px] font-bold px-3 py-1 rounded-md shadow-sm">
+              {proj.badge}
+            </div>
+
+            <!-- Badge Tahun Pojok Kanan Atas -->
+            <div class="absolute top-3 right-3 bg-slate-900/85 backdrop-blur-sm text-white text-xs font-mono font-bold px-2.5 py-1 rounded-md shadow-sm">
               {proj.year}
             </div>
+
+            <!-- Highlight Teknis di Bawah Foto -->
+            <div class="absolute bottom-3 left-3 right-3 text-white text-xs font-medium flex items-center gap-1.5 drop-shadow">
+              <i class="fas fa-screwdriver-wrench text-amber-400 text-[11px]"></i>
+              <span class="truncate">{proj.specs}</span>
+            </div>
           </div>
-          <div class="p-6 flex-grow flex flex-col justify-between">
-            <h3 class="text-xl sm:text-2xl font-montserrat font-bold text-gray-900 mb-3 leading-snug group-hover:text-red-600 transition-colors">
-              {proj.title}
-            </h3>
-            <div class="flex items-center justify-between text-gray-600 font-roboto text-sm font-medium pt-3 border-t border-gray-100">
-              <span class="flex items-center gap-1.5">
-                <i class="fas fa-map-marker-alt text-red-600"></i>
-                <span>{proj.location}</span>
+
+          <!-- Keterangan Proyek -->
+          <div class="p-5 sm:p-6 flex-grow flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2 leading-snug group-hover:text-red-600 transition-colors">
+                {proj.title}
+              </h3>
+            </div>
+
+            <div class="flex items-center justify-between text-gray-600 font-roboto text-xs sm:text-sm font-medium pt-3.5 border-t border-gray-100 mt-2">
+              <span class="flex items-center gap-1.5 text-gray-700">
+                <i class="fas fa-map-marker-alt text-red-600 text-xs"></i>
+                <span class="truncate max-w-[180px]">{proj.location}</span>
               </span>
-              <span class="text-xs font-mono font-bold text-gray-500">Tahun {proj.year}</span>
+              <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100 shrink-0">
+                Terpasang
+              </span>
             </div>
           </div>
         </article>
       ))}
     </div>
 
-    <div class="text-center mt-12">
+    <!-- Tombol Konsultasi WhatsApp di Bawah -->
+    <div class="text-center mt-10">
       <a
-        class="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 btn-hover shadow-md font-montserrat"
+        class="inline-flex items-center justify-center gap-2.5 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg font-montserrat active:scale-95"
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
       >
-        Lihat Project Selengkapnya
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span>Konsultasikan Kebutuhan Proyek Anda (WhatsApp)</span>
       </a>
     </div>
   </div>
