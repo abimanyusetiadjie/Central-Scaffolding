@@ -19,36 +19,36 @@ const waMessage = encodeURIComponent(
 const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
 ---
 
-<!-- HERO SECTION (SAMA PERSIS DENGAN PT SNI) -->
+<!-- HERO SECTION (TEMA MERAH CENTRAL SCAFFOLDING) -->
 <section class="relative h-screen flex items-center justify-center overflow-hidden">
   <!-- Background Image / Video Poster -->
   <img
     src="/assets/video/bg-hero-index-poster.webp"
-    alt="Scaffolding Background Construction"
+    alt="Central Scaffolding Construction Background"
     class="absolute top-0 left-0 w-full h-full object-cover z-0"
     loading="eager"
   />
 
-  <!-- Overlay Hitam 60% Khas PT SNI -->
+  <!-- Overlay Hitam 60% -->
   <div class="absolute inset-0 bg-black/60 z-10"></div>
 
   <!-- Hero Content -->
   <div class="relative z-20 text-center text-white px-4 max-w-4xl mx-auto pt-16">
     <h1 class="text-4xl sm:text-5xl md:text-7xl font-montserrat font-bold mb-6 leading-tight animate-fade-in tracking-tight">
-      Jasa Sewa Scaffolding Terpercaya di Indonesia
+      Sewa &amp; Jual Scaffolding Terpercaya di Indonesia
     </h1>
     <p class="text-lg sm:text-xl md:text-2xl mb-8 opacity-90 leading-relaxed font-roboto">
-      Solusi jasa sewa &amp; jual scaffolding (perancah) untuk proyek rumah, ruko, gudang &amp; gedung bertingkat di {city}. Material bersertifikat SNI, stok {siteConfig.stats.readyStockSets}, siap kirim {siteConfig.stats.deliverySla}.
+      Solusi sewa dan jual beli scaffolding pipa tebal standar SNI untuk proyek rumah, ruko, gudang &amp; gedung di {city}. Stok {siteConfig.stats.readyStockSets}, siap kirim {siteConfig.stats.deliverySla}.
     </p>
 
-    <!-- Dua Tombol Utama Khas PT SNI -->
+    <!-- Dua Tombol Utama -->
     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <!-- Tombol WhatsApp Oranye -->
+      <!-- Tombol WhatsApp Hijau -->
       <a
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="w-full sm:w-auto bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg btn-hover inline-flex items-center justify-center gap-2"
+        class="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg btn-hover inline-flex items-center justify-center gap-2"
         data-wa-source="hero_primary"
         data-wa-mode="SEWA & BELI"
         data-wa-city={city}
@@ -57,27 +57,27 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
         <span>WhatsApp</span>
       </a>
 
-      <!-- Tombol Katalog Transparan -->
+      <!-- Tombol Katalog Transparan Aksen Merah -->
       <a
         href="#products"
-        class="w-full sm:w-auto bg-transparent border-2 border-white text-white hover:bg-white hover:text-orange-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2"
+        class="w-full sm:w-auto bg-transparent border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2"
         title="Lihat katalog produk scaffolding"
       >
         <i class="fas fa-book-open text-xl"></i>
-        <span>Katalog</span>
+        <span>Katalog Produk</span>
       </a>
     </div>
 
     <!-- Tautan Area Layanan Lokal -->
     <p class="mt-6 text-sm md:text-base opacity-90 font-roboto">
       Lihat layanan lokal:
-      <a class="underline hover:text-orange-300 transition-colors" href="/area/tangerang">Tangerang</a>
+      <a class="underline hover:text-red-300 transition-colors" href="/area/sewa-scaffolding-tangerang">Tangerang</a>
       •
-      <a class="underline hover:text-orange-300 transition-colors" href="/area/jakarta-barat">Jakarta Barat</a>
+      <a class="underline hover:text-red-300 transition-colors" href="/area/sewa-scaffolding-jakarta-barat">Jakarta Barat</a>
       •
-      <a class="underline hover:text-orange-300 transition-colors" href="/area/jakarta-selatan">Jakarta Selatan</a>
+      <a class="underline hover:text-red-300 transition-colors" href="/area/sewa-scaffolding-jakarta-selatan">Jakarta Selatan</a>
       •
-      <a class="underline hover:text-orange-300 transition-colors" href="/area/bsd-serpong">BSD Serpong</a>
+      <a class="underline hover:text-red-300 transition-colors" href="/area/sewa-scaffolding-bsd-serpong">BSD Serpong</a>
     </p>
   </div>
 
@@ -89,8 +89,8 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
   </a>
 </section>
 
-<!-- STATS SECTION ORANYE KHAS PT SNI (#stats) -->
-<section class="py-10 bg-orange-600" id="stats">
+<!-- STATS SECTION MERAH KHAS CENTRAL SCAFFOLDING (#stats) -->
+<section class="py-10 bg-red-600" id="stats">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
       <div>

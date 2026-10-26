@@ -12,7 +12,7 @@
   }
 }
 
-/* Custom scrollbar gaya PT SNI */
+/* Custom scrollbar gaya Central Scaffolding */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -22,12 +22,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ea580c;
+  background: #dc2626;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c2410c;
+  background: #b91c1c;
 }
 
 /* Button hover shine effect */

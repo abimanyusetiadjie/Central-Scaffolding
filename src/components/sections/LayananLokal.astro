@@ -29,9 +29,9 @@ const { city = 'Tangerang & Jabodetabek' } = Astro.props;
       {locations.map((loc) => (
         <a
           href={`/area/${loc.slug}`}
-          class="block border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-orange-300 transition-all bg-white"
+          class="block border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-red-400 transition-all bg-white group"
         >
-          <h3 class="text-xl font-montserrat font-bold text-gray-800 mb-2">
+          <h3 class="text-xl font-montserrat font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-colors">
             Sewa Scaffolding {loc.cityName}
           </h3>
           <p class="text-gray-600 text-sm font-roboto leading-relaxed">
