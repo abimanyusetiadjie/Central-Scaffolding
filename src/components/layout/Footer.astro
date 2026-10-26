@@ -38,9 +38,9 @@ const currentYear = new Date().getFullYear();
 
   <!-- Main Footer Content -->
   <div class="relative container mx-auto px-4 py-16">
-    <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
-      <!-- Company Info (Col-span-2 di Desktop) -->
-      <div class="lg:col-span-2">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
+      <!-- Company Info (5 Kolom di Desktop) -->
+      <div class="lg:col-span-5">
         <div class="flex items-center space-x-3 mb-6">
           <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center p-1.5 shadow-md flex-shrink-0">
             <picture class="w-full h-full flex items-center justify-center">
@@ -67,34 +67,34 @@ const currentYear = new Date().getFullYear();
         </div>
         <p class="text-gray-300 mb-6 leading-relaxed max-w-md text-justify font-roboto text-sm sm:text-base">
           Pusat persewaan dan penjualan scaffolding terbesar dan terlengkap di Tangerang dan Jabodetabek.
-          Kami siap memenuhi kebutuhan Anda dalam skala besar maupun kecil dengan material bersertifikat SNI dan pengiriman cepat armada sendiri.
+          Material bersertifikat SNI pipa tebal 1.8mm – 2.0mm, ready stok 10.000+ set, dan pengiriman cepat armada sendiri.
         </p>
 
-        <!-- Media Sosial & Marketplace Resmi Central Scaffolding -->
-        <div class="flex items-center space-x-3">
+        <!-- Media Sosial & Marketplace Resmi (Icon Diperbesar Mantap & Jelas) -->
+        <div class="flex items-center space-x-4">
           <!-- Instagram Resmi -->
           <a
             aria-label="Instagram Resmi Central Scaffolding"
-            class="w-10 h-10 bg-gray-800 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-500 hover:to-purple-600 rounded-lg flex items-center justify-center transition-all duration-300 group shadow-sm hover:scale-105"
+            class="w-14 h-14 bg-gray-800/90 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-500 hover:to-purple-600 rounded-xl flex items-center justify-center transition-all duration-300 group shadow-lg hover:scale-105 border border-white/10 hover:border-transparent"
             href={siteConfig.social.instagram}
             target="_blank"
             rel="noopener noreferrer"
             title="Follow Instagram Resmi @central_scaffolding.id"
           >
-            <i class="fab fa-instagram text-gray-300 group-hover:text-white text-lg"></i>
+            <i class="fab fa-instagram text-white text-3xl transition-transform group-hover:scale-110"></i>
           </a>
 
           <!-- Tokopedia Official Store -->
           <a
             aria-label="Toko Tokopedia Resmi Central Scaffolding"
-            class="w-10 h-10 bg-gray-800 hover:bg-[#42b549] rounded-lg flex items-center justify-center transition-all duration-300 group shadow-sm hover:scale-105 p-2"
+            class="w-14 h-14 bg-gray-800/90 hover:bg-[#42b549] rounded-xl flex items-center justify-center transition-all duration-300 group shadow-lg hover:scale-105 p-3 border border-white/10 hover:border-transparent"
             href={siteConfig.social.tokopedia}
             target="_blank"
             rel="noopener noreferrer"
             title="Kunjungi Toko Tokopedia Central Scaffolding"
           >
             <svg
-              class="w-5 h-5 fill-gray-300 group-hover:fill-white transition-colors"
+              class="w-8 h-8 fill-white transition-transform group-hover:scale-110"
               viewBox="0 0 1024 1024"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
@@ -105,52 +105,66 @@ const currentYear = new Date().getFullYear();
         </div>
       </div>
 
-      <!-- Quick Links -->
-      <div>
+      <!-- Quick Links (Dibagi Menjadi 2 Sisi / 2 Kolom Rapi) -->
+      <div class="lg:col-span-4">
         <h3 class="text-lg font-montserrat font-semibold mb-6 text-red-500">
           Menu Utama
         </h3>
-        <ul class="space-y-3 font-roboto text-sm">
-          <li>
-            <a class="text-gray-300 hover:text-red-400 transition-colors duration-300" href="/">
-              Beranda
-            </a>
-          </li>
-          <li>
-            <a class="text-gray-300 hover:text-red-400 transition-colors duration-300" href="#layanan-lokal">
-              Layanan Lokal
-            </a>
-          </li>
-          <li>
-            <a class="text-gray-300 hover:text-red-400 transition-colors duration-300" href="#about">
-              Tentang Kami
-            </a>
-          </li>
-          <li>
-            <a class="text-gray-300 hover:text-red-400 transition-colors duration-300" href="#products">
-              Produk Scaffolding
-            </a>
-          </li>
-          <li>
-            <a class="text-gray-300 hover:text-red-400 transition-colors duration-300" href="#projects">
-              Proyek Terbaru
-            </a>
-          </li>
-          <li>
-            <a class="text-gray-300 hover:text-red-400 transition-colors duration-300" href="#faq">
-              FAQ
-            </a>
-          </li>
-          <li>
-            <a class="text-gray-300 hover:text-red-400 transition-colors duration-300" href="#contact">
-              Kontak &amp; Cabang
-            </a>
-          </li>
-        </ul>
+        <div class="grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 font-roboto text-sm">
+          <!-- Sisi 1 (Kiri) -->
+          <ul class="space-y-3">
+            <li>
+              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="/">
+                <span class="text-red-500 font-bold text-xs">›</span>
+                <span>Beranda</span>
+              </a>
+            </li>
+            <li>
+              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="#layanan-lokal">
+                <span class="text-red-500 font-bold text-xs">›</span>
+                <span>Layanan Lokal</span>
+              </a>
+            </li>
+            <li>
+              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="#about">
+                <span class="text-red-500 font-bold text-xs">›</span>
+                <span>Tentang Kami</span>
+              </a>
+            </li>
+            <li>
+              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="#products">
+                <span class="text-red-500 font-bold text-xs">›</span>
+                <span>Produk Scaffolding</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Sisi 2 (Kanan) -->
+          <ul class="space-y-3">
+            <li>
+              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="#projects">
+                <span class="text-red-500 font-bold text-xs">›</span>
+                <span>Proyek Terbaru</span>
+              </a>
+            </li>
+            <li>
+              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="#faq">
+                <span class="text-red-500 font-bold text-xs">›</span>
+                <span>FAQ</span>
+              </a>
+            </li>
+            <li>
+              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="#contact">
+                <span class="text-red-500 font-bold text-xs">›</span>
+                <span>Kontak &amp; Cabang</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <!-- Contact Info -->
-      <div>
+      <!-- Contact Info (3 Kolom di Desktop) -->
+      <div class="lg:col-span-3">
         <h3 class="text-lg font-montserrat font-semibold mb-6 text-red-500">
           Kontak Kami
         </h3>
