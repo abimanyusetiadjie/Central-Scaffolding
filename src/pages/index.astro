@@ -3,13 +3,10 @@ import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/sections/Hero.astro';
 import LayananLokal from '../components/sections/LayananLokal.astro';
 import AboutUs from '../components/sections/AboutUs.astro';
-import ServiceSplit from '../components/sections/ServiceSplit.astro';
-import CatalogFilter from '../components/islands/CatalogFilter';
-import PackageSelector from '../components/islands/PackageSelector';
+import ProductsSection from '../components/sections/ProductsSection.astro';
 import ProjectsShowcase from '../components/sections/ProjectsShowcase.astro';
-import OrderSteps from '../components/sections/OrderSteps.astro';
 import FaqSection from '../components/sections/FaqSection.astro';
-import WarehouseProof from '../components/sections/WarehouseProof.astro';
+import ContactBranches from '../components/sections/ContactBranches.astro';
 import { siteConfig } from '../data/siteConfig';
 
 const defaultCity = `${siteConfig.warehouseAddress.city} & Jabodetabek`;
@@ -23,7 +20,7 @@ const defaultDistricts = [
   'Jakarta Selatan',
 ];
 const defaultDeliveryEstimate = `${siteConfig.stats.deliverySla} (Armada Gudang Cipondoh)`;
-const homeTitle = `Sewa & Jual Beli Scaffolding ${siteConfig.warehouseAddress.city} & Jabodetabek | Stok Gudang Siap Kirim — ${siteConfig.businessName}`;
+const homeTitle = `Sewa Scaffolding Terpercaya di Indonesia | ${siteConfig.businessName}`;
 const homeDescription = `Jasa sewa scaffolding (steger) & bekisting bersertifikat SNI 07-0065 di ${siteConfig.warehouseAddress.city}, BSD Serpong, Cikupa, dan Jakarta. Stok gudang ${siteConfig.stats.readyStockSets}, pipa tebal ${siteConfig.stats.pipeThickness}, kirim cepat armada sendiri.`;
 ---
 
@@ -33,27 +30,38 @@ const homeDescription = `Jasa sewa scaffolding (steger) & bekisting bersertifika
   title={homeTitle}
   description={homeDescription}
 >
+  <!-- 1. Hero Section + Stats (#stats) -->
   <Hero
     city={defaultCity}
     coveredDistricts={defaultDistricts}
     deliveryEstimate={defaultDeliveryEstimate}
     whatsappNumber={siteConfig.whatsappNumber}
   />
+
+  <!-- 2. Layanan Lokal (#layanan-lokal) -->
   <LayananLokal city={defaultCity} />
+
+  <!-- 3. Tentang Kami (#about) -->
   <AboutUs city={defaultCity} />
-  <ServiceSplit city={defaultCity} />
-  <CatalogFilter
-    client:visible
+
+  <!-- 4. Produk Scaffolding Kami (#products) -->
+  <ProductsSection
     city={defaultCity}
     whatsappNumber={siteConfig.whatsappNumber}
   />
-  <PackageSelector
-    client:visible
-    defaultLocation={siteConfig.warehouseAddress.city}
+
+  <!-- 5. Proyek Terbaru (#projects) -->
+  <ProjectsShowcase
+    city={defaultCity}
     whatsappNumber={siteConfig.whatsappNumber}
   />
-  <ProjectsShowcase city={defaultCity} />
-  <OrderSteps city={defaultCity} />
+
+  <!-- 6. FAQ (#faq) -->
   <FaqSection city={defaultCity} />
-  <WarehouseProof city={defaultCity} />
+
+  <!-- 7. Kontak & Cabang (#contact) -->
+  <ContactBranches
+    city={defaultCity}
+    whatsappNumber={siteConfig.whatsappNumber}
+  />
 </MainLayout>

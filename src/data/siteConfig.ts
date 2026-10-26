@@ -2,8 +2,10 @@ export interface SiteConfig {
   businessName: string;
   tagline: string;
   whatsappNumber: string; // Format: 62812xxxxxxx (tanpa + atau spasi)
+  whatsappDisplay: string;
   phone: string; // Format dial telepon: 0812xxxxxxx
   phoneDisplay: string;
+  phoneHotline: string;
   email: string;
   siteUrl: string;
   images: {
@@ -19,6 +21,7 @@ export interface SiteConfig {
     postalCode: string;
     countryCode: string;
     googleMapsEmbedUrl: string;
+    gmapsUrl: string;
     coordinates: {
       latitude: number;
       longitude: number;
@@ -29,6 +32,7 @@ export interface SiteConfig {
     readyStockSets: string;
     pipeThickness: string;
     deliverySla: string;
+    projectsCompleted: string;
   };
 }
 
@@ -75,14 +79,16 @@ export const siteConfig: SiteConfig = {
   businessName: 'Central Scaffolding',
   tagline: 'Pusat Sewa & Jual Scaffolding Pipa Baja Standar SNI & K3 — Gudang & Armada Sendiri',
   whatsappNumber: '6281234567890',
+  whatsappDisplay: '0812-3456-7890',
   phone: '081234567890',
   phoneDisplay: '0812-3456-7890',
-  email: 'logistik@mandorperkasa.co.id',
-  siteUrl: 'https://centralscaffolding.co.id',
+  phoneHotline: '021-5570-1234',
+  email: 'kontak@centralscaffolding.id',
+  siteUrl: 'https://centralscaffolding.vercel.app',
   images: {
-    logo: 'https://lh3.googleusercontent.com/aida/AEtjO1VYskxrFDJGD97z5trWg_PP1e0ZBnkeEGGw9hWJmkNa8w_Q1RvGdE_fbpCgoTOpELrgMttEUKGjk5ssEA5ww42WhGX-FP1Gvloel6xsShHiCjraoHDozrLHlycrfNYQqJaHxYJ8obQjZBRFHR6Qc_ei0FS5G3oeaCuFf2fH4OVrM0FtBlIkCywUX7pLpd0NVJ5Kd7DRZwUh6m2ravT1KYkh9Dp2PYgxcCPkLM-TQFNYPrNJYlupp9EriUc',
-    heroTruck: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAG94Vx59-GoAKu9IfHrYSVHzWuoFJCpTJrOwIDv5NvXUSmZzkxsCJgu1Yb1rdj2U7xQtj9X3ISNUbkFzAQPQt9kvDt_yXbkQGjw49cWqIK6W7l7jQ_gLxjZ_55gmROPaV3jn41TKlpCr4xvK2N4MpfRbaA2RZXjhF_I5EboHjvLizi0rgZTsKsdWQxQeNj5yPab5iBsFsktI8VvDbH9Ehaa2ATQ5HtsvaSRmwE9doGu0BGcD41SH5fgQ',
-    warehouseMap: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBs5gkwddB3jHlYU4WZ87gex8gJSSpqsyfullTVTUYIwYvgQpbQbcdk8m-3tFpXJUErlXOgawJJARMcDFO2MuKSUMzLBHxKJMw25PmOWT64_aAcKpOtGbWpr_NFeZtB_34SMw_CzJcAw25_dt0m74w_pe904VsPjbiDJS_eUQOpgjE3ezA1NadKWwANQM52lKl2ToOsBqxstcv1L575S_zix_998blynnxKFt9sToc4XHIPYFPnWtNuYw',
+    logo: '/images/stitch/logo.png',
+    heroTruck: '/assets/video/bg-hero-index-poster.webp',
+    warehouseMap: '/images/stitch/warehouse-map.jpg',
   },
   warehouseAddress: {
     street: 'Jl. Raya Industri Utama No. 88, Kawasan Pergudangan Logistik',
@@ -92,6 +98,7 @@ export const siteConfig: SiteConfig = {
     postalCode: '15148',
     countryCode: 'ID',
     googleMapsEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.6710!3d-6.1947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTEnNDEuMCJTIDEwNsKwNDAnMTUuNiJF!5e0!3m2!1sen!2sid!4v1700000000000',
+    gmapsUrl: 'https://maps.google.com/?q=-6.1947,106.6710',
     coordinates: {
       latitude: -6.1947,
       longitude: 106.671,
@@ -101,7 +108,8 @@ export const siteConfig: SiteConfig = {
   stats: {
     readyStockSets: '10.000+ Set Ready',
     pipeThickness: '1.8 mm - 2.0 mm',
-    deliverySla: '2 Jam Sampai di Lokasi Proyek',
+    deliverySla: '1-3 Jam Kirim Cepat',
+    projectsCompleted: '1000+',
   },
 };
 

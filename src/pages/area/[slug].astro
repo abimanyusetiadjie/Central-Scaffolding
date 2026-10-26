@@ -3,13 +3,10 @@ import MainLayout from '../../layouts/MainLayout.astro';
 import Hero from '../../components/sections/Hero.astro';
 import LayananLokal from '../../components/sections/LayananLokal.astro';
 import AboutUs from '../../components/sections/AboutUs.astro';
-import ServiceSplit from '../../components/sections/ServiceSplit.astro';
-import CatalogFilter from '../../components/islands/CatalogFilter';
-import PackageSelector from '../../components/islands/PackageSelector';
+import ProductsSection from '../../components/sections/ProductsSection.astro';
 import ProjectsShowcase from '../../components/sections/ProjectsShowcase.astro';
-import OrderSteps from '../../components/sections/OrderSteps.astro';
 import FaqSection from '../../components/sections/FaqSection.astro';
-import WarehouseProof from '../../components/sections/WarehouseProof.astro';
+import ContactBranches from '../../components/sections/ContactBranches.astro';
 import locations from '../../data/locations.json';
 import { siteConfig, type TargetLocation } from '../../data/siteConfig';
 
@@ -33,27 +30,38 @@ const { locationData } = Astro.props;
   description={locationData.metaDescription}
   title={locationData.metaTitle}
 >
+  <!-- 1. Hero Section + Stats (#stats) -->
   <Hero
     city={locationData.cityName}
     coveredDistricts={locationData.coveredDistricts}
     deliveryEstimate={locationData.deliveryEstimate}
     whatsappNumber={siteConfig.whatsappNumber}
   />
+
+  <!-- 2. Layanan Lokal (#layanan-lokal) -->
   <LayananLokal city={locationData.cityName} />
+
+  <!-- 3. Tentang Kami (#about) -->
   <AboutUs city={locationData.cityName} />
-  <ServiceSplit city={locationData.cityName} />
-  <CatalogFilter
-    client:visible
+
+  <!-- 4. Produk Scaffolding Kami (#products) -->
+  <ProductsSection
     city={locationData.cityName}
     whatsappNumber={siteConfig.whatsappNumber}
   />
-  <PackageSelector
-    client:visible
-    defaultLocation={locationData.cityName}
+
+  <!-- 5. Proyek Terbaru (#projects) -->
+  <ProjectsShowcase
+    city={locationData.cityName}
     whatsappNumber={siteConfig.whatsappNumber}
   />
-  <ProjectsShowcase city={locationData.cityName} />
-  <OrderSteps city={locationData.cityName} />
+
+  <!-- 6. FAQ (#faq) -->
   <FaqSection city={locationData.cityName} />
-  <WarehouseProof city={locationData.cityName} />
+
+  <!-- 7. Kontak & Cabang (#contact) -->
+  <ContactBranches
+    city={locationData.cityName}
+    whatsappNumber={siteConfig.whatsappNumber}
+  />
 </MainLayout>

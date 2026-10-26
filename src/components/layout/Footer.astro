@@ -1,7 +1,6 @@
 ---
 import { siteConfig } from '../../data/siteConfig';
 import locations from '../../data/locations.json';
-import { Phone, MessageCircle, CheckCircle2, ShieldCheck, MapPin, Clock } from 'lucide-react';
 
 export interface Props {
   city?: string;
@@ -10,144 +9,300 @@ export interface Props {
 const { city = siteConfig.warehouseAddress.city } = Astro.props;
 
 const waMessage = encodeURIComponent(
-  `Halo Admin ${siteConfig.businessName}, minta tolong info pengiriman scaffolding dan shareloc gudang untuk proyek di ${city}.`
+  `Halo Admin ${siteConfig.businessName}, saya mau tanya harga sewa / beli scaffolding untuk proyek di ${city}.`
 );
 const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
 const currentYear = new Date().getFullYear();
 ---
 
 <!-- ==============================================
-     FOOTER (GAYA PERSIS PT SNI)
+     FOOTER (PERSIS 100% GAYA PT SNI)
 =============================================== -->
-<footer class="w-full bg-gray-900 text-gray-400 text-sm border-t border-gray-800 pb-24 md:pb-12 pt-16">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
-    <!-- 4 Main Columns -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <!-- Col 1: Brand & Profile -->
-      <div class="flex flex-col gap-3">
-        <div class="flex items-center gap-2.5">
-          <div class="w-10 h-10 rounded-lg bg-orange-600 flex items-center justify-center text-white font-montserrat font-bold text-xl shadow-md">
+<footer class="relative text-white">
+  <!-- Background Image & Overlay Hitam 80% Khas PT SNI -->
+  <div class="absolute inset-0">
+    <img
+      src="/assets/img/bg-footer.webp"
+      alt="Footer Scaffolding Background"
+      class="w-full h-full object-cover"
+      loading="lazy"
+      decoding="async"
+    />
+    <div class="absolute inset-0 bg-black opacity-80"></div>
+  </div>
+
+  <!-- Main Footer Content -->
+  <div class="relative container mx-auto px-4 py-16">
+    <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+      <!-- Company Info (Col-span-2 di Desktop) -->
+      <div class="lg:col-span-2">
+        <div class="flex items-center space-x-3 mb-6">
+          <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center text-white font-montserrat font-black text-2xl shadow-md flex-shrink-0">
             CS
           </div>
-          <span class="text-xl font-montserrat font-bold text-white">
-            {siteConfig.businessName}
-          </span>
-        </div>
-        <p class="text-xs sm:text-sm text-gray-400 leading-relaxed font-roboto mt-2">
-          Pusat penyewaan dan penjualan scaffolding pipa baja standar SNI 07-0065 &amp; K3 Kemnaker. Melayani kontraktor, pemborong, dan mandor dengan armada sendiri.
-        </p>
-        <div class="flex items-center gap-2 text-xs text-orange-400 font-montserrat font-semibold mt-1">
-          <ShieldCheck className="w-4 h-4 text-orange-400 shrink-0" />
-          <span>Garansi Tukar Unit Langsung di Proyek</span>
-        </div>
-      </div>
-
-      <!-- Col 2: Warehouse Address -->
-      <div class="flex flex-col gap-2">
-        <span class="text-xs font-montserrat font-bold uppercase tracking-wider text-white">
-          Alamat Gudang Pusat
-        </span>
-        <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mt-1 flex items-start gap-2 font-roboto">
-          <MapPin className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
-          <span>{siteConfig.warehouseAddress.street}, {siteConfig.warehouseAddress.district}, Kota {siteConfig.warehouseAddress.city}, {siteConfig.warehouseAddress.province} {siteConfig.warehouseAddress.postalCode}</span>
-        </p>
-        <span class="text-xs text-gray-500 font-roboto mt-1">
-          Akses cor beton dua arah, bebas dilalui truk fuso &amp; kontainer.
-        </span>
-      </div>
-
-      <!-- Col 3: Operational Hours -->
-      <div class="flex flex-col gap-2">
-        <span class="text-xs font-montserrat font-bold uppercase tracking-wider text-white">
-          Jam Operasional Bongkar Muat
-        </span>
-        <div class="bg-gray-800 p-4 rounded-xl border border-gray-700/60 mt-1">
-          <div class="flex items-center gap-2 text-orange-400 text-xs font-montserrat font-bold">
-            <Clock className="w-4 h-4" />
-            <span>BUKA SETIAP HARI</span>
+          <div>
+            <p class="text-lg font-montserrat font-bold">
+              PT. CENTRAL SCAFFOLDING INDONESIA
+            </p>
+            <p class="text-xs text-orange-400 font-roboto">
+              Sewa &amp; Jual Beli Scaffolding Pipa Tebal Standar SNI
+            </p>
           </div>
-          <p class="text-base font-montserrat font-bold text-white mt-1">
-            07.00 - 18.00 WIB
-          </p>
-          <p class="text-[11px] text-gray-400 mt-0.5 font-roboto">
-            Pengiriman langsung hari ini untuk pesanan terkonfirmasi.
-          </p>
         </div>
-      </div>
+        <p class="text-gray-300 mb-6 leading-relaxed max-w-md text-justify font-roboto text-sm sm:text-base">
+          Pusat persewaan dan penjualan scaffolding terbesar dan terlengkap di Tangerang dan Jabodetabek.
+          Kami siap memenuhi kebutuhan Anda dalam skala besar maupun kecil dengan material bersertifikat SNI dan pengiriman cepat armada sendiri.
+        </p>
 
-      <!-- Col 4: Contact -->
-      <div class="flex flex-col gap-2">
-        <span class="text-xs font-montserrat font-bold uppercase tracking-wider text-white">
-          Kontak &amp; Konsultasi
-        </span>
-        <div class="flex flex-col gap-2.5 mt-1 font-roboto">
+        <!-- Social Media Icons Khas PT SNI -->
+        <div class="flex space-x-4">
           <a
-            class="text-base font-montserrat font-bold text-white hover:text-orange-400 flex items-center gap-2 transition-colors"
-            href={`tel:${siteConfig.phone}`}
-          >
-            <Phone className="w-4 h-4 text-orange-500" />
-            <span>{siteConfig.phoneDisplay}</span>
-          </a>
-          <a
-            class="text-sm font-semibold text-orange-400 hover:underline flex items-center gap-2 font-montserrat"
-            href={waUrl}
+            aria-label="TikTok Central Scaffolding"
+            class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-lg flex items-center justify-center transition-colors duration-300 group"
+            href="https://tiktok.com"
             target="_blank"
             rel="noopener noreferrer"
-            data-wa-source="footer_wa"
-            data-wa-mode="SEWA & BELI"
-            data-wa-city={city}
           >
-            <MessageCircle className="w-4 h-4 fill-current text-orange-400" />
-            <span>WhatsApp Mandor 24 Jam</span>
+            <i class="fab fa-tiktok text-gray-300 group-hover:text-white text-lg"></i>
           </a>
-          <span class="text-xs text-gray-500">
-            Email: {siteConfig.email}
-          </span>
+          <a
+            aria-label="Instagram Central Scaffolding"
+            class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-lg flex items-center justify-center transition-colors duration-300 group"
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-instagram text-gray-300 group-hover:text-white text-lg"></i>
+          </a>
+          <a
+            aria-label="YouTube Central Scaffolding"
+            class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-lg flex items-center justify-center transition-colors duration-300 group"
+            href="https://youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-youtube text-gray-300 group-hover:text-white text-lg"></i>
+          </a>
+          <a
+            aria-label="Facebook Central Scaffolding"
+            class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-lg flex items-center justify-center transition-colors duration-300 group"
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-facebook-f text-gray-300 group-hover:text-white text-lg"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg font-montserrat font-semibold mb-6 text-orange-500">
+          Menu Utama
+        </h3>
+        <ul class="space-y-3 font-roboto text-sm">
+          <li>
+            <a class="text-gray-300 hover:text-orange-500 transition-colors duration-300" href="/">
+              Beranda
+            </a>
+          </li>
+          <li>
+            <a class="text-gray-300 hover:text-orange-500 transition-colors duration-300" href="#layanan-lokal">
+              Layanan Lokal
+            </a>
+          </li>
+          <li>
+            <a class="text-gray-300 hover:text-orange-500 transition-colors duration-300" href="#about">
+              Tentang Kami
+            </a>
+          </li>
+          <li>
+            <a class="text-gray-300 hover:text-orange-500 transition-colors duration-300" href="#products">
+              Produk Scaffolding
+            </a>
+          </li>
+          <li>
+            <a class="text-gray-300 hover:text-orange-500 transition-colors duration-300" href="#projects">
+              Proyek Terbaru
+            </a>
+          </li>
+          <li>
+            <a class="text-gray-300 hover:text-orange-500 transition-colors duration-300" href="#faq">
+              FAQ
+            </a>
+          </li>
+          <li>
+            <a class="text-gray-300 hover:text-orange-500 transition-colors duration-300" href="#contact">
+              Kontak &amp; Cabang
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-lg font-montserrat font-semibold mb-6 text-orange-500">
+          Kontak Kami
+        </h3>
+        <div class="space-y-4 font-roboto text-sm">
+          <div class="flex items-start space-x-3">
+            <i class="fas fa-map-marker-alt text-orange-500 mt-1 text-lg flex-shrink-0"></i>
+            <div>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                {siteConfig.warehouseAddress.street}<br />
+                {siteConfig.warehouseAddress.district}<br />
+                Kota {siteConfig.warehouseAddress.city}, {siteConfig.warehouseAddress.province} {siteConfig.warehouseAddress.postalCode}
+              </p>
+            </div>
+          </div>
+
+          <!-- Telepon -->
+          <div class="flex items-start space-x-3">
+            <i class="fas fa-phone text-orange-500 text-lg flex-shrink-0"></i>
+            <div class="text-gray-300 text-sm leading-relaxed">
+              <a class="hover:text-orange-500 transition-colors duration-300" href={`tel:${siteConfig.phoneHotline}`}>
+                {siteConfig.phoneHotline}
+              </a>
+              <br />
+              <a class="hover:text-orange-500 transition-colors duration-300" href={`tel:${siteConfig.phone}`}>
+                {siteConfig.phoneDisplay}
+              </a>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+            <a class="text-gray-300 hover:text-orange-500 transition-colors duration-300 text-sm" href={`mailto:${siteConfig.email}`}>
+              {siteConfig.email}
+            </a>
+          </div>
+
+          <!-- Jam Operasional -->
+          <div class="flex items-center space-x-3 pt-2">
+            <svg class="w-5 h-5 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+            <p class="text-gray-300 text-sm leading-relaxed">
+              Senin - Minggu: 07.00 - 18.00 WIB
+            </p>
+          </div>
+
+          <!-- WhatsApp Button -->
+          <div class="pt-2">
+            <a
+              class="inline-flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors duration-300 shadow-md font-montserrat"
+              href={waUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-whatsapp text-lg"></i>
+              <span>WhatsApp ({siteConfig.whatsappDisplay})</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- SEO Directory Area Links -->
-    <div class="border-t border-gray-800 pt-6">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-        <span class="text-xs font-montserrat font-bold uppercase tracking-wider text-gray-300">
-          Wilayah Layanan Pengiriman Cepat (Jabodetabek &amp; Banten):
-        </span>
-        <a href="#beranda" class="text-xs text-gray-400 hover:text-white transition">
-          Kembali ke Atas &uarr;
-        </a>
-      </div>
-
-      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 font-roboto">
+    <!-- Area Layanan Sewa Scaffolding (Pill Tags Khas PT SNI) -->
+    <div class="mt-12 pt-6 border-t border-gray-800">
+      <h3 class="text-lg font-montserrat font-semibold mb-4 text-orange-500">
+        Area Layanan Sewa Scaffolding
+      </h3>
+      <ul class="flex flex-wrap gap-2">
         {locations.map((loc) => (
-          <a
-            href={`/area/${loc.slug}`}
-            class="bg-gray-800/60 hover:bg-gray-800 text-gray-300 hover:text-white px-2.5 py-2 rounded-lg border border-gray-700/50 text-center text-xs transition block group"
-          >
-            <span class="block font-semibold group-hover:text-orange-400 font-montserrat">
-              {loc.cityName}
-            </span>
-            <span class="block text-[10px] text-gray-400 mt-0.5">
-              {loc.deliveryEstimate.split('(')[0].trim()}
-            </span>
-          </a>
+          <li>
+            <a
+              class="inline-block bg-gray-800 hover:bg-orange-600 text-gray-300 hover:text-white text-xs sm:text-sm px-4 py-2 rounded-full transition-colors duration-300 font-roboto"
+              href={`/area/${loc.slug}`}
+            >
+              Sewa Scaffolding {loc.cityName}
+            </a>
+          </li>
         ))}
-      </div>
+        <li>
+          <a
+            class="inline-block bg-gray-800 hover:bg-orange-600 text-gray-300 hover:text-white text-xs sm:text-sm px-4 py-2 rounded-full transition-colors duration-300 font-roboto"
+            href="/area/tangerang"
+          >
+            Sewa Scaffolding Cipondoh
+          </a>
+        </li>
+        <li>
+          <a
+            class="inline-block bg-gray-800 hover:bg-orange-600 text-gray-300 hover:text-white text-xs sm:text-sm px-4 py-2 rounded-full transition-colors duration-300 font-roboto"
+            href="/area/karawaci"
+          >
+            Sewa Scaffolding Karawaci
+          </a>
+        </li>
+        <li>
+          <a
+            class="inline-block bg-gray-800 hover:bg-orange-600 text-gray-300 hover:text-white text-xs sm:text-sm px-4 py-2 rounded-full transition-colors duration-300 font-roboto"
+            href="/area/cikupa-balaraja"
+          >
+            Sewa Scaffolding Balaraja
+          </a>
+        </li>
+      </ul>
     </div>
+  </div>
 
-    <!-- Bottom Copyright & Badges -->
-    <div class="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 font-roboto">
-      <p>
-        &copy; {currentYear} {siteConfig.businessName} Logistik Konstruksi. Hak cipta dilindungi undang-undang.
-      </p>
-      <div class="flex items-center gap-4 text-gray-400 font-montserrat font-semibold">
-        <span class="flex items-center gap-1.5">
-          <CheckCircle2 className="w-4 h-4 text-orange-500" /> SNI 07-0065
-        </span>
-        <span class="flex items-center gap-1.5">
-          <ShieldCheck className="w-4 h-4 text-orange-500" /> K3 Kemnaker
-        </span>
+  <!-- Bottom Footer Bar -->
+  <div class="border-t border-gray-800 relative">
+    <div class="container mx-auto px-4 py-6">
+      <div class="flex justify-center items-center">
+        <div class="text-gray-400 text-xs sm:text-sm text-center font-roboto">
+          &copy; {currentYear} PT Central Scaffolding Indonesia. All rights reserved.
+          <br />
+          <span class="text-xs text-gray-500">
+            Pusat Sewa &amp; Jual Scaffolding Pipa Tebal Standar SNI 07-0065 &amp; K3 Kemnaker.
+          </span>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- Back to Top Button Khas PT SNI -->
+  <button
+    class="fixed bottom-24 right-6 sm:right-8 w-12 h-12 bg-orange-600 hover:bg-orange-700 text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 opacity-0 pointer-events-none z-40 flex items-center justify-center"
+    id="back-to-top"
+    aria-label="Kembali ke atas"
+  >
+    <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path d="M5 10l7-7m0 0l7 7m-7-7v18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+    </svg>
+  </button>
+
+  <!-- WhatsApp Floating Button Khas PT SNI -->
+  <a
+    class="fixed bottom-6 sm:bottom-8 right-6 sm:right-8 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 z-40"
+    href={waUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat WhatsApp Admin"
+    data-wa-source="floating_wa"
+  >
+    <i class="fab fa-whatsapp text-3xl"></i>
+  </a>
 </footer>
+
+<script>
+  const backToTopButton = document.getElementById('back-to-top');
+  if (backToTopButton) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
+        backToTopButton.classList.add('opacity-100');
+      } else {
+        backToTopButton.classList.add('opacity-0', 'pointer-events-none');
+        backToTopButton.classList.remove('opacity-100');
+      }
+    });
+    backToTopButton.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+</script>

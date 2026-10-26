@@ -3,71 +3,93 @@ import { siteConfig } from '../../data/siteConfig';
 
 export interface Props {
   city?: string;
+  whatsappNumber?: string;
 }
 
-const { city = siteConfig.warehouseAddress.city } = Astro.props;
+const {
+  city = siteConfig.warehouseAddress.city,
+  whatsappNumber = siteConfig.whatsappNumber,
+} = Astro.props;
+
+const waMessage = encodeURIComponent(
+  `Halo Admin ${siteConfig.businessName}, saya tertarik melihat portofolio proyek scaffolding Anda dan ingin konsultasi kebutuhan scaffolding untuk proyek saya di ${city}.`
+);
+const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
 
 const projects = [
   {
-    title: 'Pembangunan Ruko & Fasad Komersial',
-    location: `${city}, 2026`,
-    image: siteConfig.images.heroTruck,
-    type: 'Frame Scaffolding 170cm + Catwalk',
+    title: 'Pembangunan Rumah Mewah & Hunian Residensial',
+    location: `${city}, 2025`,
+    img: '/assets/img/project-royal-residence.jpg',
+    alt: 'Proyek Sewa Scaffolding Frame System Hunian Residensial',
   },
   {
-    title: 'Pengecoran Dak Lantai & Balok Gedung',
-    location: 'BSD Serpong, 2026',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAG94Vx59-GoAKu9IfHrYSVHzWuoFJCpTJrOwIDv5NvXUSmZzkxsCJgu1Yb1rdj2U7xQtj9X3ISNUbkFzAQPQt9kvDt_yXbkQGjw49cWqIK6W7l7jQ_gLxjZ_55gmROPaV3jn41TKlpCr4xvK2N4MpfRbaA2RZXjhF_I5EboHjvLizi0rgZTsKsdWQxQeNj5yPab5iBsFsktI8VvDbH9Ehaa2ATQ5HtsvaSRmwE9doGu0BGcD41SH5fgQ',
-    type: 'Jack Base + U-Head + Main Frame 190cm',
+    title: 'Kawasan Pergudangan & Logistik Industrial',
+    location: `Kawasan Industri Tangerang & Sekitarnya, 2025`,
+    img: '/assets/img/project-terminal-gresik.jpg',
+    alt: 'Proyek Sewa Scaffolding Terminal dan Pergudangan',
   },
   {
-    title: 'Renovasi Plafon & Cat Rumah Tinggal',
-    location: 'Jakarta Barat, 2026',
-    image: siteConfig.images.heroTruck,
-    type: 'Paket 15 Set + Roda Caster Heavy Duty',
+    title: 'Gedung Fasilitas Pendidikan & Perkantoran',
+    location: `Jabodetabek, 2025`,
+    img: '/assets/img/project-unair.jpg',
+    alt: 'Proyek Sewa Scaffolding Gedung Bertingkat',
   },
 ];
 ---
 
 <!-- ==============================================
-     DOKUMENTASI PROYEK (PERSIS SEPERTI DI PT SNI)
+     PROYEK SEWA SCAFFOLDING TERBARU (EXACT PT SNI)
 =============================================== -->
 <section class="py-20 bg-gray-50" id="projects">
   <div class="container mx-auto px-4">
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-montserrat font-bold text-red-600 mb-4">
-        Proyek <span class="text-gray-800">Sewa Scaffolding</span> Terbaru
+        Proyek
+        <span class="text-gray-800">
+          Sewa Scaffolding
+        </span>
+        Terbaru
       </h2>
-      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-roboto">
-        Lihat berbagai dokumentasi sewa scaffolding dan pemasangan steger yang telah kami kerjakan dengan standar mutu dan keselamatan K3 terbaik di {city} dan sekitarnya.
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto font-roboto">
+        Lihat berbagai proyek sewa scaffolding dan pemasangan rangka kerja yang telah kami kerjakan dengan standar kualitas dan keamanan terbaik di wilayah {city} dan sekitarnya.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <!-- 3 Project Cards Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 max-w-6xl mx-auto">
       {projects.map((proj) => (
         <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-          <div class="relative overflow-hidden h-64 bg-gray-200">
+          <div class="relative overflow-hidden h-64 bg-slate-100">
             <img
-              src={proj.image}
-              alt={proj.title}
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              src={proj.img}
+              alt={proj.alt}
+              class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110"
               loading="lazy"
             />
-            <div class="absolute inset-0 bg-black/25"></div>
-            <span class="absolute top-3 left-3 bg-orange-600 text-white text-xs font-montserrat font-bold px-3 py-1 rounded-md shadow-sm">
-              {proj.type}
-            </span>
+            <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-montserrat font-bold text-gray-800 mb-1.5">
+            <h3 class="text-2xl font-montserrat font-bold text-gray-800 mb-2 leading-tight">
               {proj.title}
             </h3>
-            <p class="text-gray-500 text-sm font-roboto">
-              {proj.location} &bull; Selesai Tepat Waktu
+            <p class="text-gray-600 font-roboto text-sm font-medium">
+              {proj.location}
             </p>
           </div>
         </div>
       ))}
+    </div>
+
+    <div class="text-center mt-12">
+      <a
+        class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 btn-hover shadow-md font-montserrat"
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Lihat Project Selengkapnya
+      </a>
     </div>
   </div>
 </section>

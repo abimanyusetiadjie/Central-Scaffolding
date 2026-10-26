@@ -1,0 +1,115 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+export interface Props {
+  city?: string;
+  whatsappNumber?: string;
+}
+
+const {
+  city = siteConfig.warehouseAddress.city,
+  whatsappNumber = siteConfig.whatsappNumber,
+} = Astro.props;
+
+const waMessage = encodeURIComponent(
+  `Halo Admin ${siteConfig.businessName}, saya mau minta katalog lengkap dan penawaran harga scaffolding untuk proyek di ${city}.`
+);
+const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
+
+const products = [
+  {
+    title: 'Frame System',
+    img: '/assets/img/product/mainframepng.webp',
+    alt: 'Sewa Scaffolding Frame System untuk Proyek Konstruksi',
+    desc: 'Frame System adalah pilihan tepat untuk mendukung pekerja dan material dalam proyek konstruksi Anda. Ideal untuk sewa scaffolding, sistem ini membantu memastikan stabilitas dan keamanan dalam pembangunan berbagai jenis bangunan.',
+  },
+  {
+    title: 'Bekisting System',
+    img: '/assets/img/product/Bekistingpng.webp',
+    alt: 'Sewa Bekisting System untuk Pengecoran Beton Proyek Konstruksi',
+    desc: 'Bekisting System dirancang untuk membentuk struktur beton dengan presisi tinggi. Tersedia untuk sewa bekisting di seluruh wilayah proyek Anda, alat ini cocok untuk kebutuhan proyek konstruksi yang membutuhkan hasil kokoh dan presisi.',
+  },
+  {
+    title: 'Tubular System',
+    img: '/assets/img/product/tubularsystempng.webp',
+    alt: 'Sewa Scaffolding Tubular System untuk Silo dan Tangki',
+    desc: 'Tubular System memberikan fleksibilitas dan kekuatan untuk pekerjaan di ketinggian, seperti pembangunan silo atau tangki. Solusi sempurna untuk Anda yang mencari sewa tubular dengan kekuatan maksimal.',
+  },
+  {
+    title: 'PCH Kwikstage System',
+    img: '/assets/img/product/Kwikstagepng.webp',
+    alt: 'Sewa Scaffolding PCH Kwikstage System untuk Gedung dan Hotel',
+    desc: 'PCH Kwikstage System menawarkan efisiensi dalam mendukung proyek skala besar, seperti gedung dan hotel. Tersedia untuk sewa kwikstage / PCH, sistem ini mempermudah pekerjaan konstruksi Anda dengan pemasangan cepat.',
+  },
+  {
+    title: 'Ringlock System',
+    img: '/assets/img/product/ringlocksystem.webp',
+    alt: 'Sewa Scaffolding Ringlock System Kuat dan Stabil untuk Konstruksi',
+    desc: 'Ringlock System dikenal dengan kekuatan dan stabilitasnya yang luar biasa, cocok untuk berbagai proyek konstruksi berat. Pilihan ideal untuk Anda yang membutuhkan sewa ringlock dengan pemasangan cepat dan mudah.',
+  },
+];
+---
+
+<!-- ==============================================
+     PRODUK SCAFFOLDING KAMI (PERSIS SEPERTI DI PT SNI)
+=============================================== -->
+<section class="py-20 bg-white" id="products">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-montserrat font-bold text-red-600 mb-4">
+        Produk
+        <span class="text-gray-800">
+          Scaffolding Kami
+        </span>
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto text-center font-roboto">
+        Kami menyediakan berbagai sistem scaffolding berkualitas tinggi untuk kebutuhan sewa scaffolding proyek konstruksi Anda di {city}, mulai dari frame system, tubular, ringlock, kwikstage hingga sistem bekisting untuk pengecoran beton.
+      </p>
+    </div>
+
+    <!-- 5 Kolom Grid Khas PT SNI -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
+      {products.map((item) => (
+        <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-6 text-center border border-gray-100 flex flex-col justify-between">
+          <div>
+            <div class="h-32 flex items-center justify-center mb-4">
+              <img
+                src={item.img}
+                alt={item.alt}
+                class="max-h-32 max-w-full object-contain rounded-lg"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="text-xl font-montserrat font-semibold text-gray-800 mb-2">
+              {item.title}
+            </h3>
+            <p class="text-gray-600 text-sm text-justify font-roboto leading-relaxed">
+              {item.desc}
+            </p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100">
+            <a
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Halo Admin ${siteConfig.businessName}, saya mau tanya harga sewa/beli untuk ${item.title} di ${city}.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block w-full py-2 px-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg text-xs font-montserrat font-bold transition-colors"
+            >
+              Tanya Harga
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-12">
+      <a
+        class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 btn-hover shadow-md font-montserrat"
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Lihat Katalog Sewa Scaffolding Lengkap
+      </a>
+    </div>
+  </div>
+</section>

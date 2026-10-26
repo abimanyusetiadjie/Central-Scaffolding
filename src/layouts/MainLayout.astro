@@ -3,7 +3,6 @@ import { siteConfig } from '../data/siteConfig';
 import SchemaLD from '../components/seo/SchemaLD.astro';
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
-import FloatingWA from '../components/layout/FloatingWA.astro';
 import '../styles/global.css';
 
 export interface Props {
@@ -72,7 +71,7 @@ const {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- Google Fonts: Montserrat & Roboto (Gaya PT SNI) -->
+    <!-- Google Fonts: Montserrat & Roboto (Exact PT SNI) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -80,7 +79,15 @@ const {
       rel="stylesheet"
     />
 
-    <!-- JSON-LD Structured Data (HomeAndConstructionBusiness, OfferCatalog, FAQPage) -->
+    <!-- FontAwesome 6 (Exact PT SNI) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- JSON-LD Structured Data -->
     <SchemaLD city={city} url={canonicalUrl} />
   </head>
   <body class="bg-white text-gray-900 font-sans antialiased selection:bg-orange-600 selection:text-white min-h-screen flex flex-col">
@@ -89,7 +96,6 @@ const {
       <slot />
     </main>
     <Footer city={city} />
-    <FloatingWA city={city} />
 
     <script>
       import { initWhatsAppTracking } from '../utils/analytics';

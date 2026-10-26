@@ -1,0 +1,210 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+export interface Props {
+  city?: string;
+  whatsappNumber?: string;
+}
+
+const {
+  city = siteConfig.warehouseAddress.city,
+  whatsappNumber = siteConfig.whatsappNumber,
+} = Astro.props;
+
+const waMessage = encodeURIComponent(
+  `Halo Admin ${siteConfig.businessName}, saya mau tanya lokasi gudang / jadwal kunjungan survei scaffolding di ${city}.`
+);
+const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
+---
+
+<!-- ==============================================
+     KONTAK & CABANG (SAMA PERSIS DENGAN PT SNI)
+=============================================== -->
+<section class="py-16 bg-gray-50" id="contact">
+  <div class="container mx-auto px-4 font-montserrat">
+    <h2 class="text-4xl md:text-5xl font-montserrat font-bold text-red-600 mb-4 text-center">
+      <span class="text-black">
+        Kontak &amp;
+      </span>
+      Cabang
+    </h2>
+    <p class="text-base md:text-lg text-gray-600 mb-8 leading-relaxed max-w-4xl mx-auto text-center font-roboto">
+      Melalui jaringan gudang utama di Cipondoh Tangerang serta depo armada di Jakarta Barat, Jakarta Selatan, dan BSD Serpong, kami menyediakan layanan sewa scaffolding dan sewa bekisting untuk berbagai jenis proyek konstruksi di {city} &amp; seluruh Jabodetabek.
+    </p>
+
+    <!-- Regional Heading Khas PT SNI -->
+    <h3 class="text-2xl font-bold text-gray-800 mb-6 font-montserrat">
+      TANGERANG, JAKARTA &amp; BANTEN
+    </h3>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- SIDOARJO / TANGERANG (Gudang Pusat) -->
+      <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col justify-between">
+        <div>
+          <h4 class="mb-3 text-xl font-bold text-gray-800 font-montserrat">
+            Tangerang (Gudang Pusat)
+          </h4>
+          <div class="mb-4 rounded-lg overflow-hidden border border-gray-200">
+            <iframe
+              allowfullscreen=""
+              height="200"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src={`https://maps.google.com/maps?q=${siteConfig.warehouseAddress.coordinates.latitude},${siteConfig.warehouseAddress.coordinates.longitude}&hl=id&z=15&output=embed`}
+              style="border:0;"
+              title="Lokasi Gudang Pusat Tangerang"
+              width="100%"
+            >
+            </iframe>
+          </div>
+          <div class="space-y-2 text-gray-600 text-sm font-roboto">
+            <div class="flex items-start">
+              <i class="fas fa-map-marker-alt mr-2 mt-1 text-orange-500 flex-shrink-0"></i>
+              <a class="hover:underline" href={siteConfig.warehouseAddress.gmapsUrl} rel="noopener noreferrer" target="_blank">
+                {siteConfig.warehouseAddress.street}, {siteConfig.warehouseAddress.district}, Kota {siteConfig.warehouseAddress.city}, {siteConfig.warehouseAddress.province} {siteConfig.warehouseAddress.postalCode}
+              </a>
+            </div>
+            <p class="flex items-center">
+              <i class="fas fa-phone mr-2 text-orange-500"></i>
+              {siteConfig.phoneHotline}
+            </p>
+            <p class="flex items-center">
+              <i class="fas fa-mobile-alt mr-2 text-orange-500"></i>
+              <a class="hover:underline" href={waUrl} rel="noopener noreferrer" target="_blank">
+                0812-8899-7721
+              </a>
+              <span class="mx-1">/</span>
+              <a class="hover:underline" href={waUrl} rel="noopener noreferrer" target="_blank">
+                0821-6916-9700
+              </a>
+            </p>
+            <div class="flex items-center">
+              <i class="fas fa-envelope mr-2 text-orange-500"></i>
+              <a class="hover:underline" href={`mailto:${siteConfig.email}`}>
+                {siteConfig.email}
+              </a>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-globe mr-2 text-orange-500"></i>
+              <a class="hover:underline" href="https://centralscaffolding.vercel.app" rel="noopener noreferrer" target="_blank">
+                centralscaffolding.vercel.app
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SURABAYA BARAT / JAKARTA BARAT & SELATAN -->
+      <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col justify-between">
+        <div>
+          <h4 class="mb-3 text-xl font-bold text-gray-800 font-montserrat">
+            Jakarta Barat &amp; Jakarta Selatan
+          </h4>
+          <div class="mb-4 rounded-lg overflow-hidden border border-gray-200">
+            <iframe
+              allowfullscreen=""
+              height="200"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=-6.1683,106.7588&hl=id&z=13&output=embed"
+              style="border:0;"
+              title="Lokasi Depo Jakarta Barat & Selatan"
+              width="100%"
+            >
+            </iframe>
+          </div>
+          <div class="space-y-2 text-gray-600 text-sm font-roboto">
+            <div class="flex items-start">
+              <i class="fas fa-map-marker-alt mr-2 mt-1 text-orange-500 flex-shrink-0"></i>
+              <span class="hover:underline">
+                Jalur Siaga Daan Mogot, Puri Kembangan &amp; TB Simatupang (Armada Antar Cepat 1-2 Jam)
+              </span>
+            </div>
+            <p class="flex items-center">
+              <i class="fas fa-phone mr-2 text-orange-500"></i>
+              {siteConfig.phoneHotline}
+            </p>
+            <p class="flex items-center">
+              <i class="fas fa-mobile-alt mr-2 text-orange-500"></i>
+              <a class="hover:underline" href={waUrl} rel="noopener noreferrer" target="_blank">
+                0812-8899-7721
+              </a>
+              <span class="mx-1">/</span>
+              <a class="hover:underline" href={waUrl} rel="noopener noreferrer" target="_blank">
+                0821-6916-9700
+              </a>
+            </p>
+            <div class="flex items-center">
+              <i class="fas fa-envelope mr-2 text-orange-500"></i>
+              <a class="hover:underline" href={`mailto:${siteConfig.email}`}>
+                {siteConfig.email}
+              </a>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-globe mr-2 text-orange-500"></i>
+              <a class="hover:underline" href="https://centralscaffolding.vercel.app" rel="noopener noreferrer" target="_blank">
+                centralscaffolding.vercel.app
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRESIK / BSD SERPONG -->
+      <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col justify-between">
+        <div>
+          <h4 class="mb-3 text-xl font-bold text-gray-800 font-montserrat">
+            BSD Serpong &amp; Tangerang Selatan
+          </h4>
+          <div class="mb-4 rounded-lg overflow-hidden border border-gray-200">
+            <iframe
+              allowfullscreen=""
+              height="200"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=-6.3015,106.6522&hl=id&z=13&output=embed"
+              style="border:0;"
+              title="Lokasi Depo BSD Serpong"
+              width="100%"
+            >
+            </iframe>
+          </div>
+          <div class="space-y-2 text-gray-600 text-sm font-roboto">
+            <div class="flex items-start">
+              <i class="fas fa-map-marker-alt mr-2 mt-1 text-orange-500 flex-shrink-0"></i>
+              <span class="hover:underline">
+                Kawasan BSD City, Gading Serpong, Alam Sutera &amp; Bintaro (Armada Siaga Pengiriman Hari Ini)
+              </span>
+            </div>
+            <p class="flex items-center">
+              <i class="fas fa-phone mr-2 text-orange-500"></i>
+              {siteConfig.phoneHotline}
+            </p>
+            <p class="flex items-center">
+              <i class="fas fa-mobile-alt mr-2 text-orange-500"></i>
+              <a class="hover:underline" href={waUrl} rel="noopener noreferrer" target="_blank">
+                0812-8899-7721
+              </a>
+              <span class="mx-1">/</span>
+              <a class="hover:underline" href={waUrl} rel="noopener noreferrer" target="_blank">
+                0821-6916-9700
+              </a>
+            </p>
+            <div class="flex items-center">
+              <i class="fas fa-envelope mr-2 text-orange-500"></i>
+              <a class="hover:underline" href={`mailto:${siteConfig.email}`}>
+                {siteConfig.email}
+              </a>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-globe mr-2 text-orange-500"></i>
+              <a class="hover:underline" href="https://centralscaffolding.vercel.app" rel="noopener noreferrer" target="_blank">
+                centralscaffolding.vercel.app
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

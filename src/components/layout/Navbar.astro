@@ -1,6 +1,5 @@
 ---
 import { siteConfig } from '../../data/siteConfig';
-import { MessageCircle } from 'lucide-react';
 
 export interface Props {
   city?: string;
@@ -17,51 +16,53 @@ const waMessage = encodeURIComponent(
 const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
 ---
 
-<!-- HEADER / NAVBAR (SAMA PERSIS DENGAN PT SNI) -->
+<!-- Header / Navbar Sesuai Persis PT SNI -->
 <header>
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out navbar-scrolled">
+  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out navbar-default" id="navbar">
     <div class="container mx-auto px-4">
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
         <div class="flex-shrink-0">
-          <a href="/" class="flex items-center space-x-3 group">
-            <div class="w-11 h-11 bg-orange-600 rounded-lg flex items-center justify-center text-white font-montserrat font-black text-xl shadow-md shrink-0">
+          <a class="flex items-center space-x-3" href="/">
+            <!-- Logo Image / Badge -->
+            <div class="w-12 h-12 flex items-center justify-center bg-orange-600 rounded-lg text-white font-montserrat font-black text-2xl shadow-md flex-shrink-0">
               CS
             </div>
-            <div class="flex flex-col">
-              <span class="block text-base sm:text-lg font-montserrat font-bold text-white tracking-tight">
+            <!-- Logo Text -->
+            <div class="hidden sm:block">
+              <span class="block text-lg font-montserrat font-bold text-white tracking-tight">
                 PT. CENTRAL SCAFFOLDING INDONESIA
               </span>
-              <span class="text-[11px] font-roboto text-orange-400 font-medium">
-                Sewa &amp; Jual Scaffolding {city}
+              <span class="block text-xs font-roboto text-orange-400 font-medium -mt-0.5">
+                Sewa & Jual Scaffolding SNI
               </span>
             </div>
           </a>
         </div>
 
-        <!-- Desktop Navigation Menu (Montserrat) -->
+        <!-- Desktop Navigation Menu -->
         <div class="hidden lg:flex items-center space-x-8 font-montserrat">
-          <a href="/" class="text-white hover:text-orange-500 font-semibold transition-colors duration-300 relative group text-base">
+          <a class="text-white hover:text-orange-500 font-medium transition-colors duration-300 relative group text-base font-bold" href="/">
             Home
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
           </a>
-          <a href="#layanan-lokal" class="text-white hover:text-orange-500 font-medium transition-colors duration-300 relative group text-base">
+          <a class="text-white hover:text-orange-500 font-medium transition-colors duration-300 relative group text-base" href="#layanan-lokal">
             Layanan
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
           </a>
-          <a href="#about" class="text-white hover:text-orange-500 font-medium transition-colors duration-300 relative group text-base">
+          <a class="text-white hover:text-orange-500 font-medium transition-colors duration-300 relative group text-base" href="#about">
             Tentang Kami
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
           </a>
-          <a href="#products" class="text-white hover:text-orange-500 font-medium transition-colors duration-300 relative group text-base">
+          <a class="text-white hover:text-orange-500 font-medium transition-colors duration-300 relative group text-base" href="#products">
             Produk
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
           </a>
-          <a href="#projects" class="text-white hover:text-orange-500 font-medium transition-colors duration-300 relative group text-base">
+          <a class="text-white hover:text-orange-500 font-medium transition-colors duration-300 relative group text-base" href="#projects">
             Proyek
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
           </a>
-          <a href="#contact" class="text-white hover:text-orange-500 font-medium transition-colors duration-300 relative group text-base">
+          <a class="text-white hover:text-orange-500 font-medium transition-colors duration-300 relative group text-base" href="#contact">
             Kontak
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
           </a>
@@ -69,17 +70,58 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
 
         <!-- CTA Button & Mobile Menu Button -->
         <div class="flex items-center space-x-4 font-montserrat">
-          <!-- CTA Button Oranye Khas PT SNI -->
+          <!-- CTA Button -->
           <a
+            class="hidden md:inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 btn-hover shadow-md"
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg font-semibold text-sm transition-all duration-300 transform hover:scale-105 btn-hover shadow-md"
             data-wa-source="navbar_cta"
             data-wa-mode="SEWA & BELI"
             data-wa-city={city}
           >
-            <MessageCircle className="w-4 h-4 fill-current shrink-0" />
+            <i class="fab fa-whatsapp text-lg"></i>
+            <span>Hubungi Kami</span>
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button class="lg:hidden text-white p-2 focus:outline-none" id="mobile-menu-btn" aria-label="Toggle Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Drawer -->
+      <div class="lg:hidden hidden bg-black/95 backdrop-blur-md rounded-lg mt-2 p-5 mobile-menu-enter font-montserrat shadow-2xl border border-white/10" id="mobile-menu">
+        <div class="flex flex-col space-y-4">
+          <a class="text-white hover:text-orange-500 font-medium py-2 transition-colors duration-300" href="/">
+            Home
+          </a>
+          <a class="text-white hover:text-orange-500 font-medium py-2 transition-colors duration-300" href="#layanan-lokal">
+            Layanan
+          </a>
+          <a class="text-white hover:text-orange-500 font-medium py-2 transition-colors duration-300" href="#about">
+            Tentang Kami
+          </a>
+          <a class="text-white hover:text-orange-500 font-medium py-2 transition-colors duration-300" href="#products">
+            Produk
+          </a>
+          <a class="text-white hover:text-orange-500 font-medium py-2 transition-colors duration-300" href="#projects">
+            Proyek
+          </a>
+          <a class="text-white hover:text-orange-500 font-medium py-2 transition-colors duration-300" href="#contact">
+            Kontak
+          </a>
+          <hr class="border-gray-700 my-2" />
+          <a
+            class="flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3.5 rounded-lg font-semibold text-center transition-all duration-300 btn-hover shadow-md"
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-whatsapp text-lg"></i>
             <span>Hubungi Kami</span>
           </a>
         </div>
@@ -87,3 +129,40 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
     </div>
   </nav>
 </header>
+
+<script>
+  // Navbar scroll background toggle
+  const navbar = document.getElementById('navbar');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  function checkScroll() {
+    if (navbar) {
+      if (window.scrollY > 40) {
+        navbar.classList.add('navbar-scrolled');
+        navbar.classList.remove('navbar-default');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+        navbar.classList.add('navbar-default');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', checkScroll);
+  checkScroll();
+
+  // Mobile menu toggle
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on anchor click
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
+</script>
