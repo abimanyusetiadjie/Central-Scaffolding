@@ -1,0 +1,62 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+import { Tag, ShieldCheck, Truck } from 'lucide-react';
+
+export interface Props {
+  city?: string;
+}
+
+const { city = siteConfig.warehouseAddress.city } = Astro.props;
+---
+
+<!-- ==============================================
+     TENTANG KAMI & KEUNGGULAN (PERSIS SEPERTI DI PT SNI)
+=============================================== -->
+<section class="py-20 bg-gray-50" id="about">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-montserrat font-bold text-gray-800 mb-8">
+        Tentang <span class="text-red-600">PT Central Scaffolding Indonesia</span>
+      </h2>
+      <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-4xl mx-auto font-roboto">
+        Kami adalah perusahaan yang fokus pada jasa sewa scaffolding (steger), sewa bekisting, serta penyediaan alat konstruksi pendukung lainnya. Kami siap mendukung proyek rumah tinggal, ruko, gudang hingga gedung bertingkat dalam skala besar maupun kecil di wilayah {city} dan seluruh Jabodetabek.
+      </p>
+    </div>
+
+    <!-- 3 Keunggulan (Exact PT SNI) -->
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <!-- Value 1 -->
+      <div class="text-center p-8 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+        <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <Tag className="w-10 h-10 text-red-600" />
+        </div>
+        <h3 class="text-2xl font-montserrat font-bold text-gray-800 mb-4">Harga Terjangkau</h3>
+        <p class="text-gray-600 leading-relaxed font-roboto">
+          Kami memberikan penawaran harga sewa scaffolding terbaik dan kompetitif mulai Rp 35.000/set/bulan, transparan tanpa biaya tersembunyi.
+        </p>
+      </div>
+
+      <!-- Value 2 -->
+      <div class="text-center p-8 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+        <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <ShieldCheck className="w-10 h-10 text-orange-600" />
+        </div>
+        <h3 class="text-2xl font-montserrat font-bold text-gray-800 mb-4">Bahan Berkualitas SNI</h3>
+        <p class="text-gray-600 leading-relaxed font-roboto">
+          Produk pipa scaffolding kami tebal 1.8mm–2.0mm, telah lulus uji beban dan bersertifikat SNI 07-0065 sehingga aman untuk semua jenis proyek.
+        </p>
+      </div>
+
+      <!-- Value 3 -->
+      <div class="text-center p-8 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <Truck className="w-10 h-10 text-blue-600" />
+        </div>
+        <h3 class="text-2xl font-montserrat font-bold text-gray-800 mb-4">Layanan Pengiriman Cepat</h3>
+        <p class="text-gray-600 leading-relaxed font-roboto">
+          Pengiriman tepat waktu ke lokasi proyek Anda di {city} dengan armada pikap &amp; truk milik sendiri serta opsi Bayar di Tempat (COD).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,73 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+export interface Props {
+  city?: string;
+}
+
+const { city = siteConfig.warehouseAddress.city } = Astro.props;
+
+const projects = [
+  {
+    title: 'Pembangunan Ruko & Fasad Komersial',
+    location: `${city}, 2026`,
+    image: siteConfig.images.heroTruck,
+    type: 'Frame Scaffolding 170cm + Catwalk',
+  },
+  {
+    title: 'Pengecoran Dak Lantai & Balok Gedung',
+    location: 'BSD Serpong, 2026',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAG94Vx59-GoAKu9IfHrYSVHzWuoFJCpTJrOwIDv5NvXUSmZzkxsCJgu1Yb1rdj2U7xQtj9X3ISNUbkFzAQPQt9kvDt_yXbkQGjw49cWqIK6W7l7jQ_gLxjZ_55gmROPaV3jn41TKlpCr4xvK2N4MpfRbaA2RZXjhF_I5EboHjvLizi0rgZTsKsdWQxQeNj5yPab5iBsFsktI8VvDbH9Ehaa2ATQ5HtsvaSRmwE9doGu0BGcD41SH5fgQ',
+    type: 'Jack Base + U-Head + Main Frame 190cm',
+  },
+  {
+    title: 'Renovasi Plafon & Cat Rumah Tinggal',
+    location: 'Jakarta Barat, 2026',
+    image: siteConfig.images.heroTruck,
+    type: 'Paket 15 Set + Roda Caster Heavy Duty',
+  },
+];
+---
+
+<!-- ==============================================
+     DOKUMENTASI PROYEK (PERSIS SEPERTI DI PT SNI)
+=============================================== -->
+<section class="py-20 bg-gray-50" id="projects">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-montserrat font-bold text-red-600 mb-4">
+        Proyek <span class="text-gray-800">Sewa Scaffolding</span> Terbaru
+      </h2>
+      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-roboto">
+        Lihat berbagai dokumentasi sewa scaffolding dan pemasangan steger yang telah kami kerjakan dengan standar mutu dan keselamatan K3 terbaik di {city} dan sekitarnya.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {projects.map((proj) => (
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+          <div class="relative overflow-hidden h-64 bg-gray-200">
+            <img
+              src={proj.image}
+              alt={proj.title}
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-black/25"></div>
+            <span class="absolute top-3 left-3 bg-orange-600 text-white text-xs font-montserrat font-bold px-3 py-1 rounded-md shadow-sm">
+              {proj.type}
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-montserrat font-bold text-gray-800 mb-1.5">
+              {proj.title}
+            </h3>
+            <p class="text-gray-500 text-sm font-roboto">
+              {proj.location} &bull; Selesai Tepat Waktu
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

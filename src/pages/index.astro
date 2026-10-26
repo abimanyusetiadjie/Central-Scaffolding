@@ -1,12 +1,15 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/sections/Hero.astro';
+import LayananLokal from '../components/sections/LayananLokal.astro';
+import AboutUs from '../components/sections/AboutUs.astro';
 import ServiceSplit from '../components/sections/ServiceSplit.astro';
-import PackageSelector from '../components/islands/PackageSelector';
 import CatalogFilter from '../components/islands/CatalogFilter';
+import PackageSelector from '../components/islands/PackageSelector';
+import ProjectsShowcase from '../components/sections/ProjectsShowcase.astro';
 import OrderSteps from '../components/sections/OrderSteps.astro';
-import WarehouseProof from '../components/sections/WarehouseProof.astro';
 import FaqSection from '../components/sections/FaqSection.astro';
+import WarehouseProof from '../components/sections/WarehouseProof.astro';
 import { siteConfig } from '../data/siteConfig';
 
 const defaultCity = `${siteConfig.warehouseAddress.city} & Jabodetabek`;
@@ -21,7 +24,7 @@ const defaultDistricts = [
 ];
 const defaultDeliveryEstimate = `${siteConfig.stats.deliverySla} (Armada Gudang Cipondoh)`;
 const homeTitle = `Sewa & Jual Beli Scaffolding ${siteConfig.warehouseAddress.city} & Jabodetabek | Stok Gudang Siap Kirim — ${siteConfig.businessName}`;
-const homeDescription = `Pusat sewa (rental) dan jual beli scaffolding baru & bekas rekondisi di ${siteConfig.warehouseAddress.city}, BSD Serpong, Cikupa, dan Jakarta. Stok gudang ${siteConfig.stats.readyStockSets}, pipa tebal ${siteConfig.stats.pipeThickness} standar SNI, kirim cepat armada sendiri.`;
+const homeDescription = `Jasa sewa scaffolding (steger) & bekisting bersertifikat SNI 07-0065 di ${siteConfig.warehouseAddress.city}, BSD Serpong, Cikupa, dan Jakarta. Stok gudang ${siteConfig.stats.readyStockSets}, pipa tebal ${siteConfig.stats.pipeThickness}, kirim cepat armada sendiri.`;
 ---
 
 <MainLayout
@@ -36,18 +39,21 @@ const homeDescription = `Pusat sewa (rental) dan jual beli scaffolding baru & be
     deliveryEstimate={defaultDeliveryEstimate}
     whatsappNumber={siteConfig.whatsappNumber}
   />
+  <LayananLokal city={defaultCity} />
+  <AboutUs city={defaultCity} />
   <ServiceSplit city={defaultCity} />
-  <PackageSelector
-    client:visible
-    defaultLocation={siteConfig.warehouseAddress.city}
-    whatsappNumber={siteConfig.whatsappNumber}
-  />
   <CatalogFilter
     client:visible
     city={defaultCity}
     whatsappNumber={siteConfig.whatsappNumber}
   />
+  <PackageSelector
+    client:visible
+    defaultLocation={siteConfig.warehouseAddress.city}
+    whatsappNumber={siteConfig.whatsappNumber}
+  />
+  <ProjectsShowcase city={defaultCity} />
   <OrderSteps city={defaultCity} />
-  <WarehouseProof city={defaultCity} />
   <FaqSection city={defaultCity} />
+  <WarehouseProof city={defaultCity} />
 </MainLayout>
