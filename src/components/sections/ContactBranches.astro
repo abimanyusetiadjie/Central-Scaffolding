@@ -42,7 +42,7 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
       <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col justify-between">
         <div>
           <h4 class="mb-3 text-xl font-bold text-gray-800 font-montserrat">
-            Tangerang (Gudang Pusat)
+            Toko Central Scaffolding (Pusat Tangerang)
           </h4>
           <div class="mb-4 rounded-lg overflow-hidden border border-gray-200">
             <iframe
@@ -50,9 +50,9 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
               height="200"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              src={`https://maps.google.com/maps?q=${siteConfig.warehouseAddress.coordinates.latitude},${siteConfig.warehouseAddress.coordinates.longitude}&hl=id&z=15&output=embed`}
+              src={`https://maps.google.com/maps?q=${siteConfig.warehouseAddress.coordinates.latitude},${siteConfig.warehouseAddress.coordinates.longitude}&hl=id&z=17&output=embed`}
               style="border:0;"
-              title="Lokasi Gudang Pusat Tangerang"
+              title="Lokasi Toko Central Scaffolding Tangerang"
               width="100%"
             >
             </iframe>
@@ -60,22 +60,20 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
           <div class="space-y-2 text-gray-600 text-sm font-roboto">
             <div class="flex items-start">
               <i class="fas fa-map-marker-alt mr-2 mt-1 text-orange-500 flex-shrink-0"></i>
-              <a class="hover:underline" href={siteConfig.warehouseAddress.gmapsUrl} rel="noopener noreferrer" target="_blank">
+              <a class="hover:underline font-medium text-gray-800" href={siteConfig.warehouseAddress.gmapsUrl} rel="noopener noreferrer" target="_blank">
                 {siteConfig.warehouseAddress.street}, {siteConfig.warehouseAddress.district}, Kota {siteConfig.warehouseAddress.city}, {siteConfig.warehouseAddress.province} {siteConfig.warehouseAddress.postalCode}
               </a>
             </div>
             <p class="flex items-center">
               <i class="fas fa-phone mr-2 text-orange-500"></i>
-              {siteConfig.phoneHotline}
+              <a class="hover:underline" href={`tel:${siteConfig.phone}`}>
+                {siteConfig.phoneDisplay}
+              </a>
             </p>
             <p class="flex items-center">
               <i class="fas fa-mobile-alt mr-2 text-orange-500"></i>
-              <a class="hover:underline" href={waUrl} rel="noopener noreferrer" target="_blank">
-                0812-8899-7721
-              </a>
-              <span class="mx-1">/</span>
-              <a class="hover:underline" href={waUrl} rel="noopener noreferrer" target="_blank">
-                0821-6916-9700
+              <a class="hover:underline font-bold text-emerald-600" href={waUrl} rel="noopener noreferrer" target="_blank">
+                {siteConfig.whatsappDisplay} (WhatsApp / Order Cepat)
               </a>
             </p>
             <div class="flex items-center">
@@ -86,8 +84,8 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
             </div>
             <div class="flex items-center">
               <i class="fas fa-globe mr-2 text-orange-500"></i>
-              <a class="hover:underline" href="https://centralscaffolding.vercel.app" rel="noopener noreferrer" target="_blank">
-                centralscaffolding.vercel.app
+              <a class="hover:underline" href={siteConfig.warehouseAddress.gmapsUrl} rel="noopener noreferrer" target="_blank">
+                Buka di Google Maps &rarr;
               </a>
             </div>
           </div>
@@ -122,16 +120,14 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
             </div>
             <p class="flex items-center">
               <i class="fas fa-phone mr-2 text-orange-500"></i>
-              {siteConfig.phoneHotline}
+              <a class="hover:underline" href={`tel:${siteConfig.phone}`}>
+                {siteConfig.phoneDisplay}
+              </a>
             </p>
             <p class="flex items-center">
               <i class="fas fa-mobile-alt mr-2 text-orange-500"></i>
-              <a class="hover:underline" href={waUrl} rel="noopener noreferrer" target="_blank">
-                0812-8899-7721
-              </a>
-              <span class="mx-1">/</span>
-              <a class="hover:underline" href={waUrl} rel="noopener noreferrer" target="_blank">
-                0821-6916-9700
+              <a class="hover:underline font-bold text-emerald-600" href={waUrl} rel="noopener noreferrer" target="_blank">
+                {siteConfig.whatsappDisplay} (Hotline WhatsApp)
               </a>
             </p>
             <div class="flex items-center">
@@ -178,16 +174,14 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
             </div>
             <p class="flex items-center">
               <i class="fas fa-phone mr-2 text-orange-500"></i>
-              {siteConfig.phoneHotline}
+              <a class="hover:underline" href={`tel:${siteConfig.phone}`}>
+                {siteConfig.phoneDisplay}
+              </a>
             </p>
             <p class="flex items-center">
               <i class="fas fa-mobile-alt mr-2 text-orange-500"></i>
-              <a class="hover:underline" href={waUrl} rel="noopener noreferrer" target="_blank">
-                0812-8899-7721
-              </a>
-              <span class="mx-1">/</span>
-              <a class="hover:underline" href={waUrl} rel="noopener noreferrer" target="_blank">
-                0821-6916-9700
+              <a class="hover:underline font-bold text-emerald-600" href={waUrl} rel="noopener noreferrer" target="_blank">
+                {siteConfig.whatsappDisplay} (Hotline WhatsApp)
               </a>
             </p>
             <div class="flex items-center">
