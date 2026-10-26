@@ -18,97 +18,152 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
 
 const products = [
   {
-    title: 'Frame System',
+    title: 'Main Frame Scaffolding',
     img: '/assets/img/product/mainframepng.webp',
-    alt: 'Sewa Scaffolding Frame System untuk Proyek Konstruksi',
-    desc: 'Frame System adalah pilihan tepat untuk mendukung pekerja dan material dalam proyek konstruksi Anda. Ideal untuk sewa scaffolding, sistem ini membantu memastikan stabilitas dan keamanan dalam pembangunan berbagai jenis bangunan.',
+    alt: 'Sewa Scaffolding Main Frame System',
+    specs: [
+      { label: 'Ukuran', val: 'T. 170cm & 190cm x L. 122cm' },
+      { label: 'Pipa', val: 'Tebal 1.8mm – 2.0mm SNI' },
+      { label: 'Set Lengkap', val: '2 Frame, 2 Silang, 4 Pin' },
+    ],
+    badge: 'Paling Banyak Disewa',
   },
   {
-    title: 'Bekisting System',
+    title: 'Bekisting System (Pengecoran)',
     img: '/assets/img/product/Bekistingpng.webp',
-    alt: 'Sewa Bekisting System untuk Pengecoran Beton Proyek Konstruksi',
-    desc: 'Bekisting System dirancang untuk membentuk struktur beton dengan presisi tinggi. Tersedia untuk sewa bekisting di seluruh wilayah proyek Anda, alat ini cocok untuk kebutuhan proyek konstruksi yang membutuhkan hasil kokoh dan presisi.',
+    alt: 'Sewa Bekisting System Pengecoran Beton',
+    specs: [
+      { label: 'Fungsi', val: 'Pengecoran Balok & Plat Lantai' },
+      { label: 'Komponen', val: 'U-Head, Jack Base, Pipa Support' },
+      { label: 'Kualitas', val: 'Baja Presisi Beban Berat' },
+    ],
+    badge: 'Spesialis Cor Beton',
   },
   {
-    title: 'Tubular System',
+    title: 'Tubular System (Heavy Duty)',
     img: '/assets/img/product/tubularsystempng.webp',
-    alt: 'Sewa Scaffolding Tubular System untuk Silo dan Tangki',
-    desc: 'Tubular System memberikan fleksibilitas dan kekuatan untuk pekerjaan di ketinggian, seperti pembangunan silo atau tangki. Solusi sempurna untuk Anda yang mencari sewa tubular dengan kekuatan maksimal.',
+    alt: 'Sewa Scaffolding Tubular System',
+    specs: [
+      { label: 'Fungsi', val: 'Tangki, Silo & Ketinggian Ekstrem' },
+      { label: 'Sistem', val: 'Pipa Seamless + Klem Putar/Mati' },
+      { label: 'Fleksibilitas', val: 'Bisa Dirangkai Segala Sudut' },
+    ],
+    badge: 'Proyek Industrial',
   },
   {
     title: 'PCH Kwikstage System',
     img: '/assets/img/product/Kwikstagepng.webp',
-    alt: 'Sewa Scaffolding PCH Kwikstage System untuk Gedung dan Hotel',
-    desc: 'PCH Kwikstage System menawarkan efisiensi dalam mendukung proyek skala besar, seperti gedung dan hotel. Tersedia untuk sewa kwikstage / PCH, sistem ini mempermudah pekerjaan konstruksi Anda dengan pemasangan cepat.',
+    alt: 'Sewa Scaffolding PCH Kwikstage',
+    specs: [
+      { label: 'Aplikasi', val: 'Gedung, Hotel & Mall Bertingkat' },
+      { label: 'Fitur', val: 'Pemasangan Cepat Model Wedge' },
+      { label: 'Kapasitas', val: 'Beban Kerja Ekstra Tinggi' },
+    ],
+    badge: 'Gedung Bertingkat',
   },
   {
-    title: 'Ringlock System',
+    title: 'Ringlock System (Modular)',
     img: '/assets/img/product/ringlocksystem.webp',
-    alt: 'Sewa Scaffolding Ringlock System Kuat dan Stabil untuk Konstruksi',
-    desc: 'Ringlock System dikenal dengan kekuatan dan stabilitasnya yang luar biasa, cocok untuk berbagai proyek konstruksi berat. Pilihan ideal untuk Anda yang membutuhkan sewa ringlock dengan pemasangan cepat dan mudah.',
+    alt: 'Sewa Scaffolding Ringlock System',
+    specs: [
+      { label: 'Aplikasi', val: 'Struktur Rumit & Jembatan' },
+      { label: 'Sistem', val: 'Koneksi Piringan Rosette 8 Arah' },
+      { label: 'Keunggulan', val: 'Kekakuan Tertinggi & Aman K3' },
+    ],
+    badge: 'Standar Internasional',
   },
 ];
 ---
 
 <!-- ==============================================
-     PRODUK SCAFFOLDING KAMI (PERSIS SEPERTI DI PT SNI)
+     PRODUK SCAFFOLDING KAMI (VISUAL & RINGKAS)
 =============================================== -->
 <section class="py-20 bg-white" id="products">
   <div class="container mx-auto px-4">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-montserrat font-bold text-red-600 mb-4">
-        Produk
-        <span class="text-gray-800">
-          Scaffolding Kami
-        </span>
+    <div class="text-center mb-14">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 text-xs font-montserrat font-bold uppercase tracking-wider mb-3">
+        <i class="fas fa-boxes-stacked text-sm"></i>
+        <span>Katalog Peralatan Ready Stok</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold text-gray-900 mb-4">
+        Produk <span class="text-red-600">Scaffolding Kami</span>
       </h2>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto text-center font-roboto">
-        Kami menyediakan berbagai sistem scaffolding berkualitas tinggi untuk kebutuhan sewa scaffolding proyek konstruksi Anda di {city}, mulai dari frame system, tubular, ringlock, kwikstage hingga sistem bekisting untuk pengecoran beton.
+      <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-roboto">
+        Peralatan scaffolding pipa baja tebal standar SNI 07-0065. Tersedia pilihan sewa bulanan dan jual baru / rekondisi Grade A siap kirim di {city}.
       </p>
     </div>
 
-    <!-- 5 Kolom Grid Khas PT SNI -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
+    <!-- 5 Kolom Grid Visual & Informatif -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
       {products.map((item) => (
-        <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-6 text-center border border-gray-100 flex flex-col justify-between">
+        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 p-5 border border-gray-200 flex flex-col justify-between group">
           <div>
-            <div class="h-32 flex items-center justify-center mb-4">
+            <!-- Badge Pojok Atas -->
+            <div class="flex justify-between items-center mb-3">
+              <span class="text-[10px] font-montserrat font-bold uppercase bg-red-50 text-red-600 px-2.5 py-1 rounded-full border border-red-100">
+                {item.badge}
+              </span>
+              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
+                ● Ready Stok
+              </span>
+            </div>
+
+            <!-- Frame Foto Produk Bersih -->
+            <div class="h-36 w-full flex items-center justify-center p-2 mb-3 bg-slate-50 rounded-lg group-hover:bg-slate-100/80 transition-colors">
               <img
                 src={item.img}
                 alt={item.alt}
-                class="max-h-32 max-w-full object-contain rounded-lg"
+                class="max-h-32 max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
                 loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
               />
+              <div class="hidden w-full h-full items-center justify-center text-xs text-gray-400 font-roboto">
+                [Foto Produk]
+              </div>
             </div>
-            <h3 class="text-xl font-montserrat font-semibold text-gray-800 mb-2">
+
+            <!-- Judul Produk -->
+            <h3 class="text-base font-montserrat font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors leading-snug">
               {item.title}
             </h3>
-            <p class="text-gray-600 text-sm text-justify font-roboto leading-relaxed">
-              {item.desc}
-            </p>
+
+            <!-- Tabel Spesifikasi Ringkas (Menggantikan Paragraf Panjang) -->
+            <div class="space-y-1.5 text-xs font-roboto bg-gray-50 p-3 rounded-lg border border-gray-100 mb-4">
+              {item.specs.map((s) => (
+                <div class="flex items-start justify-between gap-1 border-b border-gray-200/50 pb-1 last:border-0 last:pb-0">
+                  <span class="text-gray-500 font-medium">{s.label}:</span>
+                  <span class="text-gray-900 font-bold text-right">{s.val}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div class="mt-4 pt-4 border-t border-gray-100">
+
+          <!-- Tombol CTA Pesan Cepat -->
+          <div>
             <a
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Halo Admin ${siteConfig.businessName}, saya mau tanya harga sewa/beli untuk ${item.title} di ${city}.`)}`}
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Halo Admin ${siteConfig.businessName}, saya mau tanya ketersediaan stok & harga sewa/beli untuk ${item.title} di ${city}.`)}`}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-block w-full py-2 px-3 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-montserrat font-bold transition-colors"
+              class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-3 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-montserrat font-bold transition-all shadow hover:shadow-md"
             >
-              Tanya Harga
+              <i class="fab fa-whatsapp text-sm"></i>
+              <span>Tanya Harga / Sewa</span>
             </a>
           </div>
         </div>
       ))}
     </div>
 
+    <!-- Tombol Katalog Lengkap di Bawah -->
     <div class="text-center mt-12">
       <a
-        class="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 btn-hover shadow-md font-montserrat"
+        class="inline-flex items-center gap-2 bg-gray-900 hover:bg-red-600 text-white px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 transform hover:scale-105 shadow-lg font-montserrat"
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
       >
-        Lihat Katalog Sewa Scaffolding Lengkap
+        <i class="fas fa-file-pdf text-red-400"></i>
+        <span>Minta Rincian Daftar Harga Lengkap (PDF)</span>
       </a>
     </div>
   </div>

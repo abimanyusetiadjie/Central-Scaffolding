@@ -1,0 +1,115 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+export interface Props {
+  city?: string;
+}
+
+const { city = siteConfig.warehouseAddress.city } = Astro.props;
+
+// Slot foto dokumentasi fisik gudang & armada
+// User dapat mengganti URL 'image' dengan file foto asli nanti
+const gallerySlots = [
+  {
+    id: 1,
+    title: 'Stok Gudang Scaffolding Ready',
+    description: 'Ribuan set main frame, cross brace, dan catwalk tersusun rapi siap muat.',
+    badge: '10.000+ Set Ready',
+    // Tempat URL gambar (user bisa ganti path foto aslinya di sini)
+    image: '/assets/video/bg-hero-index-poster.webp',
+  },
+  {
+    id: 2,
+    title: 'Armada Pikap & Truk Pengiriman',
+    description: 'Armada mandiri siap berangkat antar scaffolding 1-3 jam ke lokasi proyek Anda.',
+    badge: 'Kirim Cepat Hari Ini',
+    image: '/images/stitch/hero-truck.jpg',
+  },
+  {
+    id: 3,
+    title: 'Pengecekan Ketebalan Pipa (Sigmat)',
+    description: 'Pipa baja standar SNI 07-0065 tebal 1.8mm - 2.0mm dipastikan presisi & aman beban.',
+    badge: 'Pipa SNI 1.8 - 2.0mm',
+    image: '', // Dikosongkan sesuai instruksi user
+  },
+  {
+    id: 4,
+    title: 'Pemasangan di Lokasi Proyek Nyata',
+    description: 'Dokumentasi instalasi scaffolding untuk proyek ruko, perumahan, dan gedung bertingkat.',
+    badge: 'Proyek Jabodetabek',
+    image: '/assets/img/project-royal-residence.jpg',
+  },
+];
+---
+
+<!-- ==============================================
+     DOKUMENTASI FISIK GUDANG & ARMADA (GALERI FOTO)
+=============================================== -->
+<section class="py-16 bg-white border-b border-gray-100" id="galeri-gudang">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 text-xs font-montserrat font-bold uppercase tracking-wider mb-3">
+        <i class="fas fa-camera text-sm"></i>
+        <span>Bukti Fisik Toko &amp; Gudang</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold text-gray-900 mb-4">
+        Dokumentasi Gudang &amp; <span class="text-red-600">Armada Pengiriman</span>
+      </h2>
+      <p class="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto font-roboto">
+        Bukan makelar atau calo online. Kunjungi langsung fisik toko dan gudang kami di {city} untuk mengecek stok ribuan set dan ketebalan pipa besi standar SNI.
+      </p>
+    </div>
+
+    <!-- Grid 4 Slot Foto -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+      {gallerySlots.map((slot) => (
+        <div class="group bg-gray-50 rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+          <!-- Frame Foto (Aspect Ratio 4:3) -->
+          <div class="relative aspect-[4/3] w-full bg-slate-200 overflow-hidden flex items-center justify-center">
+            {slot.image ? (
+              <img
+                src={slot.image}
+                alt={slot.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+            ) : null}
+
+            <!-- Placeholder jika foto kosong / belum diupload -->
+            <div
+              class={`w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-slate-100 to-slate-200 ${slot.image ? 'hidden' : 'flex'}`}
+            >
+              <div class="w-14 h-14 rounded-full bg-white text-red-600 flex items-center justify-center shadow-md mb-3 border border-red-100">
+                <i class="fas fa-image text-2xl"></i>
+              </div>
+              <span class="text-xs font-montserrat font-bold text-gray-700 uppercase tracking-wider">
+                Slot Foto #{slot.id}
+              </span>
+              <span class="text-[11px] text-gray-500 font-roboto mt-1">
+                (Klik untuk ganti foto)
+              </span>
+            </div>
+
+            <!-- Badge Kategori Pojok Foto -->
+            <div class="absolute top-3 left-3 bg-red-600/90 backdrop-blur-sm text-white text-[11px] font-montserrat font-bold px-2.5 py-1 rounded shadow">
+              {slot.badge}
+            </div>
+          </div>
+
+          <!-- Keterangan Singkat -->
+          <div class="p-4 bg-white flex-grow flex flex-col justify-between border-t border-gray-100">
+            <div>
+              <h3 class="font-montserrat font-bold text-gray-900 text-base mb-1.5 group-hover:text-red-600 transition-colors">
+                {slot.title}
+              </h3>
+              <p class="text-xs text-gray-600 font-roboto leading-relaxed">
+                {slot.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

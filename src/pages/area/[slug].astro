@@ -1,9 +1,10 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 import Hero from '../../components/sections/Hero.astro';
-import LayananLokal from '../../components/sections/LayananLokal.astro';
-import AboutUs from '../../components/sections/AboutUs.astro';
+import WarehouseGallery from '../../components/sections/WarehouseGallery.astro';
 import ProductsSection from '../../components/sections/ProductsSection.astro';
+import AboutUs from '../../components/sections/AboutUs.astro';
+import LayananLokal from '../../components/sections/LayananLokal.astro';
 import ProjectsShowcase from '../../components/sections/ProjectsShowcase.astro';
 import FaqSection from '../../components/sections/FaqSection.astro';
 import ContactBranches from '../../components/sections/ContactBranches.astro';
@@ -38,28 +39,31 @@ const { locationData } = Astro.props;
     whatsappNumber={siteConfig.whatsappNumber}
   />
 
-  <!-- 2. Layanan Lokal (#layanan-lokal) -->
-  <LayananLokal city={locationData.cityName} />
+  <!-- 2. Galeri Dokumentasi Gudang & Armada (Slot Foto Fisik) -->
+  <WarehouseGallery city={locationData.cityName} />
 
-  <!-- 3. Tentang Kami (#about) -->
-  <AboutUs city={locationData.cityName} />
-
-  <!-- 4. Produk Scaffolding Kami (#products) -->
+  <!-- 3. Produk Scaffolding Kami (Katalog Visual & Tabel Spek Ringkas) -->
   <ProductsSection
     city={locationData.cityName}
     whatsappNumber={siteConfig.whatsappNumber}
   />
 
-  <!-- 5. Proyek Terbaru (#projects) -->
+  <!-- 4. Tentang Kami (Split Layout: Foto Utama + 4 Garansi Ringkas) -->
+  <AboutUs city={locationData.cityName} />
+
+  <!-- 5. Area Layanan (Kartu Ringkas + Estimasi Jam Kirim) -->
+  <LayananLokal city={locationData.cityName} />
+
+  <!-- 6. Proyek Terbaru (Portofolio Foto Lapangan) -->
   <ProjectsShowcase
     city={locationData.cityName}
     whatsappNumber={siteConfig.whatsappNumber}
   />
 
-  <!-- 6. FAQ (#faq) -->
+  <!-- 7. FAQ (Pertanyaan Umum) -->
   <FaqSection city={locationData.cityName} />
 
-  <!-- 7. Kontak & Cabang (#contact) -->
+  <!-- 8. Kontak & Cabang (#contact: Google Maps Asli Tangerang) -->
   <ContactBranches
     city={locationData.cityName}
     whatsappNumber={siteConfig.whatsappNumber}
