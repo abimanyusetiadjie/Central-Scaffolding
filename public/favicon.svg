@@ -1,5 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" fill="#09090B"/>
-  <rect x="4" y="4" width="56" height="56" stroke="#F59E0B" stroke-width="4"/>
-  <path d="M16 14V50M48 14V50M16 20H48M16 44H48M16 20L48 44M48 20L16 44" stroke="#F59E0B" stroke-width="4" stroke-linecap="square"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#ffffff" stroke="#DC2626" stroke-width="3"/>
+  <!-- Scaffolding gable frame mark -->
+  <!-- Gable roof triangle -->
+  <polygon points="32,8 10,24 54,24" fill="none" stroke="#DC2626" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- Top beam -->
+  <line x1="12" y1="24" x2="52" y2="24" stroke="#DC2626" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Side vertical posts -->
+  <line x1="16" y1="24" x2="16" y2="56" stroke="#DC2626" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="48" y1="24" x2="48" y2="56" stroke="#DC2626" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Middle cross rungs -->
+  <line x1="16" y1="36" x2="48" y2="36" stroke="#DC2626" stroke-width="3" stroke-linecap="round"/>
+  <line x1="16" y1="48" x2="48" y2="48" stroke="#DC2626" stroke-width="3" stroke-linecap="round"/>
+  <!-- Center joint pin / vertical divider -->
+  <circle cx="32" cy="24" r="2.5" fill="#DC2626"/>
+  <line x1="32" y1="24" x2="32" y2="56" stroke="#DC2626" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="32" cy="56" r="2.5" fill="#DC2626"/>
 </svg>

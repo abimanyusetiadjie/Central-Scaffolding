@@ -16,16 +16,16 @@ const waMessage = encodeURIComponent(
 const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
 ---
 
-<!-- Header / Navbar Sesuai Persis Standar Industri (Tema Merah Central Scaffolding) -->
+<!-- Header / Navbar Ringkas & Elegan (Tema Merah Central Scaffolding) -->
 <header>
   <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out navbar-default" id="navbar">
     <div class="container mx-auto px-4">
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
         <div class="flex-shrink-0">
-          <a class="flex items-center space-x-3" href="/">
+          <a class="flex items-center space-x-3 group" href="/" title="Central Scaffolding Beranda">
             <!-- Logo Image / Badge Resmi -->
-            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-lg p-1.5 shadow-md flex-shrink-0">
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-lg p-1.5 shadow-md flex-shrink-0 group-hover:scale-105 transition-transform">
               <img
                 src="/images/logo-icon-transparent.png"
                 alt="Central Scaffolding Logo"
@@ -46,30 +46,22 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
           </a>
         </div>
 
-        <!-- Desktop Navigation Menu -->
+        <!-- Desktop Navigation Menu Ringkas (4 Menu Esensial) -->
         <div class="hidden lg:flex items-center space-x-8 font-montserrat">
-          <a class="text-white hover:text-red-500 font-medium transition-colors duration-300 relative group text-base font-bold" href="/">
-            Home
+          <a class="text-white hover:text-red-500 font-medium transition-colors duration-300 relative group text-base font-bold" href="#products">
+            Produk
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a class="text-white hover:text-red-500 font-medium transition-colors duration-300 relative group text-base" href="#layanan-lokal">
-            Layanan
+            Area Layanan
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a class="text-white hover:text-red-500 font-medium transition-colors duration-300 relative group text-base" href="#about">
             Tentang Kami
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
           </a>
-          <a class="text-white hover:text-red-500 font-medium transition-colors duration-300 relative group text-base" href="#products">
-            Produk
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a class="text-white hover:text-red-500 font-medium transition-colors duration-300 relative group text-base" href="#projects">
-            Proyek
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
-          </a>
           <a class="text-white hover:text-red-500 font-medium transition-colors duration-300 relative group text-base" href="#contact">
-            Kontak
+            Kontak &amp; Gudang
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
           </a>
         </div>
@@ -78,7 +70,7 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
         <div class="flex items-center space-x-4 font-montserrat">
           <!-- CTA Button Merah Industrial -->
           <a
-            class="hidden md:inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 btn-hover shadow-md"
+            class="hidden md:inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 btn-hover shadow-md text-sm"
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -99,26 +91,20 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
         </div>
       </div>
 
-      <!-- Mobile Menu Drawer -->
+      <!-- Mobile Menu Drawer Ringkas -->
       <div class="lg:hidden hidden bg-black/95 backdrop-blur-md rounded-lg mt-2 p-5 mobile-menu-enter font-montserrat shadow-2xl border border-white/10" id="mobile-menu">
         <div class="flex flex-col space-y-4">
-          <a class="text-white hover:text-red-500 font-medium py-2 transition-colors duration-300" href="/">
-            Home
+          <a class="text-white hover:text-red-500 font-medium py-2 transition-colors duration-300" href="#products">
+            Produk Scaffolding
           </a>
           <a class="text-white hover:text-red-500 font-medium py-2 transition-colors duration-300" href="#layanan-lokal">
-            Layanan
+            Area Layanan
           </a>
           <a class="text-white hover:text-red-500 font-medium py-2 transition-colors duration-300" href="#about">
             Tentang Kami
           </a>
-          <a class="text-white hover:text-red-500 font-medium py-2 transition-colors duration-300" href="#products">
-            Produk
-          </a>
-          <a class="text-white hover:text-red-500 font-medium py-2 transition-colors duration-300" href="#projects">
-            Proyek
-          </a>
           <a class="text-white hover:text-red-500 font-medium py-2 transition-colors duration-300" href="#contact">
-            Kontak
+            Kontak &amp; Gudang
           </a>
           <hr class="border-gray-700 my-2" />
           <a
