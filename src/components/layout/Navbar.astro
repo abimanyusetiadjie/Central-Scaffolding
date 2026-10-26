@@ -26,13 +26,18 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
           <a class="flex items-center space-x-3 group" href="/" title="Central Scaffolding Beranda">
             <!-- Logo Image / Badge Resmi -->
             <div class="w-12 h-12 flex items-center justify-center bg-white rounded-lg p-1.5 shadow-md flex-shrink-0 group-hover:scale-105 transition-transform">
-              <img
-                src="/images/logo-icon-transparent.png"
-                alt="Central Scaffolding Logo"
-                class="w-full h-full object-contain"
-                width="48"
-                height="48"
-              />
+              <picture class="w-full h-full flex items-center justify-center">
+                <source srcset="/assets/img/logo-icon-transparent.webp" type="image/webp" />
+                <img
+                  src="/assets/img/logo-icon-transparent.png"
+                  alt={`Logo resmi ${siteConfig.businessName} pusat sewa dan jual scaffolding SNI di ${city}`}
+                  class="w-full h-full object-contain"
+                  width="48"
+                  height="48"
+                  loading="eager"
+                  decoding="async"
+                />
+              </picture>
             </div>
             <!-- Logo Text (Responsif Mobile & Desktop) -->
             <div class="flex flex-col">
@@ -123,7 +128,6 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
 </header>
 
 <script>
-  // Navbar scroll background toggle
   const navbar = document.getElementById('navbar');
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -143,13 +147,11 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
   window.addEventListener('scroll', checkScroll);
   checkScroll();
 
-  // Mobile menu toggle
   if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
 
-    // Close mobile menu on anchor click
     const mobileLinks = mobileMenu.querySelectorAll('a');
     mobileLinks.forEach((link) => {
       link.addEventListener('click', () => {

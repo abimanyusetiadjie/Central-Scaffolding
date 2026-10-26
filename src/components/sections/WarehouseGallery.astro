@@ -7,48 +7,53 @@ export interface Props {
 
 const { city = siteConfig.warehouseAddress.city } = Astro.props;
 
-// Slot foto dokumentasi fisik gudang & armada
-// User dapat mengganti URL 'image' dengan file foto asli nanti
-const gallerySlots = [
+const galleryItems = [
   {
-    id: 1,
+    id: 'DOK-01',
     title: 'Stok Gudang Scaffolding Ready',
-    description: 'Ribuan set main frame, cross brace, dan catwalk tersusun rapi siap muat.',
+    description: 'Ribuan set main frame, cross brace, dan catwalk tersusun rapi di gudang siap muat.',
     badge: '10.000+ Set Ready',
-    // Tempat URL gambar (user bisa ganti path foto aslinya di sini)
-    image: '/assets/video/bg-hero-index-poster.webp',
+    webp: '/assets/img/warehouse/stok-gudang.webp',
+    image: '/assets/img/warehouse/stok-gudang.jpg',
+    alt: `Stok gudang scaffolding main frame dan cross brace siap kirim di ${city}`,
   },
   {
-    id: 2,
+    id: 'DOK-02',
     title: 'Armada Pikap & Truk Pengiriman',
-    description: 'Armada mandiri siap berangkat antar scaffolding 1-3 jam ke lokasi proyek Anda.',
+    description: 'Armada mandiri siap berangkat mengantar scaffolding 1-3 jam ke lokasi proyek Anda.',
     badge: 'Kirim Cepat Hari Ini',
-    image: '/images/stitch/hero-truck.jpg',
+    webp: '/assets/img/warehouse/armada-pengiriman.webp',
+    image: '/assets/img/warehouse/armada-pengiriman.jpg',
+    alt: `Armada pikap dan truk pengiriman scaffolding ${siteConfig.businessName} siap kirim ke ${city}`,
   },
   {
-    id: 3,
+    id: 'DOK-03',
     title: 'Pengecekan Ketebalan Pipa (Sigmat)',
-    description: 'Pipa baja standar SNI 07-0065 tebal 1.8mm - 2.0mm dipastikan presisi & aman beban.',
+    description: 'Pipa baja standar SNI 07-0065 tebal 1.8mm - 2.0mm dipastikan presisi & aman menahan beban.',
     badge: 'Pipa SNI 1.8 - 2.0mm',
-    image: '', // Dikosongkan sesuai instruksi user
+    webp: '/assets/img/warehouse/uji-ketebalan-pipa.webp',
+    image: '/assets/img/warehouse/uji-ketebalan-pipa.jpg',
+    alt: 'Pengecekan ketebalan pipa scaffolding standar SNI 1.8mm - 2.0mm dan sambungan joint pin presisi',
   },
   {
-    id: 4,
+    id: 'DOK-04',
     title: 'Pemasangan di Lokasi Proyek Nyata',
     description: 'Dokumentasi instalasi scaffolding untuk proyek ruko, perumahan, dan gedung bertingkat.',
     badge: 'Proyek Jabodetabek',
+    webp: '/assets/img/project-royal-residence.webp',
     image: '/assets/img/project-royal-residence.jpg',
+    alt: `Dokumentasi pemasangan scaffolding main frame pada proyek konstruksi bangunan di ${city}`,
   },
 ];
 ---
 
 <!-- ==============================================
-     DOKUMENTASI FISIK GUDANG & ARMADA (GALERI FOTO)
+     DOKUMENTASI FISIK GUDANG & ARMADA (BENTO GRID INDUSTRIAL)
 =============================================== -->
-<section class="py-16 bg-white border-b border-gray-100" id="galeri-gudang">
+<section class="py-16 bg-white border-b border-slate-200" id="galeri-gudang">
   <div class="container mx-auto px-4">
     <div class="text-center mb-12">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 text-xs font-montserrat font-bold uppercase tracking-wider mb-3">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none bg-red-50 border border-red-200 text-red-600 text-xs font-montserrat font-bold uppercase tracking-wider mb-3">
         <i class="fas fa-camera text-sm"></i>
         <span>Bukti Fisik Toko &amp; Gudang</span>
       </div>
@@ -60,55 +65,48 @@ const gallerySlots = [
       </p>
     </div>
 
-    <!-- Grid 4 Slot Foto -->
+    <!-- Bento Grid Industrial 4 Kolom Desktop, 2 Kolom Tablet, 1 Kolom Mobile -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-      {gallerySlots.map((slot) => (
-        <div class="group bg-gray-50 rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
-          <!-- Frame Foto (Aspect Ratio 4:3) -->
-          <div class="relative aspect-[4/3] w-full bg-slate-200 overflow-hidden flex items-center justify-center">
-            {slot.image ? (
+      {galleryItems.map((item) => (
+        <article class="group bg-white rounded-none overflow-hidden border-2 border-slate-200 hover:border-red-600 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+          <!-- Frame Foto Konsisten Aspect Ratio 4:3, Sudut rounded-none -->
+          <div class="relative aspect-[4/3] w-full bg-slate-100 rounded-none overflow-hidden">
+            <picture class="block w-full h-full">
+              <source srcset={item.webp} type="image/webp" />
               <img
-                src={slot.image}
-                alt={slot.title}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                src={item.image}
+                alt={item.alt}
+                width="800"
+                height="600"
+                class="w-full h-full object-cover rounded-none group-hover:scale-105 transition-transform duration-300"
                 loading="lazy"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                decoding="async"
               />
-            ) : null}
+            </picture>
 
-            <!-- Placeholder jika foto kosong / belum diupload -->
-            <div
-              class={`w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-slate-100 to-slate-200 ${slot.image ? 'hidden' : 'flex'}`}
-            >
-              <div class="w-14 h-14 rounded-full bg-white text-red-600 flex items-center justify-center shadow-md mb-3 border border-red-100">
-                <i class="fas fa-image text-2xl"></i>
-              </div>
-              <span class="text-xs font-montserrat font-bold text-gray-700 uppercase tracking-wider">
-                Slot Foto #{slot.id}
-              </span>
-              <span class="text-[11px] text-gray-500 font-roboto mt-1">
-                (Klik untuk ganti foto)
-              </span>
+            <!-- Badge Kategori Pojok Kiri Atas -->
+            <div class="absolute top-3 left-3 bg-red-600 text-white text-[11px] font-montserrat font-bold px-2.5 py-1 rounded-none shadow">
+              {item.badge}
             </div>
 
-            <!-- Badge Kategori Pojok Foto -->
-            <div class="absolute top-3 left-3 bg-red-600/90 backdrop-blur-sm text-white text-[11px] font-montserrat font-bold px-2.5 py-1 rounded shadow">
-              {slot.badge}
+            <!-- Kode Blueprint Pojok Kanan Bawah -->
+            <div class="absolute bottom-2 right-2 bg-slate-900/85 text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded-none tracking-wider">
+              {item.id}
             </div>
           </div>
 
           <!-- Keterangan Singkat -->
-          <div class="p-4 bg-white flex-grow flex flex-col justify-between border-t border-gray-100">
+          <div class="p-5 bg-white flex-grow flex flex-col justify-between border-t-2 border-slate-200">
             <div>
-              <h3 class="font-montserrat font-bold text-gray-900 text-base mb-1.5 group-hover:text-red-600 transition-colors">
-                {slot.title}
+              <h3 class="font-montserrat font-bold text-gray-900 text-base mb-2 group-hover:text-red-600 transition-colors">
+                {item.title}
               </h3>
-              <p class="text-xs text-gray-600 font-roboto leading-relaxed">
-                {slot.description}
+              <p class="text-sm text-gray-600 font-roboto leading-relaxed">
+                {item.description}
               </p>
             </div>
           </div>
-        </div>
+        </article>
       ))}
     </div>
   </div>

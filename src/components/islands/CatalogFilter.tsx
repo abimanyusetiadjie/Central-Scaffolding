@@ -34,62 +34,72 @@ export default function CatalogFilter({
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {typedProducts.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-6 text-center border border-gray-100 flex flex-col justify-between"
-            >
-              <div>
-                <div className="w-full h-44 bg-gray-50 rounded-lg p-2 mb-4 flex items-center justify-center overflow-hidden">
-                  <img
-                    src={item.imageUrl || 'https://lh3.googleusercontent.com/aida-public/AB6AXuA-Qs-9l9pEVNnc0MwIaeBjOzu-rWeL2mdjm-OmTUyktRglAKKuChdI-U18dBkcRQY1lmm2Yd03H7iZPDEl0nOKlOqP21ICLuNg5SAsJR4i_G-Jdk6ECbTuoz0mARzjh7FBEVyviSqRZS9YVz3AupiHNXnD0l_HzsccnlwmfSeAyA-0rNQ60S8KFg5XI6JYsJ6nf-vgPfty23uPm1AQXHOieUuEuadbRpu6brlrCiDDK_am73dHkezv8g'}
-                    alt={item.imageAlt}
-                    className="w-full h-full object-contain rounded-lg"
-                    loading="lazy"
-                  />
-                </div>
-                <h3 className="text-xl font-montserrat font-bold text-gray-800 mb-2">
-                  {item.name}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4 font-roboto line-clamp-3">
-                  {item.description}
-                </p>
-
-                <div className="bg-gray-50 rounded-lg p-3 text-xs text-left mb-4 font-roboto space-y-1">
-                  <div className="flex justify-between">
-                    <span className="text-gray-500 font-medium">Ukuran:</span>
-                    <span className="font-bold text-gray-800">{item.specs.dimensions}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-500 font-medium">Pipa:</span>
-                    <span className="font-semibold text-gray-800">{item.specs.pipeDiameter}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-500 font-medium">Kelebihan:</span>
-                    <span className="font-bold text-orange-600">{item.specs.thickness}</span>
-                  </div>
-                </div>
-              </div>
-
-              <a
-                href={buildProductWaUrl(item)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 px-4 rounded-lg font-montserrat font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
-                onClick={() =>
-                  trackWhatsAppClick({
-                    lead_source: 'catalog_item',
-                    transaction_mode: 'SEWA & BELI',
-                    target_city: city,
-                    item_name: item.name,
-                  })
-                }
+          {typedProducts.map((item) => {
+            const webpSrc = item.imageUrl || '/assets/img/product/main-frame.webp';
+            const fallbackSrc = webpSrc.replace(/\.webp$/, '.jpg');
+            return (
+              <div
+                key={item.id}
+                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-6 text-center border border-gray-100 flex flex-col justify-between"
               >
-                <MessageCircle className="w-4 h-4 fill-current" />
-                <span>Pesan {item.name.split('/')[0].split('(')[0].trim()}</span>
-              </a>
-            </div>
-          ))}
+                <div>
+                  <div className="relative aspect-[4/3] w-full bg-gray-50 rounded-lg p-3 mb-4 flex items-center justify-center overflow-hidden border border-gray-100">
+                    <picture className="w-full h-full flex items-center justify-center">
+                      <source srcSet={webpSrc} type="image/webp" />
+                      <img
+                        src={fallbackSrc}
+                        alt={item.imageAlt}
+                        width={512}
+                        height={279}
+                        className="w-full h-full object-contain rounded-lg"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
+                  <h3 className="text-xl font-montserrat font-bold text-gray-800 mb-2">
+                    {item.name}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4 font-roboto line-clamp-3">
+                    {item.description}
+                  </p>
+
+                  <div className="bg-gray-50 rounded-lg p-3 text-xs text-left mb-4 font-roboto space-y-1">
+                    <div className="flex justify-between">
+                      <span className="text-gray-500 font-medium">Ukuran:</span>
+                      <span className="font-bold text-gray-800">{item.specs.dimensions}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-500 font-medium">Pipa:</span>
+                      <span className="font-semibold text-gray-800">{item.specs.pipeDiameter}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-500 font-medium">Kelebihan:</span>
+                      <span className="font-bold text-orange-600">{item.specs.thickness}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <a
+                  href={buildProductWaUrl(item)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 px-4 rounded-lg font-montserrat font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+                  onClick={() =>
+                    trackWhatsAppClick({
+                      lead_source: 'catalog_item',
+                      transaction_mode: 'SEWA & BELI',
+                      target_city: city,
+                      item_name: item.name,
+                    })
+                  }
+                >
+                  <MessageCircle className="w-4 h-4 fill-current" />
+                  <span>Pesan {item.name.split('/')[0].split('(')[0].trim()}</span>
+                </a>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

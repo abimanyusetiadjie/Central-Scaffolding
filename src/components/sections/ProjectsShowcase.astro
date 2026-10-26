@@ -19,27 +19,33 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
 const projects = [
   {
     title: 'Pembangunan Rumah Mewah & Hunian Residensial',
-    location: `${city}, 2025`,
+    location: `Kawasan Residensial ${city}`,
+    year: '2025',
+    webp: '/assets/img/project-royal-residence.webp',
     img: '/assets/img/project-royal-residence.jpg',
-    alt: 'Proyek Sewa Scaffolding Frame System Hunian Residensial',
+    alt: `Proyek pemasangan scaffolding Main Frame untuk pembangunan rumah mewah dan hunian residensial di ${city}`,
   },
   {
-    title: 'Kawasan Pergudangan & Logistik Industrial',
-    location: `Kawasan Industri Tangerang & Sekitarnya, 2025`,
+    title: 'Kawasan Pergudangan & Terminal Logistik Industrial',
+    location: 'Kawasan Industri Tangerang & Sekitarnya',
+    year: '2025',
+    webp: '/assets/img/project-terminal-gresik.webp',
     img: '/assets/img/project-terminal-gresik.jpg',
-    alt: 'Proyek Sewa Scaffolding Terminal dan Pergudangan',
+    alt: 'Proyek sewa scaffolding heavy duty untuk konstruksi terminal pelabuhan dan kawasan pergudangan logistik industrial',
   },
   {
     title: 'Gedung Fasilitas Pendidikan & Perkantoran',
-    location: `Jabodetabek, 2025`,
+    location: `Area ${city} & Jabodetabek`,
+    year: '2025',
+    webp: '/assets/img/project-unair.webp',
     img: '/assets/img/project-unair.jpg',
-    alt: 'Proyek Sewa Scaffolding Gedung Bertingkat',
+    alt: `Proyek sewa scaffolding pipa baja SNI untuk pekerjaan fasad gedung fasilitas pendidikan dan perkantoran bertingkat di ${city}`,
   },
 ];
 ---
 
 <!-- ==============================================
-     PROYEK SEWA SCAFFOLDING TERBARU (EXACT PT SNI)
+     PROYEK SEWA SCAFFOLDING TERBARU
 =============================================== -->
 <section class="py-20 bg-gray-50" id="projects">
   <div class="container mx-auto px-4">
@@ -56,28 +62,40 @@ const projects = [
       </p>
     </div>
 
-    <!-- 3 Project Cards Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 max-w-6xl mx-auto">
+    <!-- 3 Project Cards Grid (Aspect Ratio 4:3 Konsisten) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 max-w-6xl mx-auto">
       {projects.map((proj) => (
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-          <div class="relative overflow-hidden h-64 bg-slate-100">
-            <img
-              src={proj.img}
-              alt={proj.alt}
-              class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110"
-              loading="lazy"
-            />
-            <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
+        <article class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 border border-gray-200 flex flex-col justify-between group">
+          <div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+            <picture class="block w-full h-full">
+              <source srcset={proj.webp} type="image/webp" />
+              <img
+                src={proj.img}
+                alt={proj.alt}
+                width="800"
+                height="600"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+            <div class="absolute top-3 right-3 bg-slate-900/85 text-white text-xs font-mono font-bold px-2.5 py-1 rounded">
+              {proj.year}
+            </div>
           </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-montserrat font-bold text-gray-800 mb-2 leading-tight">
+          <div class="p-6 flex-grow flex flex-col justify-between">
+            <h3 class="text-xl sm:text-2xl font-montserrat font-bold text-gray-900 mb-3 leading-snug group-hover:text-red-600 transition-colors">
               {proj.title}
             </h3>
-            <p class="text-gray-600 font-roboto text-sm font-medium">
-              {proj.location}
-            </p>
+            <div class="flex items-center justify-between text-gray-600 font-roboto text-sm font-medium pt-3 border-t border-gray-100">
+              <span class="flex items-center gap-1.5">
+                <i class="fas fa-map-marker-alt text-red-600"></i>
+                <span>{proj.location}</span>
+              </span>
+              <span class="text-xs font-mono font-bold text-gray-500">Tahun {proj.year}</span>
+            </div>
           </div>
-        </div>
+        </article>
       ))}
     </div>
 

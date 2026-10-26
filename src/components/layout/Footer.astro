@@ -21,13 +21,18 @@ const currentYear = new Date().getFullYear();
 <footer class="relative text-white">
   <!-- Background Image & Overlay Hitam 85% -->
   <div class="absolute inset-0">
-    <img
-      src="/assets/img/bg-footer.webp"
-      alt="Footer Scaffolding Background"
-      class="w-full h-full object-cover"
-      loading="lazy"
-      decoding="async"
-    />
+    <picture class="block w-full h-full">
+      <source srcset="/assets/img/bg-footer.webp" type="image/webp" />
+      <img
+        src="/assets/img/bg-footer.jpg"
+        alt="Konstruksi rangka pipa scaffolding baja galvanis standar SNI Central Scaffolding"
+        width="1280"
+        height="960"
+        class="w-full h-full object-cover"
+        loading="lazy"
+        decoding="async"
+      />
+    </picture>
     <div class="absolute inset-0 bg-black opacity-85"></div>
   </div>
 
@@ -38,13 +43,18 @@ const currentYear = new Date().getFullYear();
       <div class="lg:col-span-2">
         <div class="flex items-center space-x-3 mb-6">
           <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center p-1.5 shadow-md flex-shrink-0">
-            <img
-              src="/images/logo-icon-transparent.png"
-              alt="Central Scaffolding Logo"
-              class="w-full h-full object-contain"
-              width="48"
-              height="48"
-            />
+            <picture class="w-full h-full flex items-center justify-center">
+              <source srcset="/assets/img/logo-icon-transparent.webp" type="image/webp" />
+              <img
+                src="/assets/img/logo-icon-transparent.png"
+                alt={`Logo resmi ${siteConfig.businessName} pusat sewa dan jual scaffolding SNI di ${city}`}
+                class="w-full h-full object-contain"
+                width="48"
+                height="48"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
           <div>
             <p class="text-xl font-montserrat font-bold tracking-tight">

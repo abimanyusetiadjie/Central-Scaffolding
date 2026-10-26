@@ -86,9 +86,9 @@ export const siteConfig: SiteConfig = {
   email: 'kontak@centralscaffolding.id',
   siteUrl: 'https://centralscaffolding.vercel.app',
   images: {
-    logo: '/images/logo-cropped.png',
+    logo: '/assets/img/logo-cropped.png',
     heroTruck: '/assets/video/bg-hero-index-poster.webp',
-    warehouseMap: '/images/stitch/warehouse-map.jpg',
+    warehouseMap: '/assets/img/warehouse/armada-pengiriman.webp',
   },
   warehouseAddress: {
     street: 'Jl. KH. Hasyim Ashari, RT.007/RW.007',
