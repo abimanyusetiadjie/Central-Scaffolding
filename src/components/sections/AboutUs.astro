@@ -15,10 +15,10 @@ const warehousePhotoFallback = '/assets/img/warehouse/armada-pengiriman.jpg';
 <!-- ==============================================
      TENTANG CENTRAL SCAFFOLDING (VISUAL & RINGKAS)
 =============================================== -->
-<section class="py-20 bg-gray-50" id="about">
+<section class="py-16 bg-gray-50" id="about">
   <div class="container mx-auto px-4">
     <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
         <!-- Kolom Kiri: Frame Foto Fisik Toko & Gudang -->
         <div class="lg:col-span-6">
           <div class="relative rounded-2xl overflow-hidden border-2 border-gray-200 shadow-xl bg-slate-200 group">
@@ -55,63 +55,63 @@ const warehousePhotoFallback = '/assets/img/warehouse/armada-pengiriman.jpg';
           </div>
         </div>
 
-        <!-- Kolom Kanan: Poin Garansi Ringkas -->
+        <!-- Kolom Kanan: Poin Garansi Ringkas & Padat -->
         <div class="lg:col-span-6 flex flex-col justify-center">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-100/70 text-red-600 text-xs font-montserrat font-bold uppercase tracking-wider mb-3 w-fit">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100/70 text-red-600 text-xs font-montserrat font-bold uppercase tracking-wider mb-2.5 w-fit">
             <span>Kenapa Pilih Kami</span>
           </div>
 
-          <h2 class="text-3xl sm:text-4xl font-montserrat font-extrabold text-gray-900 leading-tight mb-4">
-            Pusat Sewa Scaffolding <span class="text-red-600">Terpercaya &amp; Siap Kirim</span>
+          <h2 class="text-2xl sm:text-4xl font-montserrat font-extrabold text-gray-900 leading-tight mb-3">
+            Pusat Sewa Scaffolding <span class="text-red-600">Siap Kirim</span>
           </h2>
 
-          <p class="text-base text-gray-600 font-roboto mb-6 leading-relaxed">
-            Central Scaffolding melayani kontraktor, pemborong, dan mandor di {city} dengan pasokan scaffolding pipa baja presisi, aman, dan langsung kirim tanpa perantara.
+          <p class="text-sm sm:text-base text-gray-600 font-roboto mb-5 leading-relaxed">
+            Pasokan scaffolding pipa baja presisi standar SNI untuk kontraktor &amp; mandor di {city}. Langsung muat dari gudang tanpa perantara.
           </p>
 
-          <!-- 4 Poin Visual Ringkas -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- 4 Poin Ringkas -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <!-- Poin 1 -->
-            <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-start gap-3">
-              <div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0">
+            <div class="bg-white p-3.5 sm:p-4 rounded-xl border border-gray-200 shadow-sm flex items-start gap-3 hover:shadow-md transition-shadow">
+              <div class="w-9 h-9 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0 mt-0.5">
                 <ShieldCheck className="w-5 h-5 text-red-600" />
               </div>
               <div>
-                <h3 class="font-montserrat font-bold text-gray-900 text-sm">Pipa Tebal SNI 07-0065</h3>
-                <p class="text-xs text-gray-500 font-roboto mt-0.5">Tebal 1.8mm – 2.0mm, kokoh dan lulus uji beban proyek berat.</p>
+                <h3 class="font-montserrat font-bold text-gray-900 text-sm">Pipa Tebal SNI</h3>
+                <p class="text-xs text-gray-500 font-roboto mt-0.5">Tebal 1.8mm – 2.0mm, kuat beban cor beton.</p>
               </div>
             </div>
 
             <!-- Poin 2 -->
-            <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-start gap-3">
-              <div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0">
+            <div class="bg-white p-3.5 sm:p-4 rounded-xl border border-gray-200 shadow-sm flex items-start gap-3 hover:shadow-md transition-shadow">
+              <div class="w-9 h-9 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0 mt-0.5">
                 <Truck className="w-5 h-5 text-red-600" />
               </div>
               <div>
-                <h3 class="font-montserrat font-bold text-gray-900 text-sm">Kirim Cepat 1-3 Jam</h3>
-                <p class="text-xs text-gray-500 font-roboto mt-0.5">Armada pikap &amp; truk sendiri, berangkat di hari yang sama.</p>
+                <h3 class="font-montserrat font-bold text-gray-900 text-sm">Kirim 1-3 Jam</h3>
+                <p class="text-xs text-gray-500 font-roboto mt-0.5">Armada pikap &amp; truk sendiri, kirim hari ini.</p>
               </div>
             </div>
 
             <!-- Poin 3 -->
-            <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-start gap-3">
-              <div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0">
+            <div class="bg-white p-3.5 sm:p-4 rounded-xl border border-gray-200 shadow-sm flex items-start gap-3 hover:shadow-md transition-shadow">
+              <div class="w-9 h-9 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0 mt-0.5">
                 <Banknote className="w-5 h-5 text-red-600" />
               </div>
               <div>
-                <h3 class="font-montserrat font-bold text-gray-900 text-sm">Bisa Bayar COD di Proyek</h3>
-                <p class="text-xs text-gray-500 font-roboto mt-0.5">Barang tiba dicek mandor, cocok dan sesuai baru pelunasan.</p>
+                <h3 class="font-montserrat font-bold text-gray-900 text-sm">Bisa Bayar COD</h3>
+                <p class="text-xs text-gray-500 font-roboto mt-0.5">Barang tiba dicek mandor, cocok baru bayar.</p>
               </div>
             </div>
 
             <!-- Poin 4 -->
-            <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-start gap-3">
-              <div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0">
+            <div class="bg-white p-3.5 sm:p-4 rounded-xl border border-gray-200 shadow-sm flex items-start gap-3 hover:shadow-md transition-shadow">
+              <div class="w-9 h-9 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0 mt-0.5">
                 <RefreshCw className="w-5 h-5 text-red-600" />
               </div>
               <div>
                 <h3 class="font-montserrat font-bold text-gray-900 text-sm">Garansi Tukar Unit</h3>
-                <p class="text-xs text-gray-500 font-roboto mt-0.5">Jika ada komponen cacat saat tiba, langsung kami ganti hari itu juga.</p>
+                <p class="text-xs text-gray-500 font-roboto mt-0.5">Unit cacat langsung ditukar di hari yang sama.</p>
               </div>
             </div>
           </div>

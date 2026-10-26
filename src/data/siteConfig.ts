@@ -117,34 +117,34 @@ export const getFaqItems = (cityName?: string): FaqItem[] => {
   const city = cityName || siteConfig.warehouseAddress.city;
   return [
     {
-      question: 'Apa saja isi kelengkapan 1 set scaffolding standar?',
+      question: 'Apa saja kelengkapan 1 set scaffolding standar?',
       answer:
-        'Standar 1 set scaffolding siap pakai terdiri dari: 2 unit tiang Main Frame (tinggi 170 cm atau 190 cm), 2 unit Cross Brace (silangan pengaku huruf X bentang 220 cm), dan 4 unit Joint Pin (pasak penyambung pipa vertikal). Untuk kebutuhan kerja khusus, Anda dapat memesan komponen tambahan seperti Catwalk (pijakan bordes anti-slip), Jack Base (kaki ulir perata tanah), U-Head (penyangga balok cor), tangga, serta Roda Caster hidup berengsel rem.',
+        '1 set komplit terdiri dari: 2 Main Frame (170cm atau 190cm), 2 Cross Brace (silangan X), dan 4 Joint Pin (sambungan pipa). Komponen tambahan seperti Catwalk bordes, Jack Base, dan Roda dapat dipesan terpisah.',
     },
     {
-      question: 'Bagaimana syarat sewa dan sistem pembayaran COD di lokasi proyek?',
+      question: 'Bagaimana syarat sewa & sistem pembayaran COD?',
       answer:
-        `Syarat sewa sangat mudah tanpa proses birokrasi berbelit! Cukup kirimkan foto KTP penanggung jawab proyek dan share-lokasi pengerjaan via WhatsApp. Kami mendukung sistem pembayaran COD (Bayar di Tempat): armada kami mengantar scaffolding langsung ke lokasi proyek Anda di wilayah ${city}, Anda dan tim mandor memeriksa kelengkapan fisik, setelah cocok dan sesuai baru pelunasan dilakukan via transfer bank atau tunai ke kurir armada.`,
+        `Cukup kirim foto KTP & share-loc proyek via WhatsApp. Barang kami antar ke ${city}, dicek mandor di lokasi, setelah sesuai baru pelunasan (COD tunai/transfer).`,
     },
     {
-      question: 'Apakah melayani jual beli scaffolding baru dan bekas rekondisi?',
+      question: 'Apakah melayani jual scaffolding baru dan bekas?',
       answer:
-        'Ya, kami melayani penjualan unit baru produksi pabrikan langsung dengan las MIG CO2 penuh standar SNI 07-0065 (ketebalan pipa 1.8 mm - 2.0 mm), serta unit bekas rekondisi Grade A (pipa lempeng lurus, bebas keropos, sudah dibersihkan dari kerak semen dan dicat celup anti-karat). Kami juga menyediakan program Buyback (beli balik) scaffolding eks-proyek Anda setelah pembangunan selesai dengan harga yang transparan.',
+        'Ya, kami melayani penjualan unit baru pipa tebal SNI 1.8mm – 2.0mm serta rekondisi Grade A siap pakai. Tersedia juga layanan beli kembali (buyback) eks proyek.',
     },
     {
-      question: `Berapa lama estimasi pengiriman scaffolding ke lokasi proyek di ${city}?`,
+      question: `Berapa lama estimasi pengiriman ke proyek di ${city}?`,
       answer:
-        `Pengiriman super cepat menggunakan armada mobil pikap dan truk cold diesel milik gudang kami sendiri (bukan makelar/ekspedisi pihak ketiga). Untuk pesanan yang dikonfirmasi sebelum pukul 15.00 WIB, barang langsung dikirim hari ini juga dan tiba di lokasi proyek Anda di area ${city} & sekitarnya dalam estimasi 1 hingga 3 jam perjalanan.`,
+        `Estimasi 1 hingga 3 jam langsung dari gudang pusat menggunakan armada pikap & truk sendiri di hari yang sama.`,
     },
     {
-      question: 'Apakah boleh datang langsung ke gudang untuk mengecek fisik barang?',
+      question: 'Apakah boleh datang langsung ke gudang?',
       answer:
-        'Sangat boleh dan kami prioritaskan! Gudang pusat kami buka setiap hari Senin s/d Minggu pukul 07.00 - 18.00 WIB tanpa libur. Anda dipersilakan mampir langsung untuk mengecek stok ribuan set, mengukur ketebalan besi menggunakan jangka sorong (sigmat), dan berkonsultasi mengenai perhitungan set dengan kepala logistik kami.',
+        'Boleh sekali. Gudang pusat buka tiap hari (Senin - Minggu 07.00 - 18.00 WIB). Anda bebas mengukur ketebalan pipa dengan jangka sorong dan cek stok fisik.',
     },
     {
-      question: 'Bagaimana jika ada pipa atau komponen yang bengkok atau cacat di proyek?',
+      question: 'Bagaimana jika ada pipa yang cacat saat tiba?',
       answer:
-        'Kami memberikan Jaminan Garansi Tukar Unit Langsung tanpa biaya tambahan. Jika saat dibongkar di lokasi ada pipa yang cacat atau tidak presisi, tim armada kami siap langsung menukar atau mengirim unit penggantinya di hari yang sama agar pengerjaan proyek Anda tidak tertunda.',
+        'Kami memberikan garansi tukar unit langsung di hari yang sama tanpa biaya tambahan agar jadwal proyek Anda tidak tertunda.',
     },
   ];
 };
