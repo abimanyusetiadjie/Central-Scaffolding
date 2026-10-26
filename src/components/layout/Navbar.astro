@@ -16,16 +16,16 @@ const waMessage = encodeURIComponent(
 const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
 ---
 
-<!-- Header / Navbar Ringkas & Elegan (Tema Merah Central Scaffolding) -->
+<!-- Header / Navbar Bersih & Terang (Tema Clean White Glass) -->
 <header>
   <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out navbar-default" id="navbar">
     <div class="container mx-auto px-4">
       <div class="flex items-center justify-between h-20">
-        <!-- Logo -->
+        <!-- Logo Brand Resmi -->
         <div class="flex-shrink-0">
           <a class="flex items-center space-x-3 group" href="/" title="Central Scaffolding Beranda">
-            <!-- Logo Image / Badge Resmi -->
-            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-lg p-1.5 shadow-md flex-shrink-0 group-hover:scale-105 transition-transform">
+            <!-- Logo Badge Image -->
+            <div class="w-12 h-12 flex items-center justify-center bg-slate-50 border border-slate-200 rounded-lg p-1.5 shadow-sm flex-shrink-0 group-hover:scale-105 group-hover:border-red-300 transition-all">
               <picture class="w-full h-full flex items-center justify-center">
                 <source srcset="/assets/img/logo-icon-transparent.webp" type="image/webp" />
                 <img
@@ -39,43 +39,43 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
                 />
               </picture>
             </div>
-            <!-- Logo Text (Responsif Mobile & Desktop) -->
+            <!-- Logo Text -->
             <div class="flex flex-col">
-              <span class="block text-sm sm:text-lg font-montserrat font-bold text-white tracking-tight leading-tight group-hover:text-red-400 transition-colors">
+              <span class="block text-sm sm:text-lg font-montserrat font-extrabold text-slate-900 tracking-tight leading-tight group-hover:text-red-600 transition-colors">
                 CENTRAL SCAFFOLDING
               </span>
-              <span class="block text-[10px] sm:text-xs font-roboto text-red-400 font-medium">
+              <span class="block text-[10px] sm:text-xs font-roboto text-red-600 font-semibold tracking-wide">
                 Sewa &amp; Jual Scaffolding SNI
               </span>
             </div>
           </a>
         </div>
 
-        <!-- Desktop Navigation Menu Ringkas (Hover Effect Responsif Saat Di-scroll) -->
-        <div class="hidden lg:flex items-center space-x-2 font-montserrat">
-          <a class="text-white hover:text-white hover:bg-white/10 px-3.5 py-2 rounded-lg font-medium transition-all duration-300 relative group text-base font-bold" href="#products">
+        <!-- Desktop Navigation Menu Terang & Kontras -->
+        <div class="hidden lg:flex items-center space-x-1 font-montserrat">
+          <a class="text-slate-800 hover:text-red-600 hover:bg-slate-100/80 px-3.5 py-2 rounded-lg font-semibold transition-all duration-200 relative group text-sm" href="#products">
             <span>Produk</span>
             <span class="absolute bottom-1 left-3.5 right-3.5 h-0.5 bg-red-600 transition-all duration-300 w-0 group-hover:w-[calc(100%-1.75rem)]"></span>
           </a>
-          <a class="text-white hover:text-white hover:bg-white/10 px-3.5 py-2 rounded-lg font-medium transition-all duration-300 relative group text-base" href="#layanan-lokal">
+          <a class="text-slate-800 hover:text-red-600 hover:bg-slate-100/80 px-3.5 py-2 rounded-lg font-semibold transition-all duration-200 relative group text-sm" href="#layanan-lokal">
             <span>Area Layanan</span>
             <span class="absolute bottom-1 left-3.5 right-3.5 h-0.5 bg-red-600 transition-all duration-300 w-0 group-hover:w-[calc(100%-1.75rem)]"></span>
           </a>
-          <a class="text-white hover:text-white hover:bg-white/10 px-3.5 py-2 rounded-lg font-medium transition-all duration-300 relative group text-base" href="#about">
+          <a class="text-slate-800 hover:text-red-600 hover:bg-slate-100/80 px-3.5 py-2 rounded-lg font-semibold transition-all duration-200 relative group text-sm" href="#about">
             <span>Tentang Kami</span>
             <span class="absolute bottom-1 left-3.5 right-3.5 h-0.5 bg-red-600 transition-all duration-300 w-0 group-hover:w-[calc(100%-1.75rem)]"></span>
           </a>
-          <a class="text-white hover:text-white hover:bg-white/10 px-3.5 py-2 rounded-lg font-medium transition-all duration-300 relative group text-base" href="#contact">
+          <a class="text-slate-800 hover:text-red-600 hover:bg-slate-100/80 px-3.5 py-2 rounded-lg font-semibold transition-all duration-200 relative group text-sm" href="#contact">
             <span>Kontak &amp; Gudang</span>
             <span class="absolute bottom-1 left-3.5 right-3.5 h-0.5 bg-red-600 transition-all duration-300 w-0 group-hover:w-[calc(100%-1.75rem)]"></span>
           </a>
         </div>
 
         <!-- CTA Button & Mobile Menu Button -->
-        <div class="flex items-center space-x-4 font-montserrat">
+        <div class="flex items-center space-x-3 font-montserrat">
           <!-- CTA Button WhatsApp Hijau -->
           <a
-            class="hidden md:inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 btn-hover shadow-md text-sm active:scale-95"
+            class="hidden md:inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white px-5 py-2.5 rounded-lg font-bold transition-all duration-200 transform hover:scale-105 shadow-md hover:shadow-lg text-sm active:scale-95"
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -88,7 +88,7 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
           </a>
 
           <!-- Mobile Menu Button -->
-          <button class="lg:hidden text-white p-2 focus:outline-none hover:bg-white/10 rounded-lg transition-colors" id="mobile-menu-btn" aria-label="Toggle Menu">
+          <button class="lg:hidden text-slate-800 p-2 focus:outline-none hover:bg-slate-100 rounded-lg transition-colors border border-slate-200" id="mobile-menu-btn" aria-label="Toggle Menu">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
             </svg>
@@ -96,24 +96,24 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
         </div>
       </div>
 
-      <!-- Mobile Menu Drawer Ringkas -->
-      <div class="lg:hidden hidden bg-black/95 backdrop-blur-md rounded-lg mt-2 p-5 mobile-menu-enter font-montserrat shadow-2xl border border-white/10" id="mobile-menu">
-        <div class="flex flex-col space-y-4">
-          <a class="text-white hover:text-red-400 font-medium py-2 px-3 rounded-md hover:bg-white/10 transition-colors duration-200" href="#products">
+      <!-- Mobile Menu Drawer Terang -->
+      <div class="lg:hidden hidden bg-white/98 backdrop-blur-md rounded-xl mt-2 p-5 mobile-menu-enter font-montserrat shadow-2xl border border-slate-200" id="mobile-menu">
+        <div class="flex flex-col space-y-3">
+          <a class="text-slate-800 hover:text-red-600 font-semibold py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors" href="#products">
             Produk Scaffolding
           </a>
-          <a class="text-white hover:text-red-400 font-medium py-2 px-3 rounded-md hover:bg-white/10 transition-colors duration-200" href="#layanan-lokal">
+          <a class="text-slate-800 hover:text-red-600 font-semibold py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors" href="#layanan-lokal">
             Area Layanan
           </a>
-          <a class="text-white hover:text-red-400 font-medium py-2 px-3 rounded-md hover:bg-white/10 transition-colors duration-200" href="#about">
+          <a class="text-slate-800 hover:text-red-600 font-semibold py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors" href="#about">
             Tentang Kami
           </a>
-          <a class="text-white hover:text-red-400 font-medium py-2 px-3 rounded-md hover:bg-white/10 transition-colors duration-200" href="#contact">
+          <a class="text-slate-800 hover:text-red-600 font-semibold py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors" href="#contact">
             Kontak &amp; Gudang
           </a>
-          <hr class="border-gray-700 my-2" />
+          <hr class="border-slate-200 my-1" />
           <a
-            class="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3.5 rounded-lg font-semibold text-center transition-all duration-300 btn-hover shadow-md"
+            class="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3.5 rounded-lg font-bold text-center transition-all shadow-md active:scale-95"
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
