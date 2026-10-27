@@ -63,18 +63,18 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
     <h1 class="text-3xl sm:text-5xl md:text-6xl font-montserrat font-bold mb-3 sm:mb-5 leading-tight animate-fade-in tracking-tight drop-shadow-md">
       Sewa &amp; Jual Scaffolding Standar SNI
     </h1>
-    <p class="text-sm sm:text-lg md:text-xl mb-6 sm:mb-7 opacity-95 leading-relaxed font-roboto max-w-2xl mx-auto drop-shadow">
+    <p class="text-sm sm:text-lg md:text-xl mb-8 sm:mb-10 opacity-95 leading-relaxed font-roboto max-w-2xl mx-auto drop-shadow">
       {heroSubtitle}
     </p>
 
-    <!-- Dua Tombol Utama (Kompak Sejajar di Layar HP Agar Tidak Memakan Ruang) -->
-    <div class="flex flex-row gap-2 sm:gap-4 justify-center items-center max-w-sm sm:max-w-none mx-auto">
+    <!-- Dua Tombol Utama (Kompak Sejajar dengan Jarak Lega) -->
+    <div class="flex flex-row gap-2.5 sm:gap-4 justify-center items-center max-w-sm sm:max-w-none mx-auto mb-6 sm:mb-8">
       <!-- Tombol WhatsApp Hijau -->
       <a
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="flex-1 sm:flex-initial w-auto bg-green-600 hover:bg-green-700 text-white px-3.5 py-2.5 sm:px-7 sm:py-3.5 rounded-lg sm:rounded-xl font-bold text-xs sm:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-flex items-center justify-center gap-1.5 sm:gap-2 shadow-md whitespace-nowrap"
+        class="flex-1 sm:flex-initial w-auto bg-green-600 hover:bg-green-700 text-white px-4 py-2.5 sm:px-7 sm:py-3.5 rounded-lg sm:rounded-xl font-bold text-xs sm:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-flex items-center justify-center gap-1.5 sm:gap-2 shadow-md whitespace-nowrap"
         data-wa-source="hero_primary"
         data-wa-mode="SEWA & BELI"
         data-wa-city={city}
@@ -86,7 +86,7 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
       <!-- Tombol Katalog Transparan Aksen Putih -->
       <a
         href="#products"
-        class="flex-1 sm:flex-initial w-auto bg-black/30 backdrop-blur-xs border border-white sm:border-2 text-white hover:bg-white hover:text-red-600 px-3.5 py-2.5 sm:px-7 sm:py-3.5 rounded-lg sm:rounded-xl font-bold text-xs sm:text-base transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-1.5 sm:gap-2 shadow-md whitespace-nowrap"
+        class="flex-1 sm:flex-initial w-auto bg-black/30 backdrop-blur-xs border border-white sm:border-2 text-white hover:bg-white hover:text-red-600 px-4 py-2.5 sm:px-7 sm:py-3.5 rounded-lg sm:rounded-xl font-bold text-xs sm:text-base transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-1.5 sm:gap-2 shadow-md whitespace-nowrap"
         title="Lihat katalog produk scaffolding"
       >
         <i class="fas fa-book-open text-xs sm:text-base"></i>
@@ -95,7 +95,7 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
     </div>
 
     <!-- Tautan Area Layanan Lokal -->
-    <p class="mt-5 sm:mt-6 text-xs sm:text-sm md:text-base text-white/95 font-roboto drop-shadow">
+    <p class="text-xs sm:text-sm md:text-base text-white/95 font-roboto drop-shadow">
       Area Utama:
       <a class="underline underline-offset-4 font-medium hover:text-red-300 transition-colors" href="/area/sewa-scaffolding-tangerang">Tangerang</a>
       <span class="mx-1 opacity-75">•</span>
