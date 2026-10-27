@@ -67,29 +67,29 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
       {heroSubtitle}
     </p>
 
-    <!-- Dua Tombol Utama -->
-    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
+    <!-- Dua Tombol Utama (Kompak Sejajar di Layar HP Agar Tidak Memakan Ruang) -->
+    <div class="flex flex-row gap-2 sm:gap-4 justify-center items-center max-w-sm sm:max-w-none mx-auto">
       <!-- Tombol WhatsApp Hijau -->
       <a
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg btn-hover inline-flex items-center justify-center gap-2 shadow-md"
+        class="flex-1 sm:flex-initial w-auto bg-green-600 hover:bg-green-700 text-white px-3.5 py-2.5 sm:px-7 sm:py-3.5 rounded-lg sm:rounded-xl font-bold text-xs sm:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-flex items-center justify-center gap-1.5 sm:gap-2 shadow-md whitespace-nowrap"
         data-wa-source="hero_primary"
         data-wa-mode="SEWA & BELI"
         data-wa-city={city}
       >
-        <i class="fab fa-whatsapp text-xl sm:text-2xl"></i>
-        <span>Chat WhatsApp Sekarang</span>
+        <i class="fab fa-whatsapp text-base sm:text-xl"></i>
+        <span>Chat WhatsApp</span>
       </a>
 
-      <!-- Tombol Katalog Transparan Aksen Merah -->
+      <!-- Tombol Katalog Transparan Aksen Putih -->
       <a
         href="#products"
-        class="w-full sm:w-auto bg-black/25 backdrop-blur-xs border-2 border-white text-white hover:bg-white hover:text-red-600 px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2 shadow-md"
+        class="flex-1 sm:flex-initial w-auto bg-black/30 backdrop-blur-xs border border-white sm:border-2 text-white hover:bg-white hover:text-red-600 px-3.5 py-2.5 sm:px-7 sm:py-3.5 rounded-lg sm:rounded-xl font-bold text-xs sm:text-base transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-1.5 sm:gap-2 shadow-md whitespace-nowrap"
         title="Lihat katalog produk scaffolding"
       >
-        <i class="fas fa-book-open text-lg sm:text-xl"></i>
+        <i class="fas fa-book-open text-xs sm:text-base"></i>
         <span>Katalog Produk</span>
       </a>
     </div>
