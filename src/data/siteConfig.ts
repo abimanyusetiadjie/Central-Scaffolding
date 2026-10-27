@@ -127,32 +127,17 @@ export const getFaqItems = (cityName?: string): FaqItem[] => {
     {
       question: 'Apa saja kelengkapan 1 set scaffolding standar?',
       answer:
-        '1 set komplit terdiri dari: 2 Main Frame (170cm atau 190cm), 2 Cross Brace (silangan X), dan 4 Joint Pin (sambungan pipa). Komponen tambahan seperti Catwalk bordes, Jack Base, dan Roda dapat dipesan terpisah.',
+        '1 set standar komplit terdiri dari: 2 Main Frame (170cm atau 190cm), 2 Cross Brace (silangan diagonal), dan 4 Joint Pin (sambungan pipa). Komponen tambahan seperti Catwalk (bordes injakan), Jack Base, U-Head, dan Roda dapat disewa terpisah sesuai kebutuhan proyek.',
     },
     {
       question: 'Bagaimana syarat sewa & sistem pembayaran COD?',
       answer:
-        `Cukup kirim foto KTP & share-loc proyek via WhatsApp. Barang kami antar ke ${city}, dicek mandor di lokasi, setelah sesuai baru pelunasan (COD tunai/transfer).`,
+        `Sangat praktis tanpa ribet. Cukup kirim foto KTP & share lokasi proyek via WhatsApp. Scaffolding kami kirim ke lokasi Anda di ${city}, dicek langsung oleh tim mandor, dan setelah barang sesuai baru pelunasan (bisa COD tunai maupun transfer di tempat).`,
     },
     {
-      question: 'Apakah melayani jual scaffolding baru dan bekas?',
+      question: `Berapa lama estimasi pengiriman ke lokasi proyek di ${city}?`,
       answer:
-        'Ya, kami melayani penjualan unit baru pipa tebal SNI 1.8mm – 2.0mm serta rekondisi Grade A siap pakai. Tersedia juga layanan beli kembali (buyback) eks proyek.',
-    },
-    {
-      question: `Berapa lama estimasi pengiriman ke proyek di ${city}?`,
-      answer:
-        `Estimasi 1 hingga 3 jam langsung dari gudang pusat menggunakan armada pikap & truk sendiri di hari yang sama.`,
-    },
-    {
-      question: 'Apakah boleh datang langsung ke gudang?',
-      answer:
-        'Boleh sekali. Gudang pusat buka tiap hari (Senin - Minggu 07.00 - 18.00 WIB). Anda bebas mengukur ketebalan pipa dengan jangka sorong dan cek stok fisik.',
-    },
-    {
-      question: 'Bagaimana jika ada pipa yang cacat saat tiba?',
-      answer:
-        'Kami memberikan garansi tukar unit langsung di hari yang sama tanpa biaya tambahan agar jadwal proyek Anda tidak tertunda.',
+        `Estimasi pengiriman hanya 1 hingga 3 jam tiba di lokasi proyek Anda. Pesanan diantar langsung dari gudang pusat menggunakan armada pikap dan truk siaga kami sendiri di hari yang sama (Same Day Delivery).`,
     },
   ];
 };
