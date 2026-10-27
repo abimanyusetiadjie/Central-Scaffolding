@@ -92,7 +92,7 @@ export const siteConfig: SiteConfig = {
   images: {
     logo: '/assets/img/logo-cropped.png',
     heroTruck: '/assets/video/bg-hero-index-poster.webp',
-    warehouseMap: '/assets/img/warehouse/armada-pengiriman.webp',
+    warehouseMap: '/assets/img/warehouse/gudang-toko-central-scaffolding-2026.webp?v=20261027',
   },
   warehouseAddress: {
     street: 'Jl. KH. Hasyim Ashari, RT.007/RW.007',
