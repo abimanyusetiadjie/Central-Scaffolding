@@ -94,17 +94,21 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
       </a>
     </div>
 
-    <!-- Tautan Area Layanan Lokal -->
-    <p class="text-xs sm:text-sm md:text-base text-white/95 font-roboto drop-shadow">
-      Area Utama:
-      <a class="underline underline-offset-4 font-medium hover:text-red-300 transition-colors" href="/area/sewa-scaffolding-tangerang">Tangerang</a>
-      <span class="mx-1 opacity-75">•</span>
-      <a class="underline underline-offset-4 font-medium hover:text-red-300 transition-colors" href="/area/sewa-scaffolding-dki-jakarta">DKI Jakarta</a>
-      <span class="mx-1 opacity-75">•</span>
-      <a class="underline underline-offset-4 font-medium hover:text-red-300 transition-colors" href="/area/sewa-scaffolding-bsd-serpong">BSD &amp; Serpong</a>
-      <span class="mx-1 opacity-75">•</span>
-      <a class="underline underline-offset-4 font-medium hover:text-red-300 transition-colors" href="/area/sewa-scaffolding-surabaya">Cabang Surabaya</a>
-    </p>
+    <!-- Tautan Area Layanan Lokal (Center 2 Baris: Label di Atas, Kota di Bawah) -->
+    <div class="text-xs sm:text-sm md:text-base text-white/95 font-roboto drop-shadow">
+      <span class="block text-center text-white/80 text-[11px] sm:text-xs uppercase tracking-wider font-montserrat font-bold mb-1 sm:mb-1.5">
+        Area Utama:
+      </span>
+      <div class="flex flex-wrap justify-center items-center gap-x-2 gap-y-1">
+        <a class="underline underline-offset-4 font-medium hover:text-red-300 transition-colors" href="/area/sewa-scaffolding-tangerang">Tangerang</a>
+        <span class="opacity-60">•</span>
+        <a class="underline underline-offset-4 font-medium hover:text-red-300 transition-colors" href="/area/sewa-scaffolding-dki-jakarta">DKI Jakarta</a>
+        <span class="opacity-60">•</span>
+        <a class="underline underline-offset-4 font-medium hover:text-red-300 transition-colors" href="/area/sewa-scaffolding-bsd-serpong">BSD &amp; Serpong</a>
+        <span class="opacity-60">•</span>
+        <a class="underline underline-offset-4 font-medium hover:text-red-300 transition-colors" href="/area/sewa-scaffolding-surabaya">Cabang Surabaya</a>
+      </div>
+    </div>
   </div>
 
   <!-- Scroll Down Indicator Bouncing Arrow -->
