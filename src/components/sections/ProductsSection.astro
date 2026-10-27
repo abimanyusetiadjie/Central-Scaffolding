@@ -23,8 +23,8 @@ const products = [
     img: '/assets/img/product/mainframepng.png',
     alt: `Sewa dan jual scaffolding Main Frame 170cm dan 190cm pipa tebal SNI di ${city}`,
     specs: [
-      { label: 'Ukuran', val: 'T. 170/190cm x L. 122cm' },
-      { label: 'Pipa', val: 'Tebal 1.8mm – 2.0mm SNI' },
+      { label: 'Ukuran', val: '170 / 190 x 122 cm' },
+      { label: 'Pipa', val: '1.8 – 2.0 mm SNI' },
       { label: '1 Set', val: '2 Frame, 2 Silang, 4 Pin' },
     ],
     badge: 'Paling Laris',
@@ -36,8 +36,8 @@ const products = [
     alt: `Sewa bekisting system penyangga pengecoran balok dan plat lantai beton di ${city}`,
     specs: [
       { label: 'Fungsi', val: 'Cor Balok & Plat Lantai' },
-      { label: 'Komponen', val: 'U-Head, Jack Base, Support' },
-      { label: 'Material', val: 'Baja Presisi Beban Berat' },
+      { label: 'Part', val: 'U-Head, Jack Base, Pipa' },
+      { label: 'Bahan', val: 'Baja Beban Berat' },
     ],
     badge: 'Spesialis Cor',
   },
@@ -47,7 +47,7 @@ const products = [
     img: '/assets/img/product/tubularsystempng.png',
     alt: `Sewa scaffolding Tubular System pipa seamless heavy duty proyek industri di ${city}`,
     specs: [
-      { label: 'Fungsi', val: 'Tangki, Silo & Ketinggian' },
+      { label: 'Fungsi', val: 'Industri & Ketinggian' },
       { label: 'Sistem', val: 'Pipa Seamless + Klem' },
       { label: 'Desain', val: 'Fleksibel Segala Sudut' },
     ],
@@ -59,11 +59,11 @@ const products = [
     img: '/assets/img/product/Kwikstagepng.png',
     alt: `Sewa scaffolding PCH Kwikstage System konstruksi gedung bertingkat di ${city}`,
     specs: [
-      { label: 'Aplikasi', val: 'Gedung & Hotel Bertingkat' },
-      { label: 'Fitur', val: 'Kuncian Wedge Cepat' },
-      { label: 'Kapasitas', val: 'Beban Kerja Ekstra Tinggi' },
+      { label: 'Aplikasi', val: 'Gedung & Hotel Tinggi' },
+      { label: 'Kuncian', val: 'Sistem Baji (Wedge)' },
+      { label: 'Beban', val: 'Kapasitas Ekstra Berat' },
     ],
-    badge: 'Gedung Bertingkat',
+    badge: 'Gedung Tinggi',
   },
   {
     title: 'Ringlock System (Modular)',
@@ -71,9 +71,9 @@ const products = [
     img: '/assets/img/product/ringlocksystem.png',
     alt: `Sewa scaffolding Ringlock System modular rosette standar K3 internasional di ${city}`,
     specs: [
-      { label: 'Aplikasi', val: 'Jembatan & Struktur Rumit' },
-      { label: 'Sistem', val: 'Koneksi Rosette 8 Arah' },
-      { label: 'Keamanan', val: 'Kekakuan Tertinggi K3' },
+      { label: 'Aplikasi', val: 'Jembatan & Pabrik' },
+      { label: 'Sistem', val: 'Rosette 8 Arah K3' },
+      { label: 'Kualitas', val: 'Kekakuan Tertinggi' },
     ],
     badge: 'Standar K3',
   },
@@ -81,44 +81,47 @@ const products = [
 ---
 
 <!-- ==============================================
-     PRODUK SCAFFOLDING KAMI (VISUAL & RINGKAS)
+     PRODUK UNGGULAN (COMPACT & RAPI DI MOBILE)
 =============================================== -->
-<section class="py-16 bg-white" id="products">
+<section class="py-10 sm:py-14 bg-white" id="products">
   <div class="container mx-auto px-4">
-    <div class="text-center mb-8 sm:mb-10">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-600 text-xs font-montserrat font-bold uppercase tracking-wider mb-2.5">
-        <i class="fas fa-boxes-stacked text-sm"></i>
+    <div class="text-center mb-6 sm:mb-9">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-red-600 text-[11px] font-montserrat font-bold uppercase tracking-wider mb-2">
+        <i class="fas fa-boxes-stacked text-xs"></i>
         <span>Katalog Ready Stok</span>
       </div>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold text-gray-900">
-        Produk <span class="text-red-600">Scaffolding Kami</span>
+      <h2 class="text-2xl sm:text-4xl font-montserrat font-bold text-gray-900">
+        Produk <span class="text-red-600">Unggulan Kami</span>
       </h2>
+      <p class="text-xs sm:text-sm text-gray-500 font-roboto mt-1 sm:hidden">
+        Geser ke samping untuk melihat pilihan produk →
+      </p>
     </div>
 
-    <!-- 5 Kolom Grid: Horizontal Snap Scroll di Mobile, 2 Kolom Tablet, 5 Kolom Desktop -->
-    <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-5 sm:gap-6 sm:overflow-visible sm:pb-0 sm:mx-0 sm:px-0">
+    <!-- 5 Produk Unggulan: Horizontal Snap di Mobile, 2 Kolom Tablet, 5 Kolom Desktop -->
+    <div class="flex overflow-x-auto snap-x snap-mandatory gap-3.5 pb-3 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-5 sm:gap-5 sm:overflow-visible sm:pb-0 sm:mx-0 sm:px-0">
       {products.map((item) => (
-        <article class="w-[82vw] max-w-[290px] shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 p-4 sm:p-5 border border-gray-200 flex flex-col justify-between group">
+        <article class="w-[78vw] max-w-[265px] shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-3.5 sm:p-4 border border-gray-200 flex flex-col justify-between group">
           <div>
             <!-- Badge Pojok Atas -->
-            <div class="flex justify-between items-center mb-2.5 gap-1">
-              <span class="text-[10px] font-montserrat font-bold uppercase bg-red-50 text-red-600 px-2 py-0.5 rounded-full border border-red-100">
+            <div class="flex justify-between items-center mb-2 gap-1">
+              <span class="text-[10px] font-montserrat font-bold uppercase bg-red-50 text-red-600 px-2 py-0.5 rounded-full border border-red-100 whitespace-nowrap">
                 {item.badge}
               </span>
-              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded shrink-0">
-                ● Ready Stok
+              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded shrink-0 whitespace-nowrap">
+                ● Ready
               </span>
             </div>
 
-            <!-- Frame Foto Produk Bersih -->
-            <div class="relative aspect-[4/3] w-full flex items-center justify-center p-3 mb-3 bg-slate-50 rounded-lg border border-slate-100 group-hover:bg-slate-100/80 transition-colors overflow-hidden">
+            <!-- Frame Foto Produk Compact -->
+            <div class="relative aspect-[16/11] w-full flex items-center justify-center p-2.5 mb-2.5 bg-slate-50 rounded-lg border border-slate-100 group-hover:bg-slate-100/80 transition-colors overflow-hidden">
               <picture class="w-full h-full flex items-center justify-center">
                 <source srcset={item.webp} type="image/webp" />
                 <img
                   src={item.img}
                   alt={item.alt}
-                  width="400"
-                  height="300"
+                  width="360"
+                  height="250"
                   class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                   decoding="async"
@@ -127,47 +130,45 @@ const products = [
             </div>
 
             <!-- Judul Produk -->
-            <h3 class="text-sm sm:text-base font-montserrat font-bold text-gray-900 mb-2.5 group-hover:text-red-600 transition-colors leading-snug">
+            <h3 class="text-sm sm:text-base font-montserrat font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors leading-snug">
               {item.title}
             </h3>
 
-            <!-- Tabel Spesifikasi Ringkas -->
-            <div class="space-y-1 text-xs font-roboto bg-gray-50 p-2.5 rounded-lg border border-gray-100 mb-3.5">
+            <!-- Tabel Spesifikasi Rapi 1 Baris per Item (Tidak Terpotong / Berantakan) -->
+            <div class="space-y-1.5 text-[11px] sm:text-xs font-roboto bg-slate-50 p-2.5 rounded-lg border border-slate-100 mb-3">
               {item.specs.map((s) => (
-                <div class="flex items-start justify-between gap-1 border-b border-gray-200/50 pb-1 last:border-0 last:pb-0">
-                  <span class="text-gray-500 font-medium">{s.label}:</span>
-                  <span class="text-gray-900 font-bold text-right">{s.val}</span>
+                <div class="flex items-center justify-between gap-2 border-b border-slate-200/60 pb-1 last:border-0 last:pb-0">
+                  <span class="text-slate-500 font-medium shrink-0">{s.label}</span>
+                  <span class="text-slate-900 font-bold text-right whitespace-nowrap">{s.val}</span>
                 </div>
               ))}
             </div>
           </div>
 
           <!-- Tombol CTA Pesan Cepat -->
-          <div>
-            <a
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Halo Admin ${siteConfig.businessName}, saya mau tanya stok & harga untuk ${item.title} di ${city}.`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-3 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg text-xs font-montserrat font-bold transition-all shadow-md hover:shadow-lg transform active:scale-95"
-            >
-              <i class="fab fa-whatsapp text-sm"></i>
-              <span>Tanya Harga / Sewa</span>
-            </a>
-          </div>
+          <a
+            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Halo Admin ${siteConfig.businessName}, saya mau tanya stok & harga untuk ${item.title} di ${city}.`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-3 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg text-xs font-montserrat font-bold transition-all shadow-sm hover:shadow-md"
+          >
+            <i class="fab fa-whatsapp text-sm"></i>
+            <span>Tanya Harga / Sewa</span>
+          </a>
         </article>
       ))}
     </div>
 
     <!-- Tombol Katalog Lengkap di Bawah -->
-    <div class="text-center mt-10">
+    <div class="text-center mt-6 sm:mt-8">
       <a
-        class="inline-flex items-center gap-2.5 bg-red-600 hover:bg-red-700 active:bg-red-800 text-white px-7 py-3.5 rounded-xl font-bold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl font-montserrat group"
+        class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 active:bg-red-800 text-white px-6 py-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 shadow-sm hover:shadow-md font-montserrat group"
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <i class="fas fa-file-pdf text-lg text-white group-hover:scale-110 transition-transform"></i>
-        <span>Minta Rincian Harga Lengkap (PDF)</span>
+        <i class="fas fa-file-pdf text-base text-white"></i>
+        <span>Minta Daftar Harga Lengkap via WhatsApp</span>
       </a>
     </div>
   </div>

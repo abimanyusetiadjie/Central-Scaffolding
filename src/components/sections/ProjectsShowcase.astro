@@ -12,24 +12,24 @@ const {
 } = Astro.props;
 
 const waMessage = encodeURIComponent(
-  `Halo Admin ${siteConfig.businessName}, saya melihat portofolio proyek scaffolding Anda (seperti Bank BTN & BSD) dan ingin konsultasi kebutuhan sewa scaffolding untuk proyek saya di ${city}.`
+  `Halo Admin ${siteConfig.businessName}, saya melihat portofolio proyek scaffolding Anda dan ingin konsultasi kebutuhan sewa scaffolding untuk proyek saya di ${city}.`
 );
 const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
 
 const projects = [
   {
-    title: 'Gedung Bank BTN (Proyek Komersial)',
+    title: 'Gedung Bank BTN (Komersial)',
     location: 'Jabodetabek',
-    badge: 'Komersial & Perbankan',
-    specs: 'Tower 5 Lantai + Tangga Perancah',
+    badge: 'Komersial',
+    specs: 'Tower 5 Lantai & Tangga Perancah',
     year: '2025',
     webp: '/assets/img/projects/project-bank-btn.webp',
     alt: `Dokumentasi pemasangan tower scaffolding bertingkat lengkap tangga pada proyek gedung Bank BTN oleh Central Scaffolding di ${city}`,
   },
   {
     title: 'Cluster Mozia, BSD City',
-    location: 'BSD City, Tangerang Selatan',
-    badge: 'Residensial Mewah',
+    location: 'BSD City, Tangsel',
+    badge: 'Residensial',
     specs: 'Fasad & Cor Beton Rumah Mewah',
     year: '2025',
     webp: '/assets/img/projects/project-cluster-mozia-bsd.webp',
@@ -37,24 +37,24 @@ const projects = [
   },
   {
     title: 'Ruko Niaga Bidex, BSD',
-    location: 'BSD Serpong, Tangerang Selatan',
-    badge: 'Ruko Komersial',
+    location: 'BSD Serpong, Tangsel',
+    badge: 'Ruko Niaga',
     specs: 'Pekerjaan Fasad & Renovasi Ruko',
     year: '2025',
     webp: '/assets/img/projects/project-ruko-bidex-bsd.webp',
     alt: `Penyewaan scaffolding ruko niaga Bidex BSD Serpong Tangerang oleh Central Scaffolding`,
   },
   {
-    title: 'Kalibata Residence, Jakarta Selatan',
-    location: 'Jakarta Selatan, DKI Jakarta',
-    badge: 'Mansion Residensial',
-    specs: 'Main Frame 1.90m & Pipa Tebal SNI',
+    title: 'Kalibata Residence',
+    location: 'Jakarta Selatan',
+    badge: 'Mansion',
+    specs: 'Main Frame 1.90m Pipa Tebal SNI',
     year: '2025',
     webp: '/assets/img/projects/project-kalibata-residence.webp',
     alt: `Sewa scaffolding Main Frame 190 pembangunan rumah mewah klasik Kalibata Residence Jakarta Selatan`,
   },
   {
-    title: 'Gedung Instansi & Fasilitas Publik',
+    title: 'Gedung Fasilitas Publik',
     location: 'Tangerang & Jabodetabek',
     badge: 'Proyek BUMN',
     specs: 'Main Frame 190 & Ladder Frame 90',
@@ -63,8 +63,8 @@ const projects = [
     alt: `Penyelesaian sewa scaffolding proyek gedung fasilitas publik BUMN oleh Central Scaffolding`,
   },
   {
-    title: 'Konstruksi Bertingkat & Cor Beton',
-    location: 'Kawasan Tangerang & Banten',
+    title: 'Konstruksi Cor Bertingkat',
+    location: 'Tangerang, Banten',
     badge: 'Struktur Beton',
     specs: 'Penyangga Balok & Plat Lantai Cor',
     year: '2025',
@@ -75,77 +75,75 @@ const projects = [
 ---
 
 <!-- ==============================================
-     PROYEK SEWA SCAFFOLDING TERBARU (AUTO-SLIDE MOBILE & GRID DESKTOP)
+     PORTOFOLIO PROYEK KAMI (BEBAS TEKS TERPOTONG DI MOBILE)
 =============================================== -->
-<section class="py-14 sm:py-20 bg-gray-50 border-t border-gray-200" id="projects">
+<section class="py-10 sm:py-14 bg-slate-50 border-t border-slate-200" id="projects">
   <div class="container mx-auto px-4 font-montserrat">
     <!-- Header Section -->
-    <div class="text-center mb-8 sm:mb-12">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 text-xs font-bold uppercase tracking-wider mb-2.5">
-        <i class="fas fa-building-circle-check text-sm"></i>
-        <span>Portofolio Proyek Lapangan Nyata</span>
+    <div class="text-center mb-6 sm:mb-9">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-red-600 text-[11px] font-bold uppercase tracking-wider mb-2">
+        <i class="fas fa-building-circle-check text-xs"></i>
+        <span>Portofolio Lapangan Nyata</span>
       </div>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
-        Proyek <span class="text-red-600">Kami</span>
+      <h2 class="text-2xl sm:text-4xl font-bold text-gray-900">
+        Portofolio <span class="text-red-600">Proyek Kami</span>
       </h2>
+      <p class="text-xs sm:text-sm text-gray-500 font-roboto mt-1 sm:hidden">
+        Geser untuk melihat dokumentasi proyek →
+      </p>
     </div>
 
-    <!-- 6 Kartu Proyek: Auto-Slide Geser Sendiri di Mobile (Bebas Dead Scroll), Grid 3 Kolom di Desktop -->
+    <!-- 6 Kartu Proyek: Horizontal Snap di Mobile, Grid 3 Kolom di Desktop -->
     <div
       id="projects-mobile-carousel"
-      class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-6 lg:gap-8 mb-10 sm:mb-12 max-w-7xl mx-auto sm:overflow-visible sm:pb-0 sm:mx-auto sm:px-0 scroll-smooth"
+      class="flex overflow-x-auto snap-x snap-mandatory gap-3.5 pb-3 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-5 max-w-7xl mx-auto sm:overflow-visible sm:pb-0 sm:mx-auto sm:px-0 scroll-smooth"
     >
       {projects.map((proj) => (
-        <article class="w-[80vw] max-w-[285px] shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 border border-gray-200 flex flex-col justify-between group">
-          <!-- Frame Foto Proyek (Aspect Ratio 4:5 Proporsional Foto Lapangan) -->
-          <div class="relative aspect-[4/5] w-full overflow-hidden bg-slate-100">
+        <article class="w-[82vw] max-w-[290px] shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink bg-white rounded-xl overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 border border-gray-200 flex flex-col justify-between group">
+          <!-- Frame Foto Proyek (Aspect Ratio 4:3 Rapi & Proporsional) -->
+          <div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
             <picture class="block w-full h-full">
               <source srcset={proj.webp} type="image/webp" />
               <img
                 src={proj.webp}
                 alt={proj.alt}
-                width="720"
-                height="900"
+                width="640"
+                height="480"
                 class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
             </picture>
 
-            <!-- Gradient Overlay Halus Bawah Foto -->
-            <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/75 to-transparent pointer-events-none"></div>
-
             <!-- Badge Kategori Pojok Kiri Atas -->
-            <div class="absolute top-3 left-3 bg-red-600/95 backdrop-blur-sm text-white text-[10px] sm:text-[11px] font-bold px-2.5 py-1 rounded-md shadow-sm">
+            <div class="absolute top-2.5 left-2.5 bg-red-600/95 text-white text-[10px] font-bold px-2.5 py-0.5 rounded shadow-xs">
               {proj.badge}
             </div>
 
             <!-- Badge Tahun Pojok Kanan Atas -->
-            <div class="absolute top-3 right-3 bg-slate-900/90 backdrop-blur-sm text-white text-[11px] font-mono font-bold px-2 py-0.5 rounded-md shadow-sm">
+            <div class="absolute top-2.5 right-2.5 bg-slate-900/90 text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded shadow-xs">
               {proj.year}
-            </div>
-
-            <!-- Highlight Teknis di Bawah Foto -->
-            <div class="absolute bottom-3 left-3 right-3 text-white text-[11px] sm:text-xs font-medium flex items-center gap-1.5 drop-shadow">
-              <i class="fas fa-screwdriver-wrench text-amber-400 text-[10px] shrink-0"></i>
-              <span class="truncate">{proj.specs}</span>
             </div>
           </div>
 
-          <!-- Keterangan Proyek -->
-          <div class="p-4 sm:p-5 flex-grow flex flex-col justify-between">
+          <!-- Keterangan Proyek Utuh (Tanpa Truncate / Tidak Terpotong) -->
+          <div class="p-3.5 sm:p-4 flex-grow flex flex-col justify-between">
             <div>
-              <h3 class="text-sm sm:text-base lg:text-lg font-bold text-gray-900 mb-2 leading-snug group-hover:text-red-600 transition-colors">
+              <h3 class="text-sm sm:text-base font-bold text-gray-900 mb-1.5 leading-snug group-hover:text-red-600 transition-colors">
                 {proj.title}
               </h3>
+              <p class="text-xs text-slate-600 font-roboto flex items-start gap-1.5 leading-snug mb-3">
+                <i class="fas fa-screwdriver-wrench text-red-600 text-[11px] mt-0.5 shrink-0"></i>
+                <span>{proj.specs}</span>
+              </p>
             </div>
 
-            <div class="flex items-center justify-between text-gray-600 font-roboto text-xs sm:text-sm font-medium pt-3 border-t border-gray-100 mt-2">
-              <span class="flex items-center gap-1.5 text-gray-700">
+            <div class="flex items-center justify-between gap-2 text-gray-600 font-roboto text-xs pt-2.5 border-t border-gray-100">
+              <span class="flex items-center gap-1.5 text-gray-700 font-medium leading-tight">
                 <i class="fas fa-map-marker-alt text-red-600 text-xs shrink-0"></i>
-                <span class="truncate max-w-[150px] sm:max-w-[180px] text-xs sm:text-sm">{proj.location}</span>
+                <span>{proj.location}</span>
               </span>
-              <span class="text-[10px] sm:text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100 shrink-0">
+              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100 shrink-0">
                 Terpasang
               </span>
             </div>
@@ -155,66 +153,16 @@ const projects = [
     </div>
 
     <!-- Tombol Konsultasi WhatsApp di Bawah -->
-    <div class="text-center mt-6 sm:mt-10">
+    <div class="text-center mt-6 sm:mt-8">
       <a
-        class="inline-flex items-center justify-center gap-2.5 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg font-montserrat active:scale-95"
+        class="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl font-bold text-xs sm:text-base transition-all duration-300 shadow-md font-montserrat"
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <i class="fab fa-whatsapp text-xl sm:text-2xl"></i>
-        <span>Konsultasikan Kebutuhan Proyek Anda (WhatsApp)</span>
+        <i class="fab fa-whatsapp text-lg sm:text-xl"></i>
+        <span>Konsultasi Kebutuhan Proyek via WhatsApp</span>
       </a>
     </div>
   </div>
 </section>
-
-<!-- Script Auto-Slide Khusus Layar Mobile dengan Tempo Cepat (2.0s) -->
-<script>
-  function initProjectsAutoScroll() {
-    const carousel = document.getElementById('projects-mobile-carousel');
-    if (!carousel) return;
-
-    let isInteracting = false;
-    let resumeTimeout;
-
-    function autoSlide() {
-      // Hanya aktif di layar handphone (< 640px)
-      if (window.innerWidth >= 640 || isInteracting) return;
-
-      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-      if (carousel.scrollLeft >= maxScroll - 20) {
-        // Kembali ke foto proyek awal secara mulus
-        carousel.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        // Geser ke foto proyek berikutnya (sekitar 285px)
-        carousel.scrollBy({ left: 285, behavior: 'smooth' });
-      }
-    }
-
-    // Ritme/tempo agak cepat: bergeser setiap 2.0 detik
-    const timer = setInterval(autoSlide, 2000);
-
-    // Jeda saat disentuh atau diswipe manual oleh pengguna
-    carousel.addEventListener('touchstart', () => {
-      isInteracting = true;
-      clearTimeout(resumeTimeout);
-    }, { passive: true });
-
-    carousel.addEventListener('touchend', () => {
-      clearTimeout(resumeTimeout);
-      resumeTimeout = setTimeout(() => {
-        isInteracting = false;
-      }, 3000);
-    }, { passive: true });
-
-    carousel.addEventListener('mouseenter', () => { isInteracting = true; });
-    carousel.addEventListener('mouseleave', () => { isInteracting = false; });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initProjectsAutoScroll);
-  } else {
-    initProjectsAutoScroll();
-  }
-</script>

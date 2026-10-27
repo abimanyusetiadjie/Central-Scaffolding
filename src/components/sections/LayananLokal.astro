@@ -4,62 +4,67 @@ import locations from '../../data/locations.json';
 export interface Props {
   city?: string;
 }
-
-const { city = 'Tangerang & Jabodetabek' } = Astro.props;
 ---
 
 <!-- ==============================================
-     AREA LAYANAN & ESTIMASI PENGIRIMAN (RINGKAS & CEPAT)
+     AREA LAYANAN & CABANG (FOKUS JABODETABEK + CABANG SURABAYA)
 =============================================== -->
-<section class="py-14 sm:py-16 bg-gray-50 border-b border-gray-200" id="layanan-lokal">
+<section class="py-10 sm:py-14 bg-white border-t border-slate-200" id="layanan-lokal">
   <div class="container mx-auto px-4">
-    <div class="text-center mb-10 sm:mb-12">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 text-xs font-montserrat font-bold uppercase tracking-wider mb-3">
-        <i class="fas fa-truck-fast text-sm"></i>
-        <span>Jangkauan Kirim Cepat Armada Sendiri</span>
+    <div class="text-center mb-6 sm:mb-9">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-red-600 text-[11px] font-montserrat font-bold uppercase tracking-wider mb-2">
+        <i class="fas fa-truck-fast text-xs"></i>
+        <span>Jangkauan Armada Sendiri</span>
       </div>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold text-gray-900 mb-3 sm:mb-4">
-        Sewa Scaffolding <span class="text-red-600">Terdekat di Area Anda</span>
+      <h2 class="text-2xl sm:text-4xl font-montserrat font-bold text-gray-900 mb-2">
+        Area Layanan <span class="text-red-600">&amp; Cabang</span>
       </h2>
-      <p class="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto font-roboto">
-        Melayani pengiriman langsung dari gudang &amp; depo siaga ke proyek di {city} dengan armada mandiri.
+      <p class="text-xs sm:text-sm text-gray-600 max-w-xl mx-auto font-roboto">
+        Fokus utama pengiriman cepat Tangerang &amp; Jabodetabek (1–3 jam) serta layanan Cabang Surabaya.
       </p>
     </div>
 
     <!-- Grid Kartu Area: 2 Kolom Kompak di Mobile, 4 Kolom di Desktop -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 max-w-7xl mx-auto">
-      {locations.map((loc) => (
-        <a
-          href={`/area/${loc.slug}`}
-          class="block border border-gray-200 rounded-xl p-3.5 sm:p-5 shadow-sm hover:shadow-lg hover:border-red-500 transition-all duration-300 bg-white group flex flex-col justify-between"
-        >
-          <div>
-            <!-- Header Kartu: Ikon Truk Berdampingan Langsung dengan Teks Besar Sewa Daerah -->
-            <div class="flex items-start gap-2 sm:gap-3 mb-2.5 sm:mb-3">
-              <div class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-red-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-colors shrink-0 shadow-sm mt-0.5">
-                <i class="fas fa-truck text-xs sm:text-sm"></i>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 max-w-6xl mx-auto">
+      {locations.map((loc) => {
+        const isBranch = loc.cityName.toLowerCase().includes('surabaya');
+        const badgeLabel = isBranch
+          ? 'Cabang Jatim'
+          : loc.deliveryEstimate.split('(')[0].trim();
+
+        return (
+          <a
+            href={`/area/${loc.slug}`}
+            class="block border border-gray-200 rounded-xl p-3 sm:p-4 shadow-xs hover:shadow-md hover:border-red-500 transition-all duration-300 bg-slate-50/60 hover:bg-white group flex flex-col justify-between"
+          >
+            <div>
+              <!-- Header Kartu -->
+              <div class="flex items-center gap-2 mb-2">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-colors shrink-0">
+                  <i class={`fas ${isBranch ? 'fa-warehouse' : 'fa-truck'} text-xs`}></i>
+                </div>
+                <h3 class="text-xs sm:text-base font-montserrat font-extrabold text-gray-900 group-hover:text-red-600 transition-colors leading-tight">
+                  {isBranch ? 'Cabang Surabaya' : loc.cityName}
+                </h3>
               </div>
-              <h3 class="text-xs sm:text-base lg:text-lg font-montserrat font-extrabold text-gray-900 group-hover:text-red-600 transition-colors leading-snug">
-                Sewa {loc.cityName}
-              </h3>
+
+              <!-- Daftar Kecamatan Singkat -->
+              <p class="text-[11px] sm:text-xs text-gray-500 font-roboto leading-snug mb-2.5 line-clamp-2">
+                {loc.coveredDistricts.slice(0, 3).join(', ')} &amp; sekitarnya.
+              </p>
             </div>
 
-            <!-- Daftar Kecamatan / Wilayah Singkat -->
-            <p class="text-[11px] sm:text-xs text-gray-500 font-roboto leading-relaxed mb-3 sm:mb-4 line-clamp-2">
-              {loc.coveredDistricts.slice(0, 4).join(', ')} &amp; sekitarnya.
-            </p>
-          </div>
-
-          <!-- Footer Kartu: Estimasi Waktu Pengiriman Menggantikan "Cek Ongkir" -->
-          <div class="pt-2 sm:pt-3 border-t border-gray-100 flex items-center justify-between text-[10px] sm:text-xs font-montserrat font-bold">
-            <span class="inline-flex items-center gap-1 sm:gap-1.5 text-emerald-700 bg-emerald-50 px-2 py-0.5 sm:py-1 rounded-md border border-emerald-100 group-hover:bg-emerald-100/80 transition-colors">
-              <i class="fas fa-stopwatch text-[9px] sm:text-[11px] text-emerald-600"></i>
-              <span>{loc.deliveryEstimate.split('(')[0].trim()}</span>
-            </span>
-            <i class="fas fa-arrow-right text-[10px] sm:text-[11px] text-gray-400 group-hover:text-red-600 group-hover:translate-x-1 transition-all shrink-0 ml-1"></i>
-          </div>
-        </a>
-      ))}
+            <!-- Footer Kartu: SLA Kirim / Status Cabang -->
+            <div class="pt-2 border-t border-gray-200/70 flex items-center justify-between text-[10px] sm:text-xs font-montserrat font-bold">
+              <span class={`inline-flex items-center gap-1 px-2 py-0.5 rounded border ${isBranch ? 'text-amber-800 bg-amber-50 border-amber-200' : 'text-emerald-700 bg-emerald-50 border-emerald-100'}`}>
+                <i class={`fas ${isBranch ? 'fa-map-pin text-amber-600' : 'fa-stopwatch text-emerald-600'} text-[9px] sm:text-[10px]`}></i>
+                <span>{badgeLabel}</span>
+              </span>
+              <i class="fas fa-arrow-right text-[10px] text-gray-400 group-hover:text-red-600 group-hover:translate-x-0.5 transition-all shrink-0"></i>
+            </div>
+          </a>
+        );
+      })}
     </div>
   </div>
 </section>
