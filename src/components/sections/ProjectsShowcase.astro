@@ -166,3 +166,59 @@ const projects = [
     </div>
   </div>
 </section>
+
+<!-- Script Auto-Slide Khusus Layar Mobile (Ritme Agak Cepat ~2.0 detik) -->
+<script>
+  function initProjectsAutoScroll() {
+    const carousel = document.getElementById('projects-mobile-carousel');
+    if (!carousel) return;
+
+    let isInteracting = false;
+    let resumeTimeout: ReturnType<typeof setTimeout> | undefined;
+
+    function autoSlide() {
+      // Hanya aktif di layar handphone (< 640px) saat tidak disentuh
+      if (!carousel || window.innerWidth >= 640 || isInteracting) return;
+
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      if (carousel.scrollLeft >= maxScroll - 15) {
+        // Jika sudah di ujung foto terakhir, kembali ke awal dengan halus
+        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        // Ambil lebar kartu aktif + gap secara dinamis
+        const card = carousel.querySelector('article');
+        const scrollDistance = card ? card.getBoundingClientRect().width + 14 : 285;
+        carousel.scrollBy({ left: scrollDistance, behavior: 'smooth' });
+      }
+    }
+
+    // Ritme pergeseran agak cepat sesuai permintaan: 2.0 detik
+    setInterval(autoSlide, 2000);
+
+    // Jeda otomatis jika pengguna menyentuh layar
+    carousel.addEventListener('touchstart', () => {
+      isInteracting = true;
+      clearTimeout(resumeTimeout);
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', () => {
+      clearTimeout(resumeTimeout);
+      resumeTimeout = setTimeout(() => {
+        isInteracting = false;
+      }, 2500);
+    }, { passive: true });
+
+    carousel.addEventListener('touchcancel', () => {
+      isInteracting = false;
+    }, { passive: true });
+
+    carousel.addEventListener('mouseenter', () => { isInteracting = true; });
+    carousel.addEventListener('mouseleave', () => { isInteracting = false; });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProjectsAutoScroll);
+  } else {
+    initProjectsAutoScroll();
+  }
+</script>
