@@ -3,7 +3,6 @@ import MainLayout from '../../layouts/MainLayout.astro';
 import Hero from '../../components/sections/Hero.astro';
 import WarehouseGallery from '../../components/sections/WarehouseGallery.astro';
 import ProductsSection from '../../components/sections/ProductsSection.astro';
-import LayananLokal from '../../components/sections/LayananLokal.astro';
 import ProjectsShowcase from '../../components/sections/ProjectsShowcase.astro';
 import FaqSection from '../../components/sections/FaqSection.astro';
 import ContactBranches from '../../components/sections/ContactBranches.astro';
@@ -47,10 +46,7 @@ const { locationData } = Astro.props;
     whatsappNumber={siteConfig.whatsappNumber}
   />
 
-  <!-- 4. Area Layanan (Kartu Ringkas + Estimasi Jam Kirim) -->
-  <LayananLokal city={locationData.cityName} />
-
-  <!-- 5. Proyek Terbaru (Portofolio Foto Lapangan) -->
+  <!-- 4. Proyek Terbaru (Portofolio Foto Lapangan) -->
   <ProjectsShowcase
     city={locationData.cityName}
     whatsappNumber={siteConfig.whatsappNumber}
