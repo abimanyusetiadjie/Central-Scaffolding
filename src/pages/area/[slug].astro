@@ -3,7 +3,6 @@ import MainLayout from '../../layouts/MainLayout.astro';
 import Hero from '../../components/sections/Hero.astro';
 import WarehouseGallery from '../../components/sections/WarehouseGallery.astro';
 import ProductsSection from '../../components/sections/ProductsSection.astro';
-import AboutUs from '../../components/sections/AboutUs.astro';
 import LayananLokal from '../../components/sections/LayananLokal.astro';
 import ProjectsShowcase from '../../components/sections/ProjectsShowcase.astro';
 import FaqSection from '../../components/sections/FaqSection.astro';
@@ -48,22 +47,19 @@ const { locationData } = Astro.props;
     whatsappNumber={siteConfig.whatsappNumber}
   />
 
-  <!-- 4. Tentang Kami (Split Layout: Foto Utama + 4 Garansi Ringkas) -->
-  <AboutUs city={locationData.cityName} />
-
-  <!-- 5. Area Layanan (Kartu Ringkas + Estimasi Jam Kirim) -->
+  <!-- 4. Area Layanan (Kartu Ringkas + Estimasi Jam Kirim) -->
   <LayananLokal city={locationData.cityName} />
 
-  <!-- 6. Proyek Terbaru (Portofolio Foto Lapangan) -->
+  <!-- 5. Proyek Terbaru (Portofolio Foto Lapangan) -->
   <ProjectsShowcase
     city={locationData.cityName}
     whatsappNumber={siteConfig.whatsappNumber}
   />
 
-  <!-- 7. FAQ (Pertanyaan Umum) -->
+  <!-- 6. FAQ (Pertanyaan Umum) -->
   <FaqSection city={locationData.cityName} />
 
-  <!-- 8. Kontak & Cabang (#contact: Google Maps Asli Tangerang) -->
+  <!-- 7. Kontak & Cabang (#contact: Google Maps Asli Tangerang) -->
   <ContactBranches
     city={locationData.cityName}
     whatsappNumber={siteConfig.whatsappNumber}
