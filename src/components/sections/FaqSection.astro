@@ -12,14 +12,18 @@ const faqItems = getFaqItems(city);
 <!-- ==============================================
      FAQ SEWA SCAFFOLDING (COMPACT & MUDAH DIBACA)
 =============================================== -->
-<section class="py-10 sm:py-14 bg-white border-t border-slate-200" id="faq">
+<section class="py-10 sm:py-14 bg-slate-50 border-t border-slate-200" id="faq">
   <div class="container mx-auto px-4 font-montserrat">
     <div class="text-center mb-6 sm:mb-9">
-      <h2 class="text-2xl sm:text-4xl font-bold text-red-600 mb-2">
-        FAQ <span class="text-gray-900">Sewa Scaffolding</span>
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-red-50 border border-red-200 text-red-700 text-xs font-montserrat font-bold uppercase tracking-wider mb-2">
+        <i class="fas fa-circle-question text-xs"></i>
+        <span>Informasi &amp; Ketentuan Sewa</span>
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-bold text-slate-900 mb-2">
+        Pertanyaan <span class="text-red-600">Umum (FAQ)</span>
       </h2>
-      <p class="text-xs sm:text-sm text-gray-600 max-w-xl mx-auto leading-relaxed font-roboto">
-        Pertanyaan umum seputar kelengkapan set, sistem COD, dan pengiriman ke proyek.
+      <p class="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed font-roboto">
+        Pertanyaan umum seputar kelengkapan set, sistem COD di lokasi, dan waktu pengiriman ke proyek.
       </p>
     </div>
 
@@ -27,13 +31,13 @@ const faqItems = getFaqItems(city);
       {faqItems.map((item, index) => (
         <details
           open={index === 0}
-          class="border border-gray-200 rounded-xl p-3.5 sm:p-4 bg-slate-50/70 group transition-all"
+          class="border border-slate-200 rounded-xl p-3.5 sm:p-4 bg-white shadow-sm hover:border-red-400 group transition-all"
         >
-          <summary class="font-semibold text-xs sm:text-base text-gray-900 cursor-pointer flex justify-between items-center list-none select-none">
+          <summary class="font-semibold text-xs sm:text-base text-slate-900 cursor-pointer flex justify-between items-center list-none select-none">
             <span class="pr-3 leading-snug">{item.question}</span>
             <i class="fas fa-chevron-down text-red-600 text-xs sm:text-sm transition-transform group-open:rotate-180 shrink-0"></i>
           </summary>
-          <div class="mt-2.5 text-gray-600 text-xs sm:text-sm leading-relaxed font-roboto pt-2.5 border-t border-gray-200/70">
+          <div class="mt-2.5 text-slate-600 text-xs sm:text-sm leading-relaxed font-roboto pt-2.5 border-t border-slate-100">
             {item.answer}
           </div>
         </details>

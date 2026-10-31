@@ -77,18 +77,18 @@ const projects = [
 <!-- ==============================================
      PORTOFOLIO PROYEK KAMI (BEBAS TEKS TERPOTONG DI MOBILE)
 =============================================== -->
-<section class="py-10 sm:py-14 bg-slate-50 border-t border-slate-200" id="projects">
+<section class="py-10 sm:py-14 bg-white border-t border-slate-200" id="projects">
   <div class="container mx-auto px-4 font-montserrat">
     <!-- Header Section -->
     <div class="text-center mb-6 sm:mb-9">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-red-600 text-[11px] font-bold uppercase tracking-wider mb-2">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-red-50 border border-red-200 text-red-700 text-xs font-bold uppercase tracking-wider mb-2">
         <i class="fas fa-building-circle-check text-xs"></i>
         <span>Portofolio Lapangan Nyata</span>
       </div>
-      <h2 class="text-2xl sm:text-4xl font-bold text-gray-900">
+      <h2 class="text-2xl sm:text-4xl font-bold text-slate-900">
         Portofolio <span class="text-red-600">Proyek Kami</span>
       </h2>
-      <p class="text-xs sm:text-sm text-gray-500 font-roboto mt-1 sm:hidden">
+      <p class="text-xs sm:text-sm text-slate-500 font-roboto mt-1 sm:hidden">
         Geser untuk melihat dokumentasi proyek →
       </p>
     </div>
@@ -99,7 +99,7 @@ const projects = [
       class="flex overflow-x-auto snap-x snap-mandatory gap-3.5 pb-3 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-5 max-w-7xl mx-auto sm:overflow-visible sm:pb-0 sm:mx-auto sm:px-0 scroll-smooth"
     >
       {projects.map((proj) => (
-        <article class="w-[82vw] max-w-[290px] shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink bg-white rounded-xl overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 border border-gray-200 flex flex-col justify-between group">
+        <article class="w-[82vw] max-w-[290px] shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-red-600 flex flex-col justify-between group">
           <!-- Frame Foto Proyek (Aspect Ratio 4:3 Rapi & Proporsional) -->
           <div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
             <picture class="block w-full h-full">
@@ -116,12 +116,12 @@ const projects = [
             </picture>
 
             <!-- Badge Kategori Pojok Kiri Atas -->
-            <div class="absolute top-2.5 left-2.5 bg-red-600/95 text-white text-[10px] font-bold px-2.5 py-0.5 rounded shadow-xs">
+            <div class="absolute top-2.5 left-2.5 bg-red-600/95 text-white text-xs font-bold px-2.5 py-0.5 rounded shadow-sm">
               {proj.badge}
             </div>
 
             <!-- Badge Tahun Pojok Kanan Atas -->
-            <div class="absolute top-2.5 right-2.5 bg-slate-900/90 text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded shadow-xs">
+            <div class="absolute top-2.5 right-2.5 bg-slate-900/90 text-white text-xs font-mono font-bold px-2 py-0.5 rounded shadow-sm">
               {proj.year}
             </div>
           </div>
@@ -129,21 +129,21 @@ const projects = [
           <!-- Keterangan Proyek Utuh (Tanpa Truncate / Tidak Terpotong) -->
           <div class="p-3.5 sm:p-4 flex-grow flex flex-col justify-between">
             <div>
-              <h3 class="text-sm sm:text-base font-bold text-gray-900 mb-1.5 leading-snug group-hover:text-red-600 transition-colors">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 mb-1.5 leading-snug group-hover:text-red-600 transition-colors">
                 {proj.title}
               </h3>
               <p class="text-xs text-slate-600 font-roboto flex items-start gap-1.5 leading-snug mb-3">
-                <i class="fas fa-screwdriver-wrench text-red-600 text-[11px] mt-0.5 shrink-0"></i>
+                <i class="fas fa-screwdriver-wrench text-red-600 text-xs mt-0.5 shrink-0"></i>
                 <span>{proj.specs}</span>
               </p>
             </div>
 
-            <div class="flex items-center justify-between gap-2 text-gray-600 font-roboto text-xs pt-2.5 border-t border-gray-100">
-              <span class="flex items-center gap-1.5 text-gray-700 font-medium leading-tight">
+            <div class="flex items-center justify-between gap-2 text-slate-600 font-roboto text-xs pt-2.5 border-t border-slate-100">
+              <span class="flex items-center gap-1.5 text-slate-700 font-medium leading-tight">
                 <i class="fas fa-map-marker-alt text-red-600 text-xs shrink-0"></i>
                 <span>{proj.location}</span>
               </span>
-              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100 shrink-0">
+              <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100 shrink-0">
                 Terpasang
               </span>
             </div>
@@ -167,11 +167,12 @@ const projects = [
   </div>
 </section>
 
-<!-- Script Auto-Slide Khusus Layar Mobile (Ritme Agak Cepat ~2.0 detik) -->
+<!-- Script Auto-Slide Khusus Layar Mobile (Tempo 3.5 Detik Nyaman Dibaca) -->
 <script>
   function initProjectsAutoScroll() {
     const carousel = document.getElementById('projects-mobile-carousel');
     if (!carousel) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     let isInteracting = false;
     let resumeTimeout: ReturnType<typeof setTimeout> | undefined;
@@ -192,8 +193,8 @@ const projects = [
       }
     }
 
-    // Ritme pergeseran agak cepat sesuai permintaan: 2.0 detik
-    setInterval(autoSlide, 2000);
+    // Ritme pergeseran yang nyaman: 3.5 detik
+    setInterval(autoSlide, 3500);
 
     // Jeda otomatis jika pengguna menyentuh layar
     carousel.addEventListener('touchstart', () => {

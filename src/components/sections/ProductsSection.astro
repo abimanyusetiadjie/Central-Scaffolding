@@ -83,32 +83,32 @@ const products = [
 <!-- ==============================================
      PRODUK UNGGULAN (COMPACT & RAPI DI MOBILE)
 =============================================== -->
-<section class="py-10 sm:py-14 bg-white" id="products">
+<section class="py-10 sm:py-14 bg-slate-50 border-y border-slate-200" id="products">
   <div class="container mx-auto px-4">
     <div class="text-center mb-6 sm:mb-9">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-red-600 text-[11px] font-montserrat font-bold uppercase tracking-wider mb-2">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-red-50 border border-red-200 text-red-700 text-xs font-montserrat font-bold uppercase tracking-wider mb-2">
         <i class="fas fa-boxes-stacked text-xs"></i>
         <span>Katalog Ready Stok</span>
       </div>
-      <h2 class="text-2xl sm:text-4xl font-montserrat font-bold text-gray-900">
+      <h2 class="text-2xl sm:text-4xl font-montserrat font-bold text-slate-900">
         Produk <span class="text-red-600">Unggulan Kami</span>
       </h2>
-      <p class="text-xs sm:text-sm text-gray-500 font-roboto mt-1 sm:hidden">
+      <p class="text-xs sm:text-sm text-slate-500 font-roboto mt-1 sm:hidden">
         Geser ke samping untuk melihat pilihan produk →
       </p>
     </div>
 
-    <!-- 5 Produk Unggulan: Horizontal Snap di Mobile, 2 Kolom Tablet, 5 Kolom Desktop -->
-    <div class="flex overflow-x-auto snap-x snap-mandatory gap-3.5 pb-3 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-5 sm:gap-5 sm:overflow-visible sm:pb-0 sm:mx-0 sm:px-0">
+    <!-- 5 Produk Unggulan: Horizontal Snap di Mobile, 2 Kolom Tablet, 3 Kolom Laptop, 5 Kolom Desktop Luas -->
+    <div class="flex overflow-x-auto snap-x snap-mandatory gap-3.5 pb-3 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 sm:gap-5 sm:overflow-visible sm:pb-0 sm:mx-0 sm:px-0 max-w-7xl mx-auto">
       {products.map((item) => (
-        <article class="w-[78vw] max-w-[265px] shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-3.5 sm:p-4 border border-gray-200 flex flex-col justify-between group">
+        <article class="w-[78vw] max-w-[265px] shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-3.5 sm:p-4 border border-slate-200 hover:border-red-600 flex flex-col justify-between group">
           <div>
             <!-- Badge Pojok Atas -->
-            <div class="flex justify-between items-center mb-2 gap-1">
-              <span class="text-[10px] font-montserrat font-bold uppercase bg-red-50 text-red-600 px-2 py-0.5 rounded-full border border-red-100 whitespace-nowrap">
+            <div class="flex justify-between items-center mb-2.5 gap-1">
+              <span class="text-xs font-montserrat font-bold uppercase bg-red-50 text-red-700 px-2 py-0.5 rounded border border-red-100 whitespace-nowrap">
                 {item.badge}
               </span>
-              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded shrink-0 whitespace-nowrap">
+              <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100 shrink-0 whitespace-nowrap">
                 ● Ready
               </span>
             </div>
@@ -130,12 +130,12 @@ const products = [
             </div>
 
             <!-- Judul Produk -->
-            <h3 class="text-sm sm:text-base font-montserrat font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors leading-snug">
+            <h3 class="text-sm sm:text-base font-montserrat font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors leading-snug">
               {item.title}
             </h3>
 
-            <!-- Tabel Spesifikasi Rapi 1 Baris per Item (Tidak Terpotong / Berantakan) -->
-            <div class="space-y-1.5 text-[11px] sm:text-xs font-roboto bg-slate-50 p-2.5 rounded-lg border border-slate-100 mb-3">
+            <!-- Tabel Spesifikasi Rapi 1 Baris per Item (Mudah Dibaca) -->
+            <div class="space-y-1.5 text-xs font-roboto bg-slate-50 p-2.5 rounded-lg border border-slate-100 mb-3">
               {item.specs.map((s) => (
                 <div class="flex items-center justify-between gap-2 border-b border-slate-200/60 pb-1 last:border-0 last:pb-0">
                   <span class="text-slate-500 font-medium shrink-0">{s.label}</span>
@@ -160,7 +160,7 @@ const products = [
     </div>
 
     <!-- Tombol Katalog Lengkap di Bawah -->
-    <div class="text-center mt-6 sm:mt-8">
+    <div class="text-center mt-7 sm:mt-9">
       <a
         class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 active:bg-red-800 text-white px-6 py-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 shadow-sm hover:shadow-md font-montserrat group"
         href={waUrl}
@@ -173,14 +173,14 @@ const products = [
     </div>
 
     <!-- Trust Strip Ringkas (Bisa COD & Garansi Tukar) -->
-    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mt-5 text-[11px] sm:text-xs font-montserrat font-bold text-slate-700">
-      <span class="inline-flex items-center gap-1.5 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mt-5 text-xs font-montserrat font-bold text-slate-700">
+      <span class="inline-flex items-center gap-1.5 bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm">
         <i class="fas fa-handshake text-emerald-600"></i> Bisa Bayar COD di Proyek
       </span>
-      <span class="inline-flex items-center gap-1.5 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+      <span class="inline-flex items-center gap-1.5 bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm">
         <i class="fas fa-rotate text-red-600"></i> Garansi Tukar Unit Langsung
       </span>
-      <span class="inline-flex items-center gap-1.5 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+      <span class="inline-flex items-center gap-1.5 bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm">
         <i class="fas fa-truck-fast text-red-600"></i> Armada Sendiri 1–3 Jam
       </span>
     </div>
