@@ -236,24 +236,35 @@ const products = [
       ))}
     </div>
 
-    <!-- Grid Kartu Produk: 2 Kolom di Mobile & Tablet, 3 Kolom di Laptop, 4 Kolom di Desktop -->
+    <!-- Indikator Geser di Layar HP (Mobile Swipe Hint - Anti Dead Scroll) -->
+    <div class="flex items-center justify-between text-xs text-slate-500 font-roboto mb-3 px-1 sm:hidden">
+      <span class="inline-flex items-center gap-1.5 font-medium text-slate-700 bg-white px-2.5 py-1 rounded-full border border-slate-200 shadow-xs">
+        <i class="fas fa-arrows-left-right text-red-600 text-[10px]"></i>
+        <span>Geser samping untuk cek barang</span>
+      </span>
+      <span class="text-[11px] font-bold text-slate-400">
+        ← Geser Katalog →
+      </span>
+    </div>
+
+    <!-- Container Produk: Horizontal Snap Slider di Mobile, Grid 4 Kolom di Desktop (Gaya 1) -->
     <div
       id="product-catalog-grid"
-      class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-5"
+      class="flex overflow-x-auto snap-x snap-mandatory gap-3.5 pb-4 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-5 sm:overflow-visible sm:pb-0 sm:mx-0 sm:px-0 max-w-7xl mx-auto"
     >
       {products.map((item) => (
         <article
           data-product-card
           data-category={item.category}
-          class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-2.5 sm:p-4 border border-slate-200 hover:border-red-600 flex flex-col justify-between group"
+          class="w-[76vw] max-w-[275px] shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-3.5 sm:p-4 border border-slate-200 hover:border-red-600 flex flex-col justify-between group"
         >
           <div>
             <!-- Badge Pojok Atas -->
-            <div class="flex justify-between items-center mb-2 gap-1">
-              <span class="text-[10px] sm:text-xs font-montserrat font-bold uppercase bg-red-50 text-red-700 px-1.5 sm:px-2 py-0.5 rounded border border-red-100 truncate">
+            <div class="flex justify-between items-center mb-2.5 gap-1.5">
+              <span class="text-[10px] sm:text-xs font-montserrat font-bold uppercase bg-red-50 text-red-700 px-2 py-0.5 rounded border border-red-100 truncate">
                 {item.badge}
               </span>
-              <span class="text-[10px] sm:text-xs font-bold text-emerald-700 bg-emerald-50 px-1.5 sm:px-2 py-0.5 rounded border border-emerald-100 shrink-0">
+              <span class="text-[10px] sm:text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100 shrink-0">
                 ● Ready
               </span>
             </div>
@@ -292,16 +303,16 @@ const products = [
             </button>
 
             <!-- Judul Produk -->
-            <h3 class="text-xs sm:text-base font-montserrat font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors leading-snug">
+            <h3 class="text-sm sm:text-base font-montserrat font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors leading-snug">
               {item.title}
             </h3>
 
             <!-- Tabel Spesifikasi Rapi -->
-            <div class="space-y-1 sm:space-y-1.5 text-[11px] sm:text-xs font-roboto bg-slate-50 p-2 sm:p-2.5 rounded-lg border border-slate-100 mb-2.5 sm:mb-3">
+            <div class="space-y-1.5 text-xs font-roboto bg-slate-50 p-2.5 rounded-lg border border-slate-100 mb-3">
               {item.specs.map((s) => (
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5 sm:gap-2 border-b border-slate-200/60 pb-1 last:border-0 last:pb-0">
-                  <span class="text-slate-500 font-medium shrink-0 text-[10px] sm:text-xs">{s.label}</span>
-                  <span class="text-slate-900 font-bold sm:text-right truncate">{s.val}</span>
+                <div class="flex items-center justify-between gap-2 border-b border-slate-200/60 pb-1 last:border-0 last:pb-0">
+                  <span class="text-slate-500 font-medium shrink-0">{s.label}</span>
+                  <span class="text-slate-900 font-bold text-right truncate">{s.val}</span>
                 </div>
               ))}
             </div>
@@ -312,9 +323,9 @@ const products = [
             href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Halo Admin ${siteConfig.businessName}, saya mau tanya stok & harga (Sewa / Jual) untuk *${item.title}* di ${city}.`)}`}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-1.5 w-full py-2 sm:py-2.5 px-2.5 sm:px-3 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg text-[11px] sm:text-xs font-montserrat font-bold transition-all shadow-sm hover:shadow-md"
+            class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-3 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg text-xs font-montserrat font-bold transition-all shadow-sm hover:shadow-md"
           >
-            <i class="fab fa-whatsapp text-xs sm:text-sm"></i>
+            <i class="fab fa-whatsapp text-sm"></i>
             <span>Tanya Harga</span>
           </a>
         </article>
@@ -469,6 +480,12 @@ const products = [
             card.classList.add('hidden');
           }
         });
+
+        // Scroll mobile horizontal slider back to first item smoothly
+        const catalogContainer = document.getElementById('product-catalog-grid');
+        if (catalogContainer) {
+          catalogContainer.scrollTo({ left: 0, behavior: 'smooth' });
+        }
       });
     });
   }
