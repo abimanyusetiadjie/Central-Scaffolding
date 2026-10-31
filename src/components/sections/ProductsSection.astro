@@ -258,8 +258,19 @@ const products = [
               </span>
             </div>
 
-            <!-- Frame Foto Produk Studio (Latar Putih Murni & Zoomed In) -->
-            <div class="relative aspect-[16/11] w-full flex items-center justify-center p-0.5 sm:p-1 mb-2.5 bg-white rounded-lg border border-slate-100 overflow-hidden">
+            <!-- Trigger Frame Foto Produk (Klik untuk Popup Lightbox Detail) -->
+            <button
+              type="button"
+              data-product-lightbox-trigger
+              data-img-src={item.webp}
+              data-img-alt={item.alt}
+              data-title={item.title}
+              data-badge={item.badge}
+              data-specs={JSON.stringify(item.specs)}
+              data-wa-url={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Halo Admin ${siteConfig.businessName}, saya mau tanya stok & harga untuk *${item.title}* di ${city}.`)}`}
+              class="relative aspect-[16/11] w-full flex items-center justify-center p-0.5 sm:p-1 mb-2.5 bg-white rounded-lg border border-slate-100 overflow-hidden cursor-zoom-in group/img focus:outline-none focus:ring-2 focus:ring-red-500/40 text-left"
+              aria-label={`Klik untuk melihat detail foto ${item.title}`}
+            >
               <picture class="w-full h-full flex items-center justify-center">
                 <source srcset={item.webp} type="image/webp" />
                 <img
@@ -267,12 +278,18 @@ const products = [
                   alt={item.alt}
                   width="600"
                   height="420"
-                  class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  class="w-full h-full object-contain group-hover/img:scale-108 transition-transform duration-300"
                   loading="lazy"
                   decoding="async"
                 />
               </picture>
-            </div>
+
+              <!-- Zoom Indicator Badge -->
+              <span class="absolute bottom-1.5 left-1.5 sm:bottom-2 sm:left-2 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-900/65 hover:bg-slate-900 text-white text-[9px] sm:text-[10px] font-montserrat font-semibold backdrop-blur-sm opacity-80 sm:opacity-0 group-hover/img:opacity-100 transition-opacity duration-200">
+                <i class="fas fa-search-plus text-[8px] sm:text-[9px]"></i>
+                <span>Klik Zoom</span>
+              </span>
+            </button>
 
             <!-- Judul Produk -->
             <h3 class="text-xs sm:text-base font-montserrat font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors leading-snug">
@@ -330,6 +347,84 @@ const products = [
       </span>
     </div>
   </div>
+
+  <!-- ==============================================
+       LIGHTBOX MODAL DETAIL PRODUK POP-UP
+  =============================================== -->
+  <div
+    id="product-lightbox-modal"
+    class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-200 items-center justify-center p-3 sm:p-5 bg-slate-950/80 backdrop-blur-sm"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-product-title"
+  >
+    <!-- Backdrop: klik untuk menutup -->
+    <div class="absolute inset-0 cursor-pointer" data-close-lightbox></div>
+
+    <!-- Kotak Dialog Modal -->
+    <div
+      id="product-lightbox-box"
+      class="relative z-10 w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transform scale-95 transition-transform duration-200 flex flex-col max-h-[92vh]"
+    >
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-slate-100 bg-slate-50">
+        <div class="flex items-center gap-2">
+          <span
+            id="modal-product-badge"
+            class="text-[10px] sm:text-xs font-montserrat font-bold uppercase bg-red-50 text-red-700 px-2 py-0.5 rounded border border-red-100"
+          ></span>
+          <span class="text-[10px] sm:text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">
+            ● Ready Stok
+          </span>
+        </div>
+        <button
+          type="button"
+          data-close-lightbox
+          class="w-8 h-8 rounded-full bg-slate-200/80 hover:bg-red-50 hover:text-red-600 text-slate-600 flex items-center justify-center transition-colors focus:outline-none cursor-pointer"
+          aria-label="Tutup popup"
+        >
+          <i class="fas fa-times text-sm"></i>
+        </button>
+      </div>
+
+      <!-- Frame Foto Zoom Penuh (Resolusi Tinggi) -->
+      <div class="relative bg-slate-50 p-3 sm:p-5 flex items-center justify-center overflow-hidden min-h-[220px] sm:min-h-[280px]">
+        <img
+          id="modal-product-img"
+          src=""
+          alt=""
+          class="max-h-[46vh] sm:max-h-[52vh] w-auto max-w-full object-contain drop-shadow-sm rounded-lg"
+        />
+      </div>
+
+      <!-- Detail & Tombol CTA -->
+      <div class="p-4 sm:p-5 bg-white border-t border-slate-100">
+        <h3 id="modal-product-title" class="text-base sm:text-lg font-montserrat font-bold text-slate-900 mb-2.5"></h3>
+        
+        <div id="modal-product-specs" class="grid grid-cols-3 gap-2 mb-4 bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-xs font-roboto"></div>
+
+        <div class="flex items-center gap-2">
+          <a
+            id="modal-product-wa"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-1.5 flex-1 py-2.5 px-3 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-xl text-xs sm:text-sm font-montserrat font-bold transition-all shadow-sm hover:shadow-md"
+          >
+            <i class="fab fa-whatsapp text-base"></i>
+            <span>Tanya Stok & Harga</span>
+          </a>
+          <button
+            type="button"
+            data-close-lightbox
+            class="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs sm:text-sm font-montserrat font-semibold transition-colors cursor-pointer"
+          >
+            Tutup
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <script>
@@ -378,6 +473,96 @@ const products = [
     });
   }
 
-  initProductTabs();
-  document.addEventListener('astro:after-swap', initProductTabs);
+  function initProductLightbox() {
+    const modal = document.getElementById('product-lightbox-modal');
+    const modalBox = document.getElementById('product-lightbox-box');
+    const modalImg = document.getElementById('modal-product-img') as HTMLImageElement | null;
+    const modalTitle = document.getElementById('modal-product-title');
+    const modalBadge = document.getElementById('modal-product-badge');
+    const modalSpecs = document.getElementById('modal-product-specs');
+    const modalWa = document.getElementById('modal-product-wa') as HTMLAnchorElement | null;
+
+    if (!modal || !modalBox || !modalImg || !modalTitle || !modalBadge || !modalSpecs || !modalWa) return;
+
+    const triggers = document.querySelectorAll<HTMLElement>('[data-product-lightbox-trigger]');
+    const closeButtons = modal.querySelectorAll<HTMLElement>('[data-close-lightbox]');
+
+    function openModal(el: HTMLElement) {
+      const imgSrc = el.getAttribute('data-img-src') || '';
+      const imgAlt = el.getAttribute('data-img-alt') || '';
+      const title = el.getAttribute('data-title') || '';
+      const badge = el.getAttribute('data-badge') || '';
+      const waUrl = el.getAttribute('data-wa-url') || '#';
+      const specsRaw = el.getAttribute('data-specs') || '[]';
+
+      modalImg!.src = imgSrc;
+      modalImg!.alt = imgAlt;
+      modalTitle!.textContent = title;
+      modalBadge!.textContent = badge;
+      modalWa!.href = waUrl;
+
+      try {
+        const specs = JSON.parse(specsRaw);
+        modalSpecs!.innerHTML = specs
+          .map(
+            (s: { label: string; val: string }) => `
+            <div class="flex flex-col">
+              <span class="text-slate-400 text-[10px] font-medium">${s.label}</span>
+              <span class="text-slate-800 font-bold text-[11px] truncate">${s.val}</span>
+            </div>
+          `
+          )
+          .join('');
+      } catch (e) {
+        modalSpecs!.innerHTML = '';
+      }
+
+      modal!.classList.remove('hidden');
+      modal!.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+
+      // Animasi transisi masuk halus
+      requestAnimationFrame(() => {
+        modal!.classList.remove('opacity-0');
+        modal!.classList.add('opacity-100');
+        modalBox!.classList.remove('scale-95');
+        modalBox!.classList.add('scale-100');
+      });
+    }
+
+    function closeModal() {
+      modal!.classList.remove('opacity-100');
+      modal!.classList.add('opacity-0');
+      modalBox!.classList.remove('scale-100');
+      modalBox!.classList.add('scale-95');
+
+      setTimeout(() => {
+        modal!.classList.remove('flex');
+        modal!.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, 200);
+    }
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => openModal(trigger));
+    });
+
+    closeButtons.forEach((btn) => {
+      btn.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal!.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+  }
+
+  function initProductsSection() {
+    initProductTabs();
+    initProductLightbox();
+  }
+
+  initProductsSection();
+  document.addEventListener('astro:after-swap', initProductsSection);
 </script>
