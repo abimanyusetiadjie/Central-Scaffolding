@@ -12,116 +12,261 @@ const {
 } = Astro.props;
 
 const waMessage = encodeURIComponent(
-  `Halo Admin ${siteConfig.businessName}, saya mau minta katalog lengkap dan penawaran harga scaffolding untuk proyek di ${city}.`
+  `Halo Admin ${siteConfig.businessName}, saya mau minta pricelist lengkap (Sewa, Baru & Second) untuk kebutuhan scaffolding proyek di ${city}.`
 );
 const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
 
+const categories = [
+  { id: 'all', label: 'Semua Barang', count: 12, icon: 'fa-border-all' },
+  { id: 'frame', label: 'Main Frame & Paket', count: 5, icon: 'fa-layer-group' },
+  { id: 'accessories', label: 'Aksesoris & Pijakan', count: 5, icon: 'fa-stairs' },
+  { id: 'support', label: 'Bekisting & Support Cor', count: 2, icon: 'fa-screwdriver-wrench' },
+];
+
 const products = [
   {
-    title: 'Main Frame Scaffolding',
-    webp: '/assets/img/product/mainframepng.webp',
-    img: '/assets/img/product/mainframepng.png',
-    alt: `Sewa dan jual scaffolding Main Frame 170cm dan 190cm pipa tebal SNI di ${city}`,
+    title: 'Main Frame 1,90 /Set',
+    category: 'frame',
+    webp: '/assets/img/product/main-frame-set.webp',
+    img: '/assets/img/product/main-frame-set.jpg',
+    alt: `Sewa dan jual Main Frame Scaffolding 1.90 Meter 1 Set lengkap di ${city}`,
     specs: [
-      { label: 'Ukuran', val: '170 / 190 x 122 cm' },
-      { label: 'Pipa', val: '1.8 – 2.0 mm SNI' },
-      { label: '1 Set', val: '2 Frame, 2 Silang, 4 Pin' },
+      { label: 'Isi 1 Set', val: '2 Frame, 2 Brace, 4 Pin' },
+      { label: 'Dimensi', val: 'T. 190 × L. 122 cm' },
+      { label: 'Layanan', val: 'Sewa, Baru & Second' },
     ],
     badge: 'Paling Laris',
   },
   {
-    title: 'Bekisting System (Cor)',
-    webp: '/assets/img/product/Bekistingpng.webp',
-    img: '/assets/img/product/Bekistingpng.png',
-    alt: `Sewa bekisting system penyangga pengecoran balok dan plat lantai beton di ${city}`,
+    title: 'Main Frame 1,70 /Set',
+    category: 'frame',
+    webp: '/assets/img/product/main-frame-set-170.webp',
+    img: '/assets/img/product/main-frame-set-170.jpg',
+    alt: `Sewa dan jual Main Frame Scaffolding 1.70 Meter 1 Set lengkap di ${city}`,
     specs: [
-      { label: 'Fungsi', val: 'Cor Balok & Plat Lantai' },
-      { label: 'Part', val: 'U-Head, Jack Base, Pipa' },
-      { label: 'Bahan', val: 'Baja Beban Berat' },
+      { label: 'Isi 1 Set', val: '2 Frame, 2 Brace, 4 Pin' },
+      { label: 'Dimensi', val: 'T. 170 × L. 122 cm' },
+      { label: 'Layanan', val: 'Sewa, Baru & Second' },
     ],
-    badge: 'Spesialis Cor',
+    badge: 'Paket Favorit',
   },
   {
-    title: 'Tubular System (Heavy)',
-    webp: '/assets/img/product/tubularsystempng.webp',
-    img: '/assets/img/product/tubularsystempng.png',
-    alt: `Sewa scaffolding Tubular System pipa seamless heavy duty proyek industri di ${city}`,
+    title: 'Main Frame 1,90 /Pcs',
+    category: 'frame',
+    webp: '/assets/img/product/main-frame.webp',
+    img: '/assets/img/product/main-frame.jpg',
+    alt: `Jual dan sewa Main Frame Scaffolding 1.90 Meter satuan per pcs di ${city}`,
     specs: [
-      { label: 'Fungsi', val: 'Industri & Ketinggian' },
-      { label: 'Sistem', val: 'Pipa Seamless + Klem' },
-      { label: 'Desain', val: 'Fleksibel Segala Sudut' },
+      { label: 'Satuan', val: 'Per Pcs (1 Tiang Frame)' },
+      { label: 'Dimensi', val: 'T. 190 × L. 122 cm' },
+      { label: 'Layanan', val: 'Sewa, Baru & Second' },
     ],
-    badge: 'Heavy Duty',
+    badge: 'Frame Utama',
   },
   {
-    title: 'PCH Kwikstage System',
-    webp: '/assets/img/product/Kwikstagepng.webp',
-    img: '/assets/img/product/Kwikstagepng.png',
-    alt: `Sewa scaffolding PCH Kwikstage System konstruksi gedung bertingkat di ${city}`,
+    title: 'Main Frame 1,70 /Pcs',
+    category: 'frame',
+    webp: '/assets/img/product/main-frame-170.webp',
+    img: '/assets/img/product/main-frame-170.jpg',
+    alt: `Jual dan sewa Main Frame Scaffolding 1.70 Meter satuan per pcs di ${city}`,
     specs: [
-      { label: 'Aplikasi', val: 'Gedung & Hotel Tinggi' },
-      { label: 'Kuncian', val: 'Sistem Baji (Wedge)' },
-      { label: 'Beban', val: 'Kapasitas Ekstra Berat' },
+      { label: 'Satuan', val: 'Per Pcs (1 Tiang Frame)' },
+      { label: 'Dimensi', val: 'T. 170 × L. 122 cm' },
+      { label: 'Layanan', val: 'Sewa, Baru & Second' },
     ],
-    badge: 'Gedung Tinggi',
+    badge: 'Frame Utama',
   },
   {
-    title: 'Ringlock System (Modular)',
-    webp: '/assets/img/product/ringlocksystem.webp',
-    img: '/assets/img/product/ringlocksystem.png',
-    alt: `Sewa scaffolding Ringlock System modular rosette standar K3 internasional di ${city}`,
+    title: 'Ladder Frame 0,90 /Pcs',
+    category: 'frame',
+    webp: '/assets/img/product/ladder-frame.webp',
+    img: '/assets/img/product/ladder-frame.jpg',
+    alt: `Sewa dan jual Ladder Frame Scaffolding 0.90 Meter per pcs di ${city}`,
     specs: [
-      { label: 'Aplikasi', val: 'Jembatan & Pabrik' },
-      { label: 'Sistem', val: 'Rosette 8 Arah K3' },
-      { label: 'Kualitas', val: 'Kekakuan Tertinggi' },
+      { label: 'Satuan', val: 'Per Pcs (Frame Atas)' },
+      { label: 'Dimensi', val: 'T. 90 × L. 122 cm' },
+      { label: 'Layanan', val: 'Sewa & Second Ready' },
     ],
-    badge: 'Standar K3',
+    badge: 'Frame Atas',
+  },
+  {
+    title: 'Catwalk (Bordes Pijakan)',
+    category: 'accessories',
+    webp: '/assets/img/product/catwalk.webp',
+    img: '/assets/img/product/catwalk.jpg',
+    alt: `Sewa dan jual Catwalk pijakan bordes scaffolding anti slip di ${city}`,
+    specs: [
+      { label: 'Material', val: 'Plat Baja Anti-Slip' },
+      { label: 'Pengait', val: 'Hook Pengunci Presisi' },
+      { label: 'Layanan', val: 'Sewa, Baru & Second' },
+    ],
+    badge: 'Pijakan Kerja',
+  },
+  {
+    title: 'Stairs (Tangga Scaffolding)',
+    category: 'accessories',
+    webp: '/assets/img/product/stairs.webp',
+    img: '/assets/img/product/stairs.jpg',
+    alt: `Sewa dan jual Tangga Scaffolding Stairs baja galvanis dengan handrail di ${city}`,
+    specs: [
+      { label: 'Material', val: 'Baja Galvanis + Bordes' },
+      { label: 'Keamanan', val: 'Lengkap Handrail K3' },
+      { label: 'Layanan', val: 'Sewa & Second Ready' },
+    ],
+    badge: 'Akses Proyek',
+  },
+  {
+    title: 'Roda /Set (Caster Wheel)',
+    category: 'accessories',
+    webp: '/assets/img/product/roda.webp',
+    img: '/assets/img/product/roda.jpg',
+    alt: `Sewa dan jual Roda Scaffolding 1 Set lengkap dengan pengunci rem di ${city}`,
+    specs: [
+      { label: 'Isi 1 Set', val: '4 Pcs Roda Heavy Duty' },
+      { label: 'Keamanan', val: 'Tuas Rem Stopper' },
+      { label: 'Layanan', val: 'Sewa, Baru & Second' },
+    ],
+    badge: 'Mobile Set',
+  },
+  {
+    title: 'Cross Brace 2.20',
+    category: 'accessories',
+    webp: '/assets/img/product/cross-brace.webp',
+    img: '/assets/img/product/cross-brace.jpg',
+    alt: `Sewa dan jual Cross Brace 2.20 meter silangan pipa scaffolding di ${city}`,
+    specs: [
+      { label: 'Ukuran', val: 'Diagonal 220 cm' },
+      { label: 'Fungsi', val: 'Pengaku Silang Frame' },
+      { label: 'Layanan', val: 'Sewa, Baru & Second' },
+    ],
+    badge: 'Pengaku Silang',
+  },
+  {
+    title: 'Join Pin /Pcs',
+    category: 'accessories',
+    webp: '/assets/img/product/joint-pin.webp',
+    img: '/assets/img/product/joint-pin.jpg',
+    alt: `Sewa dan jual Join Pin sambungan pipa tingkat scaffolding per pcs di ${city}`,
+    specs: [
+      { label: 'Satuan', val: 'Per Pcs (Shock Pipa)' },
+      { label: 'Fungsi', val: 'Penyambung Tingkat' },
+      { label: 'Layanan', val: 'Sewa, Baru & Second' },
+    ],
+    badge: 'Konektor Frame',
+  },
+  {
+    title: 'U-Head Jack',
+    category: 'support',
+    webp: '/assets/img/product/u-head.webp',
+    img: '/assets/img/product/u-head.jpg',
+    alt: `Sewa dan jual U-Head Jack scaffolding penyangga balok bekisting cor di ${city}`,
+    specs: [
+      { label: 'Ukuran', val: 'Ulir Adjuster 60 cm' },
+      { label: 'Fungsi', val: 'Penopang Balok Cor' },
+      { label: 'Layanan', val: 'Sewa, Baru & Second' },
+    ],
+    badge: 'Bekisting Cor',
+  },
+  {
+    title: 'Jackbase (Tapak Dasar)',
+    category: 'support',
+    webp: '/assets/img/product/jack-base.webp',
+    img: '/assets/img/product/jack-base.jpg',
+    alt: `Sewa dan jual Jackbase scaffolding alas dasar perata kaki perancah di ${city}`,
+    specs: [
+      { label: 'Ukuran', val: 'Ulir Adjuster 60 cm' },
+      { label: 'Fungsi', val: 'Tumpuan Dasar Frame' },
+      { label: 'Layanan', val: 'Sewa, Baru & Second' },
+    ],
+    badge: 'Pondasi Kaki',
   },
 ];
 ---
 
 <!-- ==============================================
-     PRODUK UNGGULAN (COMPACT & RAPI DI MOBILE)
+     KATALOG PRODUK RESMI (SISTEM TAB KATEGORI)
 =============================================== -->
-<section class="py-10 sm:py-14 bg-slate-50 border-y border-slate-200" id="products">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-6 sm:mb-9">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-red-50 border border-red-200 text-red-700 text-xs font-montserrat font-bold uppercase tracking-wider mb-2">
+<section class="py-10 sm:py-16 bg-slate-50 border-y border-slate-200" id="products">
+  <div class="container mx-auto px-4 max-w-7xl">
+    <!-- Header Section -->
+    <div class="text-center mb-6 sm:mb-8">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-red-50 border border-red-200 text-red-700 text-xs font-montserrat font-bold uppercase tracking-wider mb-2.5">
         <i class="fas fa-boxes-stacked text-xs"></i>
-        <span>Katalog Ready Stok</span>
+        <span>Katalog Resmi Gudang 2026</span>
       </div>
       <h2 class="text-2xl sm:text-4xl font-montserrat font-bold text-slate-900">
-        Produk <span class="text-red-600">Unggulan Kami</span>
+        Daftar Produk <span class="text-red-600">& Aksesoris</span>
       </h2>
-      <p class="text-xs sm:text-sm text-slate-500 font-roboto mt-1 sm:hidden">
-        Geser ke samping untuk melihat pilihan produk →
+      <p class="text-xs sm:text-sm text-slate-600 font-roboto mt-2 max-w-2xl mx-auto">
+        Tersedia layanan <strong>Sewa Harian/Bulanan</strong>, <strong>Jual Unit Baru (New)</strong>, dan <strong>Jual Unit Rekondisi (Second)</strong> berkualitas standar SNI.
       </p>
     </div>
 
-    <!-- 5 Produk Unggulan: Horizontal Snap di Mobile, 2 Kolom Tablet, 3 Kolom Laptop, 5 Kolom Desktop Luas -->
-    <div class="flex overflow-x-auto snap-x snap-mandatory gap-3.5 pb-3 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 sm:gap-5 sm:overflow-visible sm:pb-0 sm:mx-0 sm:px-0 max-w-7xl mx-auto">
+    <!-- Navigasi Tab Kategori (Scrollable di layar sempit, Center di Desktop) -->
+    <div
+      class="flex items-center sm:justify-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar pb-2 mb-6 sm:mb-8 -mx-4 px-4 sm:mx-0 sm:px-0"
+      role="tablist"
+      aria-label="Filter Kategori Produk Scaffolding"
+    >
+      {categories.map((cat, idx) => (
+        <button
+          type="button"
+          role="tab"
+          aria-selected={idx === 0 ? 'true' : 'false'}
+          data-filter-btn={cat.id}
+          class:list={[
+            'product-tab-btn inline-flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl font-montserrat font-bold text-xs sm:text-sm transition-all duration-200 shrink-0 border cursor-pointer',
+            idx === 0
+              ? 'bg-red-600 text-white border-red-600 shadow-sm'
+              : 'bg-white text-slate-700 border-slate-200 hover:border-red-300 hover:text-red-600',
+          ]}
+        >
+          <i class={`fas ${cat.icon} text-xs`}></i>
+          <span>{cat.label}</span>
+          <span
+            data-badge-count
+            class:list={[
+              'text-[11px] px-1.5 py-0.5 rounded-md font-bold transition-colors',
+              idx === 0 ? 'bg-red-700 text-white' : 'bg-slate-100 text-slate-600',
+            ]}
+          >
+            {cat.count}
+          </span>
+        </button>
+      ))}
+    </div>
+
+    <!-- Grid Kartu Produk: 2 Kolom di Mobile & Tablet, 3 Kolom di Laptop, 4 Kolom di Desktop -->
+    <div
+      id="product-catalog-grid"
+      class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-5"
+    >
       {products.map((item) => (
-        <article class="w-[78vw] max-w-[265px] shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-3.5 sm:p-4 border border-slate-200 hover:border-red-600 flex flex-col justify-between group">
+        <article
+          data-product-card
+          data-category={item.category}
+          class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-2.5 sm:p-4 border border-slate-200 hover:border-red-600 flex flex-col justify-between group"
+        >
           <div>
             <!-- Badge Pojok Atas -->
-            <div class="flex justify-between items-center mb-2.5 gap-1">
-              <span class="text-xs font-montserrat font-bold uppercase bg-red-50 text-red-700 px-2 py-0.5 rounded border border-red-100 whitespace-nowrap">
+            <div class="flex justify-between items-center mb-2 gap-1">
+              <span class="text-[10px] sm:text-xs font-montserrat font-bold uppercase bg-red-50 text-red-700 px-1.5 sm:px-2 py-0.5 rounded border border-red-100 truncate">
                 {item.badge}
               </span>
-              <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100 shrink-0 whitespace-nowrap">
+              <span class="text-[10px] sm:text-xs font-bold text-emerald-700 bg-emerald-50 px-1.5 sm:px-2 py-0.5 rounded border border-emerald-100 shrink-0">
                 ● Ready
               </span>
             </div>
 
-            <!-- Frame Foto Produk Compact -->
-            <div class="relative aspect-[16/11] w-full flex items-center justify-center p-2.5 mb-2.5 bg-slate-50 rounded-lg border border-slate-100 group-hover:bg-slate-100/80 transition-colors overflow-hidden">
+            <!-- Frame Foto Produk Studio (Latar Putih Murni) -->
+            <div class="relative aspect-[16/11] w-full flex items-center justify-center p-1.5 sm:p-2.5 mb-2.5 bg-white rounded-lg border border-slate-100 overflow-hidden">
               <picture class="w-full h-full flex items-center justify-center">
                 <source srcset={item.webp} type="image/webp" />
                 <img
                   src={item.img}
                   alt={item.alt}
-                  width="360"
-                  height="250"
+                  width="600"
+                  height="420"
                   class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                   decoding="async"
@@ -130,16 +275,16 @@ const products = [
             </div>
 
             <!-- Judul Produk -->
-            <h3 class="text-sm sm:text-base font-montserrat font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors leading-snug">
+            <h3 class="text-xs sm:text-base font-montserrat font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors leading-snug">
               {item.title}
             </h3>
 
-            <!-- Tabel Spesifikasi Rapi 1 Baris per Item (Mudah Dibaca) -->
-            <div class="space-y-1.5 text-xs font-roboto bg-slate-50 p-2.5 rounded-lg border border-slate-100 mb-3">
+            <!-- Tabel Spesifikasi Rapi -->
+            <div class="space-y-1 sm:space-y-1.5 text-[11px] sm:text-xs font-roboto bg-slate-50 p-2 sm:p-2.5 rounded-lg border border-slate-100 mb-2.5 sm:mb-3">
               {item.specs.map((s) => (
-                <div class="flex items-center justify-between gap-2 border-b border-slate-200/60 pb-1 last:border-0 last:pb-0">
-                  <span class="text-slate-500 font-medium shrink-0">{s.label}</span>
-                  <span class="text-slate-900 font-bold text-right whitespace-nowrap">{s.val}</span>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5 sm:gap-2 border-b border-slate-200/60 pb-1 last:border-0 last:pb-0">
+                  <span class="text-slate-500 font-medium shrink-0 text-[10px] sm:text-xs">{s.label}</span>
+                  <span class="text-slate-900 font-bold sm:text-right truncate">{s.val}</span>
                 </div>
               ))}
             </div>
@@ -147,42 +292,92 @@ const products = [
 
           <!-- Tombol CTA Pesan Cepat -->
           <a
-            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Halo Admin ${siteConfig.businessName}, saya mau tanya stok & harga untuk ${item.title} di ${city}.`)}`}
+            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Halo Admin ${siteConfig.businessName}, saya mau tanya stok & harga (Sewa / Jual) untuk *${item.title}* di ${city}.`)}`}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-3 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg text-xs font-montserrat font-bold transition-all shadow-sm hover:shadow-md"
+            class="inline-flex items-center justify-center gap-1.5 w-full py-2 sm:py-2.5 px-2.5 sm:px-3 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white rounded-lg text-[11px] sm:text-xs font-montserrat font-bold transition-all shadow-sm hover:shadow-md"
           >
-            <i class="fab fa-whatsapp text-sm"></i>
-            <span>Tanya Harga / Sewa</span>
+            <i class="fab fa-whatsapp text-xs sm:text-sm"></i>
+            <span>Tanya Harga</span>
           </a>
         </article>
       ))}
     </div>
 
     <!-- Tombol Katalog Lengkap di Bawah -->
-    <div class="text-center mt-7 sm:mt-9">
+    <div class="text-center mt-8 sm:mt-10">
       <a
-        class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 active:bg-red-800 text-white px-6 py-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 shadow-sm hover:shadow-md font-montserrat group"
+        class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 active:bg-red-800 text-white px-6 py-3.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 shadow-sm hover:shadow-md font-montserrat group"
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <i class="fas fa-file-pdf text-base text-white"></i>
-        <span>Minta Daftar Harga Lengkap via WhatsApp</span>
+        <i class="fas fa-file-invoice-dollar text-base text-white"></i>
+        <span>Minta Pricelist Resmi 2026 (Sewa, Baru & Second) via WhatsApp</span>
       </a>
     </div>
 
     <!-- Trust Strip Ringkas (Bisa COD & Garansi Tukar) -->
-    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mt-5 text-xs font-montserrat font-bold text-slate-700">
-      <span class="inline-flex items-center gap-1.5 bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm">
+    <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-6 mt-5 text-xs font-montserrat font-bold text-slate-700">
+      <span class="inline-flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
         <i class="fas fa-handshake text-emerald-600"></i> Bisa Bayar COD di Proyek
       </span>
-      <span class="inline-flex items-center gap-1.5 bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm">
-        <i class="fas fa-rotate text-red-600"></i> Garansi Tukar Unit Langsung
+      <span class="inline-flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
+        <i class="fas fa-rotate text-red-600"></i> Tersedia Unit Baru & Second
       </span>
-      <span class="inline-flex items-center gap-1.5 bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm">
+      <span class="inline-flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
         <i class="fas fa-truck-fast text-red-600"></i> Armada Sendiri 1–3 Jam
       </span>
     </div>
   </div>
 </section>
+
+<script>
+  function initProductTabs() {
+    const tabButtons = document.querySelectorAll<HTMLButtonElement>('[data-filter-btn]');
+    const productCards = document.querySelectorAll<HTMLElement>('[data-product-card]');
+
+    if (!tabButtons.length || !productCards.length) return;
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const selectedCat = btn.getAttribute('data-filter-btn') || 'all';
+
+        // Update active state on buttons
+        tabButtons.forEach((b) => {
+          const isCurrent = b === btn;
+          b.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
+          b.classList.toggle('bg-red-600', isCurrent);
+          b.classList.toggle('text-white', isCurrent);
+          b.classList.toggle('border-red-600', isCurrent);
+          b.classList.toggle('shadow-sm', isCurrent);
+
+          b.classList.toggle('bg-white', !isCurrent);
+          b.classList.toggle('text-slate-700', !isCurrent);
+          b.classList.toggle('border-slate-200', !isCurrent);
+
+          const countBadge = b.querySelector('[data-badge-count]');
+          if (countBadge) {
+            countBadge.classList.toggle('bg-red-700', isCurrent);
+            countBadge.classList.toggle('text-white', isCurrent);
+            countBadge.classList.toggle('bg-slate-100', !isCurrent);
+            countBadge.classList.toggle('text-slate-600', !isCurrent);
+          }
+        });
+
+        // Filter cards
+        productCards.forEach((card) => {
+          const cardCat = card.getAttribute('data-category');
+          if (selectedCat === 'all' || cardCat === selectedCat) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  }
+
+  initProductTabs();
+  document.addEventListener('astro:after-swap', initProductTabs);
+</script>
