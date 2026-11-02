@@ -33,6 +33,8 @@ const areaServedList = Array.from(
     'Surabaya',
     'Gresik',
     'Sidoarjo',
+    'Bekasi & Cikarang',
+    'Depok & Bogor',
     ...locations.map((loc) => loc.cityName),
   ])
 ).map((cityName) => ({
@@ -70,7 +72,7 @@ const breadcrumbSchema = {
         {
           '@type': 'ListItem',
           position: 2,
-          name: `Sewa & Jual Scaffolding ${city}`,
+          name: `Sewa & Beli Scaffolding ${city}`,
           item: cleanUrl,
         },
       ]
@@ -86,39 +88,62 @@ const breadcrumbSchema = {
 
 const offerCatalogSchema = {
   '@type': 'OfferCatalog',
-  '@id': `${baseUrl}/#offer-catalog`,
-  name: `Katalog Sewa Scaffolding & Beli Scaffolding Standar SNI — ${city}`,
+  name: `Katalog Layanan Sewa & Beli Scaffolding Standar SNI — ${city}`,
   itemListElement: [
     {
       '@type': 'Offer',
       itemOffered: {
         '@type': 'Service',
-        name: `Sewa Scaffolding / Rental Scaffolding Set Lengkap (${city})`,
-        description: `Layanan sewa scaffolding (perancah besi) Main Frame 1,90m & 1,70m, Ladder Frame 0,90m, Cross Brace, Join Pin, Catwalk, Tangga, Roda, Jack Base, dan U-Head di ${city}. Ready stok 10.000+ set, kirim cepat 1-3 jam, bisa bayar COD.`,
+        name: `Layanan Sewa Scaffolding Set Lengkap 1,90m & 1,70m (${city})`,
+        description: `Jasa sewa perancah besi Main Frame 1,90m & 1,70m, Cross Brace 2,20m, dan Join Pin di ${city}. Ready stok 10.000+ set, kirim cepat 1-3 jam, bisa bayar COD di lokasi proyek.`,
+        provider: {
+          '@id': `${baseUrl}/#organization`,
+        },
       },
     },
     {
       '@type': 'Offer',
       itemOffered: {
         '@type': 'Service',
-        name: `Beli Scaffolding Baru & Second / Jual Beli Scaffolding (${city})`,
-        description: `Tempat beli scaffolding baru (New) standar SNI pipa tebal ${siteConfig.stats.pipeThickness} maupun beli scaffolding bekas rekondisi (Second) berkualitas siap pakai di ${city}.`,
+        name: `Layanan Sewa Aksesoris & Pijakan Kerja Scaffolding K3 (${city})`,
+        description: `Rental Catwalk (bordes pijakan anti-slip), Tangga Scaffolding (Stairs), Roda Caster Heavy Duty dengan rem, U-Head Jack, dan Jackbase di ${city}.`,
+        provider: {
+          '@id': `${baseUrl}/#organization`,
+        },
+      },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: `Penjualan Scaffolding Baru Standar SNI & K3 Kemnaker (${city})`,
+        description: `Tempat beli scaffolding baru pipa baja tebal ${siteConfig.stats.pipeThickness} berstandar SNI langsung dari gudang pusat di ${city}.`,
+        provider: {
+          '@id': `${baseUrl}/#organization`,
+        },
+      },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: `Penjualan Scaffolding Bekas / Second Rekondisi Berkualitas (${city})`,
+        description: `Tempat beli scaffolding second siap pakai, kokoh, presisi, dan hemat biaya untuk proyek konstruksi di ${city}.`,
+        provider: {
+          '@id': `${baseUrl}/#organization`,
+        },
       },
     },
     ...products.map((item) => ({
       '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      priceCurrency: 'IDR',
       itemOffered: {
-        '@type': 'Product',
-        name: `${item.name} — Sewa & Beli Scaffolding`,
+        '@type': 'Service',
+        name: `Sewa & Pengadaan ${item.name} (${city})`,
+        description: `${item.description} Tersedia opsi sewa dan beli baru/second. Spesifikasi: ${item.specs.dimensions}, ${item.specs.pipeDiameter}, ${item.specs.thickness}.`,
         image: `${baseUrl}${item.imageUrl}`,
-        description: `${item.description} Tersedia untuk sewa scaffolding maupun beli scaffolding baru & second. Spesifikasi: ${item.specs.dimensions}, ${item.specs.pipeDiameter}, ${item.specs.thickness}.`,
-        brand: {
-          '@type': 'Brand',
-          name: siteConfig.businessName,
+        provider: {
+          '@id': `${baseUrl}/#organization`,
         },
-        category: item.category,
       },
     })),
   ],
@@ -205,10 +230,6 @@ const structuredData = [
   websiteSchema,
   breadcrumbSchema,
   localBusinessSchema,
-  {
-    '@context': 'https://schema.org',
-    ...offerCatalogSchema,
-  },
   faqPageSchema,
 ];
 ---
