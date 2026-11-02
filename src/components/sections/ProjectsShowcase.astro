@@ -167,7 +167,7 @@ const projects = [
   </div>
 </section>
 
-<!-- Script Auto-Slide Khusus Layar Mobile (Tempo 3.5 Detik Nyaman Dibaca) -->
+<!-- Script Auto-Slide Khusus Layar Mobile (Tempo Cepat & Dinamis: 2.2 Detik) -->
 <script>
   function initProjectsAutoScroll() {
     const carousel = document.getElementById('projects-mobile-carousel');
@@ -201,13 +201,13 @@ const projects = [
       } else {
         // Ambil lebar kartu aktif + gap secara dinamis
         const card = carousel.querySelector('article');
-        const scrollDistance = card ? card.getBoundingClientRect().width + 14 : 285;
+        const scrollDistance = card ? card.getBoundingClientRect().width + 12 : 280;
         carousel.scrollBy({ left: scrollDistance, behavior: 'smooth' });
       }
     }
 
-    // Ritme pergeseran yang nyaman: 3.5 detik
-    setInterval(autoSlide, 3500);
+    // Ritme pergeseran dipercepat menjadi 2.2 detik
+    setInterval(autoSlide, 2200);
 
     // Jeda otomatis jika pengguna menyentuh layar
     carousel.addEventListener('touchstart', () => {
@@ -219,7 +219,7 @@ const projects = [
       clearTimeout(resumeTimeout);
       resumeTimeout = setTimeout(() => {
         isInteracting = false;
-      }, 2500);
+      }, 1800);
     }, { passive: true });
 
     carousel.addEventListener('touchcancel', () => {
