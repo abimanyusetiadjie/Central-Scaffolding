@@ -125,19 +125,29 @@ export const getFaqItems = (cityName?: string): FaqItem[] => {
   const city = cityName || siteConfig.warehouseAddress.city;
   return [
     {
-      question: 'Apa saja kelengkapan 1 set scaffolding standar?',
+      question: 'Apa saja kelengkapan 1 set scaffolding (steger) standar?',
       answer:
-        '1 set standar komplit terdiri dari: 2 Main Frame (170cm atau 190cm), 2 Cross Brace (silangan diagonal), dan 4 Joint Pin (sambungan pipa). Komponen tambahan seperti Catwalk (bordes injakan), Jack Base, U-Head, dan Roda dapat disewa terpisah sesuai kebutuhan proyek.',
+        '1 set scaffolding standar komplit terdiri dari: 2 pcs Main Frame (tersedia ukuran tinggi 1,90 meter atau 1,70 meter), 2 pcs Cross Brace (silangan diagonal 2,20m), dan 4 pcs Join Pin (sambungan pipa). Tersedia juga aksesoris lengkap seperti Ladder Frame 0,90m, Catwalk (bordes pijakan), Tangga (Stairs), Roda (Caster Wheel), U-Head Jack, dan Jackbase.',
     },
     {
-      question: 'Bagaimana syarat sewa & sistem pembayaran COD?',
+      question: 'Apa perbedaan ukuran Main Frame 1,90m dan Main Frame 1,70m?',
       answer:
-        `Sangat praktis tanpa ribet. Cukup kirim foto KTP & share lokasi proyek via WhatsApp. Scaffolding kami kirim ke lokasi Anda di ${city}, dicek langsung oleh tim mandor, dan setelah barang sesuai baru pelunasan (bisa COD tunai maupun transfer di tempat).`,
+        'Main Frame 1,90 meter (T. 190 × L. 122 cm) adalah ukuran paling laris untuk pekerjaan fasad gedung tinggi dan ruang kerja tukang yang lega. Sedangkan Main Frame 1,70 meter (T. 170 × L. 122 cm) sangat favorit untuk penyangga bekisting cor plat lantai beton dan kombinasi dengan Ladder Frame 0,90 meter.',
     },
     {
-      question: `Berapa lama estimasi pengiriman ke lokasi proyek di ${city}?`,
+      question: 'Apakah melayani sewa harian/bulanan sekaligus jual scaffolding baru & second?',
       answer:
-        `Estimasi pengiriman hanya 1 hingga 3 jam tiba di lokasi proyek Anda. Pesanan diantar langsung dari gudang pusat menggunakan armada pikap dan truk siaga kami sendiri di hari yang sama (Same Day Delivery).`,
+        `Ya, Central Scaffolding melayani sewa (rental) scaffolding partai kecil maupun proyek besar, penjualan unit scaffolding baru (New) standar SNI pipa tebal 1.8–2.0 mm, serta penjualan unit rekondisi (Second) berkualitas tinggi yang siap pakai di ${city}.`,
+    },
+    {
+      question: 'Bagaimana syarat sewa & sistem pembayaran COD di lokasi proyek?',
+      answer:
+        `Sangat praktis dan aman. Cukup kirim foto identitas & share lokasi proyek via WhatsApp (${siteConfig.whatsappDisplay}). Armada kami mengantar scaffolding ke proyek Anda di ${city}, barang dicek langsung oleh mandor di lokasi, lalu pembayaran dapat dilakukan di tempat (COD tunai maupun transfer).`,
+    },
+    {
+      question: `Berapa lama estimasi pengiriman scaffolding ke lokasi proyek di ${city}?`,
+      answer:
+        `Untuk wilayah Tangerang, BSD Serpong, dan DKI Jakarta, pengiriman tiba dalam 1 hingga 3 jam di hari yang sama (Same Day Delivery) menggunakan armada pikap dan truk milik sendiri dari Gudang Pusat Tangerang. Untuk wilayah Surabaya, Gresik, dan Sidoarjo dilayani cepat melalui jaringan cabang Jawa Timur kami.`,
     },
   ];
 };

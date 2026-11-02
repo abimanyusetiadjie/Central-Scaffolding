@@ -1,98 +1,194 @@
 [
   {
-    "id": "mf-170",
-    "name": "Main Frame 170 cm / 190 cm",
-    "slug": "main-frame-170",
+    "id": "mf-set-190",
+    "name": "Main Frame 1,90 /Set",
+    "slug": "main-frame-190-set",
     "category": "Rangka Utama",
     "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
     "specs": {
-      "dimensions": "Tinggi 170 cm & 190 cm",
-      "pipeDiameter": "Diameter 1¼ Inci (Tebal SNI)",
-      "thickness": "Beban Max 2.500 Kg / Tiang"
+      "dimensions": "T. 190 × L. 122 cm",
+      "pipeDiameter": "Isi: 2 Frame, 2 Cross Brace, 4 Join Pin",
+      "thickness": "Pipa Baja Tebal 1.8 - 2.0 mm Standar SNI"
     },
-    "description": "Tiang rangka utama tinggi 1,7 meter & 1,9 meter. Pipa besi tebal standar SNI, las MIG CO2 kokoh tanpa retak sambungan.",
-    "imageUrl": "/assets/img/product/main-frame.webp",
-    "imageAlt": "Tiang utama Main Frame scaffolding 170cm dan 190cm pipa baja tebal standar SNI",
+    "description": "Paket 1 set lengkap scaffolding Main Frame tinggi 1,90 meter terdiri dari 2 pcs Main Frame 190cm, 2 pcs Cross Brace 220cm, dan 4 pcs Join Pin.",
+    "imageUrl": "/assets/img/product/main-frame-set.webp",
+    "imageAlt": "Sewa dan jual Main Frame Scaffolding 1,90 Meter 1 Set lengkap standar SNI",
     "isPopular": true
   },
   {
-    "id": "cb-220",
-    "name": "Cross Brace (Silangan X)",
-    "slug": "cross-brace",
+    "id": "mf-set-170",
+    "name": "Main Frame 1,70 /Set",
+    "slug": "main-frame-170-set",
     "category": "Rangka Utama",
     "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
     "specs": {
-      "dimensions": "Bentang 220 cm & 193 cm",
-      "pipeDiameter": "Galvanis Anti-Karat Celup",
-      "thickness": "Baut Tengah Keling Paten"
+      "dimensions": "T. 170 × L. 122 cm",
+      "pipeDiameter": "Isi: 2 Frame, 2 Cross Brace, 4 Join Pin",
+      "thickness": "Pipa Baja Tebal 1.8 - 2.0 mm Standar SNI"
     },
-    "description": "Besi silangan huruf X pengunci antara dua tiang Main Frame supaya rangkaian berdiri kokoh, presisi, dan tidak goyang.",
-    "imageUrl": "/assets/img/product/cross-brace.webp",
-    "imageAlt": "Besi silangan Cross Brace scaffolding galvanis anti-karat bentang 220cm dan 193cm",
+    "description": "Paket 1 set lengkap scaffolding Main Frame tinggi 1,70 meter terdiri dari 2 pcs Main Frame 170cm, 2 pcs Cross Brace, dan 4 pcs Join Pin.",
+    "imageUrl": "/assets/img/product/main-frame-set-170.webp",
+    "imageAlt": "Sewa dan jual Main Frame Scaffolding 1,70 Meter 1 Set lengkap standar SNI",
     "isPopular": true
+  },
+  {
+    "id": "mf-pcs-190",
+    "name": "Main Frame 1,90 /Pcs",
+    "slug": "main-frame-190-pcs",
+    "category": "Rangka Utama",
+    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "specs": {
+      "dimensions": "T. 190 × L. 122 cm",
+      "pipeDiameter": "Satuan Per Pcs (1 Tiang Frame)",
+      "thickness": "Pipa Baja Tebal 1.8 - 2.0 mm Standar SNI"
+    },
+    "description": "Tiang rangka utama Main Frame scaffolding ukuran tinggi 1,90 meter (190 × 122 cm) satuan per pcs.",
+    "imageUrl": "/assets/img/product/main-frame.webp",
+    "imageAlt": "Jual dan sewa Main Frame Scaffolding 1,90 Meter satuan per pcs",
+    "isPopular": true
+  },
+  {
+    "id": "mf-pcs-170",
+    "name": "Main Frame 1,70 /Pcs",
+    "slug": "main-frame-170-pcs",
+    "category": "Rangka Utama",
+    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "specs": {
+      "dimensions": "T. 170 × L. 122 cm",
+      "pipeDiameter": "Satuan Per Pcs (1 Tiang Frame)",
+      "thickness": "Pipa Baja Tebal 1.8 - 2.0 mm Standar SNI"
+    },
+    "description": "Tiang rangka utama Main Frame scaffolding ukuran tinggi 1,70 meter (170 × 122 cm) satuan per pcs.",
+    "imageUrl": "/assets/img/product/main-frame-170.webp",
+    "imageAlt": "Jual dan sewa Main Frame Scaffolding 1,70 Meter satuan per pcs",
+    "isPopular": true
+  },
+  {
+    "id": "lf-90",
+    "name": "Ladder Frame 0,90 /Pcs",
+    "slug": "ladder-frame-90-pcs",
+    "category": "Rangka Utama",
+    "availability": ["SEWA", "JUAL BEKAS"],
+    "specs": {
+      "dimensions": "T. 90 × L. 122 cm",
+      "pipeDiameter": "Satuan Per Pcs (Frame Tambahan Atas)",
+      "thickness": "Pipa Baja Tebal Standar SNI"
+    },
+    "description": "Rangka tambahan atas (Ladder Frame) ukuran tinggi 0,90 meter (90 × 122 cm) untuk penyesuaian ketinggian bekisting dan plafon.",
+    "imageUrl": "/assets/img/product/ladder-frame.webp",
+    "imageAlt": "Sewa dan jual Ladder Frame Scaffolding 0,90 Meter per pcs",
+    "isPopular": false
   },
   {
     "id": "cw-180",
-    "name": "Catwalk (Pijakan Bordes)",
+    "name": "Catwalk (Bordes Pijakan)",
     "slug": "catwalk-scaffolding",
     "category": "Aksesori & Pijakan",
     "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
     "specs": {
-      "dimensions": "Plat Besi Bordes Anti-Slip",
-      "pipeDiameter": "Kait Lock Ganda Kanan-Kiri",
-      "thickness": "Aman Injak Tukang & Adukan"
+      "dimensions": "Plat Baja Bordes Anti-Slip",
+      "pipeDiameter": "Hook Pengait Presisi Kanan-Kiri",
+      "thickness": "Standar Keamanan Kerja K3"
     },
-    "description": "Pijakan tempat tukang berdiri di atas scaffolding. Plat besi bordes berpori anti-slip dengan pengait kokoh yang mengunci pada frame.",
+    "description": "Pijakan kerja bordes baja berpori anti-slip dengan pengait presisi untuk keamanan pekerja di atas menara scaffolding.",
     "imageUrl": "/assets/img/product/catwalk.webp",
-    "imageAlt": "Catwalk pijakan scaffolding plat besi bordes berpori anti-slip dengan pengait ganda",
+    "imageAlt": "Sewa dan jual Catwalk pijakan bordes scaffolding anti slip",
+    "isPopular": true
+  },
+  {
+    "id": "st-190",
+    "name": "Stairs (Tangga Scaffolding)",
+    "slug": "stairs-tangga-scaffolding",
+    "category": "Aksesori & Pijakan",
+    "availability": ["SEWA", "JUAL BEKAS"],
+    "specs": {
+      "dimensions": "Tangga Baja Galvanis + Anak Tangga Anti-Slip",
+      "pipeDiameter": "Lengkap Handrail Pegangan K3",
+      "thickness": "Kait Frame Presisi"
+    },
+    "description": "Tangga akses antar tingkat scaffolding lengkap dengan handrail pengaman standar K3 proyek konstruksi.",
+    "imageUrl": "/assets/img/product/stairs.webp",
+    "imageAlt": "Sewa dan jual Tangga Scaffolding Stairs baja galvanis dengan handrail",
+    "isPopular": false
+  },
+  {
+    "id": "wh-set",
+    "name": "Roda /Set (Caster Wheel)",
+    "slug": "roda-scaffolding-set",
+    "category": "Aksesori & Pijakan",
+    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "specs": {
+      "dimensions": "1 Set Isi 4 Pcs Roda Heavy Duty",
+      "pipeDiameter": "Dilengkapi Tuas Rem Pengunci (Stopper)",
+      "thickness": "Beban Tinggi & Putar 360 Derajat"
+    },
+    "description": "Paket 1 set (4 pcs) roda scaffolding heavy duty lengkap dengan tuas pengunci rem untuk mobilitas menara perancah.",
+    "imageUrl": "/assets/img/product/roda.webp",
+    "imageAlt": "Sewa dan jual Roda Scaffolding 1 Set 4 pcs lengkap dengan pengunci rem",
+    "isPopular": true
+  },
+  {
+    "id": "cb-220",
+    "name": "Cross Brace 2.20",
+    "slug": "cross-brace-220",
+    "category": "Aksesori & Pijakan",
+    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "specs": {
+      "dimensions": "Panjang Diagonal 220 cm",
+      "pipeDiameter": "Pipa Baja Galvanis Anti-Karat",
+      "thickness": "Baut Tengah Keling Kokoh"
+    },
+    "description": "Besi silangan diagonal (Cross Brace) ukuran 2,20 meter pengaku struktur antar Main Frame scaffolding.",
+    "imageUrl": "/assets/img/product/cross-brace.webp",
+    "imageAlt": "Sewa dan jual Cross Brace 2.20 meter silangan pipa scaffolding",
+    "isPopular": true
+  },
+  {
+    "id": "jp-pcs",
+    "name": "Join Pin /Pcs",
+    "slug": "join-pin-scaffolding",
+    "category": "Aksesori & Pijakan",
+    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "specs": {
+      "dimensions": "Satuan Per Pcs (Shock Penyambung Pipa)",
+      "pipeDiameter": "Baja Presisi Berkerah Penahan",
+      "thickness": "Standar SNI"
+    },
+    "description": "Konektor pasak sambungan vertikal (Join Pin) untuk menumpuk Main Frame scaffolding antar tingkat dengan aman.",
+    "imageUrl": "/assets/img/product/joint-pin.webp",
+    "imageAlt": "Sewa dan jual Join Pin sambungan pipa tingkat scaffolding per pcs",
+    "isPopular": false
+  },
+  {
+    "id": "uh-60",
+    "name": "U-Head Jack",
+    "slug": "u-head-jack-60",
+    "category": "Penyangga & Alas",
+    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "specs": {
+      "dimensions": "Ulir Adjuster 60 cm",
+      "pipeDiameter": "Pelat U Penopang Balok Suri-Suri",
+      "thickness": "Besi Ulir Padat Heavy Duty"
+    },
+    "description": "Penyangga atas berbentuk U berulir 60 cm (U-Head Jack) untuk menopang balok kayu/besi bekisting cor beton.",
+    "imageUrl": "/assets/img/product/u-head.webp",
+    "imageAlt": "Sewa dan jual U-Head Jack scaffolding penyangga balok bekisting cor",
     "isPopular": true
   },
   {
     "id": "jb-60",
-    "name": "Jack Base & U-Head Jack",
-    "slug": "jack-base-60cm",
+    "name": "Jackbase (Tapak Dasar)",
+    "slug": "jackbase-tapak-dasar-60",
     "category": "Penyangga & Alas",
     "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
     "specs": {
-      "dimensions": "Tinggi 40 cm & 60 cm",
-      "pipeDiameter": "Bubut Halus, Putaran Ringan",
-      "thickness": "Penyetel Level Tanah Miring"
+      "dimensions": "Ulir Adjuster 60 cm",
+      "pipeDiameter": "Pelat Tapak Dasar Baja Tebal",
+      "thickness": "Besi Ulir Padat Penyetel Level Tanah"
     },
-    "description": "Kaki alas dan penyangga atas ulir padat untuk mengatur ketinggian dan meratakan scaffolding di bidang tanah tidak rata.",
+    "description": "Pondasi kaki berulir 60 cm (Jackbase) sebagai tumpuan dasar dan perata ketinggian kaki scaffolding di lantai atau tanah proyek.",
     "imageUrl": "/assets/img/product/jack-base.webp",
-    "imageAlt": "Jack Base dan U-Head Jack kaki ulir penyangga scaffolding tinggi 40cm dan 60cm",
+    "imageAlt": "Sewa dan jual Jackbase scaffolding alas dasar perata kaki perancah",
     "isPopular": true
-  },
-  {
-    "id": "jp-std",
-    "name": "Joint Pin (Sambungan Pipa)",
-    "slug": "joint-pin",
-    "category": "Aksesori & Pijakan",
-    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
-    "specs": {
-      "dimensions": "Baja Padat Presisi SNI",
-      "pipeDiameter": "Pas & Tidak Goyang Vertikal",
-      "thickness": "Ready Puluhan Ribu Pcs"
-    },
-    "description": "Besi pasak penyambung untuk menumpuk tiang Main Frame ke tingkat atasnya secara tegak lurus dan stabil.",
-    "imageUrl": "/assets/img/product/joint-pin.webp",
-    "imageAlt": "Joint Pin pasak sambungan pipa vertikal scaffolding baja padat presisi SNI",
-    "isPopular": false
-  },
-  {
-    "id": "wh-6",
-    "name": "Roda Scaffolding 6 & 8 Inch",
-    "slug": "roda-scaffolding-6-inch",
-    "category": "Aksesori & Pijakan",
-    "availability": ["SEWA", "JUAL BARU"],
-    "specs": {
-      "dimensions": "Karet Polyurethane 6 & 8 Inch",
-      "pipeDiameter": "Rem Injak Pakem Baja Dobel",
-      "thickness": "Hingga 500 Kg / Buah Roda"
-    },
-    "description": "Roda caster heavy duty dengan rem pengunci baja dobel. Memudahkan scaffolding digeser antar area kerja tanpa dibongkar.",
-    "imageUrl": "/assets/img/product/roda.webp",
-    "imageAlt": "Roda scaffolding caster wheel heavy duty 6 dan 8 inch dengan rem pengunci baja dobel",
-    "isPopular": false
   }
 ]
