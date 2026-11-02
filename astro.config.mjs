@@ -4,7 +4,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://centralscaffolding.vercel.app',
+  site: 'https://centralscaffolding.id',
   output: 'static',
   integrations: [
     tailwind({

@@ -88,7 +88,7 @@ export const siteConfig: SiteConfig = {
   phoneDisplay: '0812-9818-8995',
   phoneHotline: '0812-9818-8995',
   email: 'kontak@centralscaffolding.id',
-  siteUrl: 'https://centralscaffolding.vercel.app',
+  siteUrl: 'https://centralscaffolding.id',
   images: {
     logo: '/assets/img/logo-cropped.png',
     heroTruck: '/assets/video/bg-hero-index-poster.webp',
