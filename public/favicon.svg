@@ -1,18 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect x="2" y="2" width="60" height="60" rx="14" fill="#ffffff" stroke="#DC2626" stroke-width="3"/>
-  <!-- Scaffolding gable frame mark -->
-  <!-- Gable roof triangle -->
-  <polygon points="32,8 10,24 54,24" fill="none" stroke="#DC2626" stroke-width="3.5" stroke-linejoin="round"/>
-  <!-- Top beam -->
-  <line x1="12" y1="24" x2="52" y2="24" stroke="#DC2626" stroke-width="3.5" stroke-linecap="round"/>
-  <!-- Side vertical posts -->
-  <line x1="16" y1="24" x2="16" y2="56" stroke="#DC2626" stroke-width="3.5" stroke-linecap="round"/>
-  <line x1="48" y1="24" x2="48" y2="56" stroke="#DC2626" stroke-width="3.5" stroke-linecap="round"/>
-  <!-- Middle cross rungs -->
-  <line x1="16" y1="36" x2="48" y2="36" stroke="#DC2626" stroke-width="3" stroke-linecap="round"/>
-  <line x1="16" y1="48" x2="48" y2="48" stroke="#DC2626" stroke-width="3" stroke-linecap="round"/>
-  <!-- Center joint pin / vertical divider -->
-  <circle cx="32" cy="24" r="2.5" fill="#DC2626"/>
-  <line x1="32" y1="24" x2="32" y2="56" stroke="#DC2626" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="32" cy="56" r="2.5" fill="#DC2626"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <circle cx="32" cy="32" r="30" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+  <polygon points="32,12 16,25 48,25" fill="none" stroke="#dc2626" stroke-width="2.8" stroke-linejoin="round"/>
+  <line x1="18" y1="25" x2="46" y2="25" stroke="#dc2626" stroke-width="2.8" stroke-linecap="round"/>
+  <line x1="21" y1="25" x2="21" y2="52" stroke="#dc2626" stroke-width="2.8" stroke-linecap="round"/>
+  <line x1="43" y1="25" x2="43" y2="52" stroke="#dc2626" stroke-width="2.8" stroke-linecap="round"/>
+  <line x1="21" y1="35" x2="43" y2="35" stroke="#dc2626" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="21" y1="45" x2="43" y2="45" stroke="#dc2626" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="32" cy="25" r="2" fill="#dc2626"/>
+  <line x1="32" y1="25" x2="32" y2="52" stroke="#dc2626" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="32" cy="52" r="2" fill="#dc2626"/>
 </svg>
