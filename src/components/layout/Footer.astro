@@ -219,10 +219,10 @@ const currentYear = new Date().getFullYear();
       </div>
     </div>
 
-    <!-- Area Layanan Sewa Scaffolding (Pill Tags Merah Hover) -->
+    <!-- Area Layanan Sewa & Beli Scaffolding (Pill Tags Merah Hover) -->
     <div class="mt-12 pt-6 border-t border-gray-800">
       <h3 class="text-lg font-montserrat font-semibold mb-4 text-red-500">
-        Area Layanan Sewa Scaffolding
+        Area Layanan Sewa &amp; Beli Scaffolding
       </h3>
       <ul class="flex flex-wrap gap-2">
         {locations.map((loc) => (
@@ -231,7 +231,7 @@ const currentYear = new Date().getFullYear();
               class="inline-block bg-gray-800 hover:bg-red-600 text-gray-300 hover:text-white text-xs sm:text-sm px-4 py-2 rounded-full transition-colors duration-300 font-roboto"
               href={`/area/${loc.slug}`}
             >
-              Sewa Scaffolding {loc.cityName}
+              Sewa &amp; Beli Scaffolding {loc.cityName}
             </a>
           </li>
         ))}

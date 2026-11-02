@@ -81,7 +81,7 @@ export interface FaqItem {
 
 export const siteConfig: SiteConfig = {
   businessName: 'Central Scaffolding',
-  tagline: 'Pusat Sewa & Jual Scaffolding Pipa Baja Standar SNI & K3 — Gudang & Armada Sendiri',
+  tagline: 'Pusat Sewa Scaffolding, Beli & Jual Scaffolding Pipa Baja Standar SNI — Gudang & Armada Sendiri',
   whatsappNumber: '6281298188995',
   whatsappDisplay: '0812-9818-8995',
   phone: '081298188995',
@@ -135,9 +135,9 @@ export const getFaqItems = (cityName?: string): FaqItem[] => {
         'Main Frame 1,90 meter (T. 190 × L. 122 cm) adalah ukuran paling laris untuk pekerjaan fasad gedung tinggi dan ruang kerja tukang yang lega. Sedangkan Main Frame 1,70 meter (T. 170 × L. 122 cm) sangat favorit untuk penyangga bekisting cor plat lantai beton dan kombinasi dengan Ladder Frame 0,90 meter.',
     },
     {
-      question: 'Apakah melayani sewa harian/bulanan sekaligus jual scaffolding baru & second?',
+      question: 'Apakah bisa sewa scaffolding sekaligus beli scaffolding baru atau second?',
       answer:
-        `Ya, Central Scaffolding melayani sewa (rental) scaffolding partai kecil maupun proyek besar, penjualan unit scaffolding baru (New) standar SNI pipa tebal 1.8–2.0 mm, serta penjualan unit rekondisi (Second) berkualitas tinggi yang siap pakai di ${city}.`,
+        `Ya, Central Scaffolding melayani sewa scaffolding (rental harian/bulanan) untuk partai kecil maupun proyek gedung, serta melayani pelanggan yang ingin beli scaffolding baru (New) standar SNI pipa tebal 1.8–2.0 mm maupun beli scaffolding bekas/rekondisi (Second) berkualitas tinggi di ${city}.`,
     },
     {
       question: 'Bagaimana syarat sewa & sistem pembayaran COD di lokasi proyek?',

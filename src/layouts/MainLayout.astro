@@ -28,10 +28,12 @@ const geoRegion = cityLower.includes('jakarta')
   ? 'ID-JK'
   : cityLower.includes('surabaya')
   ? 'ID-JI'
+  : cityLower.includes('bekasi') || cityLower.includes('depok') || cityLower.includes('bogor')
+  ? 'ID-JB'
   : 'ID-BT';
 
 const districtKeywords = coveredDistricts.length > 0 ? `, ${coveredDistricts.join(', ')}` : '';
-const seoKeywords = `sewa scaffolding ${city}, jual scaffolding ${city}, rental scaffolding ${city}, sewa steger besi ${city}, harga sewa scaffolding per set, jual scaffolding baru dan bekas, main frame 190, main frame 170, central scaffolding${districtKeywords}`;
+const seoKeywords = `scaffolding, sewa scaffolding, beli scaffolding, jual scaffolding, sewa scaffolding ${city}, beli scaffolding ${city}, jual scaffolding ${city}, rental scaffolding ${city}, sewa steger besi ${city}, beli scaffolding baru, beli scaffolding bekas, harga sewa scaffolding per set, main frame 190, main frame 170, central scaffolding${districtKeywords}`;
 ---
 
 <!doctype html>
