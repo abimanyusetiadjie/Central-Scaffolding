@@ -20,12 +20,12 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
 <header>
   <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out navbar-default" id="navbar">
     <div class="container mx-auto px-4">
-      <div class="flex items-center justify-between h-20">
+      <div class="flex items-center justify-between h-16 sm:h-20 gap-2">
         <!-- Logo Brand Resmi -->
-        <div class="flex-shrink-0">
-          <a class="flex items-center space-x-3 group" href="/" title="Central Scaffolding Beranda">
+        <div class="flex-shrink-0 min-w-0">
+          <a class="flex items-center space-x-2.5 sm:space-x-3 group" href="/" title="Central Scaffolding Beranda">
             <!-- Logo Badge Image -->
-            <div class="w-12 h-12 flex items-center justify-center bg-slate-50 border border-slate-200 rounded-lg p-1.5 shadow-sm flex-shrink-0 group-hover:scale-105 group-hover:border-red-300 transition-all">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-slate-50 border border-slate-200 rounded-lg p-1 sm:p-1.5 shadow-sm flex-shrink-0 group-hover:scale-105 group-hover:border-red-300 transition-all">
               <picture class="w-full h-full flex items-center justify-center">
                 <source srcset="/assets/img/logo-icon-transparent.webp" type="image/webp" />
                 <img
@@ -40,11 +40,11 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
               </picture>
             </div>
             <!-- Logo Text -->
-            <div class="flex flex-col">
-              <span class="block text-sm sm:text-lg font-montserrat font-extrabold text-slate-900 tracking-tight leading-tight group-hover:text-red-600 transition-colors">
+            <div class="flex flex-col min-w-0">
+              <span class="block text-[13px] sm:text-lg font-montserrat font-extrabold text-slate-900 tracking-tight leading-tight group-hover:text-red-600 transition-colors truncate">
                 CENTRAL SCAFFOLDING
               </span>
-              <span class="block text-[10px] sm:text-xs font-roboto text-red-600 font-semibold tracking-wide">
+              <span class="block text-[10px] sm:text-xs font-roboto text-red-600 font-semibold tracking-wide truncate">
                 Sewa &amp; Jual Scaffolding SNI
               </span>
             </div>

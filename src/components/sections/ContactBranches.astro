@@ -51,14 +51,14 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
         </div>
 
         <!-- Tombol Aksi Bawah Peta -->
-        <div class="grid grid-cols-2 gap-2.5 sm:gap-3">
+        <div class="grid grid-cols-2 gap-2 sm:gap-3">
           <a
             href={siteConfig.warehouseAddress.gmapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-[#1a73e8] hover:bg-[#1557b0] text-white px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-sm font-montserrat"
+            class="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-[#1a73e8] hover:bg-[#1557b0] text-white px-2.5 py-2.5 sm:px-4 sm:py-3 rounded-xl font-bold text-[11px] sm:text-sm transition-all shadow-sm font-montserrat whitespace-nowrap"
           >
-            <i class="fas fa-map-marker-alt text-xs sm:text-sm"></i>
+            <i class="fas fa-map-marker-alt text-xs sm:text-sm shrink-0"></i>
             <span>Buka Google Maps</span>
           </a>
 
@@ -66,9 +66,9 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-sm font-montserrat"
+            class="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white px-2.5 py-2.5 sm:px-4 sm:py-3 rounded-xl font-bold text-[11px] sm:text-sm transition-all shadow-sm font-montserrat whitespace-nowrap"
           >
-            <i class="fab fa-whatsapp text-sm sm:text-base"></i>
+            <i class="fab fa-whatsapp text-sm sm:text-base shrink-0"></i>
             <span>Shareloc WhatsApp</span>
           </a>
         </div>
@@ -79,8 +79,8 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
         <div>
           <!-- Badge Buka -->
           <div class="flex items-center justify-between mb-3 pb-2.5 border-b border-slate-100">
-            <span class="text-xs font-montserrat font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 flex items-center gap-1.5">
-              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-[11px] sm:text-xs font-montserrat font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
               <span>Buka Setiap Hari (07.00 – 18.00 WIB)</span>
             </span>
           </div>

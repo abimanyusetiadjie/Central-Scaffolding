@@ -96,10 +96,10 @@ const projects = [
     <!-- 6 Kartu Proyek: Horizontal Snap di Mobile, Grid 3 Kolom di Desktop -->
     <div
       id="projects-mobile-carousel"
-      class="flex overflow-x-auto snap-x snap-mandatory gap-3.5 pb-3 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-5 max-w-7xl mx-auto sm:overflow-visible sm:pb-0 sm:mx-auto sm:px-0 scroll-smooth"
+      class="flex overflow-x-auto snap-x snap-mandatory scroll-pl-4 touch-pan-x gap-3 pb-3 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-5 max-w-7xl mx-auto sm:overflow-visible sm:pb-0 sm:mx-auto sm:px-0 scroll-smooth"
     >
       {projects.map((proj) => (
-        <article class="w-[82vw] max-w-[290px] shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-red-600 flex flex-col justify-between group">
+        <article class="w-[80vw] max-w-[278px] shrink-0 snap-start sm:w-auto sm:max-w-none sm:shrink bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-red-600 flex flex-col justify-between group">
           <!-- Frame Foto Proyek (Aspect Ratio 4:3 Rapi & Proporsional) -->
           <div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
             <picture class="block w-full h-full">
@@ -175,11 +175,24 @@ const projects = [
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     let isInteracting = false;
+    let isVisible = true;
     let resumeTimeout: ReturnType<typeof setTimeout> | undefined;
 
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            isVisible = entry.isIntersecting;
+          });
+        },
+        { threshold: 0.25 }
+      );
+      observer.observe(carousel);
+    }
+
     function autoSlide() {
-      // Hanya aktif di layar handphone (< 640px) saat tidak disentuh
-      if (!carousel || window.innerWidth >= 640 || isInteracting) return;
+      // Hanya aktif di layar handphone (< 640px) saat terlihat di layar & tidak disentuh
+      if (!carousel || window.innerWidth >= 640 || isInteracting || !isVisible) return;
 
       const maxScroll = carousel.scrollWidth - carousel.clientWidth;
       if (carousel.scrollLeft >= maxScroll - 15) {
