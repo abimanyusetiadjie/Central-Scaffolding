@@ -150,9 +150,9 @@
     "category": "Aksesori & Pijakan",
     "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
     "specs": {
-      "dimensions": "Satuan Per Pcs (Shock Penyambung Pipa)",
-      "pipeDiameter": "Baja Presisi Berkerah Penahan",
-      "thickness": "Standar SNI"
+      "dimensions": "Panjang 21 cm × Diameter Ø 35 mm (1¼\")",
+      "pipeDiameter": "Dilengkapi Ring Stop Pembatas Tengah",
+      "thickness": "Pipa Baja Tebal Standar SNI"
     },
     "description": "Konektor pasak sambungan vertikal (Join Pin) untuk menumpuk Main Frame scaffolding antar tingkat dengan aman.",
     "imageUrl": "/assets/img/product/joint-pin.webp",
