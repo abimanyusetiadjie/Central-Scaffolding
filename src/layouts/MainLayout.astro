@@ -26,8 +26,6 @@ const {
 const cityLower = city.toLowerCase();
 const geoRegion = cityLower.includes('jakarta')
   ? 'ID-JK'
-  : cityLower.includes('surabaya')
-  ? 'ID-JI'
   : cityLower.includes('bekasi') || cityLower.includes('depok') || cityLower.includes('bogor')
   ? 'ID-JB'
   : 'ID-BT';

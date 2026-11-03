@@ -1,7 +1,6 @@
 ---
 import { siteConfig, getFaqItems } from '../../data/siteConfig';
 import locations from '../../data/locations.json';
-import products from '../../data/products.json';
 
 export interface Props {
   city?: string;
@@ -30,9 +29,6 @@ const areaServedList = Array.from(
     'Jakarta Pusat',
     'Jakarta Utara',
     'Jakarta Timur',
-    'Surabaya',
-    'Gresik',
-    'Sidoarjo',
     'Bekasi & Cikarang',
     'Depok & Bogor',
     ...locations.map((loc) => loc.cityName),
@@ -51,18 +47,20 @@ const websiteSchema = {
     'Central Scaffolding',
     'Sewa Scaffolding & Beli Scaffolding SNI',
     'Central Scaffolding Indonesia',
-    'Pusat Sewa Scaffolding Tangerang Jakarta Surabaya',
+    'Pusat Sewa Scaffolding Tangerang & Jabodetabek',
   ],
   url: baseUrl,
   inLanguage: 'id-ID',
 };
 
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  '@id': `${cleanUrl}/#breadcrumb`,
-  itemListElement: isAreaPage
-    ? [
+// Breadcrumbs are only valid according to Google Search Central when there are >= 2 items (hierarchy).
+// Single-item breadcrumbs on root homepage trigger rich results invalidity.
+const breadcrumbSchema = isAreaPage
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      '@id': `${cleanUrl}/#breadcrumb`,
+      itemListElement: [
         {
           '@type': 'ListItem',
           position: 1,
@@ -75,79 +73,9 @@ const breadcrumbSchema = {
           name: `Sewa & Beli Scaffolding ${city}`,
           item: cleanUrl,
         },
-      ]
-    : [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Beranda Central Scaffolding',
-          item: baseUrl,
-        },
       ],
-};
-
-const offerCatalogSchema = {
-  '@type': 'OfferCatalog',
-  name: `Katalog Layanan Sewa & Beli Scaffolding Standar SNI — ${city}`,
-  itemListElement: [
-    {
-      '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: `Layanan Sewa Scaffolding Set Lengkap 1,90m & 1,70m (${city})`,
-        description: `Jasa sewa perancah besi Main Frame 1,90m & 1,70m, Cross Brace 2,20m, dan Join Pin di ${city}. Ready stok 10.000+ set, kirim cepat 1-3 jam, bisa bayar COD di lokasi proyek.`,
-        provider: {
-          '@id': `${baseUrl}/#organization`,
-        },
-      },
-    },
-    {
-      '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: `Layanan Sewa Aksesoris & Pijakan Kerja Scaffolding K3 (${city})`,
-        description: `Rental Catwalk (bordes pijakan anti-slip), Tangga Scaffolding (Stairs), Roda Caster Heavy Duty dengan rem, U-Head Jack, dan Jackbase di ${city}.`,
-        provider: {
-          '@id': `${baseUrl}/#organization`,
-        },
-      },
-    },
-    {
-      '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: `Penjualan Scaffolding Baru Standar SNI & K3 Kemnaker (${city})`,
-        description: `Tempat beli scaffolding baru pipa baja tebal ${siteConfig.stats.pipeThickness} berstandar SNI langsung dari gudang pusat di ${city}.`,
-        provider: {
-          '@id': `${baseUrl}/#organization`,
-        },
-      },
-    },
-    {
-      '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: `Penjualan Scaffolding Bekas / Second Rekondisi Berkualitas (${city})`,
-        description: `Tempat beli scaffolding second siap pakai, kokoh, presisi, dan hemat biaya untuk proyek konstruksi di ${city}.`,
-        provider: {
-          '@id': `${baseUrl}/#organization`,
-        },
-      },
-    },
-    ...products.map((item) => ({
-      '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: `Sewa & Pengadaan ${item.name} (${city})`,
-        description: `${item.description} Tersedia opsi sewa dan beli baru/second. Spesifikasi: ${item.specs.dimensions}, ${item.specs.pipeDiameter}, ${item.specs.thickness}.`,
-        image: `${baseUrl}${item.imageUrl}`,
-        provider: {
-          '@id': `${baseUrl}/#organization`,
-        },
-      },
-    })),
-  ],
-};
+    }
+  : null;
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
@@ -164,6 +92,12 @@ const localBusinessSchema = {
     'Rental Scaffolding',
     'Steger Besi Standar SNI',
     'Main Frame Scaffolding 1,90m & 1,70m',
+    'Ladder Frame 0,90m',
+    'Cross Brace 2,20m',
+    'Catwalk Pijakan Steger',
+    'Tangga Scaffolding (Stairs)',
+    'Roda Scaffolding Caster Heavy Duty',
+    'U-Head Jack & Jack Base',
   ],
   hasMap: siteConfig.warehouseAddress.gmapsUrl,
   url: cleanUrl,
@@ -206,7 +140,6 @@ const localBusinessSchema = {
       closes: '18:00',
     },
   ],
-  hasOfferCatalog: offerCatalogSchema,
   sameAs: [
     siteConfig.social.instagram,
     siteConfig.social.tokopedia,
@@ -228,7 +161,7 @@ const faqPageSchema = {
 
 const structuredData = [
   websiteSchema,
-  breadcrumbSchema,
+  ...(breadcrumbSchema ? [breadcrumbSchema] : []),
   localBusinessSchema,
   faqPageSchema,
 ];

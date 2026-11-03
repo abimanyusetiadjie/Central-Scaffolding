@@ -147,7 +147,7 @@ export const getFaqItems = (cityName?: string): FaqItem[] => {
     {
       question: `Berapa lama estimasi pengiriman scaffolding ke lokasi proyek di ${city}?`,
       answer:
-        `Untuk wilayah Tangerang, BSD Serpong, dan DKI Jakarta, pengiriman tiba dalam 1 hingga 3 jam di hari yang sama (Same Day Delivery) menggunakan armada pikap dan truk milik sendiri dari Gudang Pusat Tangerang. Untuk wilayah Surabaya, Gresik, dan Sidoarjo dilayani cepat melalui jaringan cabang Jawa Timur kami.`,
+        `Untuk wilayah Tangerang, BSD Serpong, DKI Jakarta, Bekasi, hingga Depok & Bogor, pengiriman tiba dalam 1 hingga 3 jam di hari yang sama (Same Day Delivery) menggunakan armada pikap dan truk milik sendiri langsung dari Gudang Pusat.`,
     },
   ];
 };
