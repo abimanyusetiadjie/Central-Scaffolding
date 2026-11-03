@@ -4,7 +4,11 @@
     "name": "Main Frame 1,90 /Set",
     "slug": "main-frame-190-set",
     "category": "Rangka Utama",
-    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "availability": [
+      "SEWA",
+      "JUAL BARU",
+      "JUAL BEKAS"
+    ],
     "specs": {
       "dimensions": "T. 190 × L. 122 cm",
       "pipeDiameter": "Isi: 2 Frame, 2 Cross Brace, 4 Join Pin",
@@ -20,7 +24,11 @@
     "name": "Main Frame 1,70 /Set",
     "slug": "main-frame-170-set",
     "category": "Rangka Utama",
-    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "availability": [
+      "SEWA",
+      "JUAL BARU",
+      "JUAL BEKAS"
+    ],
     "specs": {
       "dimensions": "T. 170 × L. 122 cm",
       "pipeDiameter": "Isi: 2 Frame, 2 Cross Brace, 4 Join Pin",
@@ -36,7 +44,11 @@
     "name": "Main Frame 1,90 /Pcs",
     "slug": "main-frame-190-pcs",
     "category": "Rangka Utama",
-    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "availability": [
+      "SEWA",
+      "JUAL BARU",
+      "JUAL BEKAS"
+    ],
     "specs": {
       "dimensions": "T. 190 × L. 122 cm",
       "pipeDiameter": "Satuan Per Pcs (1 Tiang Frame)",
@@ -52,7 +64,11 @@
     "name": "Main Frame 1,70 /Pcs",
     "slug": "main-frame-170-pcs",
     "category": "Rangka Utama",
-    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "availability": [
+      "SEWA",
+      "JUAL BARU",
+      "JUAL BEKAS"
+    ],
     "specs": {
       "dimensions": "T. 170 × L. 122 cm",
       "pipeDiameter": "Satuan Per Pcs (1 Tiang Frame)",
@@ -68,7 +84,10 @@
     "name": "Ladder Frame 0,90 /Pcs",
     "slug": "ladder-frame-90-pcs",
     "category": "Rangka Utama",
-    "availability": ["SEWA", "JUAL BEKAS"],
+    "availability": [
+      "SEWA",
+      "JUAL BEKAS"
+    ],
     "specs": {
       "dimensions": "T. 90 × L. 122 cm",
       "pipeDiameter": "Satuan Per Pcs (Frame Tambahan Atas)",
@@ -84,7 +103,11 @@
     "name": "Catwalk (Bordes Pijakan)",
     "slug": "catwalk-scaffolding",
     "category": "Aksesori & Pijakan",
-    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "availability": [
+      "SEWA",
+      "JUAL BARU",
+      "JUAL BEKAS"
+    ],
     "specs": {
       "dimensions": "P. 183 × L. 50 cm (Plat Baja Anti-Slip)",
       "pipeDiameter": "4 Hook Pengait Presisi Kanan-Kiri",
@@ -100,7 +123,10 @@
     "name": "Stairs (Tangga Scaffolding)",
     "slug": "stairs-tangga-scaffolding",
     "category": "Aksesori & Pijakan",
-    "availability": ["SEWA", "JUAL BEKAS"],
+    "availability": [
+      "SEWA",
+      "JUAL BEKAS"
+    ],
     "specs": {
       "dimensions": "Tangga Baja Galvanis + Anak Tangga Anti-Slip",
       "pipeDiameter": "Lengkap Handrail Pegangan K3",
@@ -116,7 +142,11 @@
     "name": "Roda /Set (Caster Wheel)",
     "slug": "roda-scaffolding-set",
     "category": "Aksesori & Pijakan",
-    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "availability": [
+      "SEWA",
+      "JUAL BARU",
+      "JUAL BEKAS"
+    ],
     "specs": {
       "dimensions": "1 Set Isi 4 Pcs Roda Heavy Duty",
       "pipeDiameter": "Dilengkapi Tuas Rem Pengunci (Stopper)",
@@ -132,7 +162,11 @@
     "name": "Cross Brace 2.20",
     "slug": "cross-brace-220",
     "category": "Aksesori & Pijakan",
-    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "availability": [
+      "SEWA",
+      "JUAL BARU",
+      "JUAL BEKAS"
+    ],
     "specs": {
       "dimensions": "Panjang Diagonal 220 cm",
       "pipeDiameter": "Pipa Baja Galvanis Anti-Karat",
@@ -148,7 +182,11 @@
     "name": "Join Pin /Pcs",
     "slug": "join-pin-scaffolding",
     "category": "Aksesori & Pijakan",
-    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "availability": [
+      "SEWA",
+      "JUAL BARU",
+      "JUAL BEKAS"
+    ],
     "specs": {
       "dimensions": "Panjang 21 cm × Diameter Ø 35 mm (1¼\")",
       "pipeDiameter": "Dilengkapi Ring Stop Pembatas Tengah",
@@ -164,7 +202,11 @@
     "name": "U-Head Jack",
     "slug": "u-head-jack-60",
     "category": "Penyangga & Alas",
-    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "availability": [
+      "SEWA",
+      "JUAL BARU",
+      "JUAL BEKAS"
+    ],
     "specs": {
       "dimensions": "Ulir Adjuster 60 cm",
       "pipeDiameter": "Pelat U Penopang Balok Suri-Suri",
@@ -180,7 +222,11 @@
     "name": "Jackbase (Tapak Dasar)",
     "slug": "jackbase-tapak-dasar-60",
     "category": "Penyangga & Alas",
-    "availability": ["SEWA", "JUAL BARU", "JUAL BEKAS"],
+    "availability": [
+      "SEWA",
+      "JUAL BARU",
+      "JUAL BEKAS"
+    ],
     "specs": {
       "dimensions": "Ulir Adjuster 60 cm",
       "pipeDiameter": "Pelat Tapak Dasar Baja Tebal",
@@ -189,6 +235,46 @@
     "description": "Pondasi kaki berulir 60 cm (Jackbase) sebagai tumpuan dasar dan perata ketinggian kaki scaffolding di lantai atau tanah proyek.",
     "imageUrl": "/assets/img/product/jack-base.webp",
     "imageAlt": "Sewa dan jual Jackbase scaffolding alas dasar perata kaki perancah",
+    "isPopular": true
+  },
+  {
+    "id": "pipe-6m",
+    "name": "Pipa Galvanis 6 Meter",
+    "slug": "pipa-galvanis-scaffolding-6-meter",
+    "category": "Pipa Galvanis",
+    "availability": [
+      "SEWA",
+      "JUAL BARU",
+      "JUAL BEKAS"
+    ],
+    "specs": {
+      "dimensions": "Panjang 6,0 Meter (600 cm)",
+      "pipeDiameter": "Diameter Ø 1½ Inch (48.3 mm)",
+      "thickness": "Pipa Baja Tebal 1.8 - 2.0 mm Hot-Dip Galvanized"
+    },
+    "description": "Pipa scaffolding galvanis ukuran panjang 6 meter diameter 1½ inch (48.3 mm) tahan karat standar SNI, ideal untuk tiang steger independen, ledger horizontal, dan bracing konstruksi.",
+    "imageUrl": "/assets/img/product/pipa-galvanis-6m.webp",
+    "imageAlt": "Sewa dan jual Pipa Galvanis Scaffolding 6 Meter 1.5 Inch anti karat standar SNI",
+    "isPopular": true
+  },
+  {
+    "id": "pipe-3m",
+    "name": "Pipa Galvanis 3 Meter",
+    "slug": "pipa-galvanis-scaffolding-3-meter",
+    "category": "Pipa Galvanis",
+    "availability": [
+      "SEWA",
+      "JUAL BARU",
+      "JUAL BEKAS"
+    ],
+    "specs": {
+      "dimensions": "Panjang 3,0 Meter (300 cm)",
+      "pipeDiameter": "Diameter Ø 1½ Inch (48.3 mm)",
+      "thickness": "Pipa Baja Tebal 1.8 - 2.0 mm Hot-Dip Galvanized"
+    },
+    "description": "Pipa scaffolding galvanis ukuran panjang 3 meter diameter 1½ inch (48.3 mm) tahan karat standar SNI, ideal untuk support bekisting cor, pengikat tie-back fasad, dan penopang balok.",
+    "imageUrl": "/assets/img/product/pipa-galvanis-3m.webp",
+    "imageAlt": "Sewa dan jual Pipa Galvanis Scaffolding 3 Meter 1.5 Inch anti karat standar SNI",
     "isPopular": true
   }
 ]
