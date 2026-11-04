@@ -1,4 +1,15 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_astro/
+
+# Crawl-delay: 0
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/img/
+Allow: /og-banner.jpg
 
 Sitemap: https://centralscaffolding.id/sitemap-index.xml
+Sitemap: https://centralscaffolding.id/sitemap-0.xml

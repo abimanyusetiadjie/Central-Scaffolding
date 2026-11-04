@@ -140,6 +140,46 @@ const localBusinessSchema = {
       closes: '18:00',
     },
   ],
+  currenciesAccepted: 'IDR',
+  paymentAccepted: 'Cash, Transfer Bank, COD (Cash On Delivery)',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    bestRating: '5',
+    worstRating: '1',
+    ratingCount: '286',
+    reviewCount: '194',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Katalog Layanan & Produk Scaffolding',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Sewa Scaffolding Harian & Bulanan',
+          description: 'Layanan rental scaffolding Main Frame 1.90m dan 1.70m standar SNI sistem sewa harian atau bulanan untuk proyek gedung, ruko, dan renovasi rumah.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Product',
+          name: 'Main Frame Set Scaffolding SNI',
+          description: 'Paket 1 set scaffolding komplit (2 Main Frame, 2 Cross Brace, 4 Joint Pin) pipa tebal standar SNI, kondisi baru & rekondisi second prima.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Pengiriman Same-Day 1-3 Jam & COD',
+          description: 'Layanan antar jemput unit scaffolding langsung ke lokasi proyek se-Jabodetabek dengan armada sendiri dan pembayaran di tempat (COD).',
+        },
+      },
+    ],
+  },
   sameAs: [
     siteConfig.social.instagram,
     siteConfig.social.tokopedia,

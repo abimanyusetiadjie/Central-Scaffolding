@@ -100,7 +100,10 @@ const seoKeywords = `scaffolding, sewa scaffolding, beli scaffolding, jual scaff
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- Google Fonts: Montserrat & Roboto (Exact PT SNI) -->
+    <!-- Resource Hints & Preconnects for Core Web Vitals -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -108,13 +111,23 @@ const seoKeywords = `scaffolding, sewa scaffolding, beli scaffolding, jual scaff
       rel="stylesheet"
     />
 
-    <!-- FontAwesome 6 (Exact PT SNI) -->
+    <!-- FontAwesome 6 (Non-blocking high-performance load) -->
     <link
-      rel="stylesheet"
+      rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      />
+    </noscript>
 
     <!-- JSON-LD Structured Data -->
     <SchemaLD city={city} url={canonicalUrl} />

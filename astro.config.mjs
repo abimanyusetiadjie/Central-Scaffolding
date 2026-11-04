@@ -11,6 +11,18 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     react(),
-    sitemap(),
+    sitemap({
+      serialize(item) {
+        if (item.url === 'https://centralscaffolding.id/') {
+          item.changefreq = 'daily';
+          item.priority = 1.0;
+        } else {
+          item.changefreq = 'weekly';
+          item.priority = 0.9;
+        }
+        item.lastmod = new Date();
+        return item;
+      },
+    }),
   ],
 });
