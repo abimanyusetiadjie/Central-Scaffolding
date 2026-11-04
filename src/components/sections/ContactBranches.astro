@@ -10,122 +10,222 @@ const {
   whatsappNumber = siteConfig.whatsappNumber,
 } = Astro.props;
 
-const waMessage = encodeURIComponent(
-  `Halo Admin ${siteConfig.businessName}, saya mau minta shareloc / tanya rute ke gudang pusat di ${siteConfig.warehouseAddress.street}, ${siteConfig.warehouseAddress.city}.`
+// WhatsApp URL untuk Toko / Konsultasi
+const waStoreMessage = encodeURIComponent(
+  `Halo Admin ${siteConfig.businessName}, saya mau tanya jadwal buka dan rute ke Toko di ${siteConfig.storeAddress.street}, ${siteConfig.storeAddress.city}.`
 );
-const waUrl = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
+const waStoreUrl = `https://wa.me/${whatsappNumber}?text=${waStoreMessage}`;
+
+// WhatsApp URL untuk Shareloc Gudang Pusat (Pengambilan Mandiri)
+const waWarehouseMessage = encodeURIComponent(
+  `Halo Admin ${siteConfig.businessName}, saya mau minta shareloc Gudang Pusat untuk ambil unit scaffolding mandiri (self-pickup) / kirim armada sendiri.`
+);
+const waWarehouseUrl = `https://wa.me/${whatsappNumber}?text=${waWarehouseMessage}`;
 ---
 
 <!-- ==============================================
-     LOKASI GUDANG PUSAT & KONTAK RESMI (COMPACT MOBILE)
+     LOKASI TOKO & GUDANG PUSAT (BERBEDA LOKASI & JAPRI ONLY)
 =============================================== -->
-<section class="py-10 sm:py-14 bg-white border-t border-slate-200" id="contact">
+<section class="py-10 sm:py-16 bg-slate-50/70 border-t border-slate-200" id="contact">
   <div class="container mx-auto px-4 font-montserrat">
+    
     <!-- Header Section -->
-    <div class="text-center mb-6 sm:mb-9">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-red-50 border border-red-200 text-red-700 text-xs font-montserrat font-bold uppercase tracking-wider mb-2">
+    <div class="text-center mb-7 sm:mb-10 max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-red-50 border border-red-200 text-red-700 text-xs font-montserrat font-bold uppercase tracking-wider mb-2.5">
         <i class="fas fa-map-location-dot text-xs"></i>
-        <span>Kontak &amp; Lokasi Gudang</span>
+        <span>Kontak &amp; Informasi Lokasi</span>
       </div>
-      <h2 class="text-2xl sm:text-4xl font-montserrat font-bold text-slate-900">
-        Lokasi Toko &amp; <span class="text-red-600">Gudang Pusat</span>
+      <h2 class="text-2xl sm:text-4xl font-montserrat font-bold text-slate-900 leading-tight">
+        Lokasi Toko &amp; <span class="text-red-600">Gudang Logistik</span>
       </h2>
+      <p class="text-xs sm:text-base font-roboto text-slate-600 mt-2">
+        Toko resmi buka setiap hari untuk konsultasi &amp; cek sampel fisik. Alamat Gudang Pusat terpisah dan diberikan via WhatsApp khusus pengambilan mandiri.
+      </p>
     </div>
 
-    <!-- Grid Utama: Peta di Kiri (7 Kolom) + Detail Gudang di Kanan (5 Kolom) -->
+    <!-- Grid Utama: 2 Kartu (Toko Maps Publik di Kiri + Gudang Japri Only di Kanan) -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-7 items-stretch max-w-6xl mx-auto">
       
-      <!-- KOLOM KIRI: PETA GOOGLE MAPS GUDANG PUSAT TANGERANG -->
-      <div class="lg:col-span-7 bg-white p-3.5 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-        <div class="relative w-full h-[230px] sm:h-[340px] rounded-xl overflow-hidden border border-slate-200 bg-slate-100 mb-3.5">
-          <iframe
-            allowfullscreen=""
-            class="w-full h-full border-0"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src={siteConfig.warehouseAddress.googleMapsEmbedUrl}
-            style="border:0;"
-            title={`Peta Lokasi Gudang Pusat ${siteConfig.businessName} Tangerang`}
-          >
-          </iframe>
-        </div>
-
-        <!-- Tombol Aksi Bawah Peta -->
-        <div class="grid grid-cols-2 gap-2 sm:gap-3">
-          <a
-            href={siteConfig.warehouseAddress.gmapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-[#1a73e8] hover:bg-[#1557b0] text-white px-2.5 py-2.5 sm:px-4 sm:py-3 rounded-xl font-bold text-[11px] sm:text-sm transition-all shadow-sm font-montserrat whitespace-nowrap"
-          >
-            <i class="fas fa-map-marker-alt text-xs sm:text-sm shrink-0"></i>
-            <span>Buka Google Maps</span>
-          </a>
-
-          <a
-            href={waUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-green-600 hover:bg-green-700 active:bg-green-800 text-white px-2.5 py-2.5 sm:px-4 sm:py-3 rounded-xl font-bold text-[11px] sm:text-sm transition-all shadow-sm font-montserrat whitespace-nowrap"
-          >
-            <i class="fab fa-whatsapp text-sm sm:text-base shrink-0"></i>
-            <span>Shareloc WhatsApp</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- KOLOM KANAN: DETAIL ALAMAT GUDANG PUSAT -->
-      <div class="lg:col-span-5 bg-white p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+      <!-- ==========================================
+           KARTU 1 (KIRI - 7 KOLOM): TOKO & KANTOR RESMI (PUBLIK)
+      =========================================== -->
+      <div class="lg:col-span-7 bg-white p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-all">
         <div>
-          <!-- Badge Buka -->
-          <div class="flex items-center justify-between mb-3 pb-2.5 border-b border-slate-100">
-            <span class="text-[11px] sm:text-xs font-montserrat font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 flex items-center gap-1.5">
+          <!-- Badge Header Toko -->
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3.5 pb-3 border-b border-slate-100">
+            <span class="text-[11px] sm:text-xs font-montserrat font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 flex items-center gap-1.5">
               <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
               <span>Buka Setiap Hari (07.00 – 18.00 WIB)</span>
             </span>
+            <span class="text-[11px] font-montserrat font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded">
+              📍 Titik Publik Maps
+            </span>
           </div>
 
-          <h3 class="text-base sm:text-xl font-montserrat font-extrabold text-slate-900 mb-3">
-            Toko Central Scaffolding
+          <h3 class="text-lg sm:text-2xl font-montserrat font-extrabold text-slate-900 mb-2">
+            Toko &amp; Kantor Pemasaran
           </h3>
+          <p class="text-xs sm:text-sm font-roboto text-slate-600 mb-4">
+            Tempat tatap muka konsumen untuk konsultasi teknis, melihat sampel fisik scaffolding, dan pengurusan administrasi/SPK.
+          </p>
 
-          <div class="space-y-3.5 font-roboto text-xs sm:text-sm text-slate-700">
-            <!-- Alamat Gudang Pusat -->
+          <!-- Frame Peta Google Maps Toko -->
+          <div class="relative w-full h-[220px] sm:h-[290px] rounded-xl overflow-hidden border border-slate-200 bg-slate-100 mb-4 shadow-inner">
+            <iframe
+              allowfullscreen=""
+              class="w-full h-full border-0"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src={siteConfig.storeAddress.googleMapsEmbedUrl}
+              style="border:0;"
+              title={`Peta Lokasi Toko Resmi ${siteConfig.businessName} Tangerang`}
+            >
+            </iframe>
+          </div>
+
+          <!-- Info Alamat Toko -->
+          <div class="space-y-2.5 font-roboto text-xs sm:text-sm text-slate-700 bg-slate-50 p-3.5 rounded-xl border border-slate-100 mb-4">
             <div class="flex items-start gap-2.5">
-              <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0 mt-0.5">
-                <i class="fas fa-map-marker-alt text-xs sm:text-sm"></i>
+              <div class="w-6 h-6 rounded-lg bg-red-100 text-red-600 flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fas fa-store text-xs"></i>
               </div>
               <div>
-                <p class="font-bold text-slate-900">Alamat Toko &amp; Gudang Utama:</p>
+                <p class="font-bold text-slate-900">Alamat Toko &amp; Showroom Sampel:</p>
                 <p class="text-slate-600 leading-relaxed mt-0.5">
-                  {siteConfig.warehouseAddress.street}, {siteConfig.warehouseAddress.district}, Kota {siteConfig.warehouseAddress.city}, {siteConfig.warehouseAddress.province} {siteConfig.warehouseAddress.postalCode}
+                  {siteConfig.storeAddress.street}, {siteConfig.storeAddress.district}, Kota {siteConfig.storeAddress.city}, {siteConfig.storeAddress.province} {siteConfig.storeAddress.postalCode}
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-2 pt-1 border-t border-slate-200/60 text-[11.5px] sm:text-xs text-slate-500">
+              <span class="text-emerald-600 font-bold">✔ Cek Fisik Sampel Pipa &amp; Frame</span>
+              <span>•</span>
+              <span class="text-emerald-600 font-bold">✔ Pembayaran DP / Invoice</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tombol Aksi Bawah Peta -->
+        <div class="grid grid-cols-2 gap-2.5 sm:gap-3 pt-2">
+          <a
+            href={siteConfig.storeAddress.gmapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-[#1a73e8] hover:bg-[#1557b0] text-white px-3 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-sm font-montserrat text-center"
+          >
+            <i class="fas fa-location-arrow text-xs sm:text-sm shrink-0"></i>
+            <span>Rute Google Maps</span>
+          </a>
+
+          <a
+            href={waStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white px-3 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-sm font-montserrat text-center"
+          >
+            <i class="fab fa-whatsapp text-sm sm:text-base shrink-0"></i>
+            <span>Chat WhatsApp Toko</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           KARTU 2 (KANAN - 5 KOLOM): GUDANG PUSAT (JAPRI ONLY)
+      =========================================== -->
+      <div class="lg:col-span-5 bg-white p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div>
+          <!-- Badge Header Gudang (Japri Only) -->
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3.5 pb-3 border-b border-slate-100">
+            <span class="text-[11px] sm:text-xs font-montserrat font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200 flex items-center gap-1.5">
+              <i class="fas fa-lock text-amber-600 text-xs"></i>
+              <span>Alamat Japri via WhatsApp</span>
+            </span>
+            <span class="text-[11px] font-montserrat font-semibold text-red-600 bg-red-50 border border-red-100 px-2.5 py-0.5 rounded">
+              Gudang Berbeda Lokasi
+            </span>
+          </div>
+
+          <h3 class="text-lg sm:text-2xl font-montserrat font-extrabold text-slate-900 mb-2">
+            Gudang Pusat &amp; Pool Logistik
+          </h3>
+          <p class="text-xs sm:text-sm font-roboto text-slate-600 mb-4">
+            Area penyimpanan stok 10.000+ set perancah, parkir armada pengiriman mandiri, dan titik muat truk.
+          </p>
+
+          <!-- Kotak Penjelasan Japri Only -->
+          <div class="bg-amber-50/80 border border-amber-200/90 rounded-xl p-3.5 sm:p-4 mb-4 font-roboto">
+            <div class="flex items-start gap-2.5 mb-2">
+              <div class="w-6 h-6 rounded-lg bg-amber-200/80 text-amber-900 flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fas fa-truck-ramp-box text-xs"></i>
+              </div>
+              <div>
+                <p class="font-bold text-slate-900 text-xs sm:text-sm">Khusus Pengambilan Mandiri (Self-Pickup):</p>
+                <p class="text-slate-700 text-[11.5px] sm:text-xs leading-relaxed mt-1">
+                  Bagi kontraktor atau mandor yang ingin mengambil unit sendiri menggunakan pikap/truk pribadi, <strong>titik shareloc gudang akan diberikan langsung melalui WhatsApp</strong>.
                 </p>
               </div>
             </div>
 
-            <!-- Telepon & WhatsApp -->
-            <div class="flex items-start gap-2.5">
-              <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-green-50 text-green-600 flex items-center justify-center shrink-0 mt-0.5">
-                <i class="fab fa-whatsapp text-sm sm:text-base"></i>
-              </div>
-              <div>
-                <p class="font-bold text-slate-900">Hotline Telepon &amp; WhatsApp:</p>
-                <a class="text-emerald-700 hover:underline font-extrabold" href={waUrl} target="_blank" rel="noopener noreferrer">
-                  {siteConfig.whatsappDisplay} (Fast Response)
-                </a>
-              </div>
+            <!-- Notice K3 & Antrean -->
+            <div class="mt-2.5 pt-2.5 border-t border-amber-200/70 flex items-start gap-2 text-[11px] sm:text-xs text-amber-900">
+              <i class="fas fa-shield-halved text-amber-600 shrink-0 mt-0.5"></i>
+              <span class="leading-relaxed">
+                <strong>Catatan K3:</strong> Pengambilan mandiri wajib konfirmasi jadwal via WhatsApp terlebih dahulu agar unit disiapkan tim gudang dan antrean muat lancar.
+              </span>
+            </div>
+          </div>
+
+          <!-- Highlight Keunggulan Gudang -->
+          <div class="space-y-2 font-montserrat text-xs text-slate-700 mb-5">
+            <div class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-emerald-600 text-sm shrink-0"></i>
+              <span>Stok Gudang Siap Muat: <strong>10.000+ Set SNI</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-emerald-600 text-sm shrink-0"></i>
+              <span>Akses Luas Armada Truk Tronton &amp; Pikap</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-emerald-600 text-sm shrink-0"></i>
+              <span>Layanan Kirim Cepat 1–3 Jam Se-Jabodetabek</span>
             </div>
           </div>
         </div>
 
-        <!-- Note Kredibilitas di Bawah Kartu -->
-        <div class="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs font-roboto text-slate-500">
-          <span>✔ Boleh Cek Fisik ke Gudang</span>
-          <span>✔ Bisa Bayar COD di Proyek</span>
-          <span class="text-slate-400 font-medium">📍 Layanan Tangerang &amp; Seluruh Jabodetabek</span>
+        <!-- Tombol Aksi Utama: Minta Shareloc Gudang via WA -->
+        <div class="space-y-2.5 pt-2">
+          <a
+            href={waWarehouseUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 active:scale-[0.99] text-white px-4 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-md font-montserrat text-center"
+          >
+            <i class="fab fa-whatsapp text-base sm:text-lg shrink-0"></i>
+            <span>Minta Shareloc Gudang via WhatsApp</span>
+          </a>
+
+          <div class="text-center">
+            <span class="text-[11px] font-roboto text-slate-500">
+              💬 Fast response: <a href={waWarehouseUrl} target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-bold hover:underline">{siteConfig.whatsappDisplay}</a>
+            </span>
+          </div>
         </div>
       </div>
 
     </div>
+
+    <!-- Bottom Banner Note -->
+    <div class="mt-6 sm:mt-8 max-w-6xl mx-auto bg-white p-3.5 sm:p-4 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-2.5 text-xs font-roboto text-slate-600 shadow-sm">
+      <div class="flex items-center gap-2 font-medium">
+        <i class="fas fa-truck-fast text-red-600 text-sm shrink-0"></i>
+        <span>Pengiriman proyek langsung dari Gudang Pusat kami menggunakan armada sendiri.</span>
+      </div>
+      <div class="flex items-center gap-3 font-semibold text-slate-700">
+        <span class="text-emerald-700">✔ Bisa Bayar COD di Proyek</span>
+        <span>•</span>
+        <span class="text-slate-500">Melayani Tangerang, Jakarta, BSD, Bekasi, Depok &amp; Bogor</span>
+      </div>
+    </div>
+
   </div>
 </section>

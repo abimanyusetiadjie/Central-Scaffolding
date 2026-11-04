@@ -27,6 +27,27 @@ export interface SiteConfig {
       longitude: number;
     };
   };
+  storeAddress: {
+    street: string;
+    district: string;
+    city: string;
+    province: string;
+    postalCode: string;
+    countryCode: string;
+    googleMapsEmbedUrl: string;
+    gmapsUrl: string;
+    coordinates: {
+      latitude: number;
+      longitude: number;
+    };
+  };
+  warehouseInfo: {
+    title: string;
+    status: string;
+    city: string;
+    province: string;
+    note: string;
+  };
   operationalHours: string;
   stats: {
     readyStockSets: string;
@@ -108,6 +129,27 @@ export const siteConfig: SiteConfig = {
       longitude: 106.6442871,
     },
   },
+  storeAddress: {
+    street: 'Jl. KH. Hasyim Ashari, RT.007/RW.007',
+    district: 'Sukasari, Kec. Tangerang',
+    city: 'Tangerang',
+    province: 'Banten',
+    postalCode: '15118',
+    countryCode: 'ID',
+    googleMapsEmbedUrl: 'https://maps.google.com/maps?q=-6.1850168,106.6442871&hl=id&z=17&output=embed',
+    gmapsUrl: 'https://maps.app.goo.gl/5EDjfXtG3V6G2nqR8',
+    coordinates: {
+      latitude: -6.1850168,
+      longitude: 106.6442871,
+    },
+  },
+  warehouseInfo: {
+    title: 'Gudang Pusat & Pool Logistik',
+    status: 'Alamat Japri via WhatsApp (Khusus Pengambilan Mandiri / Self-Pickup)',
+    city: 'Tangerang',
+    province: 'Banten',
+    note: 'Gudang pusat terpisah dari toko. Bagi kontraktor atau mandor yang ingin mengambil unit sendiri menggunakan armada pikap/truk pribadi, titik shareloc gudang akan diberikan langsung melalui WhatsApp demi kelancaran antrean muat dan keselamatan kerja (K3).',
+  },
   operationalHours: 'Senin - Minggu: 07.00 - 18.00 WIB (Buka Setiap Hari Tanpa Libur)',
   stats: {
     readyStockSets: '10.000+ Set Ready',
@@ -148,6 +190,11 @@ export const getFaqItems = (cityName?: string): FaqItem[] => {
       question: `Berapa lama estimasi pengiriman scaffolding ke lokasi proyek di ${city}?`,
       answer:
         `Untuk wilayah Tangerang, BSD Serpong, DKI Jakarta, Bekasi, hingga Depok & Bogor, pengiriman tiba dalam 1 hingga 3 jam di hari yang sama (Same Day Delivery) menggunakan armada pikap dan truk milik sendiri langsung dari Gudang Pusat.`,
+    },
+    {
+      question: 'Apakah lokasi toko dan gudang pusat scaffolding berada di alamat yang sama?',
+      answer:
+        `Lokasi Toko & Kantor Pemasaran kami berada di Jl. KH. Hasyim Ashari (Sukasari, Tangerang) untuk konsultasi, cek sampel fisik perancah, dan administrasi/invoice. Sedangkan Gudang Pusat 10.000+ set kami berada di lokasi terpisah khusus area bongkar muat armada truk/pikap. Bagi klien yang ingin mengambil unit secara mandiri (self-pickup), silakan hubungi WhatsApp kami (${siteConfig.whatsappDisplay}) untuk mendapatkan titik shareloc gudang dan konfirmasi jadwal muat.`,
     },
   ];
 };
