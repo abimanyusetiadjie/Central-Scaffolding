@@ -81,7 +81,7 @@ export interface FaqItem {
 
 export const siteConfig: SiteConfig = {
   businessName: 'Central Scaffolding',
-  tagline: 'Pusat Sewa Scaffolding, Beli & Jual Scaffolding Pipa Baja Standar SNI — Gudang & Armada Sendiri',
+  tagline: 'General Equipment & Scaffolding Supplier',
   whatsappNumber: '6281298188995',
   whatsappDisplay: '0812-9818-8995',
   phone: '081298188995',
