@@ -231,7 +231,7 @@ const products = [
 
     <!-- Navigasi Tab Kategori (Scrollable di layar sempit, Center di Desktop) -->
     <div
-      class="flex items-center sm:justify-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar pb-2 mb-6 sm:mb-8 -mx-4 px-4 sm:mx-0 sm:px-0"
+      class="flex items-center sm:justify-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar pb-2 mb-6 sm:mb-8 -mx-4 px-4 sm:mx-0 sm:px-0 [overscroll-behavior-x:contain]"
       role="tablist"
       aria-label="Filter Kategori Produk Scaffolding"
     >
@@ -277,7 +277,7 @@ const products = [
     <!-- Container Produk: Horizontal Snap Slider di Mobile, Grid 4 Kolom di Desktop (Gaya 1) -->
     <div
       id="product-catalog-grid"
-      class="flex overflow-x-auto snap-x snap-mandatory scroll-pl-4 touch-pan-x gap-3 pb-4 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-5 sm:overflow-visible sm:pb-0 sm:mx-0 sm:px-0 max-w-7xl mx-auto"
+      class="flex overflow-x-auto snap-x snap-mandatory scroll-pl-4 gap-3 pb-4 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-5 sm:overflow-visible sm:pb-0 sm:mx-0 sm:px-0 max-w-7xl mx-auto [overscroll-behavior-x:contain]"
     >
       {products.map((item) => (
         <article
@@ -306,7 +306,7 @@ const products = [
               data-badge={item.badge}
               data-specs={JSON.stringify(item.specs)}
               data-wa-url={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Halo Admin ${siteConfig.businessName}, saya mau tanya stok & harga untuk *${item.title}* di ${city}.`)}`}
-              class="relative aspect-[16/11] w-full flex items-center justify-center p-0.5 sm:p-1 mb-2.5 bg-white rounded-lg border border-slate-100 overflow-hidden cursor-zoom-in group/img focus:outline-none focus:ring-2 focus:ring-red-500/40 text-left touch-pan-x"
+              class="relative aspect-[16/11] w-full flex items-center justify-center p-0.5 sm:p-1 mb-2.5 bg-white rounded-lg border border-slate-100 overflow-hidden cursor-zoom-in group/img focus:outline-none focus:ring-2 focus:ring-red-500/40 text-left"
               aria-label={`Klik untuk melihat detail foto ${item.title}`}
             >
               <picture class="w-full h-full flex items-center justify-center">

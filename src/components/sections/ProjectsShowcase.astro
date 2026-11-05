@@ -96,7 +96,7 @@ const projects = [
     <!-- 6 Kartu Proyek: Horizontal Snap di Mobile, Grid 3 Kolom di Desktop -->
     <div
       id="projects-mobile-carousel"
-      class="flex overflow-x-auto snap-x snap-mandatory scroll-pl-4 touch-pan-x gap-3 pb-3 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-5 max-w-7xl mx-auto sm:overflow-visible sm:pb-0 sm:mx-auto sm:px-0 scroll-smooth"
+      class="flex overflow-x-auto snap-x snap-mandatory scroll-pl-4 gap-3 pb-3 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-5 max-w-7xl mx-auto sm:overflow-visible sm:pb-0 sm:mx-auto sm:px-0 scroll-smooth [overscroll-behavior-x:contain]"
     >
       {projects.map((proj) => (
         <article class="w-[80vw] max-w-[278px] shrink-0 snap-start sm:w-auto sm:max-w-none sm:shrink bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-200 hover:border-red-600 flex flex-col justify-between group">
