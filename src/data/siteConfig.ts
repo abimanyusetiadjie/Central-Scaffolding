@@ -116,7 +116,7 @@ export const siteConfig: SiteConfig = {
     warehouseMap: '/assets/img/warehouse/gudang-toko-central-scaffolding-2026.webp?v=20261027',
   },
   warehouseAddress: {
-    street: 'Jl. KH. Hasyim Ashari, RT.007/RW.007',
+    street: 'Jl. KH. Hasyim Ashari No. 7',
     district: 'Sukasari, Kec. Tangerang',
     city: 'Tangerang',
     province: 'Banten',
@@ -130,7 +130,7 @@ export const siteConfig: SiteConfig = {
     },
   },
   storeAddress: {
-    street: 'Jl. KH. Hasyim Ashari, RT.007/RW.007',
+    street: 'Jl. KH. Hasyim Ashari No. 7',
     district: 'Sukasari, Kec. Tangerang',
     city: 'Tangerang',
     province: 'Banten',
@@ -194,7 +194,7 @@ export const getFaqItems = (cityName?: string): FaqItem[] => {
     {
       question: 'Apakah lokasi toko dan gudang pusat scaffolding berada di alamat yang sama?',
       answer:
-        `Lokasi Toko & Kantor Pemasaran kami berada di Jl. KH. Hasyim Ashari (Sukasari, Tangerang) untuk konsultasi, cek sampel fisik perancah, dan administrasi/invoice. Sedangkan Gudang Pusat 10.000+ set kami berada di lokasi terpisah khusus area bongkar muat armada truk/pikap. Bagi klien yang ingin mengambil unit secara mandiri (self-pickup), silakan hubungi WhatsApp kami (${siteConfig.whatsappDisplay}) untuk mendapatkan titik shareloc gudang dan konfirmasi jadwal muat.`,
+        `Lokasi Toko & Kantor Pemasaran kami berada di Jl. KH. Hasyim Ashari No. 7 (Sukasari, Tangerang) untuk konsultasi, cek sampel fisik perancah, dan administrasi/invoice. Sedangkan Gudang Pusat 10.000+ set kami berada di lokasi terpisah khusus area bongkar muat armada truk/pikap. Bagi klien yang ingin mengambil unit secara mandiri (self-pickup), silakan hubungi WhatsApp kami (${siteConfig.whatsappDisplay}) untuk mendapatkan titik shareloc gudang dan konfirmasi jadwal muat.`,
     },
   ];
 };
