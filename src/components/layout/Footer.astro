@@ -119,13 +119,19 @@ const currentYear = new Date().getFullYear();
               </a>
             </li>
             <li>
-              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="#galeri-gudang">
+              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="/tentang-kami/">
+                <span class="text-red-500 font-bold text-xs">›</span>
+                <span>Tentang Kami</span>
+              </a>
+            </li>
+            <li>
+              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="/#galeri-gudang">
                 <span class="text-red-500 font-bold text-xs">›</span>
                 <span>Galeri Gudang</span>
               </a>
             </li>
             <li>
-              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="#products">
+              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="/#products">
                 <span class="text-red-500 font-bold text-xs">›</span>
                 <span>Produk Scaffolding</span>
               </a>
@@ -135,19 +141,25 @@ const currentYear = new Date().getFullYear();
           <!-- Sisi 2 (Kanan) -->
           <ul class="space-y-3">
             <li>
-              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="#projects">
+              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="/panduan-scaffolding/">
+                <span class="text-red-500 font-bold text-xs">›</span>
+                <span>Panduan Scaffolding</span>
+              </a>
+            </li>
+            <li>
+              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="/#projects">
                 <span class="text-red-500 font-bold text-xs">›</span>
                 <span>Proyek Kami</span>
               </a>
             </li>
             <li>
-              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="#faq">
+              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="/#faq">
                 <span class="text-red-500 font-bold text-xs">›</span>
                 <span>FAQ</span>
               </a>
             </li>
             <li>
-              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="#contact">
+              <a class="text-gray-300 hover:text-red-400 transition-colors duration-300 flex items-center gap-1.5" href="/#contact">
                 <span class="text-red-500 font-bold text-xs">›</span>
                 <span>Kontak &amp; Cabang</span>
               </a>
@@ -226,7 +238,7 @@ const currentYear = new Date().getFullYear();
           <li>
             <a
               class="inline-block bg-gray-800 hover:bg-red-600 text-gray-300 hover:text-white text-xs sm:text-sm px-4 py-2 rounded-full transition-colors duration-300 font-roboto"
-              href={`/area/${loc.slug}`}
+              href={`/area/${loc.slug}/`}
             >
               Sewa &amp; Beli Scaffolding {loc.cityName}
             </a>

@@ -13,6 +13,9 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
 <MainLayout
   title={`Halaman Tidak Ditemukan — ${siteConfig.businessName}`}
   description={`Halaman yang Anda cari tidak ditemukan. Silakan kembali ke daftar barang sewa & jual beli scaffolding ${siteConfig.businessName} atau hubungi WhatsApp gudang.`}
+  noindex={true}
+  includeFaq={false}
+  preloadHero={false}
 >
   <section
     aria-labelledby="error-404-heading"
@@ -72,15 +75,15 @@ const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
               <span>Halaman Utama</span>
             </a>
             <a
-              href="/#kalkulator-sewa"
+              href="/panduan-scaffolding/"
               class="inline-flex items-center gap-1.5 font-display font-bold text-sm bg-slate-100 hover:bg-amber-100 text-slate-800 border border-slate-300 px-3.5 py-2 rounded-lg transition-colors"
             >
               <Calculator className="w-4 h-4" />
-              <span>Form Pesan Cepat</span>
+              <span>Panduan Hitung Set</span>
             </a>
             {locations.map((loc) => (
               <a
-                href={`/area/${loc.slug}`}
+                href={`/area/${loc.slug}/`}
                 class="inline-flex items-center font-display font-bold text-sm bg-slate-100 hover:bg-amber-100 text-slate-800 border border-slate-300 px-3.5 py-2 rounded-lg transition-colors"
               >
                 Area {loc.cityName}

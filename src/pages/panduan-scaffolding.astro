@@ -1,0 +1,224 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { siteConfig } from '../data/siteConfig';
+
+const pageTitle = `Panduan Ukuran & Cara Hitung Set Scaffolding SNI | Central Scaffolding`;
+const pageDescription = `Panduan lengkap memilih ukuran Main Frame 1.90m vs 1.70m, rumus hitung kebutuhan set scaffolding proyek, cek standar K3 pipa tebal SNI, dan tips sewa vs beli dari Central Scaffolding.`;
+
+const waMessage = encodeURIComponent(
+  `Halo Admin ${siteConfig.businessName}, saya sudah baca panduan ukuran scaffolding dan ingin dibantu hitung kebutuhan set untuk proyek saya.`
+);
+const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${waMessage}`;
+---
+
+<MainLayout
+  title={pageTitle}
+  description={pageDescription}
+  city="Tangerang & Jabodetabek"
+  breadcrumbLabel="Panduan Ukuran & Hitung Scaffolding"
+  includeFaq={false}
+  preloadHero={false}
+>
+  <!-- Header Halaman Panduan -->
+  <section class="pt-24 sm:pt-28 pb-10 sm:pb-14 bg-gradient-to-b from-slate-900 to-slate-800 text-white">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <nav aria-label="Breadcrumb" class="mb-4 flex items-center gap-2 text-xs font-montserrat text-slate-300">
+        <a href="/" class="hover:text-red-400 transition-colors font-semibold">Central Scaffolding</a>
+        <span aria-hidden="true" class="text-slate-500">›</span>
+        <span class="text-red-400 font-semibold">Panduan Scaffolding</span>
+      </nav>
+
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-red-600/20 border border-red-500/40 text-red-300 text-xs font-montserrat font-bold uppercase tracking-wider mb-3">
+        <i class="fas fa-ruler-combined text-xs"></i>
+        <span>Panduan Teknis Kontraktor</span>
+      </div>
+
+      <h1 class="text-2xl sm:text-4xl md:text-5xl font-montserrat font-extrabold leading-tight mb-4">
+        Panduan Ukuran, Spesifikasi &amp; <span class="text-red-500">Cara Hitung Set Scaffolding SNI</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-200 font-roboto leading-relaxed max-w-3xl">
+        Disusun oleh tim lapangan <a href="/" class="text-red-300 font-semibold hover:underline">Central Scaffolding</a> untuk membantu kontraktor, mandor, dan pemilik proyek memilih ukuran frame yang tepat serta menghitung jumlah set perancah secara akurat sebelum memesan.
+      </p>
+    </div>
+  </section>
+
+  <!-- Konten Utama Panduan -->
+  <article class="py-10 sm:py-14 bg-white">
+    <div class="container mx-auto px-4 max-w-5xl space-y-12 font-roboto text-slate-700">
+      <!-- Bagian 1: Perbandingan Ukuran Frame -->
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-montserrat font-bold text-slate-900">
+          1. Perbedaan Ukuran Main Frame 1,90m, 1,70m &amp; Ladder Frame 0,90m
+        </h2>
+        <p class="text-sm sm:text-base leading-relaxed">
+          Satu set scaffolding standar terdiri dari <strong>2 pcs Frame</strong>, <strong>2 pcs Cross Brace</strong> (silangan pengaku), dan <strong>4 pcs Join Pin</strong> (konektor sambungan tingkat). Pemilihan tinggi frame sangat menentukan kenyamanan kerja tukang dan kekuatan topangan bekisting cor.
+        </p>
+
+        <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-slate-100 text-slate-900 font-montserrat">
+                <th class="p-3 sm:p-4 border-b border-slate-200">Tipe Frame</th>
+                <th class="p-3 sm:p-4 border-b border-slate-200">Dimensi (T × L)</th>
+                <th class="p-3 sm:p-4 border-b border-slate-200">Panjang Bentangan</th>
+                <th class="p-3 sm:p-4 border-b border-slate-200">Fungsi Paling Ideal</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 bg-white">
+              <tr>
+                <td class="p-3 sm:p-4 font-bold text-slate-900">Main Frame 1,90 m</td>
+                <td class="p-3 sm:p-4">190 cm × 122 cm</td>
+                <td class="p-3 sm:p-4">183 cm (Cross Brace 220)</td>
+                <td class="p-3 sm:p-4">Pekerjaan fasad gedung, plester/acian, cat dinding, dan area kerja yang butuh ruang berdiri lega.</td>
+              </tr>
+              <tr class="bg-slate-50/50">
+                <td class="p-3 sm:p-4 font-bold text-slate-900">Main Frame 1,70 m</td>
+                <td class="p-3 sm:p-4">170 cm × 122 cm</td>
+                <td class="p-3 sm:p-4">183 cm (Cross Brace 220)</td>
+                <td class="p-3 sm:p-4">Penyangga bekisting cor beton (plat lantai &amp; balok) karena lebih stabil untuk beban vertikal berat.</td>
+              </tr>
+              <tr>
+                <td class="p-3 sm:p-4 font-bold text-slate-900">Ladder Frame 0,90 m</td>
+                <td class="p-3 sm:p-4">90 cm × 122 cm</td>
+                <td class="p-3 sm:p-4">183 cm (Cross Brace 193/220)</td>
+                <td class="p-3 sm:p-4">Frame tambahan paling atas untuk menyesuaikan ketinggian cor atau plafon tanggung (misal tinggi 2,8m–3,6m).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Bagian 2: Rumus Hitung Kebutuhan Set -->
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-montserrat font-bold text-slate-900">
+          2. Cara Praktis Menghitung Kebutuhan Jumlah Set Scaffolding
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-3">
+            <h3 class="font-montserrat font-bold text-slate-900 text-base flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-red-600 text-white text-xs flex items-center justify-center shrink-0">A</span>
+              <span>Untuk Pekerjaan Fasad / Dinding</span>
+            </h3>
+            <p class="text-xs sm:text-sm leading-relaxed">
+              Lebar efektif 1 bentangan set standar adalah <strong>1,83 meter</strong>, dan tinggi 1 tingkat Main Frame 1,90 adalah <strong>1,9 meter</strong>.
+            </p>
+            <div class="bg-white rounded-xl p-3.5 border border-slate-200 text-xs sm:text-sm space-y-1">
+              <p class="font-bold text-slate-900">Contoh Kasus:</p>
+              <p>Dinding fasad lebar <strong>10 meter</strong> × tinggi <strong>7,5 meter</strong>:</p>
+              <ul class="list-disc pl-5 space-y-1 text-slate-600 pt-1">
+                <li>Kolom horizontal: 10 m ÷ 1,83 m = <strong>6 kolom</strong></li>
+                <li>Tingkat vertikal: 7,5 m ÷ 1,9 m = <strong>4 tingkat</strong></li>
+                <li>Total kebutuhan: 6 × 4 = <strong>24 Set Main Frame 1,90</strong> (+ Catwalk &amp; Tangga sesuai akses kerja)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-3">
+            <h3 class="font-montserrat font-bold text-slate-900 text-base flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-red-600 text-white text-xs flex items-center justify-center shrink-0">B</span>
+              <span>Untuk Penyangga Cor Dak Beton</span>
+            </h3>
+            <p class="text-xs sm:text-sm leading-relaxed">
+              Untuk pengecoran plat lantai standar (tebal 12–15 cm), 1 set scaffolding menopang area rata-rata <strong>2,2 m² – 2,5 m²</strong>, lengkap dengan <strong>4 Jack Base</strong> di bawah dan <strong>4 U-Head Jack</strong> di atas.
+            </p>
+            <div class="bg-white rounded-xl p-3.5 border border-slate-200 text-xs sm:text-sm space-y-1">
+              <p class="font-bold text-slate-900">Contoh Kasus:</p>
+              <p>Luas area cor <strong>50 m²</strong> dengan tinggi lantai ke dak <strong>3,2 meter</strong>:</p>
+              <ul class="list-disc pl-5 space-y-1 text-slate-600 pt-1">
+                <li>Titik set dasar: 50 m² ÷ 2,3 m² ≈ <strong>22 Set Main Frame 1,70</strong></li>
+                <li>Kombinasi tinggi: + <strong>22 Set Ladder Frame 0,90</strong> (total rangka 2,6m + adjuster Jack Base &amp; U-Head 60 cm = pas 3,2m)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bagian 3: Checklist K3 & Standar SNI -->
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-montserrat font-bold text-slate-900">
+          3. Checklist Pengecekan Keamanan (K3) Sebelum Pemasangan
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs sm:text-sm">
+          <div class="flex items-start gap-3 p-4 rounded-xl border border-slate-200 bg-white">
+            <i class="fas fa-check-circle text-emerald-600 text-base mt-0.5 shrink-0"></i>
+            <div>
+              <strong class="text-slate-900 font-montserrat block mb-0.5">Ketebalan Pipa Minimal 1,8 mm</strong>
+              <span>Pastikan diameter pipa utama 42–48 mm dengan ketebalan 1.8–2.0 mm agar tidak melengkung saat menahan beban pekerja dan material cor.</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 rounded-xl border border-slate-200 bg-white">
+            <i class="fas fa-check-circle text-emerald-600 text-base mt-0.5 shrink-0"></i>
+            <div>
+              <strong class="text-slate-900 font-montserrat block mb-0.5">Kunci Lock Pin Cross Brace Lengkap</strong>
+              <span>Seluruh pengunci silangan wajib berfungsi baik dan tidak macet agar struktur berdiri kaku dan tidak bergoyang.</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 rounded-xl border border-slate-200 bg-white">
+            <i class="fas fa-check-circle text-emerald-600 text-base mt-0.5 shrink-0"></i>
+            <div>
+              <strong class="text-slate-900 font-montserrat block mb-0.5">Gunakan Jack Base pada Lahan Tidak Rata</strong>
+              <span>Jangan mengganjal kaki frame dengan batu bata atau kayu lepas. Gunakan Jack Base berulir agar beban terdistribusi rata ke tanah.</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 rounded-xl border border-slate-200 bg-white">
+            <i class="fas fa-check-circle text-emerald-600 text-base mt-0.5 shrink-0"></i>
+            <div>
+              <strong class="text-slate-900 font-montserrat block mb-0.5">Pijakan Catwalk &amp; Roda Berpengunci</strong>
+              <span>Untuk pekerjaan ketinggian, gunakan Catwalk plat baja anti-slip berkait pengaman dan pastikan tuas rem Caster Wheel terkunci saat dipakai.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bagian 4: Sewa vs Beli Baru vs Second -->
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-montserrat font-bold text-slate-900">
+          4. Lebih Hemat Sewa, Beli Baru, atau Beli Second?
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+          <div class="p-5 rounded-xl bg-red-50/60 border border-red-200/80 space-y-2">
+            <h3 class="font-montserrat font-bold text-red-700 text-sm">Sewa Harian / Bulanan</h3>
+            <p class="leading-relaxed">Cocok untuk proyek durasi <strong>1 minggu – 4 bulan</strong> atau pemilik rumah yang tidak ingin repot menyimpan barang setelah proyek selesai.</p>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <h3 class="font-montserrat font-bold text-slate-900 text-sm">Beli Second (Rekondisi)</h3>
+            <p class="leading-relaxed">Solusi paling ekonomis bagi kontraktor aktif dengan proyek berulang — harga hemat namun struktur pipa tetap kokoh standar SNI.</p>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <h3 class="font-montserrat font-bold text-slate-900 text-sm">Beli Baru (New SNI)</h3>
+            <p class="leading-relaxed">Ideal untuk inventaris aset jangka panjang perusahaan konstruksi, gedung komersial, atau proyek dengan persyaratan audit K3 ketat.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Konsultasi Hitung Gratis -->
+      <section class="bg-slate-900 text-white rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+        <div>
+          <h2 class="text-lg sm:text-2xl font-montserrat font-bold mb-1.5">
+            Butuh Bantuan Hitung Kebutuhan Set untuk Proyek Anda?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-300 max-w-xl">
+            Kirimkan ukuran panjang/tinggi area kerja ke admin <a href="/" class="text-red-400 underline hover:text-red-300">Central Scaffolding</a> — kami hitungkan estimasi jumlah set, aksesoris, dan penawaran terbaik secara gratis. Baca juga <a href="/tentang-kami/" class="text-red-400 underline hover:text-red-300">profil resmi perusahaan kami</a>.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2.5 shrink-0">
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-3 rounded-xl font-montserrat font-bold text-sm transition-all shadow-md"
+          >
+            <i class="fab fa-whatsapp text-lg"></i>
+            <span>Konsultasi via WhatsApp</span>
+          </a>
+          <a
+            href="/#products"
+            class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/25 px-5 py-3 rounded-xl font-montserrat font-bold text-sm transition-all"
+          >
+            <span>Lihat Katalog Produk</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </article>
+</MainLayout>

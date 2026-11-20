@@ -12,16 +12,30 @@ export interface Props {
   coveredDistricts?: string[];
   canonicalUrl?: string;
   ogImage?: string;
+  breadcrumbLabel?: string;
+  includeFaq?: boolean;
+  preloadHero?: boolean;
+  noindex?: boolean;
 }
 
 const {
   city = siteConfig.warehouseAddress.city,
   coveredDistricts = [],
-  title = `Sewa & Jual Scaffolding ${city} (Bisa COD) | Ready 10.000+ Set SNI — ${siteConfig.businessName}`,
-  description = `Pusat sewa (rental) dan jual beli scaffolding baru & second rekondisi di ${city}. Ready stok ${siteConfig.stats.readyStockSets}, pipa tebal ${siteConfig.stats.pipeThickness} standar SNI, kirim cepat 1-3 jam armada sendiri, bisa bayar COD.`,
-  canonicalUrl = Astro.url?.href || siteConfig.siteUrl,
+  title = `${siteConfig.businessName} — Pusat Sewa & Jual Scaffolding SNI`,
+  description = `Central Scaffolding melayani sewa (rental) dan jual beli scaffolding baru & second standar SNI di ${city}. Ready stok ${siteConfig.stats.readyStockSets}, pipa tebal ${siteConfig.stats.pipeThickness}, kirim cepat 1–3 jam, bisa COD.`,
+  canonicalUrl: rawCanonicalUrl,
   ogImage = `${siteConfig.siteUrl}/og-banner.jpg?v=20261104b`,
+  breadcrumbLabel,
+  includeFaq = true,
+  preloadHero = true,
+  noindex = false,
 } = Astro.props;
+
+const canonicalUrl = (() => {
+  if (rawCanonicalUrl) return rawCanonicalUrl;
+  const pathname = Astro.url?.pathname || '/';
+  return new URL(pathname, siteConfig.siteUrl).href;
+})();
 
 const cityLower = city.toLowerCase();
 const geoRegion = cityLower.includes('jakarta')
@@ -41,6 +55,8 @@ const seoKeywords = `scaffolding, sewa scaffolding, beli scaffolding, jual scaff
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="eFMLfhks6qF7oyl6gacgo9Qyor6rCO-JyC91K_mLuhc" />
     <meta name="theme-color" content="#dc2626" />
+    <meta name="application-name" content={siteConfig.businessName} />
+    <meta name="apple-mobile-web-app-title" content={siteConfig.businessName} />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
@@ -50,22 +66,32 @@ const seoKeywords = `scaffolding, sewa scaffolding, beli scaffolding, jual scaff
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Preload Hero LCP Image for Instant Mobile Rendering (Core Web Vitals) -->
-    <link
-      rel="preload"
-      as="image"
-      href="/assets/video/bg-hero-index-poster.webp?v=20261031"
-      type="image/webp"
-      fetchpriority="high"
-    />
+    {preloadHero && (
+      <link
+        rel="preload"
+        as="image"
+        href="/assets/video/bg-hero-index-poster.webp?v=20261031"
+        type="image/webp"
+        fetchpriority="high"
+      />
+    )}
 
     <!-- Primary SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={seoKeywords} />
     <meta name="author" content={siteConfig.businessName} />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta
+      name="robots"
+      content={
+        noindex
+          ? 'noindex, follow'
+          : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+      }
+    />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="id-ID" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 
     <!-- Geo Meta Tags for Local SEO -->
     <meta name="geo.region" content={geoRegion} />
@@ -130,7 +156,14 @@ const seoKeywords = `scaffolding, sewa scaffolding, beli scaffolding, jual scaff
     </noscript>
 
     <!-- JSON-LD Structured Data -->
-    <SchemaLD city={city} url={canonicalUrl} />
+    <SchemaLD
+      city={city}
+      url={canonicalUrl}
+      pageTitle={title}
+      pageDescription={description}
+      breadcrumbLabel={breadcrumbLabel}
+      includeFaq={includeFaq}
+    />
   </head>
   <body class="bg-white text-gray-900 font-sans antialiased selection:bg-red-600 selection:text-white min-h-screen flex flex-col overflow-x-hidden w-full">
     <Navbar city={city} coveredDistricts={coveredDistricts} />

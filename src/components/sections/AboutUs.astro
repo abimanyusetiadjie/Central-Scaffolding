@@ -14,11 +14,14 @@ export interface Props {
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-6 sm:mb-9">
         <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100/80 text-red-600 text-[11px] font-montserrat font-bold uppercase tracking-wider mb-2">
-          <span>Jaminan Layanan</span>
+          <span>Jaminan Layanan Resmi</span>
         </div>
         <h2 class="text-2xl sm:text-4xl font-montserrat font-extrabold text-gray-900 leading-tight">
-          Kenapa Kontraktor <span class="text-red-600">Pilih Kami?</span>
+          Kenapa Kontraktor Pilih <span class="text-red-600">Central Scaffolding?</span>
         </h2>
+        <p class="text-xs sm:text-sm text-slate-600 font-roboto mt-2 max-w-2xl mx-auto leading-relaxed">
+          Berpengalaman menangani lebih dari 1.000+ proyek konstruksi di Jabodetabek, <strong>Central Scaffolding</strong> memastikan setiap unit steger pipa tebal standar SNI tiba tepat waktu dan siap pakai.
+        </p>
       </div>
 
       <!-- 4 Poin Utama: 2x2 Grid Kompak di Mobile, 4 Kolom di Desktop -->
@@ -82,6 +85,24 @@ export interface Props {
             </p>
           </div>
         </div>
+      </div>
+
+      <!-- Tautan Profil & Panduan (Internal Link Otoritas Brand) -->
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 font-montserrat">
+        <a
+          href="/tentang-kami/"
+          class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-white hover:bg-red-50 text-slate-700 hover:text-red-700 border border-slate-200 hover:border-red-300 text-xs sm:text-sm font-semibold transition-all shadow-xs"
+        >
+          <i class="fas fa-building text-red-600 text-xs"></i>
+          <span>Profil Central Scaffolding</span>
+        </a>
+        <a
+          href="/panduan-scaffolding/"
+          class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-white hover:bg-red-50 text-slate-700 hover:text-red-700 border border-slate-200 hover:border-red-300 text-xs sm:text-sm font-semibold transition-all shadow-xs"
+        >
+          <i class="fas fa-ruler-combined text-red-600 text-xs"></i>
+          <span>Panduan Ukuran &amp; Hitung Set SNI</span>
+        </a>
       </div>
     </div>
   </div>

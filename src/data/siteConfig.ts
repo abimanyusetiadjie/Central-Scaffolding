@@ -22,6 +22,7 @@ export interface SiteConfig {
     countryCode: string;
     googleMapsEmbedUrl: string;
     gmapsUrl: string;
+    gmapsCanonicalUrl: string;
     coordinates: {
       latitude: number;
       longitude: number;
@@ -36,6 +37,7 @@ export interface SiteConfig {
     countryCode: string;
     googleMapsEmbedUrl: string;
     gmapsUrl: string;
+    gmapsCanonicalUrl: string;
     coordinates: {
       latitude: number;
       longitude: number;
@@ -93,6 +95,9 @@ export interface TargetLocation {
   deliveryEstimate: string;
   metaTitle: string;
   metaDescription: string;
+  localOverview?: string;
+  routeAccess?: string;
+  projectHighlights?: string[];
 }
 
 export interface FaqItem {
@@ -124,6 +129,7 @@ export const siteConfig: SiteConfig = {
     countryCode: 'ID',
     googleMapsEmbedUrl: 'https://maps.google.com/maps?q=-6.1850168,106.6442871&hl=id&z=17&output=embed',
     gmapsUrl: 'https://maps.app.goo.gl/5EDjfXtG3V6G2nqR8',
+    gmapsCanonicalUrl: 'https://www.google.com/maps/place/Toko+Central+Scaffolding/@-6.1850168,106.6442871,17z/data=!4m6!3m5!1s0x2e69f926fdb447b1:0x336ad10168bea5b3!8m2!3d-6.1850168!4d106.6442871!16s%2Fg%2F11bbrcgl5_',
     coordinates: {
       latitude: -6.1850168,
       longitude: 106.6442871,
@@ -138,6 +144,7 @@ export const siteConfig: SiteConfig = {
     countryCode: 'ID',
     googleMapsEmbedUrl: 'https://maps.google.com/maps?q=-6.1850168,106.6442871&hl=id&z=17&output=embed',
     gmapsUrl: 'https://maps.app.goo.gl/5EDjfXtG3V6G2nqR8',
+    gmapsCanonicalUrl: 'https://www.google.com/maps/place/Toko+Central+Scaffolding/@-6.1850168,106.6442871,17z/data=!4m6!3m5!1s0x2e69f926fdb447b1:0x336ad10168bea5b3!8m2!3d-6.1850168!4d106.6442871!16s%2Fg%2F11bbrcgl5_',
     coordinates: {
       latitude: -6.1850168,
       longitude: 106.6442871,
@@ -158,8 +165,8 @@ export const siteConfig: SiteConfig = {
     projectsCompleted: '1000+',
   },
   social: {
-    instagram: 'https://www.instagram.com/central_scaffolding.id?srtk=NGN6MzE3djh1NGd3',
-    tokopedia: 'https://tk.tokopedia.com/ZSgXxncg6/',
+    instagram: 'https://www.instagram.com/central_scaffolding.id/',
+    tokopedia: 'https://www.tokopedia.com/centralscafollding88',
   },
 };
 

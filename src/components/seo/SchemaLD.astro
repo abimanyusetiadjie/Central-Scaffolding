@@ -5,21 +5,37 @@ import locations from '../../data/locations.json';
 export interface Props {
   city?: string;
   url?: string;
+  pageTitle?: string;
+  pageDescription?: string;
+  breadcrumbLabel?: string;
+  includeFaq?: boolean;
 }
 
 const {
   city = siteConfig.warehouseAddress.city,
-  url = Astro.url?.href || siteConfig.siteUrl,
+  url = Astro.url?.href || `${siteConfig.siteUrl}/`,
+  pageTitle = `${siteConfig.businessName} — Pusat Sewa & Jual Scaffolding SNI`,
+  pageDescription = `Central Scaffolding adalah pusat sewa scaffolding & jual scaffolding baru/second standar SNI di Tangerang & Jabodetabek. Ready 10.000+ set, kirim 1–3 jam, bisa COD.`,
+  breadcrumbLabel,
+  includeFaq = true,
 } = Astro.props;
 
 const baseUrl = siteConfig.siteUrl.replace(/\/$/, '');
-const cleanUrl = url.replace(/\/$/, '') || baseUrl;
-const isAreaPage = cleanUrl.includes('/area/');
-const faqItems = getFaqItems(city);
+const parsedUrl = (() => {
+  try {
+    const u = new URL(url, baseUrl);
+    return `${baseUrl}${u.pathname}`;
+  } catch {
+    return `${baseUrl}/`;
+  }
+})();
+const normalizedPath = parsedUrl.replace(baseUrl, '') || '/';
+const isHome = normalizedPath === '/' || normalizedPath === '';
+const isAreaPage = normalizedPath.startsWith('/area/');
+const faqItems = includeFaq ? getFaqItems(city) : [];
 
 const areaServedList = Array.from(
   new Set([
-    city,
     'Tangerang',
     'Tangerang Selatan',
     'BSD & Serpong',
@@ -38,53 +54,86 @@ const areaServedList = Array.from(
   name: cityName,
 }));
 
-const websiteSchema = {
-  '@context': 'https://schema.org',
+const canonicalSameAs = [
+  siteConfig.social.instagram,
+  siteConfig.social.tokopedia,
+  siteConfig.storeAddress.gmapsCanonicalUrl,
+];
+
+const logoObject = {
+  '@type': 'ImageObject',
+  '@id': `${baseUrl}/#logo`,
+  url: `${baseUrl}${siteConfig.images.logo}`,
+  contentUrl: `${baseUrl}${siteConfig.images.logo}`,
+  width: 575,
+  height: 200,
+  caption: `${siteConfig.businessName} — Logo Resmi`,
+};
+
+const websiteNode = {
   '@type': 'WebSite',
   '@id': `${baseUrl}/#website`,
   name: siteConfig.businessName,
   alternateName: [
-    'Central Scaffolding',
-    'Sewa Scaffolding & Beli Scaffolding SNI',
+    'Toko Central Scaffolding',
     'Central Scaffolding Indonesia',
-    'Pusat Sewa Scaffolding Tangerang & Jabodetabek',
+    'centralscaffolding.id',
   ],
-  url: baseUrl,
+  url: `${baseUrl}/`,
+  publisher: { '@id': `${baseUrl}/#organization` },
   inLanguage: 'id-ID',
 };
 
-// Breadcrumbs are only valid according to Google Search Central when there are >= 2 items (hierarchy).
-// Single-item breadcrumbs on root homepage trigger rich results invalidity.
-const breadcrumbSchema = isAreaPage
-  ? {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      '@id': `${cleanUrl}/#breadcrumb`,
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Beranda',
-          item: baseUrl,
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: `Sewa & Beli Scaffolding ${city}`,
-          item: cleanUrl,
-        },
-      ],
-    }
-  : null;
-
-const localBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'HomeAndConstructionBusiness',
+const organizationNode = {
+  '@type': 'Organization',
   '@id': `${baseUrl}/#organization`,
-  name: `${siteConfig.businessName} — Pusat Sewa Scaffolding & Beli Scaffolding ${city}`,
-  description: siteConfig.tagline,
-  slogan: 'Pusat Sewa Scaffolding, Beli & Jual Scaffolding Standar SNI — Ready 10.000+ Set Siap Kirim 1-3 Jam',
+  name: siteConfig.businessName,
+  legalName: siteConfig.businessName,
+  alternateName: [
+    'Toko Central Scaffolding',
+    'Central Scaffolding Tangerang',
+    'Central Scaffolding Indonesia',
+  ],
+  url: `${baseUrl}/`,
+  logo: logoObject,
+  image: [
+    `${baseUrl}/og-banner.jpg`,
+    `${baseUrl}${siteConfig.images.logo}`,
+  ],
+  description:
+    'Central Scaffolding adalah pusat penyewaan (rental) dan penjualan scaffolding baru maupun second berstandar SNI di Tangerang & Jabodetabek. Ready stok 10.000+ set, pengiriman cepat 1–3 jam armada sendiri, dan pembayaran COD.',
+  telephone: `+${siteConfig.whatsappNumber}`,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: siteConfig.storeAddress.street,
+    addressLocality: siteConfig.storeAddress.district,
+    addressRegion: `Kota ${siteConfig.storeAddress.city}, ${siteConfig.storeAddress.province}`,
+    postalCode: siteConfig.storeAddress.postalCode,
+    addressCountry: siteConfig.storeAddress.countryCode,
+  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: `+${siteConfig.whatsappNumber}`,
+      contactType: 'customer service',
+      areaServed: 'ID',
+      availableLanguage: ['Indonesian'],
+    },
+  ],
+  sameAs: canonicalSameAs,
+};
+
+const localBusinessNode = {
+  '@type': 'HomeAndConstructionBusiness',
+  '@id': `${baseUrl}/#localbusiness`,
+  name: siteConfig.businessName,
+  alternateName: 'Toko Central Scaffolding',
+  parentOrganization: { '@id': `${baseUrl}/#organization` },
+  description:
+    'Toko & pusat sewa scaffolding (rental harian/bulanan) serta jual beli scaffolding baru dan second standar SNI pipa tebal 1.8–2.0 mm di Tangerang, Jakarta, BSD, Bekasi, Depok & Bogor.',
+  slogan: 'Pusat Sewa & Jual Scaffolding Standar SNI — Ready 10.000+ Set Kirim 1–3 Jam',
   knowsAbout: [
+    'Central Scaffolding',
     'Scaffolding',
     'Sewa Scaffolding',
     'Beli Scaffolding',
@@ -99,8 +148,8 @@ const localBusinessSchema = {
     'Roda Scaffolding Caster Heavy Duty',
     'U-Head Jack & Jack Base',
   ],
-  hasMap: siteConfig.warehouseAddress.gmapsUrl,
-  url: cleanUrl,
+  hasMap: siteConfig.storeAddress.gmapsCanonicalUrl,
+  url: `${baseUrl}/`,
   telephone: `+${siteConfig.whatsappNumber}`,
   priceRange: 'Rp',
   image: [
@@ -108,19 +157,19 @@ const localBusinessSchema = {
     `${baseUrl}${siteConfig.images.heroTruck.split('?')[0]}`,
     `${baseUrl}${siteConfig.images.logo}`,
   ],
-  logo: `${baseUrl}${siteConfig.images.logo}`,
+  logo: { '@id': `${baseUrl}/#logo` },
   address: {
     '@type': 'PostalAddress',
-    streetAddress: siteConfig.warehouseAddress.street,
-    addressLocality: siteConfig.warehouseAddress.district,
-    addressRegion: `${siteConfig.warehouseAddress.city}, ${siteConfig.warehouseAddress.province}`,
-    postalCode: siteConfig.warehouseAddress.postalCode,
-    addressCountry: siteConfig.warehouseAddress.countryCode,
+    streetAddress: siteConfig.storeAddress.street,
+    addressLocality: siteConfig.storeAddress.district,
+    addressRegion: `Kota ${siteConfig.storeAddress.city}, ${siteConfig.storeAddress.province}`,
+    postalCode: siteConfig.storeAddress.postalCode,
+    addressCountry: siteConfig.storeAddress.countryCode,
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: siteConfig.warehouseAddress.coordinates.latitude,
-    longitude: siteConfig.warehouseAddress.coordinates.longitude,
+    latitude: siteConfig.storeAddress.coordinates.latitude,
+    longitude: siteConfig.storeAddress.coordinates.longitude,
   },
   areaServed: areaServedList,
   openingHoursSpecification: [
@@ -141,69 +190,111 @@ const localBusinessSchema = {
   ],
   currenciesAccepted: 'IDR',
   paymentAccepted: 'Cash, Transfer Bank, COD (Cash On Delivery)',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    bestRating: '5',
-    worstRating: '1',
-    ratingCount: '286',
-    reviewCount: '194',
-  },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Katalog Layanan & Produk Scaffolding',
+    name: 'Katalog Layanan & Produk Central Scaffolding',
     itemListElement: [
       {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
           name: 'Sewa Scaffolding Harian & Bulanan',
-          description: 'Layanan rental scaffolding Main Frame 1.90m dan 1.70m standar SNI sistem sewa harian atau bulanan untuk proyek gedung, ruko, dan renovasi rumah.',
+          description:
+            'Layanan rental scaffolding Main Frame 1.90m dan 1.70m standar SNI sistem sewa harian atau bulanan untuk proyek gedung, ruko, dan renovasi rumah.',
         },
       },
       {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Pengadaan & Jual Beli Main Frame Set Scaffolding SNI',
-          description: 'Layanan jual beli paket 1 set scaffolding komplit (2 Main Frame, 2 Cross Brace, 4 Joint Pin) pipa tebal standar SNI, kondisi baru & rekondisi second prima.',
+          name: 'Jual Beli Main Frame Set Scaffolding SNI (Baru & Second)',
+          description:
+            'Layanan jual beli paket 1 set scaffolding komplit (2 Main Frame, 2 Cross Brace, 4 Joint Pin) pipa tebal standar SNI, kondisi baru & rekondisi second prima.',
         },
       },
       {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Pengiriman Same-Day 1-3 Jam & COD',
-          description: 'Layanan antar jemput unit scaffolding langsung ke lokasi proyek se-Jabodetabek dengan armada sendiri dan pembayaran di tempat (COD).',
+          name: 'Pengiriman Same-Day 1–3 Jam & Pembayaran COD',
+          description:
+            'Layanan antar jemput unit scaffolding langsung ke lokasi proyek se-Jabodetabek dengan armada sendiri dan pembayaran di tempat (COD).',
         },
       },
     ],
   },
-  sameAs: [
-    siteConfig.social.instagram,
-    siteConfig.social.tokopedia,
+  sameAs: canonicalSameAs,
+};
+
+const webPageNode = {
+  '@type': normalizedPath.startsWith('/tentang-kami') ? 'AboutPage' : 'WebPage',
+  '@id': `${parsedUrl}#webpage`,
+  url: parsedUrl,
+  name: pageTitle,
+  description: pageDescription,
+  isPartOf: { '@id': `${baseUrl}/#website` },
+  about: { '@id': `${baseUrl}/#organization` },
+  primaryImageOfPage: {
+    '@type': 'ImageObject',
+    url: `${baseUrl}/og-banner.jpg`,
+    width: 1200,
+    height: 630,
+  },
+  inLanguage: 'id-ID',
+};
+
+const resolvedBreadcrumbName =
+  breadcrumbLabel || (isAreaPage ? `Sewa & Beli Scaffolding ${city}` : undefined);
+
+const breadcrumbNode =
+  !isHome && resolvedBreadcrumbName
+    ? {
+        '@type': 'BreadcrumbList',
+        '@id': `${parsedUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: siteConfig.businessName,
+            item: `${baseUrl}/`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: resolvedBreadcrumbName,
+            item: parsedUrl,
+          },
+        ],
+      }
+    : null;
+
+const faqPageNode =
+  faqItems.length > 0
+    ? {
+        '@type': 'FAQPage',
+        '@id': `${parsedUrl}#faq`,
+        mainEntity: faqItems.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    websiteNode,
+    organizationNode,
+    localBusinessNode,
+    webPageNode,
+    ...(breadcrumbNode ? [breadcrumbNode] : []),
+    ...(faqPageNode ? [faqPageNode] : []),
   ],
 };
-
-const faqPageSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqItems.map((faq) => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.answer,
-    },
-  })),
-};
-
-const structuredData = [
-  websiteSchema,
-  ...(breadcrumbSchema ? [breadcrumbSchema] : []),
-  localBusinessSchema,
-  faqPageSchema,
-];
 ---
 
 <script
